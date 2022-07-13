@@ -25,7 +25,7 @@ repos:
     -   id: swiftformat
         args: [
         .,
-		--swiftversion,
+	--swiftversion,
         '5.7',
         --verbose,
         --enable,
