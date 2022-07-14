@@ -4,7 +4,7 @@ name: Run Test
 on: [push]
 
 jobs:
-  build 체크
+#  build 체크
   build:
     runs-on: macos-12
     steps:
