@@ -9,11 +9,11 @@ disabled_rules:
 #
 #    # 강제 언래핑은 피해야합니다. https://realm.github.io/SwiftLint/force_unwrapping.html
 #   - force_unwrapping
-    
+
     - unused_optional_binding
-    
+
     - line_length
-    
+
     - todo
 
 
@@ -35,4 +35,3 @@ excluded:
     - SwiftUITemplateUITests
 
 # 한 줄로는 warning의 수준만 설정할 수 있습니다.
-

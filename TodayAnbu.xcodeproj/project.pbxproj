@@ -50,7 +50,7 @@
 			isa = PBXGroup;
 			children = (
 				3E2F6562287FA0E600A27FA9 /* ViewController.swift */,
-				103BD8EE287FB38B00A6A0AD /* Utilies */,
+				103BD8EE287FB38B00A6A0AD /* Utilities */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -76,11 +76,11 @@
 			path = Sources;
 			sourceTree = "<group>";
 		};
-		103BD8EE287FB38B00A6A0AD /* Utilies */ = {
+		103BD8EE287FB38B00A6A0AD /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = Utilies;
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 		103BD8EF287FB39F00A6A0AD /* Boards */ = {

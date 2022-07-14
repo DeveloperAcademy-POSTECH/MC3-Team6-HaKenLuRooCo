@@ -12,7 +12,7 @@ body:
       placeholder: ex. Device UserDefault에 저장된 내용을 watchOS에 동기화 시키는 기능
     validations:
       required: true
-      
+
   - type: textarea
     id: prepare-reference
     attributes:
@@ -22,7 +22,7 @@ body:
       value: |
         ## 참고 사이트
         - https://developer.apple.com/kr/
-        - 
+        -
     validations:
       required: false
 

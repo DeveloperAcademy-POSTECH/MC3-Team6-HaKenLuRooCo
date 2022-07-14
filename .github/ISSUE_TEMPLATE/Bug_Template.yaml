@@ -38,7 +38,7 @@ body:
         - Device
     validations:
       required: true
-      
+
   - type: textarea
     id: what-bug
     attributes:
@@ -47,16 +47,16 @@ body:
       placeholder: ex. 닉네임이 공백일 때, Submit이 가능한 버그
     validations:
       required: true
-      
+
   - type: textarea
     id: where-bug
     attributes:
       label: Related Page
       description: 버그와 발생한 페이지를 알려주세요.
-      placeholder: ex. MainView 
+      placeholder: ex. MainView
     validations:
       required: true
-      
+
   - type: textarea
     id: bug-flow
     attributes:
@@ -65,4 +65,3 @@ body:
       placeholder: ex. Tab bar의 Home을 200번 눌렀을 때, App이 종료된다.
     validations:
       required: false
-      

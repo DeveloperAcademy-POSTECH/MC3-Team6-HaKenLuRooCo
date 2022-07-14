@@ -25,13 +25,15 @@ repos:
     -   id: swiftformat
         args: [
         .,
-	--swiftversion,
+        --swiftversion,
         '5.7',
         --verbose,
         --enable,
         'acronyms,isEmpty,preferDouble,wrapEnumCases',
+        --disable,
+        'redundantReturn',
         ]
-        
+
 -   repo: https://github.com/realm/SwiftLint
     rev: 0.47.1
     hooks:
