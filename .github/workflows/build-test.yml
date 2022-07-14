@@ -11,6 +11,11 @@ jobs:
     - uses: actions/checkout@v3
     - name: Build Test
       run: xcodebuild build -project TodayAnbu.xcodeproj -scheme TodayAnbu -destination 'platform=iOS Simulator,OS=15.5,name=iPhone 13 Pro'  
+      
+  SwiftLint:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
     - name: GitHub Action for SwiftLint (Only files changed in the PR) with --strict
       uses: norio-nomura/action-swiftlint@3.2.1
       with:
