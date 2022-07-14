@@ -39,6 +39,66 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		103BD8EA287FB31600A6A0AD /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		103BD8EB287FB31C00A6A0AD /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				3E2F6562287FA0E600A27FA9 /* ViewController.swift */,
+				103BD8EE287FB38B00A6A0AD /* Utilies */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		103BD8EC287FB33800A6A0AD /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3E2F6567287FA0E700A27FA9 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		103BD8ED287FB37600A6A0AD /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				103BD8F0287FB3DB00A6A0AD /* Models */,
+				3E2F655E287FA0E600A27FA9 /* AppDelegate.swift */,
+				3E2F6560287FA0E600A27FA9 /* SceneDelegate.swift */,
+				103BD8EF287FB39F00A6A0AD /* Boards */,
+				103BD8EB287FB31C00A6A0AD /* Controllers */,
+				103BD8EA287FB31600A6A0AD /* Extensions */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		103BD8EE287FB38B00A6A0AD /* Utilies */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utilies;
+			sourceTree = "<group>";
+		};
+		103BD8EF287FB39F00A6A0AD /* Boards */ = {
+			isa = PBXGroup;
+			children = (
+				3E2F6564287FA0E600A27FA9 /* Main.storyboard */,
+				3E2F6569287FA0E700A27FA9 /* LaunchScreen.storyboard */,
+			);
+			path = Boards;
+			sourceTree = "<group>";
+		};
+		103BD8F0287FB3DB00A6A0AD /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		3E2F6552287FA0E600A27FA9 = {
 			isa = PBXGroup;
 			children = (
@@ -58,13 +118,9 @@
 		3E2F655D287FA0E600A27FA9 /* TodayAnbu */ = {
 			isa = PBXGroup;
 			children = (
+				103BD8ED287FB37600A6A0AD /* Sources */,
+				103BD8EC287FB33800A6A0AD /* Resources */,
 				3E2F6573287FA1C600A27FA9 /* .swiftlint.yml */,
-				3E2F655E287FA0E600A27FA9 /* AppDelegate.swift */,
-				3E2F6560287FA0E600A27FA9 /* SceneDelegate.swift */,
-				3E2F6562287FA0E600A27FA9 /* ViewController.swift */,
-				3E2F6564287FA0E600A27FA9 /* Main.storyboard */,
-				3E2F6567287FA0E700A27FA9 /* Assets.xcassets */,
-				3E2F6569287FA0E700A27FA9 /* LaunchScreen.storyboard */,
 				3E2F656C287FA0E700A27FA9 /* Info.plist */,
 			);
 			path = TodayAnbu;
