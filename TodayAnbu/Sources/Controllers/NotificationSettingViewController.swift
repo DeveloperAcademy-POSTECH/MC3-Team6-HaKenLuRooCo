@@ -14,39 +14,35 @@ class NotificationViewController: UIViewController {
     let notificationCenter = UNUserNotificationCenter.current()
     override func viewDidLoad() {
         super.viewDidLoad()
-        notificationCenter.requestAuthorization(options: [.alert, .sound]) {
-            (permissionGranted, error) in
+        notificationCenter.requestAuthorization(options: [.alert, .sound]) { (permissionGranted, _) in
             if !permissionGranted {
                 print("Permission Denied")
             }
         }
     }
-    @IBAction func scheduleAction(_ sender: Any) {
-        notificationCenter.getNotificationSettings { (settings) in
+    // MARK: ... 알람 설정 버튼과 연동해야함, Completion Feedback(진동,소리)은 버튼 애니메이션과 파란색 활성화로 대체
+    @IBAction func scheduleAction(_ sender: Any) { notificationCenter.getNotificationSettings { settings in
             DispatchQueue.main.async {
                 let title = self.titleTF.text!
                 let message = self.messageTF.text!
                 let date = self.datePicker.date
-                if (settings.authorizationStatus == .authorized) {
+                if settings.authorizationStatus == .authorized {
                     let content = UNMutableNotificationContent()
                     content.title = title
                     content.body = message
                     let dateComp = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: date)
                     let trigger = UNCalendarNotificationTrigger(dateMatching: dateComp, repeats: false)
                     let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
-                    self.notificationCenter.add(request) { (error) in
-                        if (error != nil) {
+                    self.notificationCenter.add(request) { error in
+                        if error != nil {
                             print("Error " + error.debugDescription)
                             return
                         }
                     }
-                    let alertController = UIAlertController(title: "Notification Scheduled", message: "At " + self.formattedDate(date: date), preferredStyle: .alert)
-                    alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: { (_) in}))
-                    self.present(alertController, animated: true)
                 } else {
-                    let alertController = UIAlertController(title: "Enable Notifications?", message: "To use this feature you must enable notifications in settings", preferredStyle: .alert)
-                    let goToSettings = UIAlertAction(title: "Settings", style: .default) {
-                        (_) in guard let setttingsURL = URL(string: UIApplication.openSettingsURLString) else {
+                    let alertController = UIAlertController(title: "알림을 설정하시겠어요?", message: "설정에서 알람 허용을 해주셔야해요!", preferredStyle: .alert)
+                    let goToSettings = UIAlertAction(title: "설정", style: .default) { _ in
+                        guard let setttingsURL = URL(string: UIApplication.openSettingsURLString) else {
                         return
                     }
                         if UIApplication.shared.canOpenURL(setttingsURL) {
@@ -54,7 +50,7 @@ class NotificationViewController: UIViewController {
                         }
                     }
                     alertController.addAction(goToSettings)
-                    alertController.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { (_) in}))
+                    alertController.addAction(UIAlertAction(title: "취소", style: .default, handler: { (_) in}))
                     self.present(alertController, animated: true)
                 }
             }

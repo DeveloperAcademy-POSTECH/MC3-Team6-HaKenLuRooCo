@@ -107,7 +107,7 @@
         <!--Notification View Controller-->
         <scene sceneID="5Y2-0S-vs1">
             <objects>
-                <viewController id="hM1-Sf-eG8" customClass="NotificationViewController" customModule="HeyMomPractice" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="hM1-Sf-eG8" customClass="NotificationViewController" customModule="TodayAnbu" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NFU-RX-WWY">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
