@@ -12,7 +12,6 @@ class NotificationViewController: UIViewController {
     @IBOutlet weak var messageTF: UITextField!
     @IBOutlet weak var datePicker: UIDatePicker!
     let notificationCenter = UNUserNotificationCenter.current()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         notificationCenter.requestAuthorization(options: [.alert, .sound]) {
@@ -24,8 +23,7 @@ class NotificationViewController: UIViewController {
     }
     @IBAction func scheduleAction(_ sender: Any) {
         notificationCenter.getNotificationSettings { (settings) in
-            DispatchQueue.main.async
-            {
+            DispatchQueue.main.async {
                 let title = self.titleTF.text!
                 let message = self.messageTF.text!
                 let date = self.datePicker.date
@@ -45,12 +43,13 @@ class NotificationViewController: UIViewController {
                     let alertController = UIAlertController(title: "Notification Scheduled", message: "At " + self.formattedDate(date: date), preferredStyle: .alert)
                     alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: { (_) in}))
                     self.present(alertController, animated: true)
-                } else { let alertController = UIAlertController(title: "Enable Notifications?", message: "To use this feature you must enable notifications in settings", preferredStyle: .alert)
-                    let goToSettings = UIAlertAction(title: "Settings", style: .default)
-                    { (_) in guard let setttingsURL = URL(string: UIApplication.openSettingsURLString) else {
+                } else {
+                    let alertController = UIAlertController(title: "Enable Notifications?", message: "To use this feature you must enable notifications in settings", preferredStyle: .alert)
+                    let goToSettings = UIAlertAction(title: "Settings", style: .default) {
+                        (_) in guard let setttingsURL = URL(string: UIApplication.openSettingsURLString) else {
                         return
                     }
-                        if(UIApplication.shared.canOpenURL(setttingsURL)) {
+                        if UIApplication.shared.canOpenURL(setttingsURL) {
                             UIApplication.shared.open(setttingsURL) { (_) in}
                         }
                     }
