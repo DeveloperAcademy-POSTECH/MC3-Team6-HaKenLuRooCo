@@ -79,7 +79,7 @@ class MainViewTopicController: UIViewController {
         refreshButton.addTarget(self, action: #selector(buttonAction(_:)), for: .touchUpInside)
         return refreshButton
     }()
-    
+
     @objc func buttonAction(_ sender: UIButton!) {
         print("Button Work!")
     }
