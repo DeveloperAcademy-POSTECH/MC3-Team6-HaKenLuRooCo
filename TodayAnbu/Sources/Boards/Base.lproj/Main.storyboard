@@ -31,52 +31,65 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dWi-x7-QYF">
-                                <rect key="frame" x="122" y="175" width="300" height="60"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="300" id="BNc-hQ-6fc"/>
-                                </constraints>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dWi-x7-QYF">
+                                <rect key="frame" x="181" y="167.5" width="176.5" height="43"/>
                                 <string key="text">" 미안해 엄마 "
 " 바빠서 이따 전화할게 "</string>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="heightClass=compact-widthClass=compact">
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
+                                </variation>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FamilyPicture" translatesAutoresizingMaskIntoConstraints="NO" id="edG-0T-DD3">
-                                <rect key="frame" x="59" y="384.5" width="296" height="251"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FamilyPicture" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="edG-0T-DD3">
+                                <rect key="frame" x="59" y="383.5" width="296" height="314"/>
+                                <variation key="heightClass=regular-widthClass=regular" image="FamilyPicture"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&quot; 오늘, 안부 &quot; " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6j4-QA-Cz8">
-                                <rect key="frame" x="52" y="321.5" width="310" height="43"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="310" id="uF5-hh-Trd"/>
-                                </constraints>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&quot; 오늘, 안부 &quot; " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.55000000000000004" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6j4-QA-Cz8">
+                                <rect key="frame" x="54" y="306" width="306" height="43"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="36"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="50"/>
+                                </variation>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&quot; 요즘 잘 지내니? &quot; " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lb9-Ga-sKk">
-                                <rect key="frame" x="57" y="138" width="300" height="17"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="300" id="8sQ-fa-LgU"/>
-                                </constraints>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&quot; 요즘 잘 지내니? &quot; " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lb9-Ga-sKk">
+                                <rect key="frame" x="57" y="97" width="300" height="55.5"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="heightClass=compact-widthClass=compact">
+                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                </variation>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n12-4O-eA0">
-                                <rect key="frame" x="52" y="255" width="310" height="46.5"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="310" id="Zor-ug-shK"/>
-                                </constraints>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="n12-4O-eA0">
+                                <rect key="frame" x="52" y="231.5" width="310" height="46.5"/>
                                 <string key="text">이제 곧 갱년기를 겪을, 
 혹은 겪고 있을 부모님들을 위한
 아이들의 선물</string>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                </variation>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ulC-2s-6ee">
-                                <rect key="frame" x="30" y="781" width="354" height="31"/>
+                                <rect key="frame" x="30" y="767" width="354" height="45"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled">
                                     <attributedString key="attributedTitle">
@@ -94,18 +107,23 @@
                         <constraints>
                             <constraint firstItem="ulC-2s-6ee" firstAttribute="leading" secondItem="7ok-Yi-qJB" secondAttribute="leading" constant="30" id="2UX-rm-j4t"/>
                             <constraint firstItem="edG-0T-DD3" firstAttribute="centerX" secondItem="7O4-S4-PQ2" secondAttribute="centerX" id="5Eq-Ut-Yz9"/>
-                            <constraint firstItem="dWi-x7-QYF" firstAttribute="top" secondItem="Lb9-Ga-sKk" secondAttribute="bottom" constant="20" id="5ra-LL-SFd"/>
+                            <constraint firstItem="dWi-x7-QYF" firstAttribute="top" secondItem="Lb9-Ga-sKk" secondAttribute="bottom" multiplier="1.1" id="5ra-LL-SFd"/>
+                            <constraint firstItem="ulC-2s-6ee" firstAttribute="height" secondItem="edG-0T-DD3" secondAttribute="height" multiplier="0.143312" id="AW9-gK-F2Y"/>
                             <constraint firstItem="edG-0T-DD3" firstAttribute="width" secondItem="7O4-S4-PQ2" secondAttribute="width" multiplier="0.715385" id="Bth-8k-vr7"/>
+                            <constraint firstItem="n12-4O-eA0" firstAttribute="width" secondItem="7O4-S4-PQ2" secondAttribute="width" multiplier="0.748792" id="EoJ-hf-ejb"/>
                             <constraint firstItem="7ok-Yi-qJB" firstAttribute="bottom" secondItem="ulC-2s-6ee" secondAttribute="bottom" constant="50" id="IhR-X7-mNi"/>
-                            <constraint firstItem="edG-0T-DD3" firstAttribute="top" secondItem="6j4-QA-Cz8" secondAttribute="bottom" constant="20" id="KOe-gK-MGo"/>
+                            <constraint firstItem="6j4-QA-Cz8" firstAttribute="width" secondItem="7O4-S4-PQ2" secondAttribute="width" multiplier="0.74" id="JZ1-gN-P2o"/>
+                            <constraint firstItem="edG-0T-DD3" firstAttribute="top" secondItem="6j4-QA-Cz8" secondAttribute="bottom" multiplier="1.1" id="KOe-gK-MGo"/>
                             <constraint firstItem="ulC-2s-6ee" firstAttribute="centerX" secondItem="7O4-S4-PQ2" secondAttribute="centerX" id="Lgt-k5-f3D"/>
                             <constraint firstItem="Lb9-Ga-sKk" firstAttribute="centerX" secondItem="7O4-S4-PQ2" secondAttribute="centerX" id="Mn6-xP-IDz"/>
-                            <constraint firstItem="edG-0T-DD3" firstAttribute="height" secondItem="7O4-S4-PQ2" secondAttribute="height" multiplier="0.28" id="WcP-xT-rsF"/>
+                            <constraint firstItem="edG-0T-DD3" firstAttribute="height" secondItem="7O4-S4-PQ2" secondAttribute="height" multiplier="0.35" id="WcP-xT-rsF"/>
                             <constraint firstItem="n12-4O-eA0" firstAttribute="centerX" secondItem="7O4-S4-PQ2" secondAttribute="centerX" id="gXv-YM-hTC"/>
-                            <constraint firstItem="Lb9-Ga-sKk" firstAttribute="top" secondItem="7ok-Yi-qJB" secondAttribute="top" constant="50" id="iK8-13-ymQ"/>
-                            <constraint firstItem="dWi-x7-QYF" firstAttribute="leading" secondItem="n12-4O-eA0" secondAttribute="trailing" constant="-240" id="jAp-Qf-ovZ"/>
-                            <constraint firstItem="6j4-QA-Cz8" firstAttribute="top" secondItem="n12-4O-eA0" secondAttribute="bottom" constant="20" id="uDb-rq-0sW"/>
-                            <constraint firstItem="n12-4O-eA0" firstAttribute="top" secondItem="dWi-x7-QYF" secondAttribute="bottom" constant="20" id="wus-yC-7Xk"/>
+                            <constraint firstItem="Lb9-Ga-sKk" firstAttribute="top" secondItem="7ok-Yi-qJB" secondAttribute="top" multiplier="1.1" id="iK8-13-ymQ"/>
+                            <constraint firstItem="ulC-2s-6ee" firstAttribute="top" secondItem="edG-0T-DD3" secondAttribute="bottom" multiplier="1.1" id="kSX-25-FqU"/>
+                            <constraint firstItem="6j4-QA-Cz8" firstAttribute="top" secondItem="n12-4O-eA0" secondAttribute="bottom" multiplier="1.1" id="uDb-rq-0sW"/>
+                            <constraint firstItem="dWi-x7-QYF" firstAttribute="centerX" secondItem="7O4-S4-PQ2" secondAttribute="centerX" multiplier="1.3" id="v0A-Bc-aQL"/>
+                            <constraint firstItem="n12-4O-eA0" firstAttribute="top" secondItem="dWi-x7-QYF" secondAttribute="bottom" multiplier="1.1" id="wus-yC-7Xk"/>
+                            <constraint firstItem="Lb9-Ga-sKk" firstAttribute="width" secondItem="7O4-S4-PQ2" secondAttribute="width" multiplier="0.724638" id="xSj-WM-rAZ"/>
                             <constraint firstItem="7ok-Yi-qJB" firstAttribute="trailing" secondItem="ulC-2s-6ee" secondAttribute="trailing" constant="30" id="yUA-Cv-oss"/>
                             <constraint firstItem="6j4-QA-Cz8" firstAttribute="centerX" secondItem="7O4-S4-PQ2" secondAttribute="centerX" id="zgv-Di-2AX"/>
                         </constraints>
@@ -176,7 +194,7 @@
                     <connections>
                         <outlet property="datePicker" destination="9eb-Fn-b8Q" id="fDf-8A-0bi"/>
                         <outlet property="messageTF" destination="XO3-wp-jtZ" id="jNB-Mi-9w3"/>
-                        <outlet property="titleTF" destination="VW0-Rz-xQ8" id="88O-3o-yW1"/>
+                        <outlet property="textField" destination="VW0-Rz-xQ8" id="88O-3o-yW1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JCl-Ap-rLh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -201,7 +219,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="FamilyPicture" width="279" height="268.5"/>
+        <image name="FamilyPicture" width="558" height="537"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

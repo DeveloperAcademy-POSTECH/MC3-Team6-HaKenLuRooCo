@@ -161,7 +161,7 @@
                     <connections>
                         <outlet property="datePicker" destination="RnL-fE-Ypr" id="qFs-J4-mU1"/>
                         <outlet property="messageTF" destination="gcD-rq-8jA" id="dFy-br-QYw"/>
-                        <outlet property="titleTF" destination="Vvn-lx-8iR" id="AeL-T0-Rzk"/>
+                        <outlet property="textField" destination="Vvn-lx-8iR" id="AeL-T0-Rzk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fd5-CY-Jjv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -186,7 +186,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="FamilyPicture" width="279" height="268.5"/>
+        <image name="FamilyPicture" width="558" height="537"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

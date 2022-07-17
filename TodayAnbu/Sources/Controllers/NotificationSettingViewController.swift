@@ -8,7 +8,7 @@ import UIKit
 import UserNotifications
 
 class NotificationViewController: UIViewController {
-    @IBOutlet weak var titleTF: UITextField!
+    @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var messageTF: UITextField!
     @IBOutlet weak var datePicker: UIDatePicker!
     let notificationCenter = UNUserNotificationCenter.current()
@@ -20,18 +20,18 @@ class NotificationViewController: UIViewController {
             }
         }
     }
-    // MARK: ... 알람 설정 버튼과 연동해야함, Completion Feedback(진동,소리)은 버튼 애니메이션과 파란색 활성화로 대체
+    // 알람 설정 버튼과 연동해야함, Completion Feedback(진동,소리)은 버튼 애니메이션과 파란색 활성화로 대체
     @IBAction func scheduleAction(_ sender: Any) { notificationCenter.getNotificationSettings { settings in
             DispatchQueue.main.async {
-                let title = self.titleTF.text!
+                let title = self.textField.text!
                 let message = self.messageTF.text!
                 let date = self.datePicker.date
                 if settings.authorizationStatus == .authorized {
                     let content = UNMutableNotificationContent()
                     content.title = title
                     content.body = message
-                    let dateComp = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: date)
-                    let trigger = UNCalendarNotificationTrigger(dateMatching: dateComp, repeats: false)
+                    let dateComponent = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: date)
+                    let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponent, repeats: false)
                     let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
                     self.notificationCenter.add(request) { error in
                         if error != nil {
@@ -50,7 +50,7 @@ class NotificationViewController: UIViewController {
                         }
                     }
                     alertController.addAction(goToSettings)
-                    alertController.addAction(UIAlertAction(title: "취소", style: .default, handler: { (_) in}))
+                    alertController.addAction(UIAlertAction(title: "취소", style: .default, handler: { (_) in }))
                     self.present(alertController, animated: true)
                 }
             }
