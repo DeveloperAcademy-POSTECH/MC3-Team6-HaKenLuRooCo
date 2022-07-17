@@ -41,15 +41,15 @@ class NotificationViewController: UIViewController {
                     }
                 } else {
                     let alertController = UIAlertController(title: "알림을 설정하시겠어요?", message: "설정에서 알람 허용을 해주셔야해요!", preferredStyle: .alert)
-                    let goToSettings = UIAlertAction(title: "설정", style: .default) { _ in
-                        guard let setttingsURL = URL(string: UIApplication.openSettingsURLString) else {
+                    let goToSetting = UIAlertAction(title: "설정", style: .default) { _ in
+                        guard let settingURL = URL(string: UIApplication.openSettingsURLString) else {
                         return
                     }
-                        if UIApplication.shared.canOpenURL(setttingsURL) {
-                            UIApplication.shared.open(setttingsURL) { (_) in}
+                        if UIApplication.shared.canOpenURL(settingURL) {
+                            UIApplication.shared.open(settingURL) { (_) in}
                         }
                     }
-                    alertController.addAction(goToSettings)
+                    alertController.addAction(goToSetting)
                     alertController.addAction(UIAlertAction(title: "취소", style: .default, handler: { (_) in }))
                     self.present(alertController, animated: true)
                 }
