@@ -8,27 +8,27 @@
 import UIKit
 
 class MainViewTopicController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    var genericTopics = [["요즘 핫한 과일은 뭘까요?", "최근 먹은 과일은 뭘까요?", "몸에 좋은 과일은 뭘까요?", "과일"],["1", "2", "3", "숫자"], ["ㅁ", "ㄴ", "ㄷ", "한글"]]
+    enum PhoneNum: String {
+        case momNum = "tel://01074080031"
+        case dadNum = "tel://01046021620"
+    }
+
+    var genericTopics = [["요즘 핫한 과일은 뭘까요?", "최근 먹은 과일은 뭘까요?", "몸에 좋은 과일은 뭘까요?", "과일"], ["1", "2", "3", "숫자"], ["ㅁ", "ㄴ", "ㄷ", "한글"]]
     var seriousTopics = [["요즘 가정 빚은 있나요?", "부부 금술은 좋나요?", "아들내미가 맘에 안드시나요?", "빚"], ["a", "c", "v", "심각한 알파벳"], ["칼", "총", "담배", "무서운 단어"]]
     var topics: [String] = []
     var genericTopicIndex: Int {
-        get {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyyMMdd"
         return Int(formatter.string(from: Date()))! % genericTopics.count
-        }
-        set {
-            genericTopicIndex = Int(Date().timeIntervalSince1970) % genericTopicIndex
-            topicTableView.reloadData()
-        }
     }
+
     var seriousTopicIndex: Int {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyyMMdd"
         return Int(formatter.string(from: Date()))! % seriousTopics.count
     }
 
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
         return topics.count - 1
     }
 
@@ -44,6 +44,7 @@ class MainViewTopicController: UIViewController, UITableViewDelegate, UITableVie
     }
 
     // MARK: Properties
+
     private let topicTitleLabel: UILabel = {
         let topicTitle = UILabel()
         topicTitle.text = "오늘의 토픽"
@@ -121,7 +122,7 @@ class MainViewTopicController: UIViewController, UITableViewDelegate, UITableVie
 
     private lazy var refreshButton: UIButton = {
         let refreshButton = UIButton(type: UIButton.ButtonType.system)
-        refreshButton.setImage(UIImage.init(systemName: "goforward"), for: UIControl.State.normal)
+        refreshButton.setImage(UIImage(systemName: "goforward"), for: UIControl.State.normal)
         refreshButton.backgroundColor = .black
         refreshButton.tintColor = .white
         refreshButton.frame = CGRect(x: 0, y: 0, width: 20, height: 20)
@@ -130,9 +131,10 @@ class MainViewTopicController: UIViewController, UITableViewDelegate, UITableVie
         return refreshButton
     }()
 
-    @objc private func buttonAction(_ sender: UIButton!) {
-        genericTopicIndex = genericTopicIndex
-        topics = genericTopics[genericTopicIndex]
+    @objc private func buttonAction(_: UIButton!) {
+//        genericTopicIndex = genericTopicIndex
+//        topics = genericTopics[genericTopicIndex]
+        print("button Work!")
     }
 
     private let topicTableView: UITableView = {
@@ -144,14 +146,14 @@ class MainViewTopicController: UIViewController, UITableViewDelegate, UITableVie
 
     private lazy var callAlert: UIAlertController = {
         let callAlert = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertController.Style.actionSheet)
-        let momNumber = UIAlertAction(title: "엄마한테 전화하기", style: .default) { _ in
-            print("엄마한테 전화함")
+        let momCall = UIAlertAction(title: "엄마한테 전화하기", style: .default) { _ in
+            self.goCallApp(url: PhoneNum.momNum.rawValue)
         }
         let fatherNumber = UIAlertAction(title: "아빠한테 전화하기", style: .default) { _ in
-            print("아빠한테 전화함")
+            self.goCallApp(url: PhoneNum.dadNum.rawValue)
         }
         let cancle = UIAlertAction(title: "취소하기", style: .cancel)
-        callAlert.addAction(momNumber)
+        callAlert.addAction(momCall)
         callAlert.addAction(fatherNumber)
         callAlert.addAction(cancle)
 
@@ -160,7 +162,7 @@ class MainViewTopicController: UIViewController, UITableViewDelegate, UITableVie
 
     private lazy var callButton: UIButton = {
         let callButton = UIButton(type: UIButton.ButtonType.system)
-        callButton.setImage(UIImage.init(systemName: "phone.fill"), for: UIControl.State.normal)
+        callButton.setImage(UIImage(systemName: "phone.fill"), for: UIControl.State.normal)
         callButton.backgroundColor = .systemBlue
         callButton.tintColor = .white
         callButton.layer.cornerRadius = 9
@@ -168,8 +170,8 @@ class MainViewTopicController: UIViewController, UITableViewDelegate, UITableVie
         return callButton
     }()
 
-    @objc private func callbuttonAction(_ sender: UIButton!) {
-        self.present(callAlert, animated: true, completion: nil)
+    @objc private func callbuttonAction(_: UIButton!) {
+        present(callAlert, animated: true, completion: nil)
     }
 
     // MARK: LifeCycle
@@ -205,5 +207,22 @@ class MainViewTopicController: UIViewController, UITableViewDelegate, UITableVie
         topicTableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
     }
 
+    private func goCallApp(url: String) {
+        if let openApp = URL(string: url), UIApplication.shared.canOpenURL(openApp) {
+            // 버전별 처리
+            if #available(iOS 15.0, *) {
+                UIApplication.shared.open(openApp, options: [:], completionHandler: nil)
+            } else {
+                UIApplication.shared.openURL(openApp)
+            }
+        }
+
+        // 스키마명을 사용해 외부앱 실행이 불가능한 경우
+        else {
+            print("[goDeviceApp : 디바이스 외부 앱 열기 실패]")
+            print("링크 주소 : \(url)")
+        }
+    }
 }
+
 // 호출되는 타이밍에 대해 좀 더 라이프사이클 알아보기
