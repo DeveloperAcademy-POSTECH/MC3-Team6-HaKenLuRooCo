@@ -17,6 +17,7 @@
 		A92FC8C5287FF38400962CA0 /* OnboardingPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A92FC8C4287FF38400962CA0 /* OnboardingPage.storyboard */; };
 		A92FC8C7287FF3C000962CA0 /* OnboardingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92FC8C6287FF3C000962CA0 /* OnboardingPageViewController.swift */; };
 		A92FC8C9287FF40000962CA0 /* NotificationSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92FC8C8287FF3FF00962CA0 /* NotificationSettingViewController.swift */; };
+		A932C4782885A8BF00803302 /* AlarmSetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A932C4772885A8BF00803302 /* AlarmSetViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		A92FC8C4287FF38400962CA0 /* OnboardingPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OnboardingPage.storyboard; sourceTree = "<group>"; };
 		A92FC8C6287FF3C000962CA0 /* OnboardingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPageViewController.swift; sourceTree = "<group>"; };
 		A92FC8C8287FF3FF00962CA0 /* NotificationSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSettingViewController.swift; sourceTree = "<group>"; };
+		A932C4772885A8BF00803302 /* AlarmSetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmSetViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 			isa = PBXGroup;
 			children = (
 				3E2F6562287FA0E600A27FA9 /* ViewController.swift */,
+				A932C4772885A8BF00803302 /* AlarmSetViewController.swift */,
 				A92FC8C6287FF3C000962CA0 /* OnboardingPageViewController.swift */,
 				A92FC8C8287FF3FF00962CA0 /* NotificationSettingViewController.swift */,
 				103BD8EE287FB38B00A6A0AD /* Utilities */,
@@ -231,6 +234,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A92FC8C7287FF3C000962CA0 /* OnboardingPageViewController.swift in Sources */,
+				A932C4782885A8BF00803302 /* AlarmSetViewController.swift in Sources */,
 				3E2F6563287FA0E600A27FA9 /* ViewController.swift in Sources */,
 				3E2F655F287FA0E600A27FA9 /* AppDelegate.swift in Sources */,
 				A92FC8C9287FF40000962CA0 /* NotificationSettingViewController.swift in Sources */,

@@ -8,8 +8,6 @@ import UIKit
 import UserNotifications
 
 class NotificationViewController: UIViewController {
-    @IBOutlet weak var textField: UITextField!
-    @IBOutlet weak var messageTF: UITextField!
     @IBOutlet weak var datePicker: UIDatePicker!
     let notificationCenter = UNUserNotificationCenter.current()
     override func viewDidLoad() {
@@ -21,10 +19,10 @@ class NotificationViewController: UIViewController {
         }
     }
     // 알람 설정 버튼과 연동해야함, Completion Feedback(진동,소리)은 버튼 애니메이션과 파란색 활성화로 대체
-    @IBAction func scheduleAction(_ sender: Any) { notificationCenter.getNotificationSettings { settings in
+    @IBAction func setAlarmSchedule(_ sender: Any) { notificationCenter.getNotificationSettings { settings in
             DispatchQueue.main.async {
-                let title = self.textField.text!
-                let message = self.messageTF.text!
+                let title = "부모님께 전화안한지 10일!"
+                let message = "오늘,안부의 알람입니다."
                 let date = self.datePicker.date
                 if settings.authorizationStatus == .authorized {
                     let content = UNMutableNotificationContent()

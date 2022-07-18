@@ -112,20 +112,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vvn-lx-8iR">
-                                <rect key="frame" x="47" y="108" width="320" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Message" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gcD-rq-8jA">
-                                <rect key="frame" x="47" y="162" width="320" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="RnL-fE-Ypr">
+                            <datePicker contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="RnL-fE-Ypr">
                                 <rect key="frame" x="47" y="204" width="320" height="216"/>
                             </datePicker>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Axz-nS-Pmq">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Axz-nS-Pmq">
                                 <rect key="frame" x="156" y="464" width="102" height="42"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="Schedule"/>
@@ -144,24 +134,13 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="RnL-fE-Ypr" firstAttribute="centerX" secondItem="NFU-RX-WWY" secondAttribute="centerX" id="0Mg-3d-uqu"/>
-                            <constraint firstItem="RnL-fE-Ypr" firstAttribute="width" secondItem="gcD-rq-8jA" secondAttribute="width" id="0qP-7w-OxA"/>
-                            <constraint firstItem="RnL-fE-Ypr" firstAttribute="centerX" secondItem="gcD-rq-8jA" secondAttribute="centerX" id="65I-t1-YZH"/>
-                            <constraint firstItem="RnL-fE-Ypr" firstAttribute="top" secondItem="gcD-rq-8jA" secondAttribute="bottom" constant="8" symbolic="YES" id="6Jt-QX-Bbc"/>
-                            <constraint firstItem="gcD-rq-8jA" firstAttribute="centerX" secondItem="Vvn-lx-8iR" secondAttribute="centerX" id="ERF-NF-otv"/>
-                            <constraint firstItem="gcD-rq-8jA" firstAttribute="width" secondItem="Vvn-lx-8iR" secondAttribute="width" id="GQp-Rn-ZHN"/>
                             <constraint firstItem="Axz-nS-Pmq" firstAttribute="centerX" secondItem="RnL-fE-Ypr" secondAttribute="centerX" id="Nyl-3i-oRY"/>
-                            <constraint firstItem="gcD-rq-8jA" firstAttribute="centerX" secondItem="NFU-RX-WWY" secondAttribute="centerX" id="XDt-97-lHp"/>
-                            <constraint firstItem="gcD-rq-8jA" firstAttribute="top" secondItem="Vvn-lx-8iR" secondAttribute="bottom" constant="20" id="il2-3G-ym7"/>
-                            <constraint firstItem="Vvn-lx-8iR" firstAttribute="centerX" secondItem="NFU-RX-WWY" secondAttribute="centerX" id="pvP-5p-tWc"/>
-                            <constraint firstItem="Vvn-lx-8iR" firstAttribute="top" secondItem="aCa-Cg-Fsf" secondAttribute="top" constant="20" id="rBE-wt-dU2"/>
                             <constraint firstItem="Axz-nS-Pmq" firstAttribute="top" secondItem="RnL-fE-Ypr" secondAttribute="bottom" constant="44" id="z2t-XC-BSm"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="dCJ-Zw-bqt"/>
                     <connections>
                         <outlet property="datePicker" destination="RnL-fE-Ypr" id="qFs-J4-mU1"/>
-                        <outlet property="messageTF" destination="gcD-rq-8jA" id="dFy-br-QYw"/>
-                        <outlet property="textField" destination="Vvn-lx-8iR" id="AeL-T0-Rzk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fd5-CY-Jjv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
