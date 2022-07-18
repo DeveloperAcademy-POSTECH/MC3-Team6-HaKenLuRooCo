@@ -7,7 +7,25 @@
 
 import UIKit
 
-class MainViewTopicController: UIViewController {
+class MainViewTopicController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    let topics = ["요즘 핫한 과일은 뭘까요?", "최근 먹은 과일은 뭘까요?", "몸에 좋은 과일은 뭘까요?"]
+
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return topics.count
+    }
+
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+
+        cell.textLabel?.text = topics[indexPath.row]
+        return cell
+    }
+
+    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+
+    // MARK: Properties
     private let topicTitleLabel: UILabel = {
         let topicTitle = UILabel()
         topicTitle.text = "오늘의 토픽"
@@ -46,6 +64,14 @@ class MainViewTopicController: UIViewController {
         refreshButton.translatesAutoresizingMaskIntoConstraints = false
         refreshButton.rightAnchor.constraint(equalTo: topicSegmentedControl.rightAnchor).isActive = true
         refreshButton.topAnchor.constraint(equalTo: topicLabel.topAnchor).isActive = true
+
+        rectangle.addSubview(topicTableView)
+        topicTableView.translatesAutoresizingMaskIntoConstraints = false
+        topicTableView.topAnchor.constraint(equalTo: topicLabel.bottomAnchor, constant: 10).isActive = true
+        topicTableView.leftAnchor.constraint(equalTo: topicLabel.leftAnchor).isActive = true
+        topicTableView.rightAnchor.constraint(equalTo: refreshButton.rightAnchor).isActive = true
+        topicTableView.bottomAnchor.constraint(equalTo: rectangle.bottomAnchor, constant: -15).isActive = true
+
         return rectangle
     }()
 
@@ -59,7 +85,7 @@ class MainViewTopicController: UIViewController {
         return topicSegmentedControl
     }()
 
-    @objc func segmentedValueChanged(_ segmentedControl: UISegmentedControl) {
+    @objc private func segmentedValueChanged(_ segmentedControl: UISegmentedControl) {
         switch segmentedControl.selectedSegmentIndex {
         case 0:
             topicLabel.text = "과일"
@@ -75,25 +101,62 @@ class MainViewTopicController: UIViewController {
         refreshButton.setImage(UIImage.init(systemName: "goforward"), for: UIControl.State.normal)
         refreshButton.backgroundColor = .black
         refreshButton.tintColor = .white
-        refreshButton.layer.cornerRadius = 9
+        refreshButton.frame = CGRect(x: 0, y: 0, width: 20, height: 20)
+        refreshButton.layer.cornerRadius = 10
         refreshButton.addTarget(self, action: #selector(buttonAction(_:)), for: .touchUpInside)
         return refreshButton
     }()
 
-    @objc func buttonAction(_ sender: UIButton!) {
+    @objc private func buttonAction(_ sender: UIButton!) {
         print("Button Work!")
+    }
+
+    private let topicTableView: UITableView = {
+        let topicTableView = UITableView()
+        topicTableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        return topicTableView
+    }()
+
+    private lazy var callAlert: UIAlertController = {
+        let callAlert = UIAlertController(title: "전화하기", message: "테스트", preferredStyle: UIAlertController.Style.actionSheet)
+        let momNumber = UIAlertAction(title: "엄마한테 전화하기", style: .default) { _ in
+            print("엄마한테 전화함")
+        }
+        let fatherNumber = UIAlertAction(title: "아빠한테 전화하기", style: .default) { _ in
+            print("아빠한테 전화함")
+        }
+        callAlert.addAction(momNumber)
+        callAlert.addAction(fatherNumber)
+
+        return callAlert
+    }()
+
+    private lazy var callButton: UIButton = {
+        let callButton = UIButton(type: UIButton.ButtonType.system)
+        callButton.setImage(UIImage.init(systemName: "phone.fill"), for: UIControl.State.normal)
+        callButton.backgroundColor = .systemBlue
+        callButton.tintColor = .white
+        callButton.layer.cornerRadius = 9
+        callButton.addTarget(self, action: #selector(callbuttonAction(_:)), for: .touchUpInside)
+        return callButton
+    }()
+
+    @objc private func callbuttonAction(_ sender: UIButton!) {
+        print("call Button")
     }
 
     // MARK: LifeCycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        topicTableView.delegate = self
+        topicTableView.dataSource = self
         render()
     }
 
     // MARK: Configures
 
-    func render() {
+    private func render() {
         view.backgroundColor = .systemBackground
         view.addSubview(backGroundRectangle)
         backGroundRectangle.translatesAutoresizingMaskIntoConstraints = false
@@ -102,5 +165,18 @@ class MainViewTopicController: UIViewController {
         backGroundRectangle.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 300).isActive = true
         backGroundRectangle.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -200).isActive = true
         backGroundRectangle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15).isActive = true
+
+        view.addSubview(callButton)
+        callButton.translatesAutoresizingMaskIntoConstraints = false
+        callButton.leftAnchor.constraint(equalTo: backGroundRectangle.leftAnchor).isActive = true
+        callButton.rightAnchor.constraint(equalTo: backGroundRectangle.rightAnchor).isActive = true
+        callButton.topAnchor.constraint(equalTo: backGroundRectangle.bottomAnchor, constant: 70).isActive = true
+        callButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -70).isActive = true
     }
+
+    private func attribute() {
+        topicTableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+    }
+
 }
+// 호출되는 타이밍에 대해 좀 더 라이프사이클 알아보기
