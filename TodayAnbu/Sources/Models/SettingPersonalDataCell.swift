@@ -36,6 +36,3 @@ class SettingPersonalDataCell: UITableViewCell {
     }
 
 }
-
-//인셋 그룹으로 바꾸는 방법
-

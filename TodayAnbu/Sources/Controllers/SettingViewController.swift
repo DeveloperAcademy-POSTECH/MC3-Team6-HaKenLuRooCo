@@ -9,7 +9,7 @@ import UIKit
 
 class SettingViewController: UIViewController {
     // MARK: Properties
-    let tableView = UITableView(frame: .zero, style: .grouped)
+    let tableView = UITableView(frame: .zero, style: .insetGrouped)
     let personalMenu = ["요약", "가족 연락처", "알림", "토픽", "About us", "License"]
     override func viewDidLoad() {
         super.viewDidLoad()
