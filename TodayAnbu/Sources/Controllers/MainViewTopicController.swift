@@ -8,27 +8,13 @@
 import UIKit
 
 class MainViewTopicController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    var genericTopics = [["요즘 핫한 과일은 뭘까요?", "최근 먹은 과일은 뭘까요?", "몸에 좋은 과일은 뭘까요?", "과일"],["1", "2", "3", "숫자"], ["ㅁ", "ㄴ", "ㄷ", "한글"]]
-    var seriousTopics = [["요즘 가정 빚은 있나요?", "부부 금술은 좋나요?", "아들내미가 맘에 안드시나요?", "빚"], ["a", "c", "v", "심각한 알파벳"], ["칼", "총", "담배", "무서운 단어"]]
-    var topics: [String] = []
-    var genericTopicIndex: Int {
-        get {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyyMMdd"
-        return Int(formatter.string(from: Date()))! % genericTopics.count
-        }
-        set {
-            genericTopicIndex = Int(Date().timeIntervalSince1970) % genericTopicIndex
-            topicTableView.reloadData()
-        }
-    }
-    var seriousTopicIndex: Int {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyyMMdd"
-        return Int(formatter.string(from: Date()))! % seriousTopics.count
-    }
+    private var genericTopics = [["요즘 핫한 과일은 뭘까요?", "최근 먹은 과일은 뭘까요?", "몸에 좋은 과일은 뭘까요?", "과일"], ["1", "2", "3", "숫자"], ["ㅁ", "ㄴ", "ㄷ", "한글"]]
+    private var seriousTopics = [["요즘 가정 빚은 있나요?", "부부 금술은 좋나요?", "아들내미가 맘에 안드시나요?", "빚"], ["a", "c", "v", "심각한 알파벳"], ["칼", "총", "담배", "무서운 단어"]]
+    private var topics: [String] = []
+    private var genericTopicIndex: Int = 0
+    private var seriousTopicIndex: Int = 0
 
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
         return topics.count - 1
     }
 
@@ -44,6 +30,7 @@ class MainViewTopicController: UIViewController, UITableViewDelegate, UITableVie
     }
 
     // MARK: Properties
+
     private let topicTitleLabel: UILabel = {
         let topicTitle = UILabel()
         topicTitle.text = "오늘의 토픽"
@@ -53,7 +40,6 @@ class MainViewTopicController: UIViewController, UITableViewDelegate, UITableVie
 
     private let topicLabel: UILabel = {
         let topicText = UILabel()
-        topicText.text = "과일"
         topicText.font = .systemFont(ofSize: 20, weight: .semibold)
         return topicText
     }()
@@ -121,7 +107,7 @@ class MainViewTopicController: UIViewController, UITableViewDelegate, UITableVie
 
     private lazy var refreshButton: UIButton = {
         let refreshButton = UIButton(type: UIButton.ButtonType.system)
-        refreshButton.setImage(UIImage.init(systemName: "goforward"), for: UIControl.State.normal)
+        refreshButton.setImage(UIImage(systemName: "goforward"), for: UIControl.State.normal)
         refreshButton.backgroundColor = .black
         refreshButton.tintColor = .white
         refreshButton.frame = CGRect(x: 0, y: 0, width: 20, height: 20)
@@ -130,9 +116,26 @@ class MainViewTopicController: UIViewController, UITableViewDelegate, UITableVie
         return refreshButton
     }()
 
-    @objc private func buttonAction(_ sender: UIButton!) {
-        genericTopicIndex = genericTopicIndex
-        topics = genericTopics[genericTopicIndex]
+    @objc private func buttonAction(_: UIButton!) {
+        switch topicSegmentedControl.selectedSegmentIndex {
+        case 0:
+            let previousIndex = genericTopicIndex
+            repeat {
+                genericTopicIndex = Int.random(in: 0 ..< genericTopics.count)
+            } while previousIndex == genericTopicIndex
+            topics = genericTopics[genericTopicIndex]
+            topicLabel.text = topics.last
+        case 1:
+            let previousIndex = seriousTopicIndex
+            repeat {
+                seriousTopicIndex = Int.random(in: 0 ..< seriousTopics.count)
+            } while previousIndex == seriousTopicIndex
+            topics = seriousTopics[seriousTopicIndex]
+            topicLabel.text = topics.last
+        default:
+            ()
+        }
+        topicTableView.reloadData()
     }
 
     private let topicTableView: UITableView = {
@@ -150,17 +153,17 @@ class MainViewTopicController: UIViewController, UITableViewDelegate, UITableVie
         let fatherNumber = UIAlertAction(title: "아빠한테 전화하기", style: .default) { _ in
             print("아빠한테 전화함")
         }
-        let cancle = UIAlertAction(title: "취소하기", style: .cancel)
+        let cancel = UIAlertAction(title: "취소하기", style: .cancel)
         callAlert.addAction(momNumber)
         callAlert.addAction(fatherNumber)
-        callAlert.addAction(cancle)
+        callAlert.addAction(cancel)
 
         return callAlert
     }()
 
     private lazy var callButton: UIButton = {
         let callButton = UIButton(type: UIButton.ButtonType.system)
-        callButton.setImage(UIImage.init(systemName: "phone.fill"), for: UIControl.State.normal)
+        callButton.setImage(UIImage(systemName: "phone.fill"), for: UIControl.State.normal)
         callButton.backgroundColor = .systemBlue
         callButton.tintColor = .white
         callButton.layer.cornerRadius = 9
@@ -168,16 +171,27 @@ class MainViewTopicController: UIViewController, UITableViewDelegate, UITableVie
         return callButton
     }()
 
-    @objc private func callbuttonAction(_ sender: UIButton!) {
-        self.present(callAlert, animated: true, completion: nil)
+    @objc private func callbuttonAction(_: UIButton!) {
+        present(callAlert, animated: true, completion: nil)
     }
 
     // MARK: LifeCycle
+
+    override func loadView() {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyyMMdd"
+        genericTopicIndex = Int(formatter.string(from: Date()))! % genericTopics.count
+        seriousTopicIndex = Int(formatter.string(from: Date()))! % seriousTopics.count
+        topics = genericTopics[genericTopicIndex]
+        topicLabel.text = topics.last
+        super.loadView()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         topicTableView.delegate = self
         topicTableView.dataSource = self
+        topicTableView.allowsSelection = false
         render()
     }
 
@@ -204,6 +218,6 @@ class MainViewTopicController: UIViewController, UITableViewDelegate, UITableVie
     private func attribute() {
         topicTableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
     }
-
 }
+
 // 호출되는 타이밍에 대해 좀 더 라이프사이클 알아보기
