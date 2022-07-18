@@ -8,24 +8,14 @@
 import UIKit
 
 class MainViewTopicController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    private var genericTopics = [["요즘 핫한 과일은 뭘까요?", "최근 먹은 과일은 뭘까요?", "몸에 좋은 과일은 뭘까요?", "과일"], ["1", "2", "3", "숫자"], ["ㅁ", "ㄴ", "ㄷ", "한글"]]
+    private var seriousTopics = [["요즘 가정 빚은 있나요?", "부부 금술은 좋나요?", "아들내미가 맘에 안드시나요?", "빚"], ["a", "c", "v", "심각한 알파벳"], ["칼", "총", "담배", "무서운 단어"]]
+    private var topics: [String] = []
+    private var genericTopicIndex: Int = 0
+    private var seriousTopicIndex: Int = 0
     enum PhoneNum: String {
         case momNum = "tel://01074080031"
         case dadNum = "tel://01046021620"
-    }
-
-    var genericTopics = [["요즘 핫한 과일은 뭘까요?", "최근 먹은 과일은 뭘까요?", "몸에 좋은 과일은 뭘까요?", "과일"], ["1", "2", "3", "숫자"], ["ㅁ", "ㄴ", "ㄷ", "한글"]]
-    var seriousTopics = [["요즘 가정 빚은 있나요?", "부부 금술은 좋나요?", "아들내미가 맘에 안드시나요?", "빚"], ["a", "c", "v", "심각한 알파벳"], ["칼", "총", "담배", "무서운 단어"]]
-    var topics: [String] = []
-    var genericTopicIndex: Int {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyyMMdd"
-        return Int(formatter.string(from: Date()))! % genericTopics.count
-    }
-
-    var seriousTopicIndex: Int {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyyMMdd"
-        return Int(formatter.string(from: Date()))! % seriousTopics.count
     }
 
     func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
@@ -54,7 +44,6 @@ class MainViewTopicController: UIViewController, UITableViewDelegate, UITableVie
 
     private let topicLabel: UILabel = {
         let topicText = UILabel()
-        topicText.text = "과일"
         topicText.font = .systemFont(ofSize: 20, weight: .semibold)
         return topicText
     }()
@@ -132,9 +121,25 @@ class MainViewTopicController: UIViewController, UITableViewDelegate, UITableVie
     }()
 
     @objc private func buttonAction(_: UIButton!) {
-//        genericTopicIndex = genericTopicIndex
-//        topics = genericTopics[genericTopicIndex]
-        print("button Work!")
+        switch topicSegmentedControl.selectedSegmentIndex {
+        case 0:
+            let previousIndex = genericTopicIndex
+            repeat {
+                genericTopicIndex = Int.random(in: 0 ..< genericTopics.count)
+            } while previousIndex == genericTopicIndex
+            topics = genericTopics[genericTopicIndex]
+            topicLabel.text = topics.last
+        case 1:
+            let previousIndex = seriousTopicIndex
+            repeat {
+                seriousTopicIndex = Int.random(in: 0 ..< seriousTopics.count)
+            } while previousIndex == seriousTopicIndex
+            topics = seriousTopics[seriousTopicIndex]
+            topicLabel.text = topics.last
+        default:
+            ()
+        }
+        topicTableView.reloadData()
     }
 
     private let topicTableView: UITableView = {
@@ -155,7 +160,7 @@ class MainViewTopicController: UIViewController, UITableViewDelegate, UITableVie
         let cancle = UIAlertAction(title: "취소하기", style: .cancel)
         callAlert.addAction(momCall)
         callAlert.addAction(fatherNumber)
-        callAlert.addAction(cancle)
+        callAlert.addAction(cancel)
 
         return callAlert
     }()
@@ -176,10 +181,21 @@ class MainViewTopicController: UIViewController, UITableViewDelegate, UITableVie
 
     // MARK: LifeCycle
 
+    override func loadView() {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyyMMdd"
+        genericTopicIndex = Int(formatter.string(from: Date()))! % genericTopics.count
+        seriousTopicIndex = Int(formatter.string(from: Date()))! % seriousTopics.count
+        topics = genericTopics[genericTopicIndex]
+        topicLabel.text = topics.last
+        super.loadView()
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         topicTableView.delegate = self
         topicTableView.dataSource = self
+        topicTableView.allowsSelection = false
         render()
     }
 
@@ -206,6 +222,7 @@ class MainViewTopicController: UIViewController, UITableViewDelegate, UITableVie
     private func attribute() {
         topicTableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
     }
+}
 
     private func goCallApp(url: String) {
         if let openApp = URL(string: url), UIApplication.shared.canOpenURL(openApp) {
