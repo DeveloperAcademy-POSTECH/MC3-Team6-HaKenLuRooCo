@@ -8,20 +8,38 @@
 import UIKit
 
 class MainViewTopicController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    let topics = ["요즘 핫한 과일은 뭘까요?", "최근 먹은 과일은 뭘까요?", "몸에 좋은 과일은 뭘까요?"]
-
-    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return topics.count
+    var genericTopics = [["요즘 핫한 과일은 뭘까요?", "최근 먹은 과일은 뭘까요?", "몸에 좋은 과일은 뭘까요?", "과일"],["1", "2", "3", "숫자"], ["ㅁ", "ㄴ", "ㄷ", "한글"]]
+    var seriousTopics = [["요즘 가정 빚은 있나요?", "부부 금술은 좋나요?", "아들내미가 맘에 안드시나요?", "빚"], ["a", "c", "v", "심각한 알파벳"], ["칼", "총", "담배", "무서운 단어"]]
+    var topics: [String] = []
+    var genericTopicIndex: Int {
+        get {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyyMMdd"
+        return Int(formatter.string(from: Date()))! % genericTopics.count
+        }
+        set {
+            genericTopicIndex = Int(Date().timeIntervalSince1970) % genericTopicIndex
+            topicTableView.reloadData()
+        }
+    }
+    var seriousTopicIndex: Int {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyyMMdd"
+        return Int(formatter.string(from: Date()))! % seriousTopics.count
     }
 
-    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return topics.count - 1
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
 
         cell.textLabel?.text = topics[indexPath.row]
         return cell
     }
 
-    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
 
@@ -88,12 +106,17 @@ class MainViewTopicController: UIViewController, UITableViewDelegate, UITableVie
     @objc private func segmentedValueChanged(_ segmentedControl: UISegmentedControl) {
         switch segmentedControl.selectedSegmentIndex {
         case 0:
-            topicLabel.text = "과일"
+            topics = genericTopics[genericTopicIndex]
+            topicLabel.text = topics.last
             topicLabel.font = .systemFont(ofSize: 20, weight: .semibold)
+
         default:
-            topicLabel.text = "빚"
+            topics = seriousTopics[seriousTopicIndex]
+            topicLabel.text = topics.last
             topicLabel.font = .systemFont(ofSize: 20, weight: .semibold)
         }
+
+        topicTableView.reloadData()
     }
 
     private lazy var refreshButton: UIButton = {
@@ -108,25 +131,29 @@ class MainViewTopicController: UIViewController, UITableViewDelegate, UITableVie
     }()
 
     @objc private func buttonAction(_ sender: UIButton!) {
-        print("Button Work!")
+        genericTopicIndex = genericTopicIndex
+        topics = genericTopics[genericTopicIndex]
     }
 
     private let topicTableView: UITableView = {
         let topicTableView = UITableView()
         topicTableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        topicTableView.reloadData()
         return topicTableView
     }()
 
     private lazy var callAlert: UIAlertController = {
-        let callAlert = UIAlertController(title: "전화하기", message: "테스트", preferredStyle: UIAlertController.Style.actionSheet)
+        let callAlert = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertController.Style.actionSheet)
         let momNumber = UIAlertAction(title: "엄마한테 전화하기", style: .default) { _ in
             print("엄마한테 전화함")
         }
         let fatherNumber = UIAlertAction(title: "아빠한테 전화하기", style: .default) { _ in
             print("아빠한테 전화함")
         }
+        let cancle = UIAlertAction(title: "취소하기", style: .cancel)
         callAlert.addAction(momNumber)
         callAlert.addAction(fatherNumber)
+        callAlert.addAction(cancle)
 
         return callAlert
     }()
@@ -142,7 +169,7 @@ class MainViewTopicController: UIViewController, UITableViewDelegate, UITableVie
     }()
 
     @objc private func callbuttonAction(_ sender: UIButton!) {
-        print("call Button")
+        self.present(callAlert, animated: true, completion: nil)
     }
 
     // MARK: LifeCycle
