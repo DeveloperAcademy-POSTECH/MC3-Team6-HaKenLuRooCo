@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		10CD7DF12880047300A9553B /* MainViewTopicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CD7DF02880047300A9553B /* MainViewTopicController.swift */; };
 		3E2F655F287FA0E600A27FA9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2F655E287FA0E600A27FA9 /* AppDelegate.swift */; };
 		3E2F6561287FA0E600A27FA9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2F6560287FA0E600A27FA9 /* SceneDelegate.swift */; };
 		3E2F6563287FA0E600A27FA9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2F6562287FA0E600A27FA9 /* ViewController.swift */; };
@@ -15,12 +16,17 @@
 		3E2F656B287FA0E700A27FA9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E2F6569287FA0E700A27FA9 /* LaunchScreen.storyboard */; };
 		3E2F6574287FA1C600A27FA9 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 3E2F6573287FA1C600A27FA9 /* .swiftlint.yml */; };
 		7B2E9C722884FCF4006BE5C8 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2E9C712884FCF4006BE5C8 /* MainViewController.swift */; };
+		7B2E9C6C28806FE3006BE5C8 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2E9C6B28806FE3006BE5C8 /* SettingViewController.swift */; };
+		7B2E9C6E288429B8006BE5C8 /* SettingPersonalDataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2E9C6D288429B8006BE5C8 /* SettingPersonalDataCell.swift */; };
+		7B2E9C702884397B006BE5C8 /* SettingHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2E9C6F2884397B006BE5C8 /* SettingHeaderView.swift */; };
 		A92FC8C5287FF38400962CA0 /* OnboardingPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A92FC8C4287FF38400962CA0 /* OnboardingPage.storyboard */; };
 		A92FC8C7287FF3C000962CA0 /* OnboardingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92FC8C6287FF3C000962CA0 /* OnboardingPageViewController.swift */; };
 		A92FC8C9287FF40000962CA0 /* NotificationSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92FC8C8287FF3FF00962CA0 /* NotificationSettingViewController.swift */; };
+
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		10CD7DF02880047300A9553B /* MainViewTopicController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewTopicController.swift; sourceTree = "<group>"; };
 		3E2F655B287FA0E600A27FA9 /* TodayAnbu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TodayAnbu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E2F655E287FA0E600A27FA9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3E2F6560287FA0E600A27FA9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -31,9 +37,13 @@
 		3E2F656C287FA0E700A27FA9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3E2F6573287FA1C600A27FA9 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = SOURCE_ROOT; };
 		7B2E9C712884FCF4006BE5C8 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		7B2E9C6B28806FE3006BE5C8 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		7B2E9C6D288429B8006BE5C8 /* SettingPersonalDataCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingPersonalDataCell.swift; sourceTree = "<group>"; };
+		7B2E9C6F2884397B006BE5C8 /* SettingHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingHeaderView.swift; sourceTree = "<group>"; };
 		A92FC8C4287FF38400962CA0 /* OnboardingPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OnboardingPage.storyboard; sourceTree = "<group>"; };
 		A92FC8C6287FF3C000962CA0 /* OnboardingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPageViewController.swift; sourceTree = "<group>"; };
 		A92FC8C8287FF3FF00962CA0 /* NotificationSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSettingViewController.swift; sourceTree = "<group>"; };
+
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +69,8 @@
 			children = (
 				3E2F6562287FA0E600A27FA9 /* ViewController.swift */,
 				7B2E9C712884FCF4006BE5C8 /* MainViewController.swift */,
+				7B2E9C6B28806FE3006BE5C8 /* SettingViewController.swift */,
+				10CD7DF02880047300A9553B /* MainViewTopicController.swift */,
 				A92FC8C6287FF3C000962CA0 /* OnboardingPageViewController.swift */,
 				A92FC8C8287FF3FF00962CA0 /* NotificationSettingViewController.swift */,
 				103BD8EE287FB38B00A6A0AD /* Utilities */,
@@ -77,9 +89,9 @@
 		103BD8ED287FB37600A6A0AD /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				103BD8F0287FB3DB00A6A0AD /* Models */,
 				3E2F655E287FA0E600A27FA9 /* AppDelegate.swift */,
 				3E2F6560287FA0E600A27FA9 /* SceneDelegate.swift */,
+				103BD8F0287FB3DB00A6A0AD /* Models */,
 				103BD8EF287FB39F00A6A0AD /* Boards */,
 				103BD8EB287FB31C00A6A0AD /* Controllers */,
 				103BD8EA287FB31600A6A0AD /* Extensions */,
@@ -107,6 +119,8 @@
 		103BD8F0287FB3DB00A6A0AD /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				7B2E9C6D288429B8006BE5C8 /* SettingPersonalDataCell.swift */,
+				7B2E9C6F2884397B006BE5C8 /* SettingHeaderView.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -235,10 +249,14 @@
 			files = (
 				A92FC8C7287FF3C000962CA0 /* OnboardingPageViewController.swift in Sources */,
 				3E2F6563287FA0E600A27FA9 /* ViewController.swift in Sources */,
+				7B2E9C6E288429B8006BE5C8 /* SettingPersonalDataCell.swift in Sources */,
+				7B2E9C702884397B006BE5C8 /* SettingHeaderView.swift in Sources */,
 				3E2F655F287FA0E600A27FA9 /* AppDelegate.swift in Sources */,
 				7B2E9C722884FCF4006BE5C8 /* MainViewController.swift in Sources */,
 				A92FC8C9287FF40000962CA0 /* NotificationSettingViewController.swift in Sources */,
 				3E2F6561287FA0E600A27FA9 /* SceneDelegate.swift in Sources */,
+				7B2E9C6C28806FE3006BE5C8 /* SettingViewController.swift in Sources */,
+				10CD7DF12880047300A9553B /* MainViewTopicController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -383,9 +401,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 2S73QX9MMY;
+				DEVELOPMENT_TEAM = 5N6FVFS939;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TodayAnbu/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -400,6 +419,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hakenluluco.TodayAnbu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -411,9 +431,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 2S73QX9MMY;
+				DEVELOPMENT_TEAM = 5N6FVFS939;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TodayAnbu/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -428,6 +449,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hakenluluco.TodayAnbu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
