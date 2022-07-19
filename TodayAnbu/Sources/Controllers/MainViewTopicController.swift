@@ -7,33 +7,25 @@
 
 import UIKit
 
-class MainViewTopicController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class MainViewTopicController: UIViewController {
     private var genericTopics = [["요즘 핫한 과일은 뭘까요?", "최근 먹은 과일은 뭘까요?", "몸에 좋은 과일은 뭘까요?", "과일"], ["1", "2", "3", "숫자"], ["ㅁ", "ㄴ", "ㄷ", "한글"]]
     private var seriousTopics = [["요즘 가정 빚은 있나요?", "부부 금술은 좋나요?", "아들내미가 맘에 안드시나요?", "빚"], ["a", "c", "v", "심각한 알파벳"], ["칼", "총", "담배", "무서운 단어"]]
     private var topics: [String] = []
     private var genericTopicIndex: Int = 0
     private var seriousTopicIndex: Int = 0
+
     enum PhoneNum: String {
         case momNum = "tel://01074080031"
         case dadNum = "tel://01046021620"
     }
 
-    func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
-        return topics.count - 1
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-
-        cell.textLabel?.text = topics[indexPath.row]
-        return cell
-    }
-
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-    }
-
     // MARK: Properties
+    private let checkBackGroundRectangle : UIView = {
+        let checkRectangle = UIView()
+        checkRectangle.layer.cornerRadius = 15
+        checkRectangle.backgroundColor = .systemGray5
+        return checkRectangle
+    }()
 
     private let topicTitleLabel: UILabel = {
         let topicTitle = UILabel()
@@ -55,31 +47,41 @@ class MainViewTopicController: UIViewController, UITableViewDelegate, UITableVie
 
         rectangle.addSubview(topicTitleLabel)
         topicTitleLabel.translatesAutoresizingMaskIntoConstraints = false
-        topicTitleLabel.leftAnchor.constraint(equalTo: rectangle.leftAnchor, constant: 16).isActive = true
-        topicTitleLabel.topAnchor.constraint(equalTo: rectangle.topAnchor, constant: 14).isActive = true
+        NSLayoutConstraint.activate([
+            topicTitleLabel.leftAnchor.constraint(equalTo: rectangle.leftAnchor, constant: 16),
+            topicTitleLabel.topAnchor.constraint(equalTo: rectangle.topAnchor, constant: 14)
+        ])
 
         rectangle.addSubview(topicSegmentedControl)
         topicSegmentedControl.translatesAutoresizingMaskIntoConstraints = false
-        topicSegmentedControl.leftAnchor.constraint(equalTo: topicTitleLabel.leftAnchor).isActive = true
-        topicSegmentedControl.rightAnchor.constraint(equalTo: rectangle.rightAnchor, constant: -16).isActive = true
-        topicSegmentedControl.topAnchor.constraint(equalTo: topicTitleLabel.bottomAnchor, constant: 10).isActive = true
+        NSLayoutConstraint.activate([
+            topicSegmentedControl.leftAnchor.constraint(equalTo: topicTitleLabel.leftAnchor),
+            topicSegmentedControl.rightAnchor.constraint(equalTo: rectangle.rightAnchor, constant: -16),
+            topicSegmentedControl.topAnchor.constraint(equalTo: topicTitleLabel.bottomAnchor, constant: 10)
+        ])
+
         rectangle.addSubview(topicLabel)
         topicLabel.translatesAutoresizingMaskIntoConstraints = false
-        topicLabel.leftAnchor.constraint(equalTo: topicTitleLabel.leftAnchor).isActive = true
-        topicLabel.topAnchor.constraint(equalTo: topicSegmentedControl.bottomAnchor, constant: 10).isActive = true
+        NSLayoutConstraint.activate([
+            topicLabel.leftAnchor.constraint(equalTo: topicTitleLabel.leftAnchor),
+            topicLabel.topAnchor.constraint(equalTo: topicSegmentedControl.bottomAnchor, constant: 10)
+        ])
 
         rectangle.addSubview(refreshButton)
         refreshButton.translatesAutoresizingMaskIntoConstraints = false
-        refreshButton.rightAnchor.constraint(equalTo: topicSegmentedControl.rightAnchor).isActive = true
-        refreshButton.topAnchor.constraint(equalTo: topicLabel.topAnchor).isActive = true
+        NSLayoutConstraint.activate([
+            refreshButton.rightAnchor.constraint(equalTo: topicSegmentedControl.rightAnchor),
+            refreshButton.topAnchor.constraint(equalTo: topicLabel.topAnchor)
+        ])
 
         rectangle.addSubview(topicTableView)
         topicTableView.translatesAutoresizingMaskIntoConstraints = false
-        topicTableView.topAnchor.constraint(equalTo: topicLabel.bottomAnchor, constant: 10).isActive = true
-        topicTableView.leftAnchor.constraint(equalTo: topicLabel.leftAnchor).isActive = true
-        topicTableView.rightAnchor.constraint(equalTo: refreshButton.rightAnchor).isActive = true
-        topicTableView.bottomAnchor.constraint(equalTo: rectangle.bottomAnchor, constant: -15).isActive = true
-
+        NSLayoutConstraint.activate([
+            topicTableView.topAnchor.constraint(equalTo: topicLabel.bottomAnchor, constant: 10),
+            topicTableView.leftAnchor.constraint(equalTo: topicLabel.leftAnchor),
+            topicTableView.rightAnchor.constraint(equalTo: refreshButton.rightAnchor),
+            topicTableView.bottomAnchor.constraint(equalTo: rectangle.bottomAnchor, constant: -15)
+        ])
         return rectangle
     }()
 
@@ -157,7 +159,7 @@ class MainViewTopicController: UIViewController, UITableViewDelegate, UITableVie
         let fatherNumber = UIAlertAction(title: "아빠한테 전화하기", style: .default) { _ in
             self.goCallApp(url: PhoneNum.dadNum.rawValue)
         }
-        let cancle = UIAlertAction(title: "취소하기", style: .cancel)
+        let cancel = UIAlertAction(title: "취소하기", style: .cancel)
         callAlert.addAction(momCall)
         callAlert.addAction(fatherNumber)
         callAlert.addAction(cancel)
@@ -203,26 +205,40 @@ class MainViewTopicController: UIViewController, UITableViewDelegate, UITableVie
 
     private func render() {
         view.backgroundColor = .systemBackground
+
+        view.addSubview(checkBackGroundRectangle)
+        checkBackGroundRectangle.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            checkBackGroundRectangle.heightAnchor.constraint(equalToConstant: 150),
+            checkBackGroundRectangle.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            checkBackGroundRectangle.topAnchor.constraint(equalTo: view.topAnchor, constant: 150),
+            checkBackGroundRectangle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),
+            checkBackGroundRectangle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15)
+        ])
+
         view.addSubview(backGroundRectangle)
         backGroundRectangle.translatesAutoresizingMaskIntoConstraints = false
-        backGroundRectangle.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        backGroundRectangle.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        backGroundRectangle.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 300).isActive = true
-        backGroundRectangle.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -200).isActive = true
-        backGroundRectangle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15).isActive = true
+        NSLayoutConstraint.activate([
+            backGroundRectangle.heightAnchor.constraint(equalToConstant: 277),
+            backGroundRectangle.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 80),
+            backGroundRectangle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),
+            backGroundRectangle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15)
+        ])
 
         view.addSubview(callButton)
         callButton.translatesAutoresizingMaskIntoConstraints = false
-        callButton.leftAnchor.constraint(equalTo: backGroundRectangle.leftAnchor).isActive = true
-        callButton.rightAnchor.constraint(equalTo: backGroundRectangle.rightAnchor).isActive = true
-        callButton.topAnchor.constraint(equalTo: backGroundRectangle.bottomAnchor, constant: 70).isActive = true
-        callButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -70).isActive = true
+        NSLayoutConstraint.activate([
+            callButton.leftAnchor.constraint(equalTo: backGroundRectangle.leftAnchor),
+            callButton.rightAnchor.constraint(equalTo: backGroundRectangle.rightAnchor),
+//            callButton.heightAnchor.constraint(equalToConstant: 60),
+            callButton.topAnchor.constraint(equalTo: backGroundRectangle.bottomAnchor, constant: 10),
+            callButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -70)
+        ])
     }
 
     private func attribute() {
         topicTableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
     }
-}
 
     private func goCallApp(url: String) {
         if let openApp = URL(string: url), UIApplication.shared.canOpenURL(openApp) {
@@ -239,6 +255,26 @@ class MainViewTopicController: UIViewController, UITableViewDelegate, UITableVie
             print("[goDeviceApp : 디바이스 외부 앱 열기 실패]")
             print("링크 주소 : \(url)")
         }
+    }
+}
+
+extension MainViewTopicController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+}
+
+extension MainViewTopicController: UITableViewDataSource {
+
+    func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
+        return topics.count - 1
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+
+        cell.textLabel?.text = topics[indexPath.row]
+        return cell
     }
 }
 
