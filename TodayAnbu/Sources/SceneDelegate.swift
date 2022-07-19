@@ -16,10 +16,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let _ = (scene as? UIWindowScene) else { return }
         // MARK: 개발 생산성을 위해 엔트리 포인트를 고정하고자 하는 경우 아래의 코드에서 rootViewController를 지정하여 사용
-//        guard let scene = (scene as? UIWindowScene) else { return }
-//        window = UIWindow(windowScene: scene)
-//        window?.rootViewController = MainViewTopicController()
-//        window?.makeKeyAndVisible()
+
+        /*
+        guard let scene = (scene as? UIWindowScene) else { return }
+        window = UIWindow(windowScene: scene)
+        window?.rootViewController = UINavigationController(rootViewController: MainViewController())
+        window?.makeKeyAndVisible()
+        */
     }
 
     func sceneDidDisconnect(_: UIScene) {
