@@ -5,33 +5,49 @@
 //  Created by YeongJin Jeong on 2022/07/14.
 //
 
-import Foundation
 import UIKit
 
 class SettingViewController: UIViewController, UITextFieldDelegate {
+
+    @IBOutlet weak var momVstackView: UIStackView! // 어머니 전화번호 입력 Vstack
+    @IBOutlet weak var dadVstackView: UIStackView! // 아버지 전화번호 입력 Vstack
+    @IBOutlet weak var momDayVstack: UIStackView! // 어머니 전화번호 입력 Vstack
+    @IBOutlet weak var dadDayVstack: UIStackView! // 아버지 전화번호 입력 Vstack
+    @IBOutlet weak var momNumberTextfield: UITextField! // 어머니 전화번호 입력 텍스트 필드
+    @IBOutlet weak var dadNumberTextfield: UITextField! // 아버지 전화번호 입력 텍스트 필드
+    @IBOutlet weak var startBtn: UIButton!
+
     var momNumber: String?
     var dadNumber: String?
-    private var isMomNumberCompleted: Bool = false
-    private var isDadNumberCompleted: Bool = false
 
-    @IBOutlet weak var momVstackView: UIStackView!
-    @IBOutlet weak var dadVstackView: UIStackView!
-    @IBOutlet weak var momNumberTF: UITextField! // 어머니 전화번호 입력 텍스트 필드
-    @IBOutlet weak var dadNumberTF: UITextField! // 아버지 전화번호 입력 텍스트 필드
+    private var isMomNumberCompleted: Bool = false {
+        didSet {
+            momDayVstack.isHidden = false
+        }
+    }
 
+    private var isDadNumberCompleted: Bool = false {
+        didSet {
+            dadDayVstack.isHidden = false
+        }
+    }
+
+    // Delegate 설정 및 Textfield 설정
     override func viewDidLoad() {
         super.viewDidLoad()
-        momNumberTF.delegate = self
-        dadNumberTF.delegate = self
-        momNumberTF.setBottomBorder(color: UIColor.systemGray4) // Textfield에 밑줄 추가
-        momNumberTF.addDoneButtonOnKeyboard()
-        dadNumberTF.setBottomBorder(color: UIColor.systemGray4)
-        dadNumberTF.addDoneButtonOnKeyboard() // Keyboard에 done 버튼 추가
+        momNumberTextfield.delegate = self
+        dadNumberTextfield.delegate = self
+        momNumberTextfield.setBottomBorder(color: UIColor.systemGray4)
+        momNumberTextfield.addDoneButtonOnKeyboard()
+        dadNumberTextfield.setBottomBorder(color: UIColor.systemGray4)
+        dadNumberTextfield.addDoneButtonOnKeyboard()
+        momDayVstack.isHidden = true
+        dadDayVstack.isHidden = true
     }
 }
 
 extension SettingViewController {
-    //     텍스트 필드 validation check
+    // 텍스트 필드 validation check
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
 
         if textField.text!.count < 10 {
@@ -43,17 +59,19 @@ extension SettingViewController {
         return !(validation > 11)
     }
 
+    // textfield keyboard가 내려가면 호출
     func textFieldDidEndEditing(_ textField: UITextField) {
-        if textField == momNumberTF {
-            if momNumberTF.text != nil {
-                momNumber = momNumberTF.text!
+        if textField == momNumberTextfield {
+            if momNumberTextfield.text != nil {
+                momNumber = momNumberTextfield.text!
                 isMomNumberCompleted = true
             } else {
                 print("momNumber Error")
             }
         } else {
-            if dadNumberTF.text != nil {
-                dadNumber = dadNumberTF.text!
+            if dadNumberTextfield.text != nil {
+                dadNumber = dadNumberTextfield.text!
+                isDadNumberCompleted = true
             } else {
                 print("dadNumber Error")
             }
