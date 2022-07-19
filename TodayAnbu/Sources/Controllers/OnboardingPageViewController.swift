@@ -12,7 +12,6 @@ class OnboardingPageViewController: UIViewController {
     @IBOutlet weak var startButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
     @IBAction func startButtonAction(_ sender: Any) {
     }
