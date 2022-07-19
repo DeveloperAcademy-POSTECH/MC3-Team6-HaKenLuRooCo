@@ -20,7 +20,7 @@ class MainViewTopicController: UIViewController {
     }
 
     // MARK: Properties
-    private let checkBackGroundRectangle : UIView = {
+    private let checkBackGroundRectangle: UIView = {
         let checkRectangle = UIView()
         checkRectangle.layer.cornerRadius = 15
         checkRectangle.backgroundColor = .systemGray5
