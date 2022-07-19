@@ -2,35 +2,39 @@
 //  MainViewController.swift
 //  TodayAnbu
 //
-//  Created by Taehwan Kim on 2022/07/18.
-//  혹시 몰라 통합용 베이스 MainViewController 생성했습니다.
+//  Created by Taehwan Kim, 김연호, 코지 on 2022/07/18.
 
 import UIKit
 
 class MainViewController: UIViewController {
+    // MARK: - Properties
     private var genericTopics = [["요즘 핫한 과일은 뭘까요?", "최근 먹은 과일은 뭘까요?", "몸에 좋은 과일은 뭘까요?", "과일"], ["1", "2", "3", "숫자"], ["ㅁ", "ㄴ", "ㄷ", "한글"]]
     private var seriousTopics = [["요즘 가정 빚은 있나요?", "부부 금술은 좋나요?", "아들내미가 맘에 안드시나요?", "빚"], ["a", "c", "v", "심각한 알파벳"], ["칼", "총", "담배", "무서운 단어"]]
     private var topics: [String] = []
     private var genericTopicIndex: Int = 0
     private var seriousTopicIndex: Int = 0
-
     enum PhoneNum: String {
         case momNum = "tel://01074080031"
         case dadNum = "tel://01046021620"
     }
-
-    // MARK: - Properties
-    lazy var rightButton: UIBarButtonItem = {
+    private let momLabel: UILabel = {
+        // 클래스를 이용하여 매개변수를 전달하는 방식으로 문자를 출력할 수 있는 방법 존재
+        let label = UILabel()
+        label.text = "엄마"
+        label.font = .systemFont(ofSize: 20, weight: .semibold)
+        return label
+    }()
+    private let dadLabel: UILabel = {
+        // 클래스를 이용하여 매개변수를 전달하는 방식으로 문자를 출력할 수 있는 방법 존재
+        let label = UILabel()
+        label.text = "아빠"
+        label.font = .systemFont(ofSize: 20, weight: .semibold)
+        return label
+    }()
+    private lazy var rightButton: UIBarButtonItem = {
         let buttonImage: UIImage = UIImage(systemName: "person.circle")!
         let button = UIBarButtonItem(image: buttonImage, style: .plain, target: self, action: #selector(buttonPressed))
         return button
-    }()
-
-    private let checkBackGroundRectangle: UIView = {
-        let checkRectangle = UIView()
-        checkRectangle.layer.cornerRadius = 15
-        checkRectangle.backgroundColor = .systemGray5
-        return checkRectangle
     }()
 
     private let topicTitleLabel: UILabel = {
@@ -45,7 +49,24 @@ class MainViewController: UIViewController {
         topicText.font = .systemFont(ofSize: 20, weight: .semibold)
         return topicText
     }()
-
+    private lazy var checkBackGroundRectangle: UIView = {
+        let rectangle = UIView()
+        rectangle.layer.cornerRadius = 15
+        rectangle.backgroundColor = .systemGray5
+        rectangle.addSubview(dadLabel)
+        dadLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            dadLabel.leadingAnchor.constraint(equalTo: rectangle.leadingAnchor, constant: 80),
+            dadLabel.topAnchor.constraint(equalTo: rectangle.topAnchor, constant: 35)
+        ])
+        rectangle.addSubview(momLabel)
+        momLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            momLabel.trailingAnchor.constraint(equalTo: rectangle.trailingAnchor, constant: -80),
+            momLabel.topAnchor.constraint(equalTo: rectangle.topAnchor, constant: 35)
+        ])
+        return rectangle
+    }()
     private lazy var backGroundRectangle: UIView = {
         let rectangle = UIView()
         rectangle.layer.cornerRadius = 15
@@ -224,7 +245,7 @@ class MainViewController: UIViewController {
         topicTableView.reloadData()
     }
 
-    // MARK: Configures
+    // MARK: - Configures
 
     private func render() {
         view.backgroundColor = .systemBackground
@@ -237,7 +258,6 @@ class MainViewController: UIViewController {
             checkBackGroundRectangle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),
             checkBackGroundRectangle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15)
         ])
-
         view.addSubview(backGroundRectangle)
         backGroundRectangle.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
