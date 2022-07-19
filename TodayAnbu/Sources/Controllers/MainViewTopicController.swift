@@ -48,38 +48,40 @@ class MainViewTopicController: UIViewController {
         rectangle.addSubview(topicTitleLabel)
         topicTitleLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            topicTitleLabel.leftAnchor.constraint(equalTo: rectangle.leftAnchor, constant: 16),
+            topicTitleLabel.leadingAnchor.constraint(equalTo: rectangle.leadingAnchor, constant: 16),
             topicTitleLabel.topAnchor.constraint(equalTo: rectangle.topAnchor, constant: 14)
         ])
 
         rectangle.addSubview(topicSegmentedControl)
         topicSegmentedControl.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            topicSegmentedControl.leftAnchor.constraint(equalTo: topicTitleLabel.leftAnchor),
-            topicSegmentedControl.rightAnchor.constraint(equalTo: rectangle.rightAnchor, constant: -16),
+            topicSegmentedControl.leadingAnchor.constraint(equalTo: topicTitleLabel.leadingAnchor),
+            topicSegmentedControl.trailingAnchor.constraint(equalTo: rectangle.trailingAnchor, constant: -16),
             topicSegmentedControl.topAnchor.constraint(equalTo: topicTitleLabel.bottomAnchor, constant: 10)
         ])
 
         rectangle.addSubview(topicLabel)
         topicLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            topicLabel.leftAnchor.constraint(equalTo: topicTitleLabel.leftAnchor),
+            topicLabel.leadingAnchor.constraint(equalTo: topicTitleLabel.leadingAnchor),
             topicLabel.topAnchor.constraint(equalTo: topicSegmentedControl.bottomAnchor, constant: 10)
         ])
 
         rectangle.addSubview(refreshButton)
         refreshButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            refreshButton.rightAnchor.constraint(equalTo: topicSegmentedControl.rightAnchor),
+            refreshButton.heightAnchor.constraint(equalToConstant: 32),
+            refreshButton.widthAnchor.constraint(equalToConstant: 32),
+            refreshButton.trailingAnchor.constraint(equalTo: topicSegmentedControl.trailingAnchor),
             refreshButton.topAnchor.constraint(equalTo: topicLabel.topAnchor)
         ])
 
         rectangle.addSubview(topicTableView)
         topicTableView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            topicTableView.topAnchor.constraint(equalTo: topicLabel.bottomAnchor, constant: 10),
-            topicTableView.leftAnchor.constraint(equalTo: topicLabel.leftAnchor),
-            topicTableView.rightAnchor.constraint(equalTo: refreshButton.rightAnchor),
+            topicTableView.heightAnchor.constraint(equalToConstant: 150),
+            topicTableView.leadingAnchor.constraint(equalTo: topicLabel.leadingAnchor),
+            topicTableView.trailingAnchor.constraint(equalTo: refreshButton.trailingAnchor),
             topicTableView.bottomAnchor.constraint(equalTo: rectangle.bottomAnchor, constant: -15)
         ])
         return rectangle
@@ -116,7 +118,6 @@ class MainViewTopicController: UIViewController {
         refreshButton.setImage(UIImage(systemName: "goforward"), for: UIControl.State.normal)
         refreshButton.backgroundColor = .black
         refreshButton.tintColor = .white
-        refreshButton.frame = CGRect(x: 0, y: 0, width: 20, height: 20)
         refreshButton.layer.cornerRadius = 10
         refreshButton.addTarget(self, action: #selector(buttonAction(_:)), for: .touchUpInside)
         return refreshButton
@@ -210,7 +211,6 @@ class MainViewTopicController: UIViewController {
         checkBackGroundRectangle.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             checkBackGroundRectangle.heightAnchor.constraint(equalToConstant: 150),
-            checkBackGroundRectangle.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             checkBackGroundRectangle.topAnchor.constraint(equalTo: view.topAnchor, constant: 150),
             checkBackGroundRectangle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),
             checkBackGroundRectangle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15)
@@ -219,8 +219,8 @@ class MainViewTopicController: UIViewController {
         view.addSubview(backGroundRectangle)
         backGroundRectangle.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            backGroundRectangle.heightAnchor.constraint(equalToConstant: 277),
-            backGroundRectangle.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 80),
+            backGroundRectangle.heightAnchor.constraint(equalToConstant: 300),
+            backGroundRectangle.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -170),
             backGroundRectangle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),
             backGroundRectangle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15)
         ])
@@ -230,8 +230,7 @@ class MainViewTopicController: UIViewController {
         NSLayoutConstraint.activate([
             callButton.leftAnchor.constraint(equalTo: backGroundRectangle.leftAnchor),
             callButton.rightAnchor.constraint(equalTo: backGroundRectangle.rightAnchor),
-//            callButton.heightAnchor.constraint(equalToConstant: 60),
-            callButton.topAnchor.constraint(equalTo: backGroundRectangle.bottomAnchor, constant: 10),
+            callButton.heightAnchor.constraint(equalToConstant: 60),
             callButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -70)
         ])
     }
