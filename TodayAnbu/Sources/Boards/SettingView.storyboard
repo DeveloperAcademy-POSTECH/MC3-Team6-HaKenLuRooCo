@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -13,47 +13,71 @@
             <objects>
                 <viewController id="Y6W-OH-hqX" customClass="SettingViewController" customModule="TodayAnbu" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="어머니의 연락처를 입력해주세요" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vt2-IL-Tnm">
-                                <rect key="frame" x="20" y="107" width="252" height="24"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="아버지의 연락처를 입력해주세요" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NUb-ge-9kN">
-                                <rect key="frame" x="20" y="234" width="252" height="24"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="엄마의 전화번호를 입력해주세요" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="P4t-Jr-nSW">
-                                <rect key="frame" x="20" y="154" width="374" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="아빠의 전화번호를 입력해주세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vQJ-iF-oPe">
-                                <rect key="frame" x="20" y="293" width="374" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="go" smartDashesType="yes"/>
-                            </textField>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="07s-2d-9Da">
+                                <rect key="frame" x="30" y="74" width="330" height="58"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="어머니의 연락처를 입력해주세요" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vt2-IL-Tnm">
+                                        <rect key="frame" x="0.0" y="0.0" width="330" height="24"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="엄마의 전화번호를 입력해주세요" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="P4t-Jr-nSW">
+                                        <rect key="frame" x="0.0" y="24" width="330" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="Vt2-IL-Tnm" firstAttribute="leading" secondItem="07s-2d-9Da" secondAttribute="leading" id="OrG-ba-XRW"/>
+                                    <constraint firstItem="P4t-Jr-nSW" firstAttribute="width" secondItem="Vt2-IL-Tnm" secondAttribute="width" id="Ybf-gj-Laa"/>
+                                    <constraint firstItem="P4t-Jr-nSW" firstAttribute="top" secondItem="Vt2-IL-Tnm" secondAttribute="bottom" constant="7" id="dgJ-nX-ypj"/>
+                                    <constraint firstAttribute="trailing" secondItem="Vt2-IL-Tnm" secondAttribute="trailing" id="yY1-Tp-1XW"/>
+                                </constraints>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="BPi-pj-2By">
+                                <rect key="frame" x="30" y="320" width="330" height="58"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="아버지의 연락처를 입력해주세요" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NUb-ge-9kN">
+                                        <rect key="frame" x="0.0" y="0.0" width="330" height="24"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="아빠의 전화번호를 입력해주세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vQJ-iF-oPe">
+                                        <rect key="frame" x="0.0" y="24" width="330" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="go" smartDashesType="yes"/>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="vQJ-iF-oPe" firstAttribute="top" secondItem="NUb-ge-9kN" secondAttribute="bottom" constant="7" id="zf0-fg-y6P"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="07s-2d-9Da" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="dzG-X5-z3P"/>
+                            <constraint firstItem="07s-2d-9Da" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="30" id="glE-1n-AlD"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="BPi-pj-2By" secondAttribute="trailing" constant="30" id="qzD-8J-zJA"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="07s-2d-9Da" secondAttribute="trailing" constant="30" id="reg-WQ-zck"/>
+                            <constraint firstItem="BPi-pj-2By" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="vmo-pG-qAh"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="dadNumberTF" destination="vQJ-iF-oPe" id="o1x-TR-IyF"/>
+                        <outlet property="dadVstackView" destination="BPi-pj-2By" id="FdG-S0-Tv2"/>
                         <outlet property="momNumberTF" destination="P4t-Jr-nSW" id="gPa-os-Ub6"/>
+                        <outlet property="momVstackView" destination="07s-2d-9Da" id="rvG-2j-zHW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="220" y="66"/>
+            <point key="canvasLocation" x="218.84057971014494" y="65.625"/>
         </scene>
     </scenes>
     <resources>

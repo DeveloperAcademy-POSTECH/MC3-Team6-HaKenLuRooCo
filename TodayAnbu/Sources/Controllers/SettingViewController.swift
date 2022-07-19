@@ -12,7 +12,10 @@ class SettingViewController: UIViewController, UITextFieldDelegate {
     var momNumber: String?
     var dadNumber: String?
     private var isMomNumberCompleted: Bool = false
+    private var isDadNumberCompleted: Bool = false
 
+    @IBOutlet weak var momVstackView: UIStackView!
+    @IBOutlet weak var dadVstackView: UIStackView!
     @IBOutlet weak var momNumberTF: UITextField! // 어머니 전화번호 입력 텍스트 필드
     @IBOutlet weak var dadNumberTF: UITextField! // 아버지 전화번호 입력 텍스트 필드
 
@@ -25,17 +28,12 @@ class SettingViewController: UIViewController, UITextFieldDelegate {
         dadNumberTF.setBottomBorder(color: UIColor.systemGray4)
         dadNumberTF.addDoneButtonOnKeyboard() // Keyboard에 done 버튼 추가
     }
-    override func viewDidAppear(_ animated: Bool) {
-        if isMomNumberCompleted == true {
-            print("Good")
-        }
-    }
 }
 
 extension SettingViewController {
     //     텍스트 필드 validation check
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-    
+
         if textField.text!.count < 10 {
             textField.setBottomBorder(color: UIColor.red)
         } else {
@@ -50,17 +48,17 @@ extension SettingViewController {
             if momNumberTF.text != nil {
                 momNumber = momNumberTF.text!
                 isMomNumberCompleted = true
-                print(momNumber ?? "nil")
             } else {
                 print("momNumber Error")
             }
         } else {
             if dadNumberTF.text != nil {
                 dadNumber = dadNumberTF.text!
-                print(dadNumber ?? "nil")
             } else {
                 print("dadNumber Error")
             }
         }
     }
 }
+
+// didset, 함수 호출 ->
