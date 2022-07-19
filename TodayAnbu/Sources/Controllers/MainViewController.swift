@@ -26,7 +26,7 @@ class MainViewController: UIViewController {
         let label = UILabel()
         label.textColor = .black
         label.text = "전화 안 한지 7일"
-        label.font = .boldSystemFont(ofSize: 50)
+        label.font = .boldSystemFont(ofSize: 25)
         self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(customView: label)
     }
     @objc private func buttonPressed(_ sender: Any) {
