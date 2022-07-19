@@ -15,19 +15,20 @@ class UserInitViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var dadDayVstack: UIStackView! // 아버지 전화번호 입력 Vstack
     @IBOutlet weak var momNumberTextfield: UITextField! // 어머니 전화번호 입력 텍스트 필드
     @IBOutlet weak var dadNumberTextfield: UITextField! // 아버지 전화번호 입력 텍스트 필드
-    @IBOutlet weak var startBtn: UIButton!
+    @IBOutlet weak var startButton: UIButton!
 
     // TODO : UserDefaults에 저장해야함.
-    private var momNumber: String?
-    private var dadNumber: String?
+    private var momPhoneNumber: String?
+    private var dadPhoneNumber: String?
 
+    // TODO: 전화번호가 없을 때, 다시 숨겨야함
     // 엄마 전화번호 입력창에 입력이 완료되었는지 확인
     private var isMomNumberCompleted: Bool = false {
         didSet {
             momDayVstack.isHidden = false
             if isRightNumber {
-                startBtn.isEnabled = true
-                startBtn.backgroundColor = UIColor.systemBlue
+                startButton.isEnabled = true
+                startButton.backgroundColor = UIColor.systemBlue
             }
         }
     }
@@ -37,8 +38,8 @@ class UserInitViewController: UIViewController, UITextFieldDelegate {
         didSet {
             dadDayVstack.isHidden = false
             if isRightNumber {
-                startBtn.isEnabled = true
-                startBtn.backgroundColor = UIColor.systemBlue
+                startButton.isEnabled = true
+                startButton.backgroundColor = UIColor.systemBlue
             }
         }
     }
@@ -56,7 +57,7 @@ class UserInitViewController: UIViewController, UITextFieldDelegate {
         dadNumberTextfield.addDoneButtonOnKeyboard()
         momDayVstack.isHidden = true
         dadDayVstack.isHidden = true
-        startBtn.isEnabled = false
+        startButton.isEnabled = false
     }
 }
 
@@ -78,14 +79,14 @@ extension UserInitViewController {
     func textFieldDidEndEditing(_ textField: UITextField) {
         if textField == momNumberTextfield {
             if momNumberTextfield.text != nil {
-                momNumber = momNumberTextfield.text!
+                momPhoneNumber = momNumberTextfield.text!
                 isMomNumberCompleted = true
             } else {
                 print("momNumber Error")
             }
         } else {
             if dadNumberTextfield.text != nil {
-                dadNumber = dadNumberTextfield.text!
+                dadPhoneNumber = dadNumberTextfield.text!
                 isDadNumberCompleted = true
             } else {
                 print("dadNumber Error")

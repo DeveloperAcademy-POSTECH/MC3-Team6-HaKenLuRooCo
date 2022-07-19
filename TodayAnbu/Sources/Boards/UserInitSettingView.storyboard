@@ -127,7 +127,7 @@
                         <outlet property="momDayVstack" destination="yHr-Qf-MIL" id="MWu-RV-qJx"/>
                         <outlet property="momNumberTextfield" destination="P4t-Jr-nSW" id="gPa-os-Ub6"/>
                         <outlet property="momVstackView" destination="07s-2d-9Da" id="rvG-2j-zHW"/>
-                        <outlet property="startBtn" destination="rUw-Qi-0Gg" id="E6W-HP-EPX"/>
+                        <outlet property="startButton" destination="rUw-Qi-0Gg" id="E6W-HP-EPX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
