@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SettingViewController: UIViewController, UITextFieldDelegate {
+class UserInitViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var momVstackView: UIStackView! // 어머니 전화번호 입력 Vstack
     @IBOutlet weak var dadVstackView: UIStackView! // 아버지 전화번호 입력 Vstack
@@ -17,20 +17,33 @@ class SettingViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var dadNumberTextfield: UITextField! // 아버지 전화번호 입력 텍스트 필드
     @IBOutlet weak var startBtn: UIButton!
 
-    var momNumber: String?
-    var dadNumber: String?
+    // TODO : UserDefaults에 저장해야함.
+    private var momNumber: String?
+    private var dadNumber: String?
 
+    // 엄마 전화번호 입력창에 입력이 완료되었는지 확인
     private var isMomNumberCompleted: Bool = false {
         didSet {
             momDayVstack.isHidden = false
+            if isRightNumber {
+                startBtn.isEnabled = true
+                startBtn.backgroundColor = UIColor.systemBlue
+            }
         }
     }
 
+    // 아빠 전화번호 입력창에 입력이 완료되었는지 확인
     private var isDadNumberCompleted: Bool = false {
         didSet {
             dadDayVstack.isHidden = false
+            if isRightNumber {
+                startBtn.isEnabled = true
+                startBtn.backgroundColor = UIColor.systemBlue
+            }
         }
     }
+
+    private var isRightNumber: Bool = false
 
     // Delegate 설정 및 Textfield 설정
     override func viewDidLoad() {
@@ -43,17 +56,19 @@ class SettingViewController: UIViewController, UITextFieldDelegate {
         dadNumberTextfield.addDoneButtonOnKeyboard()
         momDayVstack.isHidden = true
         dadDayVstack.isHidden = true
+        startBtn.isEnabled = false
     }
 }
 
-extension SettingViewController {
+extension UserInitViewController {
     // 텍스트 필드 validation check
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
 
         if textField.text!.count < 10 {
             textField.setBottomBorder(color: UIColor.red)
         } else {
-            textField.setBottomBorder(color: UIColor.green)
+            isRightNumber = true
+            textField.setBottomBorder(color: UIColor.blue)
         }
         let validation = textField.text!.count + string.count - range.length
         return !(validation > 11)
@@ -78,5 +93,3 @@ extension SettingViewController {
         }
     }
 }
-
-// didset, 함수 호출 ->

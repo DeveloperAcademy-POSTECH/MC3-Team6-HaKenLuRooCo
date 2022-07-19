@@ -14,8 +14,8 @@
 		3E2F6568287FA0E700A27FA9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E2F6567287FA0E700A27FA9 /* Assets.xcassets */; };
 		3E2F656B287FA0E700A27FA9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E2F6569287FA0E700A27FA9 /* LaunchScreen.storyboard */; };
 		3E2F6574287FA1C600A27FA9 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 3E2F6573287FA1C600A27FA9 /* .swiftlint.yml */; };
-		3EC0D9C928801E8900A98E73 /* SettingView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EC0D9C828801E8900A98E73 /* SettingView.storyboard */; };
-		3EC0D9CB28801E9F00A98E73 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC0D9CA28801E9F00A98E73 /* SettingViewController.swift */; };
+		3EC0D9C928801E8900A98E73 /* UserInitSettingView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EC0D9C828801E8900A98E73 /* UserInitSettingView.storyboard */; };
+		3EC0D9CB28801E9F00A98E73 /* UserInitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC0D9CA28801E9F00A98E73 /* UserInitViewController.swift */; };
 		3EC0D9CD2880FAD500A98E73 /* UITextfieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC0D9CC2880FAD500A98E73 /* UITextfieldExtension.swift */; };
 /* End PBXBuildFile section */
 
@@ -29,8 +29,8 @@
 		3E2F656A287FA0E700A27FA9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3E2F656C287FA0E700A27FA9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3E2F6573287FA1C600A27FA9 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = SOURCE_ROOT; };
-		3EC0D9C828801E8900A98E73 /* SettingView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SettingView.storyboard; sourceTree = "<group>"; };
-		3EC0D9CA28801E9F00A98E73 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		3EC0D9C828801E8900A98E73 /* UserInitSettingView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserInitSettingView.storyboard; sourceTree = "<group>"; };
+		3EC0D9CA28801E9F00A98E73 /* UserInitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInitViewController.swift; sourceTree = "<group>"; };
 		3EC0D9CC2880FAD500A98E73 /* UITextfieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextfieldExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -57,7 +57,7 @@
 			isa = PBXGroup;
 			children = (
 				3E2F6562287FA0E600A27FA9 /* ViewController.swift */,
-				3EC0D9CA28801E9F00A98E73 /* SettingViewController.swift */,
+				3EC0D9CA28801E9F00A98E73 /* UserInitViewController.swift */,
 				103BD8EE287FB38B00A6A0AD /* Utilities */,
 			);
 			path = Controllers;
@@ -96,7 +96,7 @@
 			children = (
 				3E2F6564287FA0E600A27FA9 /* Main.storyboard */,
 				3E2F6569287FA0E700A27FA9 /* LaunchScreen.storyboard */,
-				3EC0D9C828801E8900A98E73 /* SettingView.storyboard */,
+				3EC0D9C828801E8900A98E73 /* UserInitSettingView.storyboard */,
 			);
 			path = Boards;
 			sourceTree = "<group>";
@@ -194,7 +194,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3EC0D9C928801E8900A98E73 /* SettingView.storyboard in Resources */,
+				3EC0D9C928801E8900A98E73 /* UserInitSettingView.storyboard in Resources */,
 				3E2F6574287FA1C600A27FA9 /* .swiftlint.yml in Resources */,
 				3E2F656B287FA0E700A27FA9 /* LaunchScreen.storyboard in Resources */,
 				3E2F6568287FA0E700A27FA9 /* Assets.xcassets in Resources */,
@@ -233,7 +233,7 @@
 				3E2F6563287FA0E600A27FA9 /* ViewController.swift in Sources */,
 				3E2F655F287FA0E600A27FA9 /* AppDelegate.swift in Sources */,
 				3E2F6561287FA0E600A27FA9 /* SceneDelegate.swift in Sources */,
-				3EC0D9CB28801E9F00A98E73 /* SettingViewController.swift in Sources */,
+				3EC0D9CB28801E9F00A98E73 /* UserInitViewController.swift in Sources */,
 				3EC0D9CD2880FAD500A98E73 /* UITextfieldExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
