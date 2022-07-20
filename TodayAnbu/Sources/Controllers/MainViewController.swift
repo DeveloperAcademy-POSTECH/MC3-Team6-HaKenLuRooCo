@@ -314,9 +314,9 @@ class MainViewController: UIViewController {
         NSLayoutConstraint.activate([
             callButton.leftAnchor.constraint(equalTo: backGroundRectangle.leftAnchor),
             callButton.rightAnchor.constraint(equalTo: backGroundRectangle.rightAnchor),
-            callButton.heightAnchor.constraint(equalToConstant: 60),
-            callButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -50),
-            callButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -95)
+            callButton.heightAnchor.constraint(equalToConstant: 55),
+            callButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -50)
+//            callButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -95)
         ])
     }
 }
