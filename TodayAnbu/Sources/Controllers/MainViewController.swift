@@ -12,6 +12,7 @@ class MainViewController: UIViewController {
     private var seriousTopics = [["요즘 가정 빚은 있나요?", "부부 금술은 좋나요?", "아들내미가 맘에 안드시나요?", "빚"], ["a", "c", "v", "심각한 알파벳"], ["칼", "총", "담배", "무서운 단어"]]
     private var topics: [String] = []
     var blueStampBox: [UIImageView] = []
+    var grayStampBox: [UIImageView] = []
     private var genericTopicIndex: Int = 0
     private var seriousTopicIndex: Int = 0
     enum PhoneNum: String {
@@ -26,6 +27,14 @@ class MainViewController: UIViewController {
                 return imageView
             }()
             blueStampBox.append(sqaureImage)
+        }
+        for _ in 0..<6 {
+            let sqaureImage: UIImageView = {
+                let image = UIImage(systemName: "checkmark.square")
+                let imageView = UIImageView(image: image)
+                return imageView
+            }()
+            grayStampBox.append(sqaureImage)
         }
     }
     lazy var dadStampBox: UIStackView = {
