@@ -14,6 +14,9 @@
 		3E2F6568287FA0E700A27FA9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E2F6567287FA0E700A27FA9 /* Assets.xcassets */; };
 		3E2F656B287FA0E700A27FA9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E2F6569287FA0E700A27FA9 /* LaunchScreen.storyboard */; };
 		3E2F6574287FA1C600A27FA9 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 3E2F6573287FA1C600A27FA9 /* .swiftlint.yml */; };
+		3EC0D9C928801E8900A98E73 /* UserInitSettingView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EC0D9C828801E8900A98E73 /* UserInitSettingView.storyboard */; };
+		3EC0D9CB28801E9F00A98E73 /* UserInitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC0D9CA28801E9F00A98E73 /* UserInitViewController.swift */; };
+		3EC0D9CD2880FAD500A98E73 /* UITextfieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC0D9CC2880FAD500A98E73 /* UITextfieldExtension.swift */; };
 		7B2E9C6C28806FE3006BE5C8 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2E9C6B28806FE3006BE5C8 /* SettingViewController.swift */; };
 		7B2E9C6E288429B8006BE5C8 /* SettingPersonalDataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2E9C6D288429B8006BE5C8 /* SettingPersonalDataCell.swift */; };
 		7B2E9C702884397B006BE5C8 /* SettingHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2E9C6F2884397B006BE5C8 /* SettingHeaderView.swift */; };
@@ -33,6 +36,9 @@
 		3E2F656A287FA0E700A27FA9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3E2F656C287FA0E700A27FA9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3E2F6573287FA1C600A27FA9 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = SOURCE_ROOT; };
+		3EC0D9C828801E8900A98E73 /* UserInitSettingView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserInitSettingView.storyboard; sourceTree = "<group>"; };
+		3EC0D9CA28801E9F00A98E73 /* UserInitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInitViewController.swift; sourceTree = "<group>"; };
+		3EC0D9CC2880FAD500A98E73 /* UITextfieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextfieldExtension.swift; sourceTree = "<group>"; };
 		7B2E9C6B28806FE3006BE5C8 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		7B2E9C6D288429B8006BE5C8 /* SettingPersonalDataCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingPersonalDataCell.swift; sourceTree = "<group>"; };
 		7B2E9C6F2884397B006BE5C8 /* SettingHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingHeaderView.swift; sourceTree = "<group>"; };
@@ -56,6 +62,7 @@
 		103BD8EA287FB31600A6A0AD /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				3EC0D9CC2880FAD500A98E73 /* UITextfieldExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -64,6 +71,7 @@
 			isa = PBXGroup;
 			children = (
 				3E2F6562287FA0E600A27FA9 /* ViewController.swift */,
+				3EC0D9CA28801E9F00A98E73 /* UserInitViewController.swift */,
 				7B2E9C712884FCF4006BE5C8 /* MainViewController.swift */,
 				7B2E9C6B28806FE3006BE5C8 /* SettingViewController.swift */,
 				A92FC8C6287FF3C000962CA0 /* OnboardingPageViewController.swift */,
@@ -84,9 +92,9 @@
 		103BD8ED287FB37600A6A0AD /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				3E2F655E287FA0E600A27FA9 /* AppDelegate.swift */,
-				3E2F6560287FA0E600A27FA9 /* SceneDelegate.swift */,
 				103BD8F0287FB3DB00A6A0AD /* Models */,
+				3E2F6560287FA0E600A27FA9 /* SceneDelegate.swift */,
+				3E2F655E287FA0E600A27FA9 /* AppDelegate.swift */,
 				103BD8EF287FB39F00A6A0AD /* Boards */,
 				103BD8EB287FB31C00A6A0AD /* Controllers */,
 				103BD8EA287FB31600A6A0AD /* Extensions */,
@@ -106,6 +114,7 @@
 			children = (
 				3E2F6564287FA0E600A27FA9 /* Main.storyboard */,
 				3E2F6569287FA0E700A27FA9 /* LaunchScreen.storyboard */,
+				3EC0D9C828801E8900A98E73 /* UserInitSettingView.storyboard */,
 				A92FC8C4287FF38400962CA0 /* OnboardingPage.storyboard */,
 			);
 			path = Boards;
@@ -206,6 +215,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3EC0D9C928801E8900A98E73 /* UserInitSettingView.storyboard in Resources */,
 				3E2F6574287FA1C600A27FA9 /* .swiftlint.yml in Resources */,
 				3E2F656B287FA0E700A27FA9 /* LaunchScreen.storyboard in Resources */,
 				A92FC8C5287FF38400962CA0 /* OnboardingPage.storyboard in Resources */,
@@ -250,6 +260,8 @@
 				7B2E9C722884FCF4006BE5C8 /* MainViewController.swift in Sources */,
 				A92FC8C9287FF40000962CA0 /* NotificationSettingViewController.swift in Sources */,
 				3E2F6561287FA0E600A27FA9 /* SceneDelegate.swift in Sources */,
+				3EC0D9CB28801E9F00A98E73 /* UserInitViewController.swift in Sources */,
+				3EC0D9CD2880FAD500A98E73 /* UITextfieldExtension.swift in Sources */,
 				7B2E9C6C28806FE3006BE5C8 /* SettingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -398,7 +410,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 5N6FVFS939;
+				DEVELOPMENT_TEAM = 2S73QX9MMY;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TodayAnbu/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -428,7 +440,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 5N6FVFS939;
+				DEVELOPMENT_TEAM = 2S73QX9MMY;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TodayAnbu/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
