@@ -16,8 +16,6 @@ class MainViewController: UIViewController {
     private var genericTopicIndex: Int = 0
     private var seriousTopicIndex: Int = 0
 
-    // MARK: - Properties
-
     // 네비게이션 타이틀을 다루기 위해 정의된 메소드
     private func initTitle() {
         let label = UILabel()
@@ -99,42 +97,6 @@ class MainViewController: UIViewController {
         let rectangle = UIView()
         rectangle.layer.cornerRadius = 15
         rectangle.backgroundColor = .systemGray5
-        rectangle.addSubview(topRectangleDivider)
-        topRectangleDivider.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            topRectangleDivider.topAnchor.constraint(equalTo: rectangle.topAnchor),
-            topRectangleDivider.leadingAnchor.constraint(equalTo: rectangle.leadingAnchor, constant: 179),
-            topRectangleDivider.trailingAnchor.constraint(equalTo: rectangle.trailingAnchor, constant: -179),
-            topRectangleDivider.bottomAnchor.constraint(equalTo: rectangle.bottomAnchor)
-        ])
-        rectangle.addSubview(dadLabel)
-        dadLabel.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            dadLabel.leadingAnchor.constraint(equalTo: rectangle.leadingAnchor, constant: 70),
-            dadLabel.topAnchor.constraint(equalTo: rectangle.topAnchor, constant: 35)
-        ])
-        rectangle.addSubview(momLabel)
-        momLabel.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            momLabel.trailingAnchor.constraint(equalTo: rectangle.trailingAnchor, constant: -70),
-            momLabel.topAnchor.constraint(equalTo: rectangle.topAnchor, constant: 35)
-        ])
-        rectangle.addSubview(dadStampBox)
-        dadStampBox.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            dadStampBox.leadingAnchor.constraint(equalTo: rectangle.leadingAnchor, constant: 20),
-            dadStampBox.topAnchor.constraint(equalTo: rectangle.topAnchor, constant: 80),
-            dadStampBox.trailingAnchor.constraint(equalTo: dadStampBox.leadingAnchor, constant: 140),
-            dadStampBox.bottomAnchor.constraint(equalTo: dadStampBox.topAnchor, constant: 40)
-        ])
-        rectangle.addSubview(momStampBox)
-        momStampBox.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            momStampBox.leadingAnchor.constraint(equalTo: momStampBox.trailingAnchor, constant: -140),
-            momStampBox.topAnchor.constraint(equalTo: rectangle.topAnchor, constant: 80),
-            momStampBox.trailingAnchor.constraint(equalTo: rectangle.trailingAnchor, constant: -20),
-            momStampBox.bottomAnchor.constraint(equalTo: momStampBox.topAnchor, constant: 40)
-        ])
         return rectangle
     }()
     private let topicTitleLabel: UILabel = {
@@ -249,6 +211,11 @@ class MainViewController: UIViewController {
         view.addSubview(refreshButton)
         view.addSubview(topicTableView)
         view.addSubview(callButton)
+        checkBackGroundRectangle.addSubview(topRectangleDivider)
+        checkBackGroundRectangle.addSubview(dadLabel)
+        checkBackGroundRectangle.addSubview(momLabel)
+        checkBackGroundRectangle.addSubview(dadStampBox)
+        checkBackGroundRectangle.addSubview(momStampBox)
     }
     private func configureTranslate() {
         checkBackGroundRectangle.translatesAutoresizingMaskIntoConstraints = false
@@ -259,10 +226,45 @@ class MainViewController: UIViewController {
         refreshButton.translatesAutoresizingMaskIntoConstraints = false
         topicTableView.translatesAutoresizingMaskIntoConstraints = false
         callButton.translatesAutoresizingMaskIntoConstraints = false
+        topRectangleDivider.translatesAutoresizingMaskIntoConstraints = false
+        dadLabel.translatesAutoresizingMaskIntoConstraints = false
+        momLabel.translatesAutoresizingMaskIntoConstraints = false
+        dadStampBox.translatesAutoresizingMaskIntoConstraints = false
+        momStampBox.translatesAutoresizingMaskIntoConstraints = false
     }
     private func configureRender() {
         topicTableView.dataSource = self
         topicTableView.allowsSelection = false
+
+        NSLayoutConstraint.activate([
+            topRectangleDivider.topAnchor.constraint(equalTo: checkBackGroundRectangle.topAnchor),
+            topRectangleDivider.leadingAnchor.constraint(equalTo: checkBackGroundRectangle.leadingAnchor, constant: 179),
+            topRectangleDivider.trailingAnchor.constraint(equalTo: checkBackGroundRectangle.trailingAnchor, constant: -179),
+            topRectangleDivider.bottomAnchor.constraint(equalTo: checkBackGroundRectangle.bottomAnchor)
+        ])
+        NSLayoutConstraint.activate([
+            dadLabel.leadingAnchor.constraint(equalTo: checkBackGroundRectangle.leadingAnchor, constant: 70),
+            dadLabel.topAnchor.constraint(equalTo: checkBackGroundRectangle.topAnchor, constant: 35)
+        ])
+
+        NSLayoutConstraint.activate([
+            momLabel.trailingAnchor.constraint(equalTo: checkBackGroundRectangle.trailingAnchor, constant: -70),
+            momLabel.topAnchor.constraint(equalTo: checkBackGroundRectangle.topAnchor, constant: 35)
+        ])
+
+        NSLayoutConstraint.activate([
+            dadStampBox.leadingAnchor.constraint(equalTo: checkBackGroundRectangle.leadingAnchor, constant: 20),
+            dadStampBox.topAnchor.constraint(equalTo: checkBackGroundRectangle.topAnchor, constant: 80),
+            dadStampBox.trailingAnchor.constraint(equalTo: dadStampBox.leadingAnchor, constant: 140),
+            dadStampBox.bottomAnchor.constraint(equalTo: dadStampBox.topAnchor, constant: 40)
+        ])
+
+        NSLayoutConstraint.activate([
+            momStampBox.leadingAnchor.constraint(equalTo: momStampBox.trailingAnchor, constant: -140),
+            momStampBox.topAnchor.constraint(equalTo: checkBackGroundRectangle.topAnchor, constant: 80),
+            momStampBox.trailingAnchor.constraint(equalTo: checkBackGroundRectangle.trailingAnchor, constant: -20),
+            momStampBox.bottomAnchor.constraint(equalTo: momStampBox.topAnchor, constant: 40)
+        ])
 
         NSLayoutConstraint.activate([
             checkBackGroundRectangle.heightAnchor.constraint(equalToConstant: 150),
