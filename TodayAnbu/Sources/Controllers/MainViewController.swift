@@ -174,7 +174,7 @@ class MainViewController: UIViewController {
         callButton.setImage(UIImage(systemName: "phone.fill"), for: UIControl.State.normal)
         callButton.backgroundColor = .systemBlue
         callButton.tintColor = .white
-        callButton.layer.cornerRadius = 9
+        callButton.layer.cornerRadius = 10
         callButton.addTarget(self, action: #selector(callbuttonAction(_:)), for: .touchUpInside)
         return callButton
     }()
@@ -317,8 +317,9 @@ class MainViewController: UIViewController {
         NSLayoutConstraint.activate([
             callButton.leftAnchor.constraint(equalTo: backGroundRectangle.leftAnchor),
             callButton.rightAnchor.constraint(equalTo: backGroundRectangle.rightAnchor),
-            callButton.heightAnchor.constraint(equalToConstant: 60),
-            callButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -70)
+            callButton.heightAnchor.constraint(equalToConstant: 55),
+            callButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -50)
+//            callButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -95)
         ])
     }
 }

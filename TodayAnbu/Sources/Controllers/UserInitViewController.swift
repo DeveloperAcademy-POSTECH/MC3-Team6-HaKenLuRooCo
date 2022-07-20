@@ -35,6 +35,7 @@ class UserInitViewController: NotificationSettingViewController, UITextFieldDele
         momDayVstack.isHidden = true
         dadDayVstack.isHidden = true
         startButton.isEnabled = false
+        startButton.layer.cornerRadius = 10
         self.navigationItem.setHidesBackButton(true, animated: true)
     }
 
