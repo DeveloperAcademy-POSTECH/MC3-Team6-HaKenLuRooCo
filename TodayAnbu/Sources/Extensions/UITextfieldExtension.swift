@@ -10,7 +10,7 @@ import UIKit
 
 extension UITextField {
 
-    public var hasValidPhoneNumber: Bool {
+    var hasValidPhoneNumber: Bool {
         return text!.range(of: "^01[0-1, 7][0-9]{7,8}$",
                            options: String.CompareOptions.regularExpression,
                            range: nil, locale: nil) != nil
