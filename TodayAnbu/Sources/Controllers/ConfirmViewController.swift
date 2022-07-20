@@ -17,17 +17,17 @@ class ConfirmViewController: UIViewController {
         return label
     }()
     private let positiveButton: UIButton = {
-        let button: UIButton = UIButton()
+        let button: UIButton = UIButton(type: .system)
         button.setTitle("예", for: .normal)
         button.backgroundColor = .systemBlue
         button.tintColor = .white
         button.layer.cornerRadius = 10
-        // button.addTarget(self, action: #selector(), for: .touchUpInside)
+        button.addTarget(self, action: #selector(positiveButtonPressed), for: .touchUpInside)
         return button
     }()
 
     private let negativeButton: UIButton = {
-        let button: UIButton = UIButton()
+        let button: UIButton = UIButton(type: .system)
         button.setTitle("아니요", for: .normal)
         button.backgroundColor = .systemGray2
         button.tintColor = .white
@@ -63,6 +63,9 @@ class ConfirmViewController: UIViewController {
             negativeButton.heightAnchor.constraint(equalToConstant: 60),
             negativeButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -130)
         ])
+    }
+    @objc func positiveButtonPressed(_ sender: UIButton) {
+        print("눌려더")
     }
 
 }
