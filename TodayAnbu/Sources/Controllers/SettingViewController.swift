@@ -54,7 +54,7 @@ extension SettingViewController: UITableViewDelegate {
         return header
     }
 
-    func tableView(_: UITableView, heightForHeaderInSection _: Int) -> Double {
+    private func tableView(_: UITableView, heightForHeaderInSection _: Int) -> Double {
         return 300
     }
 

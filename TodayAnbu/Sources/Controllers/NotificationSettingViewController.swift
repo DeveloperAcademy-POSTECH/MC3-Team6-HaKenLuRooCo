@@ -57,7 +57,7 @@ class NotificationSettingViewController: UIViewController {
 
             let firstLabel: UILabel = {
                 let label = UILabel()
-                label.text = weekDays[index].weekDay as? String
+                label.text = weekDays[index].weekDay
                 label.font = UIFont.systemFont(ofSize: 20, weight: .bold)
                 label.textColor = .white
                 return label
