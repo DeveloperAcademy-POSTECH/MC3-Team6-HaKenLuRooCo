@@ -28,6 +28,9 @@
                                 <state key="normal" title="시작하기">
                                     <color key="titleColor" systemColor="systemGray6Color"/>
                                 </state>
+                                <connections>
+                                    <action selector="startButttonAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="e0z-ZZ-s8Z"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="H3d-PU-0dG">
                                 <rect key="frame" x="20" y="79" width="350" height="315.66666666666669"/>

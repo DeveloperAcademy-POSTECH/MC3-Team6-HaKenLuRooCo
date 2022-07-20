@@ -92,7 +92,6 @@
 		103BD8ED287FB37600A6A0AD /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-
 				103BD8F0287FB3DB00A6A0AD /* Models */,
 				3E2F6560287FA0E600A27FA9 /* SceneDelegate.swift */,
 				3E2F655E287FA0E600A27FA9 /* AppDelegate.swift */,
@@ -411,7 +410,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 5N6FVFS939;
+				DEVELOPMENT_TEAM = 2S73QX9MMY;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TodayAnbu/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -441,7 +440,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 5N6FVFS939;
+				DEVELOPMENT_TEAM = 2S73QX9MMY;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TodayAnbu/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
