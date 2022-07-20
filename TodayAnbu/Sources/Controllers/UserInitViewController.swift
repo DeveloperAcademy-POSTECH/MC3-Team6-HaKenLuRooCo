@@ -70,10 +70,8 @@ extension UserInitViewController {
 
     // textfield keyboard가 내려가면 호출
     func textFieldDidEndEditing(_ textField: UITextField) {
-        print(textField.text!)
-        print(textField.hasValidPhoneNumber)
         if textField == momNumberTextfield {
-            if momNumberTextfield.text != nil && momNumberTextfield.hasValidPhoneNumber && momNumberTextfield.text!.count == 11 {
+            if momNumberTextfield.hasValidPhoneNumber && momNumberTextfield.text!.count == 11 {
                 textField.setBottomBorder(color: UIColor.systemBlue)
                 startButton.isEnabled = true
                 startButton.backgroundColor = UIColor.systemBlue
@@ -87,7 +85,7 @@ extension UserInitViewController {
 
             }
         } else {
-            if dadNumberTextfield.text != nil && dadNumberTextfield.hasValidPhoneNumber && dadNumberTextfield.text!.count == 11 {
+            if dadNumberTextfield.hasValidPhoneNumber && dadNumberTextfield.text!.count == 11 {
                 startButton.isEnabled = true
                 startButton.backgroundColor = UIColor.systemBlue
                 dadDayVstack.isHidden = false
