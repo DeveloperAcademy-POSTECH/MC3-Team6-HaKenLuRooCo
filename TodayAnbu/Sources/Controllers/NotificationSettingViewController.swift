@@ -11,8 +11,6 @@ class NotificationSettingViewController: UIViewController {
 
     private var notificationButtonList: [NotificationButton] = []
 
-    private var selectedTime = [String:String]()
-
     private var buttonIndex: Int = 0 {
         didSet {
             initialHStackView.subviews.forEach({ $0.removeFromSuperview() })
@@ -83,10 +81,12 @@ class NotificationSettingViewController: UIViewController {
             notificationButton.buttonStack.addArrangedSubview(firstLabel)
             notificationButton.buttonStack.addArrangedSubview(secondLabel)
             notificationButtonList.append(notificationButton)
-        }    }
+        }
+    }
 
     private func addSubViewNotificationButton() {
         for button in notificationButtonList {
+            button.buttonStack.heightAnchor.constraint(equalToConstant: 60).isActive = true
             initialHStackView.addArrangedSubview(button.buttonStack)
         }
     }
@@ -97,17 +97,17 @@ class NotificationSettingViewController: UIViewController {
     }
 
     @objc func setIndex(_ recognizer: UITapGestureRecognizer!) {
-        print(notificationButtonList.map({$0.isSelected}))
+        print(notificationButtonList.map({$0.indexPath}))
         print(recognizer.view!.tag)
         buttonIndex = recognizer.view!.tag
-        notificationButtonList[buttonIndex].isSelected = !notificationButtonList[buttonIndex].isSelected
+        notificationButtonList[buttonIndex].isSelected.toggle()
         if notificationButtonList[buttonIndex].isSelected {
             notificationButtonList[buttonIndex].buttonStack.backgroundColor = .systemBlue
         } else {
             notificationButtonList[buttonIndex].buttonStack.backgroundColor = .systemGray
         }
-        showTimePicker()
-        print("현재 선택된 버튼의 인덱스는 \(buttonIndex) 입니다")
-        print("버튼의 선택여부는 \(notificationButtonList[buttonIndex].isSelected) 입니다")
+        if notificationButtonList[buttonIndex].isSelected {
+            showTimePicker()
+        }
     }
 }

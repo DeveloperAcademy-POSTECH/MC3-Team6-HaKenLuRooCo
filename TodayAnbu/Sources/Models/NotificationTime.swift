@@ -12,7 +12,7 @@ class NotificationButton {
     var buttonStack: UIStackView
     var isSelected: Bool
     init(id: Int, buttonStack: UIStackView, isSelected: Bool) {
-        self.indexPath = 0
+        self.indexPath = id
         self.buttonStack = buttonStack
         self.isSelected = false
     }
