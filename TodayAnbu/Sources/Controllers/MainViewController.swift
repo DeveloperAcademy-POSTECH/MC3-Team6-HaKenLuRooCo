@@ -19,6 +19,14 @@ class MainViewController: UIViewController {
         case momNum = "tel://01074080031"
         case dadNum = "tel://01046021620"
     }
+    private func initTitle() {
+        let label = UILabel()
+        label.textColor = .black
+        label.text = "전화 안 한지 7일"
+        label.font = .boldSystemFont(ofSize: 25)
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(customView: label)
+    }
+    
     private func makeBox() {
         for _ in 0..<6 {
             let sqaureImage: UIImageView = {
@@ -85,24 +93,10 @@ class MainViewController: UIViewController {
     }()
     private lazy var rightButton: UIBarButtonItem = {
         let buttonImage = UIImage(systemName: "person.circle")!
-
-    // MARK: - Properties
-
-    // 네비게이션 타이틀을 다루기 위해 정의된 메소드
-    private func initTitle() {
-        let label = UILabel()
-        label.textColor = .black
-        label.text = "전화 안 한지 7일"
-        label.font = .boldSystemFont(ofSize: 25)
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(customView: label)
-    }
-
-    lazy var rightButton: UIBarButtonItem = {
-        let buttonImage: UIImage = UIImage(systemName: "person.circle")!
         let button = UIBarButtonItem(image: buttonImage, style: .plain, target: self, action: #selector(buttonPressed))
         return button
     }()
-
+    
     private let topicTitleLabel: UILabel = {
         let topicTitle = UILabel()
         topicTitle.text = "오늘의 토픽"
