@@ -146,7 +146,6 @@ class MainViewController: UIViewController {
     private lazy var callAlert: UIAlertController = {
         let callAlert = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertController.Style.actionSheet)
         let momCall = UIAlertAction(title: "엄마한테 전화하기", style: .default) { _ in
-            // tel:// 붙여서 해야함 그래서 강제언래핑을 해야 하는 듯 싶은데 다른 해결책이 필요할듯
             self.goCallApp(url: "tel://" + (UserDefaults.standard.string(forKey: "momPhoneNumber") ?? ""))
         }
         let dadCall = UIAlertAction(title: "아빠한테 전화하기", style: .default) { _ in
