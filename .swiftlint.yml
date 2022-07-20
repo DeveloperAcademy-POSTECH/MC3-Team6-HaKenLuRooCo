@@ -16,6 +16,12 @@ disabled_rules:
 
     - todo
 
+    - type_body_length
+
+    - function_body_length
+
+    - file_length
+
 
 # Default가 비활성화인 규칙을 활성화시키기
 opt_in_rules:

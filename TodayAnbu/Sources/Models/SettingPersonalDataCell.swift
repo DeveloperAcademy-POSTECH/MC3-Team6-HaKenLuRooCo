@@ -9,23 +9,29 @@ import UIKit
 
 class SettingPersonalDataCell: UITableViewCell {
     // MARK: Properties
+
     let menuLable = UILabel()
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         configure()
     }
-    required init?(coder: NSCoder) {
+
+    @available(*, unavailable)
+    required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.contentView.layer.cornerRadius = 10
+        contentView.layer.cornerRadius = 10
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
+
     // MARK: Helpers
+
     func configure() {
         addSubview(menuLable)
         menuLable.translatesAutoresizingMaskIntoConstraints = false
@@ -34,5 +40,4 @@ class SettingPersonalDataCell: UITableViewCell {
             menuLable.leftAnchor.constraint(equalTo: leftAnchor, constant: 12)
         ])
     }
-
 }

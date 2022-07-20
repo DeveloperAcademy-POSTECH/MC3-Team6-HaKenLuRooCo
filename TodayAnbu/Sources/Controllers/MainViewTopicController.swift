@@ -20,6 +20,7 @@ class MainViewTopicController: UIViewController {
     }
 
     // MARK: Properties
+
     private let checkBackGroundRectangle: UIView = {
         let checkRectangle = UIView()
         checkRectangle.layer.cornerRadius = 15
@@ -264,7 +265,6 @@ extension MainViewTopicController: UITableViewDelegate {
 }
 
 extension MainViewTopicController: UITableViewDataSource {
-
     func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
         return topics.count - 1
     }

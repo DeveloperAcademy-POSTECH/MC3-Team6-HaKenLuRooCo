@@ -8,12 +8,11 @@
 import UIKit
 
 class NotificationSettingViewController: UIViewController {
-
     private var notificationButtonList: [NotificationButton] = []
 
     private var buttonIndex: Int = 0 {
         didSet {
-            initialHStackView.subviews.forEach({ $0.removeFromSuperview() })
+            initialHStackView.subviews.forEach { $0.removeFromSuperview() }
             addSubViewNotificationButton()
             initialHStackView.subviews[buttonIndex].backgroundColor = .systemBlue
         }
@@ -22,7 +21,6 @@ class NotificationSettingViewController: UIViewController {
     private let initialHStackView = UIStackView()
 
     override func viewDidLoad() {
-
         super.viewDidLoad()
         setHStackViewConstraints()
         makeNotificationButtonList()
@@ -30,7 +28,7 @@ class NotificationSettingViewController: UIViewController {
     }
 
     private func setHStackViewConstraints() {
-        self.view.addSubview(initialHStackView)
+        view.addSubview(initialHStackView)
         initialHStackView.axis = .horizontal
         initialHStackView.alignment = .center
         initialHStackView.distribution = .equalSpacing
@@ -45,9 +43,7 @@ class NotificationSettingViewController: UIViewController {
     let weekDays = NotificationTime.setDummyData()
 
     private func makeNotificationButtonList() {
-
-        for index in 0...weekDays.count-1 {
-
+        for index in 0 ... weekDays.count - 1 {
             let buttonStack = UIStackView()
 
             let notificationButton = NotificationButton(id: index, buttonStack: buttonStack, isSelected: false)
@@ -57,7 +53,7 @@ class NotificationSettingViewController: UIViewController {
             notificationButton.buttonStack.layer.cornerRadius = 10
             notificationButton.buttonStack.isLayoutMarginsRelativeArrangement = true
             notificationButton.buttonStack.translatesAutoresizingMaskIntoConstraints = false
-            notificationButton.buttonStack.directionalLayoutMargins =  NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5)
+            notificationButton.buttonStack.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5)
 
             let firstLabel: UILabel = {
                 let label = UILabel()
@@ -93,11 +89,11 @@ class NotificationSettingViewController: UIViewController {
 
     private func showTimePicker() {
         let notificationSettingView = NotificationModalViewController()
-        self.present(notificationSettingView, animated: true)
+        present(notificationSettingView, animated: true)
     }
 
     @objc func setIndex(_ recognizer: UITapGestureRecognizer!) {
-        print(notificationButtonList.map({$0.indexPath}))
+        print(notificationButtonList.map(\.indexPath))
         print(recognizer.view!.tag)
         buttonIndex = recognizer.view!.tag
         notificationButtonList[buttonIndex].isSelected.toggle()

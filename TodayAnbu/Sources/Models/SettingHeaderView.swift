@@ -9,27 +9,35 @@ import UIKit
 
 class SettingHeaderView: UIView {
     // MARK: Properties
+
     let profileImage: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(systemName: "person.circle")
         imageView.contentMode = .scaleToFill
         return imageView
     }()
-    lazy var userLabel: UILabel={
+
+    lazy var userLabel: UILabel = {
         let label = UILabel()
         label.text = "루루코"
         label.font = UIFont.systemFont(ofSize: 30)
         return label
     }()
+
     // MARK: LifeCycle
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         configure()
     }
-    required init?(coder: NSCoder) {
+
+    @available(*, unavailable)
+    required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+
     // MARK: Helpers
+
     func configure() {
         addSubview(profileImage)
         profileImage.translatesAutoresizingMaskIntoConstraints = false

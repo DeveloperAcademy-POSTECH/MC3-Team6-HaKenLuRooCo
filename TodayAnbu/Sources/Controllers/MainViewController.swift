@@ -8,11 +8,11 @@ import UIKit
 
 class MainViewController: UIViewController {
     // MARK: - Properties
+
     private var genericTopics = [["요즘 핫한 과일은 뭘까요?", "최근 먹은 과일은 뭘까요?", "몸에 좋은 과일은 뭘까요?", "과일"], ["1", "2", "3", "숫자"], ["ㅁ", "ㄴ", "ㄷ", "한글"]]
     private var seriousTopics = [["요즘 가정 빚은 있나요?", "부부 금술은 좋나요?", "아들내미가 맘에 안드시나요?", "빚"], ["a", "c", "v", "심각한 알파벳"], ["칼", "총", "담배", "무서운 단어"]]
     private var topics: [String] = []
-    var blueStampBox: [UIImageView] = []
-    var grayStampBox: [UIImageView] = []
+    var checkStampBox: [UIImageView] = []
     private var genericTopicIndex: Int = 0
     private var seriousTopicIndex: Int = 0
 
@@ -22,31 +22,27 @@ class MainViewController: UIViewController {
         label.textColor = .black
         label.text = "전화 안 한지 7일"
         label.font = .boldSystemFont(ofSize: 25)
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(customView: label)
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: label)
     }
+
     private func makeBox() {
-        for _ in 0..<6 {
+        for _ in 0 ..< 6 {
             let sqaureImage: UIImageView = {
                 let image = UIImage(systemName: "checkmark.square.fill")
                 let imageView = UIImageView(image: image)
+                imageView.isUserInteractionEnabled = true
+                imageView.tintColor = .systemGray
                 return imageView
             }()
-            blueStampBox.append(sqaureImage)
-        }
-        for _ in 0..<6 {
-            let sqaureImage: UIImageView = {
-                let image = UIImage(systemName: "checkmark.square")
-                let imageView = UIImageView(image: image)
-                return imageView
-            }()
-            grayStampBox.append(sqaureImage)
+            checkStampBox.append(sqaureImage)
         }
     }
+
     lazy var dadStampBox: UIStackView = {
         let stackView: UIStackView = {
             var stackView = UIStackView()
-            for idx in 0...2 {
-                stackView.addArrangedSubview(blueStampBox[idx])
+            for idx in 0 ... 2 {
+                stackView.addArrangedSubview(checkStampBox[idx])
             }
             return stackView
         }()
@@ -56,11 +52,12 @@ class MainViewController: UIViewController {
         stackView.distribution = .fillEqually
         return stackView
     }()
+
     lazy var momStampBox: UIStackView = {
         let stackView: UIStackView = {
             var stackView = UIStackView()
-            for idx in 3...5 {
-                stackView.addArrangedSubview(blueStampBox[idx])
+            for idx in 3 ... 5 {
+                stackView.addArrangedSubview(checkStampBox[idx])
             }
             return stackView
         }()
@@ -70,6 +67,7 @@ class MainViewController: UIViewController {
         stackView.distribution = .fillEqually
         return stackView
     }()
+
     private let momLabel: UILabel = {
         // 클래스를 이용하여 매개변수를 전달하는 방식으로 문자를 출력할 수 있는 방법 존재
         let label = UILabel()
@@ -77,45 +75,53 @@ class MainViewController: UIViewController {
         label.font = .systemFont(ofSize: 20, weight: .semibold)
         return label
     }()
+
     private let dadLabel: UILabel = {
         let label = UILabel()
         label.text = "아빠"
         label.font = .systemFont(ofSize: 20, weight: .semibold)
         return label
     }()
+
     private lazy var topRectangleDivider: UIView = {
         let rectangle = UIView()
         rectangle.backgroundColor = .systemGray3
         return rectangle
     }()
+
     private lazy var rightButton: UIBarButtonItem = {
         let buttonImage = UIImage(systemName: "person.circle")!
         let button = UIBarButtonItem(image: buttonImage, style: .plain, target: self, action: #selector(buttonPressed))
         return button
     }()
+
     private lazy var checkBackGroundRectangle: UIView = {
         let rectangle = UIView()
         rectangle.layer.cornerRadius = 15
         rectangle.backgroundColor = .systemGray5
         return rectangle
     }()
+
     private let topicTitleLabel: UILabel = {
         let topicTitle = UILabel()
         topicTitle.text = "오늘의 토픽"
         topicTitle.font = .systemFont(ofSize: 20, weight: .semibold)
         return topicTitle
     }()
+
     private let topicLabel: UILabel = {
         let topicText = UILabel()
         topicText.font = .systemFont(ofSize: 20, weight: .semibold)
         return topicText
     }()
+
     private lazy var backGroundRectangle: UIView = {
         let rectangle = UIView()
         rectangle.layer.cornerRadius = 15
         rectangle.backgroundColor = .systemGray5
         return rectangle
     }()
+
     private lazy var topicSegmentedControl: UISegmentedControl = {
         let segmentItems = ["가벼운", "진지한"]
         let topicSegmentedControl = UISegmentedControl(items: segmentItems)
@@ -125,15 +131,16 @@ class MainViewController: UIViewController {
         topicSegmentedControl.addTarget(self, action: #selector(segmentedValueChanged(_:)), for: .valueChanged)
         return topicSegmentedControl
     }()
+
     private lazy var refreshButton: UIButton = {
-            let refreshButton = UIButton(type: UIButton.ButtonType.system)
-            refreshButton.setImage(UIImage(systemName: "goforward"), for: UIControl.State.normal)
-            refreshButton.backgroundColor = .black
-            refreshButton.tintColor = .white
-            refreshButton.layer.cornerRadius = 10
-            refreshButton.addTarget(self, action: #selector(buttonAction(_:)), for: .touchUpInside)
-            return refreshButton
-        }()
+        let refreshButton = UIButton(type: UIButton.ButtonType.system)
+        refreshButton.setImage(UIImage(systemName: "goforward"), for: UIControl.State.normal)
+        refreshButton.backgroundColor = .black
+        refreshButton.tintColor = .white
+        refreshButton.layer.cornerRadius = 10
+        refreshButton.addTarget(self, action: #selector(buttonAction(_:)), for: .touchUpInside)
+        return refreshButton
+    }()
 
     private let topicTableView: UITableView = {
         let topicTableView = UITableView()
@@ -190,19 +197,21 @@ class MainViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.initTitle()
-        navigationItem.rightBarButtonItem = self.rightButton
         configureUI()
         configureAddSubView()
         configureTranslate()
         configureRender()
-        self.navigationItem.setHidesBackButton(true, animated: true)
+        configureCheckButtonTapGesture()
+        navigationItem.setHidesBackButton(true, animated: true)
     }
+
     // MARK: - Configures
+
     private func configureUI() {
         view.backgroundColor = .systemBackground
         makeBox()
     }
+
     private func configureAddSubView() {
         view.addSubview(checkBackGroundRectangle)
         view.addSubview(backGroundRectangle)
@@ -218,6 +227,7 @@ class MainViewController: UIViewController {
         checkBackGroundRectangle.addSubview(dadStampBox)
         checkBackGroundRectangle.addSubview(momStampBox)
     }
+
     private func configureTranslate() {
         checkBackGroundRectangle.translatesAutoresizingMaskIntoConstraints = false
         backGroundRectangle.translatesAutoresizingMaskIntoConstraints = false
@@ -233,6 +243,7 @@ class MainViewController: UIViewController {
         dadStampBox.translatesAutoresizingMaskIntoConstraints = false
         momStampBox.translatesAutoresizingMaskIntoConstraints = false
     }
+
     private func configureRender() {
         topicTableView.dataSource = self
         topicTableView.allowsSelection = false
@@ -318,26 +329,34 @@ class MainViewController: UIViewController {
             callButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -70)
         ])
     }
-}
-    // MARK: - extension
-    extension MainViewController: UITableViewDataSource {
 
-        func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
-            return topics.count - 1
-        }
-
-        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-
-            cell.textLabel?.text = topics[indexPath.row]
-            return cell
+    private func configureCheckButtonTapGesture() {
+        for index in 0 ... 5 {
+            let tapGestureRecognizer = CheckButtonTapGesture(target: self, action: #selector(didTapImageView(_:)))
+            checkStampBox[index].addGestureRecognizer(tapGestureRecognizer)
+            tapGestureRecognizer.indexOfButton = index
         }
     }
+}
+
+// MARK: - extension
+
+extension MainViewController: UITableViewDataSource {
+    func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
+        return topics.count - 1
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+
+        cell.textLabel?.text = topics[indexPath.row]
+        return cell
+    }
+}
 
 // MARK: - func
 
 extension MainViewController {
-
     private func goCallApp(url: String) {
         if let openApp = URL(string: url), UIApplication.shared.canOpenURL(openApp) {
             // 버전별 처리
@@ -360,30 +379,30 @@ extension MainViewController {
     }
 
     @objc private func buttonAction(_: UIButton!) {
-            switch topicSegmentedControl.selectedSegmentIndex {
-            case 0:
-                let previousIndex = genericTopicIndex
-                repeat {
-                    genericTopicIndex = Int.random(in: 0 ..< genericTopics.count)
-                } while previousIndex == genericTopicIndex
-                topics = genericTopics[genericTopicIndex]
-                topicLabel.text = topics.last
-            case 1:
-                let previousIndex = seriousTopicIndex
-                repeat {
-                    seriousTopicIndex = Int.random(in: 0 ..< seriousTopics.count)
-                } while previousIndex == seriousTopicIndex
-                topics = seriousTopics[seriousTopicIndex]
-                topicLabel.text = topics.last
-            default:
-                ()
-            }
-            topicTableView.reloadData()
+        switch topicSegmentedControl.selectedSegmentIndex {
+        case 0:
+            let previousIndex = genericTopicIndex
+            repeat {
+                genericTopicIndex = Int.random(in: 0 ..< genericTopics.count)
+            } while previousIndex == genericTopicIndex
+            topics = genericTopics[genericTopicIndex]
+            topicLabel.text = topics.last
+        case 1:
+            let previousIndex = seriousTopicIndex
+            repeat {
+                seriousTopicIndex = Int.random(in: 0 ..< seriousTopics.count)
+            } while previousIndex == seriousTopicIndex
+            topics = seriousTopics[seriousTopicIndex]
+            topicLabel.text = topics.last
+        default:
+            ()
         }
+        topicTableView.reloadData()
+    }
 
-    @objc private func buttonPressed(_ sender: Any) {
+    @objc private func buttonPressed(_: Any) {
         let viewController = SettingViewController()
-        self.present(viewController, animated: true)
+        present(viewController, animated: true)
     }
 
     @objc private func callbuttonAction(_: UIButton!) {
@@ -405,4 +424,13 @@ extension MainViewController {
 
         topicTableView.reloadData()
     }
+
+    @objc private func didTapImageView(_ sender: CheckButtonTapGesture) {
+        let blueStamp = checkStampBox[sender.indexOfButton]
+        blueStamp.tintColor = blueStamp.tintColor == .systemGray ? .systemBlue : .systemGray
+    }
+}
+
+class CheckButtonTapGesture: UITapGestureRecognizer {
+    var indexOfButton = Int()
 }

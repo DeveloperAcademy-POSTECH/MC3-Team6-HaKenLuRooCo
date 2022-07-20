@@ -8,16 +8,15 @@
 import UIKit
 
 class UserInitViewController: NotificationSettingViewController, UITextFieldDelegate {
+    @IBOutlet var momVstackView: UIStackView! // 어머니 전화번호 입력 Vstack
+    @IBOutlet var dadVstackView: UIStackView! // 아버지 전화번호 입력 Vstack
+    @IBOutlet var momDayVstack: UIStackView! // 어머니 전화번호 입력 Vstack
+    @IBOutlet var dadDayVstack: UIStackView! // 아버지 전화번호 입력 Vstack
+    @IBOutlet var momNumberTextfield: UITextField! // 어머니 전화번호 입력 텍스트 필드
+    @IBOutlet var dadNumberTextfield: UITextField! // 아버지 전화번호 입력 텍스트 필드
+    @IBOutlet var startButton: UIButton!
 
-    @IBOutlet weak var momVstackView: UIStackView! // 어머니 전화번호 입력 Vstack
-    @IBOutlet weak var dadVstackView: UIStackView! // 아버지 전화번호 입력 Vstack
-    @IBOutlet weak var momDayVstack: UIStackView! // 어머니 전화번호 입력 Vstack
-    @IBOutlet weak var dadDayVstack: UIStackView! // 아버지 전화번호 입력 Vstack
-    @IBOutlet weak var momNumberTextfield: UITextField! // 어머니 전화번호 입력 텍스트 필드
-    @IBOutlet weak var dadNumberTextfield: UITextField! // 아버지 전화번호 입력 텍스트 필드
-    @IBOutlet weak var startButton: UIButton!
-
-    // TODO : UserDefaults에 저장해야함.
+    // TODO: UserDefaults에 저장해야함.
     private var momPhoneNumber: String? = ""
     private var dadPhoneNumber: String? = ""
 
@@ -35,10 +34,10 @@ class UserInitViewController: NotificationSettingViewController, UITextFieldDele
         momDayVstack.isHidden = true
         dadDayVstack.isHidden = true
         startButton.isEnabled = false
-        self.navigationItem.setHidesBackButton(true, animated: true)
+        navigationItem.setHidesBackButton(true, animated: true)
     }
 
-    @IBAction func startButttonAction(_ sender: Any) {
+    @IBAction func startButttonAction(_: Any) {
         UserDefaults.standard.set(true, forKey: "isFisrtLogin") // 최초 로그인인지 확인
         if momNumberTextfield.hasValidPhoneNumber {
             UserDefaults.standard.set(momNumberTextfield.text!, forKey: "momPhoneNumber")
@@ -72,7 +71,7 @@ extension UserInitViewController {
     // textfield keyboard가 내려가면 호출
     func textFieldDidEndEditing(_ textField: UITextField) {
         if textField == momNumberTextfield {
-            if momNumberTextfield.hasValidPhoneNumber && momNumberTextfield.text!.count == 11 {
+            if momNumberTextfield.hasValidPhoneNumber, momNumberTextfield.text!.count == 11 {
                 textField.setBottomBorder(color: UIColor.systemBlue)
                 startButton.isEnabled = true
                 startButton.backgroundColor = UIColor.systemBlue
@@ -83,10 +82,9 @@ extension UserInitViewController {
                 startButton.isEnabled = false
                 startButton.backgroundColor = UIColor.systemGray4
                 momDayVstack.isHidden = true
-
             }
         } else {
-            if dadNumberTextfield.hasValidPhoneNumber && dadNumberTextfield.text!.count == 11 {
+            if dadNumberTextfield.hasValidPhoneNumber, dadNumberTextfield.text!.count == 11 {
                 startButton.isEnabled = true
                 startButton.backgroundColor = UIColor.systemBlue
                 dadDayVstack.isHidden = false

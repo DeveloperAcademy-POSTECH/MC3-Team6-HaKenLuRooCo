@@ -8,11 +8,10 @@
 import UIKit
 
 class OnboardingPageViewController: UIViewController {
-
-    @IBOutlet weak var startButton: UIButton!
+    @IBOutlet var startButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    @IBAction func startButtonAction(_ sender: Any) {
-    }
+
+    @IBAction func startButtonAction(_: Any) {}
 }

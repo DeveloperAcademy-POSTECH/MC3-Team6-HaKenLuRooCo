@@ -31,7 +31,7 @@ repos:
         --enable,
         'acronyms,isEmpty,preferDouble,wrapEnumCases',
         --disable,
-        'redundantReturn',
+        'redundantReturn,trailingCommas',
         ]
 
 -   repo: https://github.com/realm/SwiftLint
