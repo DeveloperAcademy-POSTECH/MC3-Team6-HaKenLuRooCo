@@ -49,27 +49,27 @@
                                     <segue destination="SqL-hz-3sL" kind="show" id="rK0-hb-x6z"/>
                                 </connections>
                             </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="H3d-PU-0dG">
-                                <rect key="frame" x="20" y="79" width="350" height="315.66666666666669"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="H3d-PU-0dG">
+                                <rect key="frame" x="20" y="79" width="350" height="752.66666666666663"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="07s-2d-9Da">
-                                        <rect key="frame" x="0.0" y="0.0" width="350" height="70"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="07s-2d-9Da">
+                                        <rect key="frame" x="0.0" y="0.0" width="350" height="68"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="어머니의 연락처를 입력해주세요" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vt2-IL-Tnm">
-                                                <rect key="frame" x="0.0" y="0.0" width="350" height="24"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="350" height="29"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="엄마의 전화번호를 입력해주세요" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="P4t-Jr-nSW">
-                                                <rect key="frame" x="0.0" y="36" width="350" height="34"/>
+                                                <rect key="frame" x="0.0" y="39" width="350" height="29"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                             </textField>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="yHr-Qf-MIL">
-                                        <rect key="frame" x="0.0" y="95" width="350" height="50.333333333333343"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="yHr-Qf-MIL">
+                                        <rect key="frame" x="0.0" y="98" width="350" height="268.33333333333331"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="어머니와 전화할 시간을 알려주세요" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U4x-is-5fT">
                                                 <rect key="frame" x="0.0" y="0.0" width="350" height="24"/>
@@ -78,15 +78,18 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="저희가 알람을 통해 알려드릴게요!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YLo-xB-Tnj">
-                                                <rect key="frame" x="0.0" y="36" width="350" height="14.333333333333336"/>
+                                                <rect key="frame" x="0.0" y="34" width="350" height="14.333333333333336"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                                 <color key="textColor" systemColor="systemGray2Color"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="4ya-7f-xuS">
+                                                <rect key="frame" x="0.0" y="58.333333333333343" width="350" height="210.00000000000003"/>
+                                            </stackView>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="BPi-pj-2By">
-                                        <rect key="frame" x="0.0" y="170.33333333333334" width="350" height="70"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="BPi-pj-2By">
+                                        <rect key="frame" x="0.0" y="396.33333333333331" width="350" height="117.99999999999994"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="아버지의 연락처를 입력해주세요" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NUb-ge-9kN">
                                                 <rect key="frame" x="0.0" y="0.0" width="350" height="24"/>
@@ -95,14 +98,14 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="아빠의 전화번호를 입력해주세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vQJ-iF-oPe">
-                                                <rect key="frame" x="0.0" y="35.999999999999972" width="350" height="34"/>
+                                                <rect key="frame" x="0.0" y="34" width="350" height="84"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="go" smartDashesType="yes"/>
                                             </textField>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="bK5-Ke-nw4">
-                                        <rect key="frame" x="0.0" y="265.33333333333331" width="350" height="50.333333333333314"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="bK5-Ke-nw4">
+                                        <rect key="frame" x="0.0" y="544.33333333333337" width="350" height="208.33333333333337"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="아버지와 전화할 시간을 알려주세요" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EXa-uC-HD2">
                                                 <rect key="frame" x="0.0" y="0.0" width="350" height="24"/>
@@ -111,14 +114,20 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="저희가 알람을 통해 알려드릴게요!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WaI-1C-l7S">
-                                                <rect key="frame" x="0.0" y="36" width="350" height="14.333333333333336"/>
+                                                <rect key="frame" x="0.0" y="54" width="350" height="14.333333333333329"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                                 <color key="textColor" systemColor="systemGray2Color"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vu3-4n-8jF">
+                                                <rect key="frame" x="0.0" y="98.333333333333258" width="350" height="110"/>
+                                            </stackView>
                                         </subviews>
                                     </stackView>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="BPi-pj-2By" firstAttribute="top" secondItem="H3d-PU-0dG" secondAttribute="top" constant="396.33333333333331" id="jK6-qc-Jft"/>
+                                </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="일주일에 3번 정도 전화를 부모님들이 가장 선호하신다고 해요!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="loc-EW-axl">
                                 <rect key="frame" x="48.333333333333343" y="749.66666666666663" width="293.66666666666663" height="14.333333333333371"/>
@@ -137,6 +146,7 @@
                             <constraint firstItem="loc-EW-axl" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="YbA-MM-54V"/>
                             <constraint firstItem="rUw-Qi-0Gg" firstAttribute="top" secondItem="loc-EW-axl" secondAttribute="bottom" constant="10" id="afN-DA-W5v"/>
                             <constraint firstItem="H3d-PU-0dG" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="c8s-qx-rQN"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="H3d-PU-0dG" secondAttribute="bottom" constant="-21.666666666666629" id="g4n-vL-Dgx"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="rUw-Qi-0Gg" secondAttribute="trailing" constant="20" id="yxC-3M-P5f"/>
                         </constraints>
                     </view>
@@ -144,9 +154,11 @@
                     <connections>
                         <outlet property="dadDayVstack" destination="bK5-Ke-nw4" id="bml-6R-Efc"/>
                         <outlet property="dadNumberTextfield" destination="vQJ-iF-oPe" id="o1x-TR-IyF"/>
+                        <outlet property="dadSevenButtonHStack" destination="Vu3-4n-8jF" id="O1D-ig-KYI"/>
                         <outlet property="dadVstackView" destination="BPi-pj-2By" id="FdG-S0-Tv2"/>
                         <outlet property="momDayVstack" destination="yHr-Qf-MIL" id="MWu-RV-qJx"/>
                         <outlet property="momNumberTextfield" destination="P4t-Jr-nSW" id="gPa-os-Ub6"/>
+                        <outlet property="momSevenButtonHStack" destination="4ya-7f-xuS" id="8vk-5L-DfV"/>
                         <outlet property="momVstackView" destination="07s-2d-9Da" id="rvG-2j-zHW"/>
                         <outlet property="startButton" destination="rUw-Qi-0Gg" id="E6W-HP-EPX"/>
                     </connections>

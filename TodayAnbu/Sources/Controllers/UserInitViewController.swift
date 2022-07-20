@@ -16,10 +16,16 @@ class UserInitViewController: NotificationSettingViewController, UITextFieldDele
     @IBOutlet weak var momNumberTextfield: UITextField! // 어머니 전화번호 입력 텍스트 필드
     @IBOutlet weak var dadNumberTextfield: UITextField! // 아버지 전화번호 입력 텍스트 필드
     @IBOutlet weak var startButton: UIButton!
+    @IBOutlet weak var momSevenButtonHStack: UIStackView!
+    @IBOutlet weak var dadSevenButtonHStack: UIStackView!
 
     // TODO : UserDefaults에 저장해야함.
     private var momPhoneNumber: String? = ""
     private var dadPhoneNumber: String? = ""
+
+    private var notificationButtonList: [NotificationButton] = []
+    private var buttonIndex: Int = 0
+    let weekDays = NotificationTime.setDummyData()
 
     // Delegate 설정 및 Textfield 설정
     override func viewDidLoad() {
@@ -32,8 +38,11 @@ class UserInitViewController: NotificationSettingViewController, UITextFieldDele
         momNumberTextfield.addDoneButtonOnKeyboard()
         dadNumberTextfield.setBottomBorder(color: UIColor.systemGray4)
         dadNumberTextfield.addDoneButtonOnKeyboard()
-        momDayVstack.isHidden = true
+        makeNotificationButtonList()
+        addSubViewToMomStack()
+//        addSubViewToDadStack()
         dadDayVstack.isHidden = true
+        momDayVstack.isHidden = true
         startButton.isEnabled = false
     }
 
@@ -95,6 +104,69 @@ extension UserInitViewController {
                 startButton.backgroundColor = UIColor.systemGray4
                 dadDayVstack.isHidden = true
             }
+        }
+    }
+
+    private func makeNotificationButtonList() {
+        for index in 0...weekDays.count-1 {
+            let buttonStack = UIStackView()
+
+            let notificationButton = NotificationButton(id: index, buttonStack: buttonStack, isSelected: false)
+            notificationButton.buttonStack.axis = .vertical
+            notificationButton.buttonStack.alignment = .center
+            notificationButton.buttonStack.spacing = 5
+            notificationButton.buttonStack.layer.cornerRadius = 10
+            notificationButton.buttonStack.isLayoutMarginsRelativeArrangement = true
+            notificationButton.buttonStack.translatesAutoresizingMaskIntoConstraints = false
+            notificationButton.buttonStack.directionalLayoutMargins =  NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5)
+
+            let firstLabel: UILabel = {
+                let label = UILabel()
+                label.text = weekDays[index].weekDay as? String
+                label.font = UIFont.systemFont(ofSize: 20, weight: .bold)
+                label.textColor = .white
+                return label
+            }()
+
+            notificationButton.buttonStack.tag = index
+            notificationButton.buttonStack.backgroundColor = .systemGray
+            notificationButton.buttonStack.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(setIndex(_:))))
+            notificationButton.buttonStack.addArrangedSubview(firstLabel)
+            notificationButtonList.append(notificationButton)
+        }
+    }
+
+    private func addSubViewToMomStack() {
+        for button in notificationButtonList {
+            button.buttonStack.heightAnchor.constraint(equalToConstant: 60).isActive = true
+            momSevenButtonHStack.addArrangedSubview(button.buttonStack)
+        }
+    }
+
+    private func addSubViewToDadStack() {
+        for button in notificationButtonList {
+            button.buttonStack.heightAnchor.constraint(equalToConstant: 60).isActive = true
+            dadSevenButtonHStack.addArrangedSubview(button.buttonStack)
+        }
+    }
+
+    private func showTimePicker() {
+        let notificationSettingView = NotificationModalViewController()
+        self.present(notificationSettingView, animated: true)
+    }
+
+    @objc func setIndex(_ recognizer: UITapGestureRecognizer!) {
+        print(notificationButtonList.map({$0.indexPath}))
+        print(recognizer.view!.tag)
+        buttonIndex = recognizer.view!.tag
+        notificationButtonList[buttonIndex].isSelected.toggle()
+        if notificationButtonList[buttonIndex].isSelected {
+            notificationButtonList[buttonIndex].buttonStack.backgroundColor = .systemBlue
+        } else {
+            notificationButtonList[buttonIndex].buttonStack.backgroundColor = .systemGray
+        }
+        if notificationButtonList[buttonIndex].isSelected {
+            showTimePicker()
         }
     }
 }
