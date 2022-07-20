@@ -2,15 +2,17 @@
 //  MainViewController.swift
 //  TodayAnbu
 //
-//  Created by Taehwan Kim on 2022/07/18.
-//  혹시 몰라 통합용 베이스 MainViewController 생성했습니다.
+//  Created by Taehwan Kim, 김연호, 코지 on 2022/07/18.
 
 import UIKit
 
 class MainViewController: UIViewController {
+    // MARK: - Properties
     private var genericTopics = [["요즘 핫한 과일은 뭘까요?", "최근 먹은 과일은 뭘까요?", "몸에 좋은 과일은 뭘까요?", "과일"], ["1", "2", "3", "숫자"], ["ㅁ", "ㄴ", "ㄷ", "한글"]]
     private var seriousTopics = [["요즘 가정 빚은 있나요?", "부부 금술은 좋나요?", "아들내미가 맘에 안드시나요?", "빚"], ["a", "c", "v", "심각한 알파벳"], ["칼", "총", "담배", "무서운 단어"]]
     private var topics: [String] = []
+    var blueStampBox: [UIImageView] = []
+    var grayStampBox: [UIImageView] = []
     private var genericTopicIndex: Int = 0
     private var seriousTopicIndex: Int = 0
 
@@ -24,41 +26,134 @@ class MainViewController: UIViewController {
         label.font = .boldSystemFont(ofSize: 25)
         self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(customView: label)
     }
-
-    lazy var rightButton: UIBarButtonItem = {
-        let buttonImage: UIImage = UIImage(systemName: "person.circle")!
+    private func makeBox() {
+        for _ in 0..<6 {
+            let sqaureImage: UIImageView = {
+                let image = UIImage(systemName: "checkmark.square.fill")
+                let imageView = UIImageView(image: image)
+                return imageView
+            }()
+            blueStampBox.append(sqaureImage)
+        }
+        for _ in 0..<6 {
+            let sqaureImage: UIImageView = {
+                let image = UIImage(systemName: "checkmark.square")
+                let imageView = UIImageView(image: image)
+                return imageView
+            }()
+            grayStampBox.append(sqaureImage)
+        }
+    }
+    lazy var dadStampBox: UIStackView = {
+        let stackView: UIStackView = {
+            var stackView = UIStackView()
+            for idx in 0...2 {
+                stackView.addArrangedSubview(blueStampBox[idx])
+            }
+            return stackView
+        }()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .horizontal
+        stackView.spacing = 10
+        stackView.distribution = .fillEqually
+        return stackView
+    }()
+    lazy var momStampBox: UIStackView = {
+        let stackView: UIStackView = {
+            var stackView = UIStackView()
+            for idx in 3...5 {
+                stackView.addArrangedSubview(blueStampBox[idx])
+            }
+            return stackView
+        }()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .horizontal
+        stackView.spacing = 10
+        stackView.distribution = .fillEqually
+        return stackView
+    }()
+    private let momLabel: UILabel = {
+        // 클래스를 이용하여 매개변수를 전달하는 방식으로 문자를 출력할 수 있는 방법 존재
+        let label = UILabel()
+        label.text = "엄마"
+        label.font = .systemFont(ofSize: 20, weight: .semibold)
+        return label
+    }()
+    private let dadLabel: UILabel = {
+        let label = UILabel()
+        label.text = "아빠"
+        label.font = .systemFont(ofSize: 20, weight: .semibold)
+        return label
+    }()
+    private lazy var topRectangleDivider: UIView = {
+        let rectangle = UIView()
+        rectangle.backgroundColor = .systemGray3
+        return rectangle
+    }()
+    private lazy var rightButton: UIBarButtonItem = {
+        let buttonImage = UIImage(systemName: "person.circle")!
         let button = UIBarButtonItem(image: buttonImage, style: .plain, target: self, action: #selector(buttonPressed))
         return button
     }()
-
-    private let checkBackGroundRectangle: UIView = {
-        let checkRectangle = UIView()
-        checkRectangle.layer.cornerRadius = 15
-        checkRectangle.backgroundColor = .systemGray5
-        return checkRectangle
+    private lazy var checkBackGroundRectangle: UIView = {
+        let rectangle = UIView()
+        rectangle.layer.cornerRadius = 15
+        rectangle.backgroundColor = .systemGray5
+        rectangle.addSubview(topRectangleDivider)
+        topRectangleDivider.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            topRectangleDivider.topAnchor.constraint(equalTo: rectangle.topAnchor),
+            topRectangleDivider.leadingAnchor.constraint(equalTo: rectangle.leadingAnchor, constant: 179),
+            topRectangleDivider.trailingAnchor.constraint(equalTo: rectangle.trailingAnchor, constant: -179),
+            topRectangleDivider.bottomAnchor.constraint(equalTo: rectangle.bottomAnchor)
+        ])
+        rectangle.addSubview(dadLabel)
+        dadLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            dadLabel.leadingAnchor.constraint(equalTo: rectangle.leadingAnchor, constant: 70),
+            dadLabel.topAnchor.constraint(equalTo: rectangle.topAnchor, constant: 35)
+        ])
+        rectangle.addSubview(momLabel)
+        momLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            momLabel.trailingAnchor.constraint(equalTo: rectangle.trailingAnchor, constant: -70),
+            momLabel.topAnchor.constraint(equalTo: rectangle.topAnchor, constant: 35)
+        ])
+        rectangle.addSubview(dadStampBox)
+        dadStampBox.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            dadStampBox.leadingAnchor.constraint(equalTo: rectangle.leadingAnchor, constant: 20),
+            dadStampBox.topAnchor.constraint(equalTo: rectangle.topAnchor, constant: 80),
+            dadStampBox.trailingAnchor.constraint(equalTo: dadStampBox.leadingAnchor, constant: 140),
+            dadStampBox.bottomAnchor.constraint(equalTo: dadStampBox.topAnchor, constant: 40)
+        ])
+        rectangle.addSubview(momStampBox)
+        momStampBox.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            momStampBox.leadingAnchor.constraint(equalTo: momStampBox.trailingAnchor, constant: -140),
+            momStampBox.topAnchor.constraint(equalTo: rectangle.topAnchor, constant: 80),
+            momStampBox.trailingAnchor.constraint(equalTo: rectangle.trailingAnchor, constant: -20),
+            momStampBox.bottomAnchor.constraint(equalTo: momStampBox.topAnchor, constant: 40)
+        ])
+        return rectangle
     }()
-
     private let topicTitleLabel: UILabel = {
         let topicTitle = UILabel()
         topicTitle.text = "오늘의 토픽"
         topicTitle.font = .systemFont(ofSize: 20, weight: .semibold)
         return topicTitle
     }()
-
     private let topicLabel: UILabel = {
         let topicText = UILabel()
         topicText.font = .systemFont(ofSize: 20, weight: .semibold)
         return topicText
     }()
-
     private lazy var backGroundRectangle: UIView = {
         let rectangle = UIView()
         rectangle.layer.cornerRadius = 15
         rectangle.backgroundColor = .systemGray5
-
         return rectangle
     }()
-
     private lazy var topicSegmentedControl: UISegmentedControl = {
         let segmentItems = ["가벼운", "진지한"]
         let topicSegmentedControl = UISegmentedControl(items: segmentItems)
@@ -68,7 +163,6 @@ class MainViewController: UIViewController {
         topicSegmentedControl.addTarget(self, action: #selector(segmentedValueChanged(_:)), for: .valueChanged)
         return topicSegmentedControl
     }()
-
     private lazy var refreshButton: UIButton = {
             let refreshButton = UIButton(type: UIButton.ButtonType.system)
             refreshButton.setImage(UIImage(systemName: "goforward"), for: UIControl.State.normal)
@@ -141,10 +235,10 @@ class MainViewController: UIViewController {
         configureTranslate()
         configureRender()
     }
-
-    // MARK: Configures
+    // MARK: - Configures
     private func configureUI() {
         view.backgroundColor = .systemBackground
+        makeBox()
     }
     private func configureAddSubView() {
         view.addSubview(checkBackGroundRectangle)
@@ -222,21 +316,20 @@ class MainViewController: UIViewController {
         ])
     }
 }
+    // MARK: - extension
+    extension MainViewController: UITableViewDataSource {
 
-// MARK: - extension
-extension MainViewController: UITableViewDataSource {
+        func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
+            return topics.count - 1
+        }
 
-    func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
-        return topics.count - 1
+        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+
+            cell.textLabel?.text = topics[indexPath.row]
+            return cell
+        }
     }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-
-        cell.textLabel?.text = topics[indexPath.row]
-        return cell
-    }
-}
 
 // MARK: - func
 

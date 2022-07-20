@@ -7,7 +7,7 @@
 
 import UIKit
 
-class UserInitViewController: UIViewController, UITextFieldDelegate {
+class UserInitViewController: NotificationSettingViewController, UITextFieldDelegate {
 
     @IBOutlet weak var momVstackView: UIStackView! // 어머니 전화번호 입력 Vstack
     @IBOutlet weak var dadVstackView: UIStackView! // 아버지 전화번호 입력 Vstack

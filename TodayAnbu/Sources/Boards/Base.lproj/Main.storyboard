@@ -98,7 +98,7 @@
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="startButtonAction:" destination="VvY-1W-5NH" eventType="touchUpInside" id="Jfv-Mm-84a"/>
-                                    <segue destination="eFS-MW-OGn" kind="show" id="UDo-FE-oRr"/>
+                                    <segue destination="4Mc-d9-Cdu" kind="show" id="h47-Pz-YH7"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -137,69 +137,35 @@
             </objects>
             <point key="canvasLocation" x="1483" y="-206"/>
         </scene>
-        <!--Notification View Controller-->
-        <scene sceneID="cRK-Lp-UgV">
+        <!--Notification Setting View Controller-->
+        <scene sceneID="TnR-en-IDc">
             <objects>
-                <viewController id="eFS-MW-OGn" customClass="NotificationViewController" customModule="TodayAnbu" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Hje-hx-1uc">
+                <viewController id="h9C-xi-h1l" customClass="NotificationSettingViewController" customModule="TodayAnbu" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wuN-Gx-mkO">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VW0-Rz-xQ8">
-                                <rect key="frame" x="47" y="108" width="320" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Message" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XO3-wp-jtZ">
-                                <rect key="frame" x="47" y="162" width="320" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="9eb-Fn-b8Q">
-                                <rect key="frame" x="47" y="204" width="320" height="216"/>
-                            </datePicker>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TTo-SW-Wg4">
-                                <rect key="frame" x="156" y="464" width="102" height="42"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="Schedule"/>
-                                <connections>
-                                    <action selector="scheduleAction:" destination="eFS-MW-OGn" eventType="touchUpInside" id="syy-Ss-t0K"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xl9-ll-a5M">
-                                <rect key="frame" x="47" y="726" width="314" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="설정완료"/>
-                            </button>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="l4A-KB-wrk"/>
+                        <viewLayoutGuide key="safeArea" id="h7e-CH-ujs"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="XO3-wp-jtZ" firstAttribute="width" secondItem="VW0-Rz-xQ8" secondAttribute="width" id="5v9-gj-fCd"/>
-                            <constraint firstItem="XO3-wp-jtZ" firstAttribute="top" secondItem="VW0-Rz-xQ8" secondAttribute="bottom" constant="20" id="9xv-JL-WL6"/>
-                            <constraint firstItem="VW0-Rz-xQ8" firstAttribute="top" secondItem="l4A-KB-wrk" secondAttribute="top" constant="20" id="Hk4-pM-PUe"/>
-                            <constraint firstItem="TTo-SW-Wg4" firstAttribute="centerX" secondItem="9eb-Fn-b8Q" secondAttribute="centerX" id="PYB-QM-cHK"/>
-                            <constraint firstItem="TTo-SW-Wg4" firstAttribute="top" secondItem="9eb-Fn-b8Q" secondAttribute="bottom" constant="44" id="Q26-wl-ZPB"/>
-                            <constraint firstItem="XO3-wp-jtZ" firstAttribute="centerX" secondItem="Hje-hx-1uc" secondAttribute="centerX" id="QJq-3v-7cu"/>
-                            <constraint firstItem="9eb-Fn-b8Q" firstAttribute="width" secondItem="XO3-wp-jtZ" secondAttribute="width" id="XPN-05-StI"/>
-                            <constraint firstItem="XO3-wp-jtZ" firstAttribute="centerX" secondItem="VW0-Rz-xQ8" secondAttribute="centerX" id="bf3-jI-ebZ"/>
-                            <constraint firstItem="VW0-Rz-xQ8" firstAttribute="centerX" secondItem="Hje-hx-1uc" secondAttribute="centerX" id="hFa-Zg-xbo"/>
-                            <constraint firstItem="9eb-Fn-b8Q" firstAttribute="top" secondItem="XO3-wp-jtZ" secondAttribute="bottom" constant="8" symbolic="YES" id="lS3-eK-QJ5"/>
-                            <constraint firstItem="9eb-Fn-b8Q" firstAttribute="centerX" secondItem="XO3-wp-jtZ" secondAttribute="centerX" id="lmG-6w-n93"/>
-                            <constraint firstItem="9eb-Fn-b8Q" firstAttribute="centerX" secondItem="Hje-hx-1uc" secondAttribute="centerX" id="xYz-3w-mha"/>
-                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="Ai0-ca-fnX"/>
-                    <connections>
-                        <outlet property="datePicker" destination="9eb-Fn-b8Q" id="fDf-8A-0bi"/>
-                        <outlet property="messageTF" destination="XO3-wp-jtZ" id="jNB-Mi-9w3"/>
-                        <outlet property="textField" destination="VW0-Rz-xQ8" id="88O-3o-yW1"/>
-                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="JCl-Ap-rLh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fD0-Ny-AMd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2210" y="-206"/>
+            <point key="canvasLocation" x="3220" y="-206"/>
+        </scene>
+        <!--Notification Modal View Controller-->
+        <scene sceneID="LoT-9t-w6a">
+            <objects>
+                <viewController id="p3W-i8-60Q" customClass="NotificationModalViewController" customModule="TodayAnbu" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="U0e-9m-QUB">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="i4B-en-4pX"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WG2-Nb-nb3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4086" y="-196"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="tFX-Jk-wCo">
@@ -216,6 +182,133 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WlJ-Ef-2r6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="714" y="-206"/>
+        </scene>
+        <!--User Init View Controller-->
+        <scene sceneID="MWo-Rp-OkQ">
+            <objects>
+                <viewController id="4Mc-d9-Cdu" customClass="UserInitViewController" customModule="TodayAnbu" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="h2M-uD-n9d">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g7z-be-atv">
+                                <rect key="frame" x="20" y="826" width="374" height="40"/>
+                                <color key="backgroundColor" systemColor="systemGray2Color"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="VXw-CS-WK9"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="0.0"/>
+                                <color key="tintColor" systemColor="systemGray2Color"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="시작하기">
+                                    <color key="titleColor" systemColor="systemGray6Color"/>
+                                </state>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="Vah-c9-XoB">
+                                <rect key="frame" x="20" y="123" width="374" height="316"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="JYo-rh-Smd">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="70"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="어머니의 연락처를 입력해주세요" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1tY-fh-lLc">
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="24"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="엄마의 전화번호를 입력해주세요" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kwk-Gg-msr">
+                                                <rect key="frame" x="0.0" y="36" width="374" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="Qon-NT-LhR">
+                                        <rect key="frame" x="0.0" y="95" width="374" height="50.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="어머니와 전화할 시간을 알려주세요" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p1M-x5-i7A">
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="24"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="저희가 알람을 통해 알려드릴게요!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cjs-v4-JwW">
+                                                <rect key="frame" x="0.0" y="36" width="374" height="14.5"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                                <color key="textColor" systemColor="systemGray2Color"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="pGH-qG-fYr">
+                                        <rect key="frame" x="0.0" y="170.5" width="374" height="70"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="아버지의 연락처를 입력해주세요" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8FS-qx-awq">
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="24"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="아빠의 전화번호를 입력해주세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qPK-9f-L7S">
+                                                <rect key="frame" x="0.0" y="36" width="374" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="go" smartDashesType="yes"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="J9d-zV-1Yf">
+                                        <rect key="frame" x="0.0" y="265.5" width="374" height="50.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="아버지와 전화할 시간을 알려주세요" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Byn-BG-0nN">
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="24"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="저희가 알람을 통해 알려드릴게요!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ius-d2-PXZ">
+                                                <rect key="frame" x="0.0" y="36" width="374" height="14.5"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                                <color key="textColor" systemColor="systemGray2Color"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="일주일에 3번 정도 전화를 부모님들이 가장 선호하신다고 해요!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mc5-pL-G9G">
+                                <rect key="frame" x="60.5" y="801.5" width="293.5" height="14.5"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                <color key="textColor" systemColor="systemGray2Color"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Hxi-ne-mDj"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Vah-c9-XoB" firstAttribute="leading" secondItem="Hxi-ne-mDj" secondAttribute="leading" constant="20" id="4OO-m7-h7P"/>
+                            <constraint firstAttribute="bottom" secondItem="g7z-be-atv" secondAttribute="bottom" constant="30" id="GOy-Tq-oqF"/>
+                            <constraint firstItem="Vah-c9-XoB" firstAttribute="top" secondItem="Hxi-ne-mDj" secondAttribute="top" constant="35" id="HJ3-5c-DdX"/>
+                            <constraint firstItem="Hxi-ne-mDj" firstAttribute="trailing" secondItem="g7z-be-atv" secondAttribute="trailing" constant="20" id="XeA-mY-Eot"/>
+                            <constraint firstItem="mc5-pL-G9G" firstAttribute="centerX" secondItem="Hxi-ne-mDj" secondAttribute="centerX" id="fGM-q9-Zfj"/>
+                            <constraint firstItem="g7z-be-atv" firstAttribute="leading" secondItem="Hxi-ne-mDj" secondAttribute="leading" constant="20" id="hqc-iH-g9A"/>
+                            <constraint firstItem="g7z-be-atv" firstAttribute="top" secondItem="mc5-pL-G9G" secondAttribute="bottom" constant="10" id="ur9-Qq-ZOD"/>
+                            <constraint firstItem="Hxi-ne-mDj" firstAttribute="trailing" secondItem="Vah-c9-XoB" secondAttribute="trailing" constant="20" id="vDC-eL-kIB"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="tIN-Ib-94p"/>
+                    <connections>
+                        <outlet property="dadDayVstack" destination="J9d-zV-1Yf" id="NKa-mC-HFu"/>
+                        <outlet property="dadNumberTextfield" destination="qPK-9f-L7S" id="ZWO-pI-DFB"/>
+                        <outlet property="dadVstackView" destination="pGH-qG-fYr" id="u4K-Dx-9zP"/>
+                        <outlet property="momDayVstack" destination="Qon-NT-LhR" id="cRb-Wk-g6G"/>
+                        <outlet property="momNumberTextfield" destination="kwk-Gg-msr" id="ueU-xu-Ceh"/>
+                        <outlet property="momVstackView" destination="JYo-rh-Smd" id="ptm-LZ-RLp"/>
+                        <outlet property="startButton" destination="g7z-be-atv" id="Peu-Ci-U36"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iG4-SX-mUD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2290" y="-206"/>
         </scene>
     </scenes>
     <resources>
@@ -926,6 +1019,12 @@ AAAAAAAAAAAAAACihw
         </image>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

@@ -2,63 +2,112 @@
 //  NotificationSettingViewController.swift
 //  TodayAnbu
 //
-//  Created by Jisu Jang on 2022/07/14.
+//  Created by Jisu Jang on 2022/07/19.
+//  Fixed by Lumi on 2022/07/20
 //
 import UIKit
-import UserNotifications
 
-class NotificationViewController: UIViewController {
-    @IBOutlet weak var textField: UITextField!
-    @IBOutlet weak var messageTF: UITextField!
-    @IBOutlet weak var datePicker: UIDatePicker!
-    let notificationCenter = UNUserNotificationCenter.current()
+class NotificationSettingViewController: UIViewController {
+
+    private var notificationButtonList: [NotificationButton] = []
+
+    private var buttonIndex: Int = 0 {
+        didSet {
+            initialHStackView.subviews.forEach({ $0.removeFromSuperview() })
+            addSubViewNotificationButton()
+            initialHStackView.subviews[buttonIndex].backgroundColor = .systemBlue
+        }
+    }
+
+    private let initialHStackView = UIStackView()
+
     override func viewDidLoad() {
+
         super.viewDidLoad()
-        notificationCenter.requestAuthorization(options: [.alert, .sound]) { (permissionGranted, _) in
-            if !permissionGranted {
-                print("Permission Denied")
-            }
+        setHStackViewConstraints()
+        makeNotificationButtonList()
+        addSubViewNotificationButton()
+    }
+
+    private func setHStackViewConstraints() {
+        self.view.addSubview(initialHStackView)
+        initialHStackView.axis = .horizontal
+        initialHStackView.alignment = .center
+        initialHStackView.distribution = .equalSpacing
+        initialHStackView.spacing = 5
+        initialHStackView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            initialHStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            initialHStackView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        ])
+    }
+
+    let weekDays = NotificationTime.setDummyData()
+
+    private func makeNotificationButtonList() {
+
+        for index in 0...weekDays.count-1 {
+
+            let buttonStack = UIStackView()
+
+            let notificationButton = NotificationButton(id: index, buttonStack: buttonStack, isSelected: false)
+            notificationButton.buttonStack.axis = .vertical
+            notificationButton.buttonStack.alignment = .center
+            notificationButton.buttonStack.spacing = 5
+            notificationButton.buttonStack.layer.cornerRadius = 10
+            notificationButton.buttonStack.isLayoutMarginsRelativeArrangement = true
+            notificationButton.buttonStack.translatesAutoresizingMaskIntoConstraints = false
+            notificationButton.buttonStack.directionalLayoutMargins =  NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5)
+
+            let firstLabel: UILabel = {
+                let label = UILabel()
+                label.text = weekDays[index].weekDay as? String
+                label.font = UIFont.systemFont(ofSize: 20, weight: .bold)
+                label.textColor = .white
+                return label
+            }()
+
+            let secondLabel: UILabel = {
+                let label = UILabel()
+                label.text = "18:00"
+                label.font = UIFont.systemFont(ofSize: 14, weight: .bold)
+                label.textColor = .white
+                return label
+            }()
+
+            notificationButton.buttonStack.tag = index
+            notificationButton.buttonStack.backgroundColor = .systemGray
+            notificationButton.buttonStack.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(setIndex(_:))))
+            notificationButton.buttonStack.addArrangedSubview(firstLabel)
+            notificationButton.buttonStack.addArrangedSubview(secondLabel)
+            notificationButtonList.append(notificationButton)
         }
     }
-    // 알람 설정 버튼과 연동해야함, Completion Feedback(진동,소리)은 버튼 애니메이션과 파란색 활성화로 대체
-    @IBAction func scheduleAction(_ sender: Any) { notificationCenter.getNotificationSettings { settings in
-            DispatchQueue.main.async {
-                let title = self.textField.text!
-                let message = self.messageTF.text!
-                let date = self.datePicker.date
-                if settings.authorizationStatus == .authorized {
-                    let content = UNMutableNotificationContent()
-                    content.title = title
-                    content.body = message
-                    let dateComponent = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: date)
-                    let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponent, repeats: false)
-                    let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
-                    self.notificationCenter.add(request) { error in
-                        if error != nil {
-                            print("Error " + error.debugDescription)
-                            return
-                        }
-                    }
-                } else {
-                    let alertController = UIAlertController(title: "알림을 설정하시겠어요?", message: "설정에서 알람 허용을 해주셔야해요!", preferredStyle: .alert)
-                    let goToSetting = UIAlertAction(title: "설정", style: .default) { _ in
-                        guard let settingURL = URL(string: UIApplication.openSettingsURLString) else {
-                        return
-                    }
-                        if UIApplication.shared.canOpenURL(settingURL) {
-                            UIApplication.shared.open(settingURL) { (_) in}
-                        }
-                    }
-                    alertController.addAction(goToSetting)
-                    alertController.addAction(UIAlertAction(title: "취소", style: .default, handler: { (_) in }))
-                    self.present(alertController, animated: true)
-                }
-            }
+
+    private func addSubViewNotificationButton() {
+        for button in notificationButtonList {
+            button.buttonStack.heightAnchor.constraint(equalToConstant: 60).isActive = true
+            initialHStackView.addArrangedSubview(button.buttonStack)
         }
     }
-    func formattedDate(date: Date) -> String {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "d MMM y HH:mm"
-        return formatter.string(from: date)
+
+    private func showTimePicker() {
+        let notificationSettingView = NotificationModalViewController()
+        self.present(notificationSettingView, animated: true)
+    }
+
+    @objc func setIndex(_ recognizer: UITapGestureRecognizer!) {
+        print(notificationButtonList.map({$0.indexPath}))
+        print(recognizer.view!.tag)
+        buttonIndex = recognizer.view!.tag
+        notificationButtonList[buttonIndex].isSelected.toggle()
+        if notificationButtonList[buttonIndex].isSelected {
+            notificationButtonList[buttonIndex].buttonStack.backgroundColor = .systemBlue
+        } else {
+            notificationButtonList[buttonIndex].buttonStack.backgroundColor = .systemGray
+        }
+        if notificationButtonList[buttonIndex].isSelected {
+            showTimePicker()
+        }
     }
 }
