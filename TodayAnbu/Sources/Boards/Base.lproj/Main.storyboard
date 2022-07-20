@@ -193,10 +193,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g7z-be-atv">
-                                <rect key="frame" x="20" y="826" width="374" height="40"/>
+                                <rect key="frame" x="30" y="772" width="354" height="45"/>
                                 <color key="backgroundColor" systemColor="systemGray2Color"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="VXw-CS-WK9"/>
+                                    <constraint firstAttribute="height" constant="45" id="VXw-CS-WK9"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="0.0"/>
                                 <color key="tintColor" systemColor="systemGray2Color"/>
@@ -281,7 +281,7 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="일주일에 3번 정도 전화를 부모님들이 가장 선호하신다고 해요!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mc5-pL-G9G">
-                                <rect key="frame" x="60.5" y="801.5" width="293.5" height="14.5"/>
+                                <rect key="frame" x="60.5" y="742.5" width="293.5" height="14.5"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                 <color key="textColor" systemColor="systemGray2Color"/>
                                 <nil key="highlightedColor"/>
@@ -291,12 +291,12 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Vah-c9-XoB" firstAttribute="leading" secondItem="Hxi-ne-mDj" secondAttribute="leading" constant="20" id="4OO-m7-h7P"/>
-                            <constraint firstAttribute="bottom" secondItem="g7z-be-atv" secondAttribute="bottom" constant="30" id="GOy-Tq-oqF"/>
                             <constraint firstItem="Vah-c9-XoB" firstAttribute="top" secondItem="Hxi-ne-mDj" secondAttribute="top" constant="35" id="HJ3-5c-DdX"/>
-                            <constraint firstItem="Hxi-ne-mDj" firstAttribute="trailing" secondItem="g7z-be-atv" secondAttribute="trailing" constant="20" id="XeA-mY-Eot"/>
+                            <constraint firstItem="Hxi-ne-mDj" firstAttribute="bottom" secondItem="g7z-be-atv" secondAttribute="bottom" constant="45" id="Kwf-zU-3IG"/>
+                            <constraint firstItem="Hxi-ne-mDj" firstAttribute="trailing" secondItem="g7z-be-atv" secondAttribute="trailing" constant="30" id="XeA-mY-Eot"/>
                             <constraint firstItem="mc5-pL-G9G" firstAttribute="centerX" secondItem="Hxi-ne-mDj" secondAttribute="centerX" id="fGM-q9-Zfj"/>
-                            <constraint firstItem="g7z-be-atv" firstAttribute="leading" secondItem="Hxi-ne-mDj" secondAttribute="leading" constant="20" id="hqc-iH-g9A"/>
-                            <constraint firstItem="g7z-be-atv" firstAttribute="top" secondItem="mc5-pL-G9G" secondAttribute="bottom" constant="10" id="ur9-Qq-ZOD"/>
+                            <constraint firstItem="g7z-be-atv" firstAttribute="leading" secondItem="Hxi-ne-mDj" secondAttribute="leading" constant="30" id="hqc-iH-g9A"/>
+                            <constraint firstItem="g7z-be-atv" firstAttribute="top" secondItem="mc5-pL-G9G" secondAttribute="bottom" constant="15" id="ur9-Qq-ZOD"/>
                             <constraint firstItem="Hxi-ne-mDj" firstAttribute="trailing" secondItem="Vah-c9-XoB" secondAttribute="trailing" constant="20" id="vDC-eL-kIB"/>
                         </constraints>
                     </view>
