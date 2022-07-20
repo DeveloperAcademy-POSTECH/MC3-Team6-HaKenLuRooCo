@@ -8,7 +8,6 @@
 import UIKit
 
 class ConfirmViewController: UIViewController {
-
     // label 한개랑 버튼 두개 만들어야 함
     private let confirmLabel: UILabel = {
         let label: UILabel = UILabel()
@@ -16,7 +15,7 @@ class ConfirmViewController: UIViewController {
         label.font = .boldSystemFont(ofSize: 35)
         return label
     }()
-    private let positiveButton: UIButton = {
+    private lazy var positiveButton: UIButton = {
         let button: UIButton = UIButton(type: .system)
         button.setTitle("예", for: .normal)
         button.backgroundColor = .systemBlue
@@ -26,13 +25,13 @@ class ConfirmViewController: UIViewController {
         return button
     }()
 
-    private let negativeButton: UIButton = {
+    private lazy var negativeButton: UIButton = {
         let button: UIButton = UIButton(type: .system)
         button.setTitle("아니요", for: .normal)
         button.backgroundColor = .systemGray2
         button.tintColor = .white
         button.layer.cornerRadius = 10
-        // button.addTarget(self, action: #selector(), for: .touchUpInside)
+        button.addTarget(self, action: #selector(negativeButtonPressed), for: .touchUpInside)
         return button
     }()
     override func viewDidLoad() {
@@ -65,7 +64,9 @@ class ConfirmViewController: UIViewController {
         ])
     }
     @objc func positiveButtonPressed(_ sender: UIButton) {
-        print("눌려더")
+        navigationController?.pushViewController(MainViewController(), animated: true)
     }
-
+    @objc func negativeButtonPressed(_ sender: UIButton) {
+        navigationController?.pushViewController(MainViewController(), animated: true)
+    }
 }

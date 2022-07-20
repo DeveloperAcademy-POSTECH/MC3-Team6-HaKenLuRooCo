@@ -18,8 +18,7 @@ class NotificationModalViewController: UIViewController {
     }()
 
     let notificationCenter = UNUserNotificationCenter.current()
-    
-    let settingDoneButton: UIButton = {
+    lazy var settingDoneButton: UIButton = {
         let button = UIButton()
         button.setTitle("설정 완료!", for: .normal)
         button.backgroundColor = .systemBlue
@@ -27,7 +26,6 @@ class NotificationModalViewController: UIViewController {
         button.addTarget(self, action: #selector(settingDoneButtonAction(_:)), for: .touchUpInside)
         return button
     }()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .systemBackground
@@ -39,7 +37,6 @@ class NotificationModalViewController: UIViewController {
             }
         }
     }
-    
     private func timePickerLayOut() {
         self.view.addSubview(timePicker)
         timePicker.translatesAutoresizingMaskIntoConstraints = false
@@ -48,7 +45,6 @@ class NotificationModalViewController: UIViewController {
             timePicker.centerYAnchor.constraint(equalTo: view.centerYAnchor)
         ])
     }
-    
     private func settingButtonLayOut() {
         self.view.addSubview(settingDoneButton)
         settingDoneButton.translatesAutoresizingMaskIntoConstraints = false
@@ -58,7 +54,6 @@ class NotificationModalViewController: UIViewController {
             settingDoneButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -50)
         ])
     }
-    
     @objc func settingDoneButtonAction(_ sender: UIButton!) {
         dismiss(animated: true)
         print("버튼이 선택되었음")
