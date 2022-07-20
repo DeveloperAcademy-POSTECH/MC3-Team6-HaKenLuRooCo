@@ -14,11 +14,6 @@ class MainViewController: UIViewController {
     private var genericTopicIndex: Int = 0
     private var seriousTopicIndex: Int = 0
 
-    enum PhoneNum: String {
-        case momNum = "tel://01074080031"
-        case dadNum = "tel://01046021620"
-    }
-
     // MARK: - Properties
 
     // 네비게이션 타이틀을 다루기 위해 정의된 메소드
@@ -94,16 +89,24 @@ class MainViewController: UIViewController {
     private lazy var callAlert: UIAlertController = {
         let callAlert = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertController.Style.actionSheet)
         let momCall = UIAlertAction(title: "엄마한테 전화하기", style: .default) { _ in
-            self.goCallApp(url: PhoneNum.momNum.rawValue)
+            self.goCallApp(url: UserDefaults.standard.string(forKey: "momPhoneNumber") ?? "")
         }
-        let fatherNumber = UIAlertAction(title: "아빠한테 전화하기", style: .default) { _ in
-            self.goCallApp(url: PhoneNum.dadNum.rawValue)
+        let dadCall = UIAlertAction(title: "아빠한테 전화하기", style: .default) { _ in
+            self.goCallApp(url: UserDefaults.standard.string(forKey: "dadPhoneNumber") ?? "")
         }
         let cancel = UIAlertAction(title: "취소하기", style: .cancel)
-        callAlert.addAction(momCall)
-        callAlert.addAction(fatherNumber)
-        callAlert.addAction(cancel)
 
+        if let momPhoneNumber = UserDefaults.standard.string(forKey: "momPhoneNumber") {
+            if !momPhoneNumber.isEmpty {
+                callAlert.addAction(momCall)
+            }
+        }
+        if let dadPhoneNumber = UserDefaults.standard.string(forKey: "dadPhoneNumber") {
+            if !dadPhoneNumber.isEmpty {
+                callAlert.addAction(dadCall)
+            }
+        }
+        callAlert.addAction(cancel)
         return callAlert
     }()
 
