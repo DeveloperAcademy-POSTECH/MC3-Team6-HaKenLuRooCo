@@ -23,7 +23,9 @@
 		7B2E9C722884FCF4006BE5C8 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2E9C712884FCF4006BE5C8 /* MainViewController.swift */; };
 		A92FC8C5287FF38400962CA0 /* OnboardingPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A92FC8C4287FF38400962CA0 /* OnboardingPage.storyboard */; };
 		A92FC8C7287FF3C000962CA0 /* OnboardingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92FC8C6287FF3C000962CA0 /* OnboardingPageViewController.swift */; };
-		A92FC8C9287FF40000962CA0 /* NotificationSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92FC8C8287FF3FF00962CA0 /* NotificationSettingViewController.swift */; };
+		A9B32A9028868F1D00530B51 /* NotificationSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B32A8F28868F1D00530B51 /* NotificationSettingViewController.swift */; };
+		A9B32A9228868F7100530B51 /* NotificationModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B32A9128868F7100530B51 /* NotificationModalViewController.swift */; };
+		A9B32A94288691EA00530B51 /* NotificationTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B32A93288691EA00530B51 /* NotificationTime.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,7 +47,9 @@
 		7B2E9C712884FCF4006BE5C8 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		A92FC8C4287FF38400962CA0 /* OnboardingPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OnboardingPage.storyboard; sourceTree = "<group>"; };
 		A92FC8C6287FF3C000962CA0 /* OnboardingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPageViewController.swift; sourceTree = "<group>"; };
-		A92FC8C8287FF3FF00962CA0 /* NotificationSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSettingViewController.swift; sourceTree = "<group>"; };
+		A9B32A8F28868F1D00530B51 /* NotificationSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSettingViewController.swift; sourceTree = "<group>"; };
+		A9B32A9128868F7100530B51 /* NotificationModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationModalViewController.swift; sourceTree = "<group>"; };
+		A9B32A93288691EA00530B51 /* NotificationTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTime.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,7 +79,8 @@
 				7B2E9C712884FCF4006BE5C8 /* MainViewController.swift */,
 				7B2E9C6B28806FE3006BE5C8 /* SettingViewController.swift */,
 				A92FC8C6287FF3C000962CA0 /* OnboardingPageViewController.swift */,
-				A92FC8C8287FF3FF00962CA0 /* NotificationSettingViewController.swift */,
+				A9B32A8F28868F1D00530B51 /* NotificationSettingViewController.swift */,
+				A9B32A9128868F7100530B51 /* NotificationModalViewController.swift */,
 				103BD8EE287FB38B00A6A0AD /* Utilities */,
 			);
 			path = Controllers;
@@ -125,6 +130,7 @@
 			children = (
 				7B2E9C6D288429B8006BE5C8 /* SettingPersonalDataCell.swift */,
 				7B2E9C6F2884397B006BE5C8 /* SettingHeaderView.swift */,
+				A9B32A93288691EA00530B51 /* NotificationTime.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -255,10 +261,12 @@
 				A92FC8C7287FF3C000962CA0 /* OnboardingPageViewController.swift in Sources */,
 				3E2F6563287FA0E600A27FA9 /* ViewController.swift in Sources */,
 				7B2E9C6E288429B8006BE5C8 /* SettingPersonalDataCell.swift in Sources */,
+				A9B32A9028868F1D00530B51 /* NotificationSettingViewController.swift in Sources */,
 				7B2E9C702884397B006BE5C8 /* SettingHeaderView.swift in Sources */,
+				A9B32A94288691EA00530B51 /* NotificationTime.swift in Sources */,
 				3E2F655F287FA0E600A27FA9 /* AppDelegate.swift in Sources */,
 				7B2E9C722884FCF4006BE5C8 /* MainViewController.swift in Sources */,
-				A92FC8C9287FF40000962CA0 /* NotificationSettingViewController.swift in Sources */,
+				A9B32A9228868F7100530B51 /* NotificationModalViewController.swift in Sources */,
 				3E2F6561287FA0E600A27FA9 /* SceneDelegate.swift in Sources */,
 				3EC0D9CB28801E9F00A98E73 /* UserInitViewController.swift in Sources */,
 				3EC0D9CD2880FAD500A98E73 /* UITextfieldExtension.swift in Sources */,
