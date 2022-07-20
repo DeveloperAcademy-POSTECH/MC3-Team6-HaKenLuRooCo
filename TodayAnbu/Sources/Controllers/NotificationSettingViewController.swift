@@ -3,12 +3,16 @@
 //  TodayAnbu
 //
 //  Created by Jisu Jang on 2022/07/19.
+//  Fixed by Lumi on 2022/07/20
 //
 import UIKit
 
 class NotificationSettingViewController: UIViewController {
 
     private var notificationButtonList: [NotificationButton] = []
+
+    private var selectedTime = [String:String]()
+
     private var buttonIndex: Int = 0 {
         didSet {
             initialHStackView.subviews.forEach({ $0.removeFromSuperview() })
@@ -20,6 +24,7 @@ class NotificationSettingViewController: UIViewController {
     private let initialHStackView = UIStackView()
 
     override func viewDidLoad() {
+
         super.viewDidLoad()
         setHStackViewConstraints()
         makeNotificationButtonList()
@@ -38,11 +43,10 @@ class NotificationSettingViewController: UIViewController {
             initialHStackView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
         ])
     }
+
     let weekDays = NotificationTime.setDummyData()
 
     private func makeNotificationButtonList() {
-        
-        var notificationButtonList: [NotificationButton] = []
 
         for index in 0...weekDays.count-1 {
 
@@ -79,19 +83,10 @@ class NotificationSettingViewController: UIViewController {
             notificationButton.buttonStack.addArrangedSubview(firstLabel)
             notificationButton.buttonStack.addArrangedSubview(secondLabel)
             notificationButtonList.append(notificationButton)
-        }
-        notificationButtonList = self.notificationButtonList
-    }
+        }    }
 
     private func addSubViewNotificationButton() {
-
-        let notificationButtonList = notificationButtonList
         for button in notificationButtonList {
-            if button.isSelected {
-                button.buttonStack.backgroundColor = .systemBlue
-            } else {
-                button.buttonStack.backgroundColor = .systemGray
-            }
             initialHStackView.addArrangedSubview(button.buttonStack)
         }
     }
@@ -105,7 +100,12 @@ class NotificationSettingViewController: UIViewController {
         print(notificationButtonList.map({$0.isSelected}))
         print(recognizer.view!.tag)
         buttonIndex = recognizer.view!.tag
-        notificationButtonList[buttonIndex].isSelected = true
+        notificationButtonList[buttonIndex].isSelected = !notificationButtonList[buttonIndex].isSelected
+        if notificationButtonList[buttonIndex].isSelected {
+            notificationButtonList[buttonIndex].buttonStack.backgroundColor = .systemBlue
+        } else {
+            notificationButtonList[buttonIndex].buttonStack.backgroundColor = .systemGray
+        }
         showTimePicker()
         print("현재 선택된 버튼의 인덱스는 \(buttonIndex) 입니다")
         print("버튼의 선택여부는 \(notificationButtonList[buttonIndex].isSelected) 입니다")
