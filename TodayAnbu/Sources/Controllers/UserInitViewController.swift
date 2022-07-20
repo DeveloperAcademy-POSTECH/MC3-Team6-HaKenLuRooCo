@@ -35,6 +35,7 @@ class UserInitViewController: NotificationSettingViewController, UITextFieldDele
         momDayVstack.isHidden = true
         dadDayVstack.isHidden = true
         startButton.isEnabled = false
+        self.navigationItem.setHidesBackButton(true, animated: true)
     }
 
     @IBAction func startButttonAction(_ sender: Any) {

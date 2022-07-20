@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Cma-4u-btn">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
@@ -21,7 +21,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-632" y="-206"/>
+            <point key="canvasLocation" x="-126" y="-206"/>
         </scene>
         <!--OnboardingPage-->
         <scene sceneID="78H-w5-9lG">
@@ -135,22 +135,23 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gha-sS-uFJ" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1483" y="-206"/>
+            <point key="canvasLocation" x="1496" y="-206"/>
         </scene>
-        <!--Notification Setting View Controller-->
+        <!--Main View Controller-->
         <scene sceneID="TnR-en-IDc">
             <objects>
-                <viewController id="h9C-xi-h1l" customClass="NotificationSettingViewController" customModule="TodayAnbu" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="h9C-xi-h1l" customClass="MainViewController" customModule="TodayAnbu" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wuN-Gx-mkO">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="h7e-CH-ujs"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="iOf-Qe-oQv"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fD0-Ny-AMd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3220" y="-206"/>
+            <point key="canvasLocation" x="3090" y="-206"/>
         </scene>
         <!--Notification Modal View Controller-->
         <scene sceneID="LoT-9t-w6a">
@@ -203,6 +204,9 @@
                                 <state key="normal" title="시작하기">
                                     <color key="titleColor" systemColor="systemGray6Color"/>
                                 </state>
+                                <connections>
+                                    <segue destination="h9C-xi-h1l" kind="show" id="heW-VS-c87"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="Vah-c9-XoB">
                                 <rect key="frame" x="20" y="123" width="374" height="316"/>

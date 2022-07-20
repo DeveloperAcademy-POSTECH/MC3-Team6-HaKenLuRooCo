@@ -234,6 +234,7 @@ class MainViewController: UIViewController {
         configureAddSubView()
         configureTranslate()
         configureRender()
+        self.navigationItem.setHidesBackButton(true, animated: true)
     }
     // MARK: - Configures
     private func configureUI() {
