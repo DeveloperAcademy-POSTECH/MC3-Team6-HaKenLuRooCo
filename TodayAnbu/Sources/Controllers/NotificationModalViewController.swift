@@ -16,7 +16,7 @@ class NotificationModalViewController: UIViewController {
         timePicker.preferredDatePickerStyle = .wheels
         return timePicker
     }()
-    
+
     let notificationCenter = UNUserNotificationCenter.current()
     
     let settingDoneButton: UIButton = {

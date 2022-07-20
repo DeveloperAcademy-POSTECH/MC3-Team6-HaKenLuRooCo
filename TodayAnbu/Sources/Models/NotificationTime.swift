@@ -5,6 +5,25 @@
 //  Created by Jisu Jang on 2022/07/19.
 //
 
+import UIKit
+
+class NotificationButton {
+    var indexPath: Int
+    var buttonStack: UIStackView
+    var isSelected: Bool
+    init(id: Int, buttonStack: UIStackView, isSelected: Bool) {
+        self.indexPath = 0
+        self.buttonStack = buttonStack
+        self.isSelected = false
+    }
+}
+
+struct ButtonData {
+    var weekDay: String
+    var time: String
+}
+
+
 struct NotificationTime: Hashable {
     var weekDay: String
     var hour: Int
