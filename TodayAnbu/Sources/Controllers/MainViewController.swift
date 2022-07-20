@@ -26,7 +26,6 @@ class MainViewController: UIViewController {
         label.font = .boldSystemFont(ofSize: 25)
         self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(customView: label)
     }
-    
     private func makeBox() {
         for _ in 0..<6 {
             let sqaureImage: UIImageView = {
@@ -96,19 +95,6 @@ class MainViewController: UIViewController {
         let button = UIBarButtonItem(image: buttonImage, style: .plain, target: self, action: #selector(buttonPressed))
         return button
     }()
-    
-    private let topicTitleLabel: UILabel = {
-        let topicTitle = UILabel()
-        topicTitle.text = "오늘의 토픽"
-        topicTitle.font = .systemFont(ofSize: 20, weight: .semibold)
-        return topicTitle
-    }()
-
-    private let topicLabel: UILabel = {
-        let topicText = UILabel()
-        topicText.font = .systemFont(ofSize: 20, weight: .semibold)
-        return topicText
-    }()
     private lazy var checkBackGroundRectangle: UIView = {
         let rectangle = UIView()
         rectangle.layer.cornerRadius = 15
@@ -151,14 +137,23 @@ class MainViewController: UIViewController {
         ])
         return rectangle
     }()
+    private let topicTitleLabel: UILabel = {
+        let topicTitle = UILabel()
+        topicTitle.text = "오늘의 토픽"
+        topicTitle.font = .systemFont(ofSize: 20, weight: .semibold)
+        return topicTitle
+    }()
+    private let topicLabel: UILabel = {
+        let topicText = UILabel()
+        topicText.font = .systemFont(ofSize: 20, weight: .semibold)
+        return topicText
+    }()
     private lazy var backGroundRectangle: UIView = {
         let rectangle = UIView()
         rectangle.layer.cornerRadius = 15
         rectangle.backgroundColor = .systemGray5
-
         return rectangle
     }()
-
     private lazy var topicSegmentedControl: UISegmentedControl = {
         let segmentItems = ["가벼운", "진지한"]
         let topicSegmentedControl = UISegmentedControl(items: segmentItems)
@@ -168,7 +163,6 @@ class MainViewController: UIViewController {
         topicSegmentedControl.addTarget(self, action: #selector(segmentedValueChanged(_:)), for: .valueChanged)
         return topicSegmentedControl
     }()
-
     private lazy var refreshButton: UIButton = {
             let refreshButton = UIButton(type: UIButton.ButtonType.system)
             refreshButton.setImage(UIImage(systemName: "goforward"), for: UIControl.State.normal)
@@ -228,72 +222,15 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         self.initTitle()
         navigationItem.rightBarButtonItem = self.rightButton
-        topicTableView.delegate = self
-        topicTableView.dataSource = self
-        topicTableView.allowsSelection = false
-        makeBox()
-        render()
-    }
-    @objc private func buttonAction(_: UIButton!) {
-            switch topicSegmentedControl.selectedSegmentIndex {
-            case 0:
-                let previousIndex = genericTopicIndex
-                repeat {
-                    genericTopicIndex = Int.random(in: 0 ..< genericTopics.count)
-                } while previousIndex == genericTopicIndex
-                topics = genericTopics[genericTopicIndex]
-                topicLabel.text = topics.last
-            case 1:
-                let previousIndex = seriousTopicIndex
-                repeat {
-                    seriousTopicIndex = Int.random(in: 0 ..< seriousTopics.count)
-                } while previousIndex == seriousTopicIndex
-                topics = seriousTopics[seriousTopicIndex]
-                topicLabel.text = topics.last
-            default:
-                ()
-            }
-            topicTableView.reloadData()
-        }
-
-    @objc private func buttonPressed(_ sender: Any) {
-        let viewController = SettingViewController()
-        self.present(viewController, animated: true)
-    }
-
-    @objc private func callbuttonAction(_: UIButton!) {
-        present(callAlert, animated: true, completion: nil)
-    }
-
-    @objc private func segmentedValueChanged(_ segmentedControl: UISegmentedControl) {
-        switch segmentedControl.selectedSegmentIndex {
-        case 0:
-            topics = genericTopics[genericTopicIndex]
-            topicLabel.text = topics.last
-            topicLabel.font = .systemFont(ofSize: 20, weight: .semibold)
-
-        default:
-            topics = seriousTopics[seriousTopicIndex]
-            topicLabel.text = topics.last
-            topicLabel.font = .systemFont(ofSize: 20, weight: .semibold)
-        }
-
-        topicTableView.reloadData()
-    }
-
-    // MARK: - Configures
-
-    private func render() {
         configureUI()
         configureAddSubView()
         configureTranslate()
         configureRender()
     }
-
-    // MARK: Configures
+    // MARK: - Configures
     private func configureUI() {
-
         view.backgroundColor = .systemBackground
+        makeBox()
     }
     private func configureAddSubView() {
         view.addSubview(checkBackGroundRectangle)
@@ -325,8 +262,6 @@ class MainViewController: UIViewController {
             checkBackGroundRectangle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),
             checkBackGroundRectangle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15)
         ])
-        view.addSubview(backGroundRectangle)
-        backGroundRectangle.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
             backGroundRectangle.heightAnchor.constraint(equalToConstant: 300),
@@ -373,21 +308,20 @@ class MainViewController: UIViewController {
         ])
     }
 }
+    // MARK: - extension
+    extension MainViewController: UITableViewDataSource {
 
-// MARK: - extension
-extension MainViewController: UITableViewDataSource {
+        func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
+            return topics.count - 1
+        }
 
-    func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
-        return topics.count - 1
+        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+
+            cell.textLabel?.text = topics[indexPath.row]
+            return cell
+        }
     }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-
-        cell.textLabel?.text = topics[indexPath.row]
-        return cell
-    }
-}
 
 // MARK: - func
 
