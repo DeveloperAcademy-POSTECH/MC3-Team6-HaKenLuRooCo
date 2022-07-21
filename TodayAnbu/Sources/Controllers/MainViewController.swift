@@ -11,8 +11,7 @@ class MainViewController: UIViewController {
     private var genericTopics = [["요즘 핫한 과일은 뭘까요?", "최근 먹은 과일은 뭘까요?", "몸에 좋은 과일은 뭘까요?", "과일"], ["1", "2", "3", "숫자"], ["ㅁ", "ㄴ", "ㄷ", "한글"]]
     private var seriousTopics = [["요즘 가정 빚은 있나요?", "부부 금술은 좋나요?", "아들내미가 맘에 안드시나요?", "빚"], ["a", "c", "v", "심각한 알파벳"], ["칼", "총", "담배", "무서운 단어"]]
     private var topics: [String] = []
-    var blueStampBox: [UIImageView] = []
-    var grayStampBox: [UIImageView] = []
+    var weeklyCheckBox: [UIImageView] = []
     private var genericTopicIndex: Int = 0
     private var seriousTopicIndex: Int = 0
     private var isCalling = false
@@ -30,24 +29,18 @@ class MainViewController: UIViewController {
             let sqaureImage: UIImageView = {
                 let image = UIImage(systemName: "checkmark.square.fill")
                 let imageView = UIImageView(image: image)
+                imageView.isUserInteractionEnabled = true
+                imageView.tintColor = .systemGray
                 return imageView
             }()
-            blueStampBox.append(sqaureImage)
-        }
-        for _ in 0..<6 {
-            let sqaureImage: UIImageView = {
-                let image = UIImage(systemName: "checkmark.square")
-                let imageView = UIImageView(image: image)
-                return imageView
-            }()
-            grayStampBox.append(sqaureImage)
+            weeklyCheckBox.append(sqaureImage)
         }
     }
     lazy var dadStampBox: UIStackView = {
         let stackView: UIStackView = {
             var stackView = UIStackView()
             for idx in 0...2 {
-                stackView.addArrangedSubview(blueStampBox[idx])
+                stackView.addArrangedSubview(weeklyCheckBox[idx])
             }
             return stackView
         }()
@@ -61,7 +54,7 @@ class MainViewController: UIViewController {
         let stackView: UIStackView = {
             var stackView = UIStackView()
             for idx in 3...5 {
-                stackView.addArrangedSubview(blueStampBox[idx])
+                stackView.addArrangedSubview(weeklyCheckBox[idx])
             }
             return stackView
         }()
@@ -199,6 +192,7 @@ class MainViewController: UIViewController {
         configureAddSubView()
         configureTranslate()
         configureRender()
+        configureCheckButtonTapGesture()
         self.navigationItem.setHidesBackButton(true, animated: true)
     }
     // MARK: - Configures
@@ -322,6 +316,15 @@ class MainViewController: UIViewController {
 //            callButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -95)
         ])
     }
+
+    private func configureCheckButtonTapGesture() {
+        for index in 0 ... 5 {
+             let tapGestureRecognizer = CheckButtonTapGesture(target: self, action: #selector(didTapImageView(_:)))
+             weeklyCheckBox[index].addGestureRecognizer(tapGestureRecognizer)
+             tapGestureRecognizer.indexOfButton = index
+         }
+    }
+
 }
     // MARK: - extension
     extension MainViewController: UITableViewDataSource {
@@ -409,4 +412,13 @@ extension MainViewController {
 
         topicTableView.reloadData()
     }
+
+    @objc private func didTapImageView(_ sender: CheckButtonTapGesture) {
+        let stamp = weeklyCheckBox[sender.indexOfButton]
+        stamp.tintColor = stamp.tintColor == .systemGray ? .systemBlue : .systemGray
+    }
+}
+
+class CheckButtonTapGesture: UITapGestureRecognizer {
+    var indexOfButton = Int()
 }
