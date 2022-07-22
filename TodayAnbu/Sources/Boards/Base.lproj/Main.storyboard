@@ -8,21 +8,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
-            <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TodayAnbu" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-126" y="-206"/>
-        </scene>
         <!--OnboardingPage-->
         <scene sceneID="78H-w5-9lG">
             <objects>
@@ -31,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dWi-x7-QYF">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="dWi-x7-QYF">
                                 <rect key="frame" x="181" y="125" width="176.5" height="43"/>
                                 <string key="text">" 미안해 엄마 "
 " 바빠서 이따 전화할게 "</string>
@@ -52,7 +37,7 @@
                                 <rect key="frame" x="59" y="327.5" width="296" height="313.5"/>
                                 <variation key="heightClass=regular-widthClass=regular" image="imageView:edG-0T-DD3:image"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&quot; 오늘, 안부 &quot; " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.55000000000000004" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6j4-QA-Cz8">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&quot; 오늘, 안부 &quot; " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.55000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="6j4-QA-Cz8">
                                 <rect key="frame" x="54" y="254.5" width="306" height="43"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="36"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -61,7 +46,7 @@
                                     <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="50"/>
                                 </variation>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&quot; 요즘 잘 지내니? &quot; " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lb9-Ga-sKk">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&quot; 요즘 잘 지내니? &quot; " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Lb9-Ga-sKk">
                                 <rect key="frame" x="57" y="97" width="300" height="17"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -76,7 +61,7 @@
                                     <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                 </variation>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="n12-4O-eA0">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="n12-4O-eA0">
                                 <rect key="frame" x="52" y="185" width="310" height="46.5"/>
                                 <string key="text">이제 곧 갱년기를 겪을, 
 혹은 겪고 있을 부모님들을 위한
@@ -108,24 +93,23 @@
                         <viewLayoutGuide key="safeArea" id="7ok-Yi-qJB"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="ulC-2s-6ee" firstAttribute="leading" secondItem="7ok-Yi-qJB" secondAttribute="leading" constant="30" id="2UX-rm-j4t"/>
                             <constraint firstItem="edG-0T-DD3" firstAttribute="centerX" secondItem="7O4-S4-PQ2" secondAttribute="centerX" id="5Eq-Ut-Yz9"/>
                             <constraint firstItem="dWi-x7-QYF" firstAttribute="top" secondItem="Lb9-Ga-sKk" secondAttribute="bottom" multiplier="1.1" id="5ra-LL-SFd"/>
                             <constraint firstItem="edG-0T-DD3" firstAttribute="width" secondItem="7O4-S4-PQ2" secondAttribute="width" multiplier="0.715385" id="Bth-8k-vr7"/>
                             <constraint firstItem="n12-4O-eA0" firstAttribute="width" secondItem="7O4-S4-PQ2" secondAttribute="width" multiplier="0.748792" id="EoJ-hf-ejb"/>
+                            <constraint firstItem="ulC-2s-6ee" firstAttribute="leading" secondItem="7ok-Yi-qJB" secondAttribute="leading" constant="30" id="FYf-Pi-E0O"/>
                             <constraint firstItem="7ok-Yi-qJB" firstAttribute="bottom" secondItem="ulC-2s-6ee" secondAttribute="bottom" constant="50" id="IhR-X7-mNi"/>
                             <constraint firstItem="6j4-QA-Cz8" firstAttribute="width" secondItem="7O4-S4-PQ2" secondAttribute="width" multiplier="0.74" id="JZ1-gN-P2o"/>
                             <constraint firstItem="edG-0T-DD3" firstAttribute="top" secondItem="6j4-QA-Cz8" secondAttribute="bottom" multiplier="1.1" id="KOe-gK-MGo"/>
-                            <constraint firstItem="ulC-2s-6ee" firstAttribute="centerX" secondItem="7O4-S4-PQ2" secondAttribute="centerX" id="Lgt-k5-f3D"/>
                             <constraint firstItem="Lb9-Ga-sKk" firstAttribute="centerX" secondItem="7O4-S4-PQ2" secondAttribute="centerX" id="Mn6-xP-IDz"/>
                             <constraint firstItem="edG-0T-DD3" firstAttribute="height" secondItem="7O4-S4-PQ2" secondAttribute="height" multiplier="0.35" id="WcP-xT-rsF"/>
+                            <constraint firstItem="7ok-Yi-qJB" firstAttribute="trailing" secondItem="ulC-2s-6ee" secondAttribute="trailing" constant="30" id="for-JH-nkU"/>
                             <constraint firstItem="n12-4O-eA0" firstAttribute="centerX" secondItem="7O4-S4-PQ2" secondAttribute="centerX" id="gXv-YM-hTC"/>
                             <constraint firstItem="Lb9-Ga-sKk" firstAttribute="top" secondItem="7ok-Yi-qJB" secondAttribute="top" multiplier="1.1" id="iK8-13-ymQ"/>
                             <constraint firstItem="6j4-QA-Cz8" firstAttribute="top" secondItem="n12-4O-eA0" secondAttribute="bottom" multiplier="1.1" id="uDb-rq-0sW"/>
                             <constraint firstItem="dWi-x7-QYF" firstAttribute="centerX" secondItem="7O4-S4-PQ2" secondAttribute="centerX" multiplier="1.3" id="v0A-Bc-aQL"/>
                             <constraint firstItem="n12-4O-eA0" firstAttribute="top" secondItem="dWi-x7-QYF" secondAttribute="bottom" multiplier="1.1" id="wus-yC-7Xk"/>
                             <constraint firstItem="Lb9-Ga-sKk" firstAttribute="width" secondItem="7O4-S4-PQ2" secondAttribute="width" multiplier="0.724638" id="xSj-WM-rAZ"/>
-                            <constraint firstItem="7ok-Yi-qJB" firstAttribute="trailing" secondItem="ulC-2s-6ee" secondAttribute="trailing" constant="30" id="yUA-Cv-oss"/>
                             <constraint firstItem="6j4-QA-Cz8" firstAttribute="centerX" secondItem="7O4-S4-PQ2" secondAttribute="centerX" id="zgv-Di-2AX"/>
                         </constraints>
                     </view>
@@ -153,21 +137,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fD0-Ny-AMd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3090" y="-206"/>
-        </scene>
-        <!--Notification Modal View Controller-->
-        <scene sceneID="LoT-9t-w6a">
-            <objects>
-                <viewController id="p3W-i8-60Q" customClass="NotificationModalViewController" customModule="TodayAnbu" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="U0e-9m-QUB">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="i4B-en-4pX"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="WG2-Nb-nb3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4086" y="-196"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="tFX-Jk-wCo">
