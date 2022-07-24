@@ -7,7 +7,7 @@
 
 import UIKit
 
-class UserInitViewController: NotificationSettingViewController, UITextFieldDelegate {
+class UserInitViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var momVstackView: UIStackView! // 어머니 전화번호 입력 Vstack
     @IBOutlet weak var dadVstackView: UIStackView! // 아버지 전화번호 입력 Vstack
@@ -16,6 +16,17 @@ class UserInitViewController: NotificationSettingViewController, UITextFieldDele
     @IBOutlet weak var momNumberTextfield: UITextField! // 어머니 전화번호 입력 텍스트 필드
     @IBOutlet weak var dadNumberTextfield: UITextField! // 아버지 전화번호 입력 텍스트 필드
     @IBOutlet weak var startButton: UIButton!
+    
+    private var notificationButtonList: [NotificationButton] = []
+    private let weekDays = NotificationTime.setDummyData()
+    private let horizontalStack = UIStackView()
+    private var buttonIndex: Int = 0 {
+        didSet {
+            horizontalStack.subviews.forEach({ $0.removeFromSuperview() })
+            addSubViewNotificationButton()
+            horizontalStack.subviews[buttonIndex].backgroundColor = .systemBlue
+        }
+    }
 
     // TODO : UserDefaults에 저장해야함.
     private var momPhoneNumber: String? = ""
@@ -32,8 +43,10 @@ class UserInitViewController: NotificationSettingViewController, UITextFieldDele
         momNumberTextfield.addDoneButtonOnKeyboard()
         dadNumberTextfield.setBottomBorder(color: UIColor.systemGray4)
         dadNumberTextfield.addDoneButtonOnKeyboard()
+        
         momDayVstack.isHidden = true
         dadDayVstack.isHidden = true
+        
         startButton.isEnabled = false
         startButton.layer.cornerRadius = 10
         self.navigationItem.setHidesBackButton(true, animated: true)
@@ -46,6 +59,89 @@ class UserInitViewController: NotificationSettingViewController, UITextFieldDele
         }
         if dadNumberTextfield.hasValidPhoneNumber {
             UserDefaults.standard.set(dadNumberTextfield.text!, forKey: "dadPhoneNumber")
+        }
+    }
+}
+
+extension UserInitViewController {
+    // 버튼을 담을 Hstack의 레이아웃을 설정함
+    private func setHStackViewConstraints() {
+        self.momDayVstack.addSubview(horizontalStack)
+        horizontalStack.axis = .horizontal
+        horizontalStack.alignment = .center
+        horizontalStack.distribution = .equalSpacing
+        horizontalStack.spacing = 5
+        horizontalStack.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            horizontalStack.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            horizontalStack.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        ])
+    }
+
+    // 알람 설정 버튼의 속성을 설정하고, 리스트화시킴
+    private func makeNotificationButtonList() {
+
+        for index in 0...weekDays.count-1 {
+
+            let dayButton = UIStackView()
+            dayButton.axis = .vertical
+            dayButton.alignment = .center
+            dayButton.spacing = 5
+            dayButton.layer.cornerRadius = 10
+            dayButton.isLayoutMarginsRelativeArrangement = true
+            dayButton.translatesAutoresizingMaskIntoConstraints = false
+            dayButton.directionalLayoutMargins =  NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5)
+
+            let notificationButton = NotificationButton(id: index, buttonStack: dayButton, isSelected: false)
+
+            let firstLabel: UILabel = {
+                let label = UILabel()
+                label.text = weekDays[index].weekDay as String
+                label.font = UIFont.systemFont(ofSize: 20, weight: .bold)
+                label.textColor = .white
+                return label
+            }()
+
+            let secondLabel: UILabel = {
+                let label = UILabel()
+                label.text = "18:00"
+                label.font = UIFont.systemFont(ofSize: 14, weight: .bold)
+                label.textColor = .white
+                return label
+            }()
+            
+            notificationButton.buttonStack.addArrangedSubview(firstLabel)
+            notificationButton.buttonStack.addArrangedSubview(secondLabel)
+
+            notificationButton.buttonStack.tag = index
+            notificationButton.buttonStack.backgroundColor = .systemGray
+            notificationButton.buttonStack.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(setIndex(_:))))
+            
+            notificationButtonList.append(notificationButton)
+        }
+    }
+
+    private func addSubViewNotificationButton() {
+        for button in notificationButtonList {
+            horizontalStack.addArrangedSubview(button.buttonStack)
+        }
+    }
+
+    private func showTimePicker() {
+        let notificationSettingView = NotificationModalViewController()
+        self.present(notificationSettingView, animated: true)
+    }
+
+    @objc func setIndex(_ recognizer: UITapGestureRecognizer!) {
+        
+        buttonIndex = recognizer.view!.tag
+        notificationButtonList[buttonIndex].isSelected.toggle()
+        
+        if notificationButtonList[buttonIndex].isSelected {
+            notificationButtonList[buttonIndex].buttonStack.backgroundColor = .systemBlue
+            showTimePicker()
+        } else {
+            notificationButtonList[buttonIndex].buttonStack.backgroundColor = .systemGray
         }
     }
 }
