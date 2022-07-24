@@ -75,10 +75,10 @@
 				3E2F6562287FA0E600A27FA9 /* ViewController.swift */,
 				7B9B56992887EE3700FF3DD1 /* ConfirmViewController.swift */,
 				3EC0D9CA28801E9F00A98E73 /* UserInitViewController.swift */,
+				A9B32A8F28868F1D00530B51 /* NotificationSettingViewController.swift */,
 				7B2E9C712884FCF4006BE5C8 /* MainViewController.swift */,
 				7B2E9C6B28806FE3006BE5C8 /* SettingViewController.swift */,
 				A92FC8C6287FF3C000962CA0 /* OnboardingPageViewController.swift */,
-				A9B32A8F28868F1D00530B51 /* NotificationSettingViewController.swift */,
 				A9B32A9128868F7100530B51 /* NotificationModalViewController.swift */,
 				103BD8EE287FB38B00A6A0AD /* Utilities */,
 			);

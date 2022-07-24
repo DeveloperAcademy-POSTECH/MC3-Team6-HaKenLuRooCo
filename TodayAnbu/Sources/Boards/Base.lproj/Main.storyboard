@@ -180,12 +180,12 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="Vah-c9-XoB">
-                                <rect key="frame" x="20" y="123" width="374" height="316"/>
+                                <rect key="frame" x="20" y="123" width="374" height="335.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="JYo-rh-Smd">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="70"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="어머니의 연락처를 입력해주세요" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1tY-fh-lLc">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="어머니의 연락처를 입력해주세요" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NSc-Am-dbf">
                                                 <rect key="frame" x="0.0" y="0.0" width="374" height="24"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                 <nil key="textColor"/>
@@ -199,24 +199,13 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="Qon-NT-LhR">
-                                        <rect key="frame" x="0.0" y="95" width="374" height="50.5"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="어머니와 전화할 시간을 알려주세요" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p1M-x5-i7A">
-                                                <rect key="frame" x="0.0" y="0.0" width="374" height="24"/>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="저희가 알람을 통해 알려드릴게요!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cjs-v4-JwW">
-                                                <rect key="frame" x="0.0" y="36" width="374" height="14.5"/>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
-                                                <color key="textColor" systemColor="systemGray2Color"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
+                                        <rect key="frame" x="0.0" y="95" width="374" height="70"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="70" id="vY7-D8-5EH"/>
+                                        </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="pGH-qG-fYr">
-                                        <rect key="frame" x="0.0" y="170.5" width="374" height="70"/>
+                                        <rect key="frame" x="0.0" y="190" width="374" height="70"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="아버지의 연락처를 입력해주세요" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8FS-qx-awq">
                                                 <rect key="frame" x="0.0" y="0.0" width="374" height="24"/>
@@ -232,7 +221,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="J9d-zV-1Yf">
-                                        <rect key="frame" x="0.0" y="265.5" width="374" height="50.5"/>
+                                        <rect key="frame" x="0.0" y="285" width="374" height="50.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="아버지와 전화할 시간을 알려주세요" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Byn-BG-0nN">
                                                 <rect key="frame" x="0.0" y="0.0" width="374" height="24"/>

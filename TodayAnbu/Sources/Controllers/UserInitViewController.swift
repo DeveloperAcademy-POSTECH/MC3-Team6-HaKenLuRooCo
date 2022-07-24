@@ -20,6 +20,12 @@ class UserInitViewController: UIViewController, UITextFieldDelegate {
     private var notificationButtonList: [NotificationButton] = []
     private let weekDays = NotificationTime.setDummyData()
     private let horizontalStack = UIStackView()
+    private let alarmText: UILabel = {
+        let label = UILabel()
+        label.text = "언제 알람을 드릴까요??"
+        return label
+    }()
+    
     private var buttonIndex: Int = 0 {
         didSet {
             horizontalStack.subviews.forEach({ $0.removeFromSuperview() })
@@ -49,6 +55,11 @@ class UserInitViewController: UIViewController, UITextFieldDelegate {
         
         startButton.isEnabled = false
         startButton.layer.cornerRadius = 10
+        
+        setHStackViewConstraints()
+        makeNotificationButtonList()
+        addSubViewNotificationButton()
+        
         self.navigationItem.setHidesBackButton(true, animated: true)
     }
 
@@ -64,18 +75,29 @@ class UserInitViewController: UIViewController, UITextFieldDelegate {
 }
 
 extension UserInitViewController {
+    
     // 버튼을 담을 Hstack의 레이아웃을 설정함
     private func setHStackViewConstraints() {
-        self.momDayVstack.addSubview(horizontalStack)
+        momDayVstack.addSubview(alarmText)
+        alarmText.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            alarmText.topAnchor.constraint(equalTo: momDayVstack.topAnchor, constant: 10),
+            alarmText.leftAnchor.constraint(equalTo: momDayVstack.leftAnchor, constant: 15)
+        ])
+        
+        momDayVstack.addSubview(horizontalStack)
         horizontalStack.axis = .horizontal
         horizontalStack.alignment = .center
         horizontalStack.distribution = .equalSpacing
-        horizontalStack.spacing = 5
+        horizontalStack.spacing = 3
         horizontalStack.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            horizontalStack.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            horizontalStack.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+            horizontalStack.centerXAnchor.constraint(equalTo: momDayVstack.centerXAnchor),
+            horizontalStack.centerYAnchor.constraint(equalTo: momDayVstack.centerYAnchor)
         ])
+        
+        horizontalStack.translatesAutoresizingMaskIntoConstraints = false
+        horizontalStack.directionalLayoutMargins =  NSDirectionalEdgeInsets(top: 25, leading: 5, bottom: 25, trailing: 5)
     }
 
     // 알람 설정 버튼의 속성을 설정하고, 리스트화시킴
@@ -174,6 +196,7 @@ extension UserInitViewController {
                 startButton.isEnabled = true
                 startButton.backgroundColor = UIColor.systemBlue
                 momDayVstack.isHidden = false
+                
             } else {
                 print("momNumber Error")
                 textField.setBottomBorder(color: UIColor.red)
