@@ -21,6 +21,7 @@
 		7B2E9C702884397B006BE5C8 /* SettingHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2E9C6F2884397B006BE5C8 /* SettingHeaderView.swift */; };
 		7B2E9C722884FCF4006BE5C8 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2E9C712884FCF4006BE5C8 /* MainViewController.swift */; };
 		7B9B569A2887EE3700FF3DD1 /* ConfirmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9B56992887EE3700FF3DD1 /* ConfirmViewController.swift */; };
+		9AA146E9288EE39A00A10D2A /* StackViewSizeControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA146E8288EE39A00A10D2A /* StackViewSizeControl.swift */; };
 		A92FC8C7287FF3C000962CA0 /* OnboardingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92FC8C6287FF3C000962CA0 /* OnboardingPageViewController.swift */; };
 		A9332C77288E908F001A1B76 /* DateFormatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9332C76288E908F001A1B76 /* DateFormatting.swift */; };
 		A9B32A9028868F1D00530B51 /* NotificationSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B32A8F28868F1D00530B51 /* NotificationSettingViewController.swift */; };
@@ -45,6 +46,7 @@
 		7B2E9C6F2884397B006BE5C8 /* SettingHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingHeaderView.swift; sourceTree = "<group>"; };
 		7B2E9C712884FCF4006BE5C8 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		7B9B56992887EE3700FF3DD1 /* ConfirmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmViewController.swift; sourceTree = "<group>"; };
+		9AA146E8288EE39A00A10D2A /* StackViewSizeControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackViewSizeControl.swift; sourceTree = "<group>"; };
 		A92FC8C6287FF3C000962CA0 /* OnboardingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPageViewController.swift; sourceTree = "<group>"; };
 		A9332C76288E908F001A1B76 /* DateFormatting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatting.swift; sourceTree = "<group>"; };
 		A9B32A8F28868F1D00530B51 /* NotificationSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSettingViewController.swift; sourceTree = "<group>"; };
@@ -68,6 +70,7 @@
 			children = (
 				3EC0D9CC2880FAD500A98E73 /* UITextfieldExtension.swift */,
 				A9332C76288E908F001A1B76 /* DateFormatting.swift */,
+				9AA146E8288EE39A00A10D2A /* StackViewSizeControl.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -258,6 +261,7 @@
 			files = (
 				A92FC8C7287FF3C000962CA0 /* OnboardingPageViewController.swift in Sources */,
 				3E2F6563287FA0E600A27FA9 /* ViewController.swift in Sources */,
+				9AA146E9288EE39A00A10D2A /* StackViewSizeControl.swift in Sources */,
 				7B2E9C6E288429B8006BE5C8 /* SettingPersonalDataCell.swift in Sources */,
 				A9B32A9028868F1D00530B51 /* NotificationSettingViewController.swift in Sources */,
 				7B2E9C702884397B006BE5C8 /* SettingHeaderView.swift in Sources */,

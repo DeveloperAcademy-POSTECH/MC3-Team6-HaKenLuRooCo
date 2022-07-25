@@ -19,7 +19,7 @@ class UserInitViewController: UIViewController, UITextFieldDelegate {
     
     private var notificationGuideText: UILabel = {
         let label = UILabel()
-        label.text = "일주일 3번 정도 전화를 부모님께서는 가장 선호한다고 해요!"
+        label.text = "알람은 한 주에 최대 세번까지 설정할 수 있어요!"
         label.font = UIFont.systemFont(ofSize: 14, weight: .regular)
         return label
     }()
@@ -29,32 +29,34 @@ class UserInitViewController: UIViewController, UITextFieldDelegate {
     private let horizontalStack = UIStackView()
     private let notificationTimeSettingText: UILabel = {
         let label = UILabel()
-        label.text = "언제 알람을 드릴까요?"
+        label.text = "언제 안부전화 알람을 드릴까요?"
         label.font = .boldSystemFont(ofSize: 20)
         return label
     }()
 
-    // 버튼을 클릭했을 때 나타나는 변화들
+    // 버튼을 탭했을때, 탭한 버튼에 나타나는 변화들
     private var buttonIndex: Int = 0 {
         didSet {
-            if timePicker.isHidden {
-                addNotiTimeLabel(indexPath: buttonIndex, time: timeLabel.toString())
-            }
             timePicker.isHidden = false
             horizontalStack.subviews.forEach({ $0.removeFromSuperview() })
+            addNotificationTimeLabel(indexPath: buttonIndex, time: timeLabel.toString())
             addSubViewNotificationButton()
             horizontalStack.subviews[buttonIndex].backgroundColor = .systemBlue
+            horizontalStack.subviews[buttonIndex].layer.borderWidth = 3
+            horizontalStack.subviews[buttonIndex].layer.borderColor = CGColor(red: 255, green: 255, blue: 0, alpha: 0)
         }
     }
 
     // 데이트 피커를 움직였을 때 나타나는 변화
     lazy private var timeLabel = timePicker.date {
         didSet {
+            notificationButtonList[buttonIndex].notificationTime = timeLabel
+            
             if timeLabel.toString().isEmpty {
-                addNotiTimeLabel(indexPath: buttonIndex, time: timeLabel.toString())
+                addNotificationTimeLabel(indexPath: buttonIndex, time: timeLabel.toString())
             } else {
                 removeTimeLabel()
-                addNotiTimeLabel(indexPath: buttonIndex, time: timeLabel.toString())
+                addNotificationTimeLabel(indexPath: buttonIndex, time: timeLabel.toString())
             }
         }
     }
@@ -80,7 +82,7 @@ class UserInitViewController: UIViewController, UITextFieldDelegate {
 
 
         // 7무해 버튼 설정
-        setHStackViewConstraints()
+        setHStackViewDefaultConstraints()
         makeNotificationButtonList()
         addSubViewNotificationButton()
         buttonSizeControl(size: 15)
@@ -100,16 +102,13 @@ class UserInitViewController: UIViewController, UITextFieldDelegate {
     @IBAction func timePickerAction(_ sender: UIDatePicker!) {
         timeLabel = sender.date
     }
-    
-    private func addTimeLabelToButton(indexPath: Int) {
-        notificationButtonList[indexPath].notificationTime
-    }
+
 }
 
 extension UserInitViewController {
 
     // 버튼을 담을 Hstack의 레이아웃을 설정함
-    private func setHStackViewConstraints() {
+    private func setHStackViewDefaultConstraints() {
         momDayVstack.addSubview(notificationTimeSettingText)
         notificationTimeSettingText.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -132,7 +131,7 @@ extension UserInitViewController {
         horizontalStack.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
-            horizontalStack.topAnchor.constraint(equalTo: notificationTimeSettingText.topAnchor, constant: 60),
+            horizontalStack.topAnchor.constraint(equalTo: notificationTimeSettingText.topAnchor, constant: 75),
             horizontalStack.centerXAnchor.constraint(equalTo: momDayVstack.centerXAnchor)
         ])
 
@@ -149,7 +148,8 @@ extension UserInitViewController {
         notificationButtonList[buttonIndex].buttonStack.arrangedSubviews[1].removeFromSuperview()
     }
 
-    private func addNotiTimeLabel(indexPath: Int, time: String) {
+    // 데이트 피커가 설정한 시간에 따라 타임 레이블을 추가하는 함수
+    private func addNotificationTimeLabel(indexPath: Int, time: String) {
         let timeLabel: UILabel = {
             let label = UILabel()
             label.text = time
@@ -157,8 +157,14 @@ extension UserInitViewController {
             label.textColor = .white
             return label
         }()
+        
+        if notificationButtonList[indexPath].buttonStack.subviews.count != 2 {
         notificationButtonList[indexPath].buttonStack.addArrangedSubview(timeLabel)
-        notificationButtonList[indexPath].buttonStack.directionalLayoutMargins =  NSDirectionalEdgeInsets(top: 5, leading: 3, bottom: 5, trailing: 3)
+        notificationButtonList[indexPath].buttonStack.directionalLayoutMargins =  NSDirectionalEdgeInsets(top: 10, leading: 3, bottom: 10, trailing: 3)
+        } else if notificationButtonList[indexPath].isSelected && notificationButtonList[indexPath].buttonStack.subviews.count == 2 {
+            notificationButtonList[indexPath].buttonStack.subviews[1].removeFromSuperview()
+            notificationButtonList[indexPath].buttonStack.directionalLayoutMargins =  NSDirectionalEdgeInsets(top: 15, leading: 15, bottom: 15, trailing: 15)
+        }
     }
     // 알람 설정 버튼의 속성을 설정하고, 배열을 만듬
     private func makeNotificationButtonList() {
@@ -209,7 +215,6 @@ extension UserInitViewController {
         if notificationButtonList[buttonIndex].isSelected {
             notificationButtonList[buttonIndex].buttonStack.backgroundColor = .systemBlue
 //            showTimePicker()
-
         } else {
             notificationButtonList[buttonIndex].buttonStack.backgroundColor = .systemGray
         }
