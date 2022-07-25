@@ -20,9 +20,8 @@ jobs:
       uses: norio-nomura/action-swiftlint@3.2.1
       with:
         args: --strict
-    # 임시: develop bracnh와 다른 것만 비교하는 것에서 모두 비교하는 것으로 변경 
-#      env:
-#        DIFF_BASE: ${{ github.base_ref }}
+      env:
+        DIFF_BASE: ${{ github.base_ref }}
 
 #   pre-commit:
 #     runs-on: ubuntu-20.04
