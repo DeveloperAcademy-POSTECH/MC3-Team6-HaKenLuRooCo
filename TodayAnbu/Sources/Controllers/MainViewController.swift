@@ -16,12 +16,12 @@ class MainViewController: UIViewController {
     private var seriousTopicIndex: Int = 0
     private var isCalling = false
 
-    // 네비게이션 타이틀을 다루기 위해 정의된 메소드
-    private func initTitle() {
+    private func topTitle() {
         let label = UILabel()
         label.textColor = .black
-        label.text = "전화 안 한지 7일"
+        label.text = "전화한지 7일 되었어요"
         label.font = .boldSystemFont(ofSize: 25)
+        label.backgroundColor = .mainIndigo
         self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(customView: label)
     }
     private func makeBox() {
@@ -164,7 +164,7 @@ class MainViewController: UIViewController {
     private lazy var callButton: UIButton = {
         let callButton = UIButton(type: UIButton.ButtonType.system)
         callButton.setImage(UIImage(systemName: "phone.fill"), for: UIControl.State.normal)
-        callButton.backgroundColor = .systemBlue
+        callButton.backgroundColor = .mainIndigo
         callButton.tintColor = .white
         callButton.layer.cornerRadius = 10
         callButton.addTarget(self, action: #selector(callbuttonAction(_:)), for: .touchUpInside)
@@ -185,7 +185,7 @@ class MainViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.initTitle()
+        self.topTitle()
         navigationItem.rightBarButtonItem = self.rightButton
         configureUI()
         configureAddSubView()
