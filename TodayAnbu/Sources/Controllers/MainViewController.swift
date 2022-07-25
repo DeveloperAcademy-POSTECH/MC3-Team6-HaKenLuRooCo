@@ -133,6 +133,7 @@ class MainViewController: UIViewController {
         let topicTableView = UITableView()
         topicTableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         topicTableView.reloadData()
+        topicTableView.isScrollEnabled = false
         return topicTableView
     }()
 
