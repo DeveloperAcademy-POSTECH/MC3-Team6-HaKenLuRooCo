@@ -50,7 +50,7 @@ class NotificationSettingViewController: UIViewController {
 
             let buttonStack = UIStackView()
 
-            let notificationButton = NotificationButton(id: index, buttonStack: buttonStack, isSelected: false)
+            let notificationButton = NotificationButton(id: index, buttonStack: buttonStack, isSelected: false, notificationTime: Date())
             notificationButton.buttonStack.axis = .vertical
             notificationButton.buttonStack.alignment = .center
             notificationButton.buttonStack.spacing = 5

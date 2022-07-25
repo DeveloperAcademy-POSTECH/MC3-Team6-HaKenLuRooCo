@@ -11,16 +11,13 @@ class NotificationButton {
     var indexPath: Int
     var buttonStack: UIStackView
     var isSelected: Bool
-    init(id: Int, buttonStack: UIStackView, isSelected: Bool) {
+    var notificationTime: Date
+    init(id: Int, buttonStack: UIStackView, isSelected: Bool, notificationTime: Date) {
         self.indexPath = id
         self.buttonStack = buttonStack
         self.isSelected = false
+        self.notificationTime = notificationTime
     }
-}
-
-struct ButtonData {
-    var weekDay: String
-    var time: String
 }
 
 struct NotificationTime: Hashable {
