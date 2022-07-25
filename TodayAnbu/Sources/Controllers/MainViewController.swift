@@ -18,11 +18,9 @@ class MainViewController: UIViewController {
 
     private func topTitle() {
         let label = UILabel()
-        label.textColor = .black
+        label.textColor = .white
         label.text = "전화한지 7일 되었어요"
         label.font = .boldSystemFont(ofSize: 25)
-        label.backgroundColor = .mainIndigo
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(customView: label)
     }
     private func makeBox() {
         for _ in 0..<6 {
@@ -76,16 +74,6 @@ class MainViewController: UIViewController {
         label.text = "아빠"
         label.font = .systemFont(ofSize: 20, weight: .semibold)
         return label
-    }()
-    private lazy var topRectangleDivider: UIView = {
-        let rectangle = UIView()
-        rectangle.backgroundColor = .systemGray3
-        return rectangle
-    }()
-    private lazy var rightButton: UIBarButtonItem = {
-        let buttonImage = UIImage(systemName: "person.circle")!
-        let button = UIBarButtonItem(image: buttonImage, style: .plain, target: self, action: #selector(buttonPressed))
-        return button
     }()
     private lazy var checkBackGroundRectangle: UIView = {
         let rectangle = UIView()
@@ -186,7 +174,6 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.topTitle()
-        navigationItem.rightBarButtonItem = self.rightButton
         configureUI()
         configureAddSubView()
         configureTranslate()
@@ -208,7 +195,6 @@ class MainViewController: UIViewController {
         view.addSubview(refreshButton)
         view.addSubview(topicTableView)
         view.addSubview(callButton)
-        checkBackGroundRectangle.addSubview(topRectangleDivider)
         checkBackGroundRectangle.addSubview(dadLabel)
         checkBackGroundRectangle.addSubview(momLabel)
         checkBackGroundRectangle.addSubview(dadStampBox)
@@ -223,7 +209,6 @@ class MainViewController: UIViewController {
         refreshButton.translatesAutoresizingMaskIntoConstraints = false
         topicTableView.translatesAutoresizingMaskIntoConstraints = false
         callButton.translatesAutoresizingMaskIntoConstraints = false
-        topRectangleDivider.translatesAutoresizingMaskIntoConstraints = false
         dadLabel.translatesAutoresizingMaskIntoConstraints = false
         momLabel.translatesAutoresizingMaskIntoConstraints = false
         dadStampBox.translatesAutoresizingMaskIntoConstraints = false
@@ -233,12 +218,6 @@ class MainViewController: UIViewController {
         topicTableView.dataSource = self
         topicTableView.allowsSelection = false
 
-        NSLayoutConstraint.activate([
-            topRectangleDivider.topAnchor.constraint(equalTo: checkBackGroundRectangle.topAnchor),
-            topRectangleDivider.leadingAnchor.constraint(equalTo: checkBackGroundRectangle.leadingAnchor, constant: 179),
-            topRectangleDivider.trailingAnchor.constraint(equalTo: checkBackGroundRectangle.trailingAnchor, constant: -179),
-            topRectangleDivider.bottomAnchor.constraint(equalTo: checkBackGroundRectangle.bottomAnchor)
-        ])
         NSLayoutConstraint.activate([
             dadLabel.leadingAnchor.constraint(equalTo: checkBackGroundRectangle.leadingAnchor, constant: 70),
             dadLabel.topAnchor.constraint(equalTo: checkBackGroundRectangle.topAnchor, constant: 35)
@@ -386,11 +365,6 @@ extension MainViewController {
             }
             topicTableView.reloadData()
         }
-
-    @objc private func buttonPressed(_ sender: Any) {
-        let viewController = SettingViewController()
-        self.present(viewController, animated: true)
-    }
 
     @objc private func callbuttonAction(_: UIButton!) {
         present(callAlert, animated: true, completion: nil)
