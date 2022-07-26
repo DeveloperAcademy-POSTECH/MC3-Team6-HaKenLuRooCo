@@ -22,11 +22,43 @@
 		7B2E9C722884FCF4006BE5C8 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2E9C712884FCF4006BE5C8 /* MainViewController.swift */; };
 		7B9B569A2887EE3700FF3DD1 /* ConfirmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9B56992887EE3700FF3DD1 /* ConfirmViewController.swift */; };
 		7BD2303E288E8B18002BB9F5 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD2303D288E8B18002BB9F5 /* UIColor+Extension.swift */; };
+		9A9CB0FC2890ACE0009AA95C /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A9CB0FB2890ACE0009AA95C /* WidgetKit.framework */; };
+		9A9CB0FE2890ACE0009AA95C /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A9CB0FD2890ACE0009AA95C /* SwiftUI.framework */; };
+		9A9CB1012890ACE0009AA95C /* TodayAnbuWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9CB1002890ACE0009AA95C /* TodayAnbuWidget.swift */; };
+		9A9CB1042890ACE1009AA95C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A9CB1032890ACE1009AA95C /* Assets.xcassets */; };
+		9A9CB1062890ACE1009AA95C /* TodayAnbuWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 9A9CB1022890ACE0009AA95C /* TodayAnbuWidget.intentdefinition */; };
+		9A9CB1072890ACE1009AA95C /* TodayAnbuWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 9A9CB1022890ACE0009AA95C /* TodayAnbuWidget.intentdefinition */; };
+		9A9CB10A2890ACE1009AA95C /* TodayAnbuWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 9A9CB0F92890ACE0009AA95C /* TodayAnbuWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		A91AF97C28915DDA003D486B /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91AF97B28915DDA003D486B /* ColorExtension.swift */; };
 		A92FC8C7287FF3C000962CA0 /* OnboardingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92FC8C6287FF3C000962CA0 /* OnboardingPageViewController.swift */; };
 		A9332C77288E908F001A1B76 /* DateFormatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9332C76288E908F001A1B76 /* DateFormatting.swift */; };
 		A9B32A9228868F7100530B51 /* NotificationModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B32A9128868F7100530B51 /* NotificationModalViewController.swift */; };
 		A9B32A94288691EA00530B51 /* NotificationTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B32A93288691EA00530B51 /* NotificationTime.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9A9CB1082890ACE1009AA95C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3E2F6553287FA0E600A27FA9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9A9CB0F82890ACE0009AA95C;
+			remoteInfo = TodayAnbuWidgetExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		9A9CB10B2890ACE1009AA95C /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				9A9CB10A2890ACE1009AA95C /* TodayAnbuWidgetExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		10D2670F288ED1ED0056339A /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
@@ -46,6 +78,14 @@
 		7B2E9C712884FCF4006BE5C8 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		7B9B56992887EE3700FF3DD1 /* ConfirmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmViewController.swift; sourceTree = "<group>"; };
 		7BD2303D288E8B18002BB9F5 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		9A9CB0F92890ACE0009AA95C /* TodayAnbuWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TodayAnbuWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		9A9CB0FB2890ACE0009AA95C /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		9A9CB0FD2890ACE0009AA95C /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		9A9CB1002890ACE0009AA95C /* TodayAnbuWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayAnbuWidget.swift; sourceTree = "<group>"; };
+		9A9CB1022890ACE0009AA95C /* TodayAnbuWidget.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = TodayAnbuWidget.intentdefinition; sourceTree = "<group>"; };
+		9A9CB1032890ACE1009AA95C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9A9CB1052890ACE1009AA95C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A91AF97B28915DDA003D486B /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		A92FC8C6287FF3C000962CA0 /* OnboardingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPageViewController.swift; sourceTree = "<group>"; };
 		A9332C76288E908F001A1B76 /* DateFormatting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatting.swift; sourceTree = "<group>"; };
 		A9B32A9128868F7100530B51 /* NotificationModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationModalViewController.swift; sourceTree = "<group>"; };
@@ -57,6 +97,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9A9CB0F62890ACE0009AA95C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9A9CB0FE2890ACE0009AA95C /* SwiftUI.framework in Frameworks */,
+				9A9CB0FC2890ACE0009AA95C /* WidgetKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,6 +191,8 @@
 			isa = PBXGroup;
 			children = (
 				3E2F655D287FA0E600A27FA9 /* TodayAnbu */,
+				9A9CB0FF2890ACE0009AA95C /* TodayAnbuWidget */,
+				9A9CB0FA2890ACE0009AA95C /* Frameworks */,
 				3E2F655C287FA0E600A27FA9 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -150,6 +201,7 @@
 			isa = PBXGroup;
 			children = (
 				3E2F655B287FA0E600A27FA9 /* TodayAnbu.app */,
+				9A9CB0F92890ACE0009AA95C /* TodayAnbuWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -165,6 +217,27 @@
 			path = TodayAnbu;
 			sourceTree = "<group>";
 		};
+		9A9CB0FA2890ACE0009AA95C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9A9CB0FB2890ACE0009AA95C /* WidgetKit.framework */,
+				9A9CB0FD2890ACE0009AA95C /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9A9CB0FF2890ACE0009AA95C /* TodayAnbuWidget */ = {
+			isa = PBXGroup;
+			children = (
+				9A9CB1002890ACE0009AA95C /* TodayAnbuWidget.swift */,
+				A91AF97B28915DDA003D486B /* ColorExtension.swift */,
+				9A9CB1022890ACE0009AA95C /* TodayAnbuWidget.intentdefinition */,
+				9A9CB1032890ACE1009AA95C /* Assets.xcassets */,
+				9A9CB1052890ACE1009AA95C /* Info.plist */,
+			);
+			path = TodayAnbuWidget;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -176,15 +249,34 @@
 				3E2F6558287FA0E600A27FA9 /* Frameworks */,
 				3E2F6559287FA0E600A27FA9 /* Resources */,
 				3E2F6572287FA10E00A27FA9 /* SwiftLint Script */,
+				9A9CB10B2890ACE1009AA95C /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				9A9CB1092890ACE1009AA95C /* PBXTargetDependency */,
 			);
 			name = TodayAnbu;
 			productName = TodayAnbu;
 			productReference = 3E2F655B287FA0E600A27FA9 /* TodayAnbu.app */;
 			productType = "com.apple.product-type.application";
+		};
+		9A9CB0F82890ACE0009AA95C /* TodayAnbuWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9A9CB10E2890ACE1009AA95C /* Build configuration list for PBXNativeTarget "TodayAnbuWidgetExtension" */;
+			buildPhases = (
+				9A9CB0F52890ACE0009AA95C /* Sources */,
+				9A9CB0F62890ACE0009AA95C /* Frameworks */,
+				9A9CB0F72890ACE0009AA95C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TodayAnbuWidgetExtension;
+			productName = TodayAnbuWidgetExtension;
+			productReference = 9A9CB0F92890ACE0009AA95C /* TodayAnbuWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -197,6 +289,9 @@
 				LastUpgradeCheck = 1340;
 				TargetAttributes = {
 					3E2F655A287FA0E600A27FA9 = {
+						CreatedOnToolsVersion = 13.4.1;
+					};
+					9A9CB0F82890ACE0009AA95C = {
 						CreatedOnToolsVersion = 13.4.1;
 					};
 				};
@@ -215,6 +310,7 @@
 			projectRoot = "";
 			targets = (
 				3E2F655A287FA0E600A27FA9 /* TodayAnbu */,
+				9A9CB0F82890ACE0009AA95C /* TodayAnbuWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -228,6 +324,14 @@
 				3E2F656B287FA0E700A27FA9 /* LaunchScreen.storyboard in Resources */,
 				3E2F6568287FA0E700A27FA9 /* Assets.xcassets in Resources */,
 				3E2F6566287FA0E600A27FA9 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9A9CB0F72890ACE0009AA95C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9A9CB1042890ACE1009AA95C /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,8 +368,10 @@
 				7B2E9C6E288429B8006BE5C8 /* SettingPersonalDataCell.swift in Sources */,
 				7B2E9C702884397B006BE5C8 /* SettingHeaderView.swift in Sources */,
 				7B9B569A2887EE3700FF3DD1 /* ConfirmViewController.swift in Sources */,
+				A91AF97C28915DDA003D486B /* ColorExtension.swift in Sources */,
 				A9B32A94288691EA00530B51 /* NotificationTime.swift in Sources */,
 				3E2F655F287FA0E600A27FA9 /* AppDelegate.swift in Sources */,
+				9A9CB1072890ACE1009AA95C /* TodayAnbuWidget.intentdefinition in Sources */,
 				7B2E9C722884FCF4006BE5C8 /* MainViewController.swift in Sources */,
 				7BD2303E288E8B18002BB9F5 /* UIColor+Extension.swift in Sources */,
 				A9B32A9228868F7100530B51 /* NotificationModalViewController.swift in Sources */,
@@ -277,7 +383,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		9A9CB0F52890ACE0009AA95C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9A9CB1062890ACE1009AA95C /* TodayAnbuWidget.intentdefinition in Sources */,
+				9A9CB1012890ACE0009AA95C /* TodayAnbuWidget.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9A9CB1092890ACE1009AA95C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9A9CB0F82890ACE0009AA95C /* TodayAnbuWidgetExtension */;
+			targetProxy = 9A9CB1082890ACE1009AA95C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		3E2F6564287FA0E600A27FA9 /* Main.storyboard */ = {
@@ -416,6 +539,7 @@
 		3E2F6570287FA0E700A27FA9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
@@ -446,6 +570,7 @@
 		3E2F6571287FA0E700A27FA9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
@@ -473,6 +598,62 @@
 			};
 			name = Release;
 		};
+		9A9CB10C2890ACE1009AA95C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3WVLC7Y373;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TodayAnbuWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = TodayAnbuWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hakenluluco.TodayAnbu.TodayAnbuWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9A9CB10D2890ACE1009AA95C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3WVLC7Y373;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TodayAnbuWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = TodayAnbuWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hakenluluco.TodayAnbu.TodayAnbuWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -490,6 +671,15 @@
 			buildConfigurations = (
 				3E2F6570287FA0E700A27FA9 /* Debug */,
 				3E2F6571287FA0E700A27FA9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9A9CB10E2890ACE1009AA95C /* Build configuration list for PBXNativeTarget "TodayAnbuWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9A9CB10C2890ACE1009AA95C /* Debug */,
+				9A9CB10D2890ACE1009AA95C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
