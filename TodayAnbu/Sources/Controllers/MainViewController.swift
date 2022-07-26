@@ -27,6 +27,7 @@ class MainViewController: UIViewController {
         label.textColor = .mainTitleFontColor
         label.text = "전화한지 7일 되었어요"
         label.font = .boldSystemFont(ofSize: 25)
+
         return label
     }()
     private let weeklyAnbuLabel: UILabel = {
