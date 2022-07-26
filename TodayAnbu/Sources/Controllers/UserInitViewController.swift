@@ -36,6 +36,7 @@ class UserInitViewController: UIViewController, UITextFieldDelegate {
     // 버튼을 탭했을때, 탭한 버튼에 나타나는 변화들
     private var buttonIndex: Int = 0 {
         didSet {
+            print(buttonIndex)
             timePicker.isHidden = false
             horizontalStack.subviews.forEach({ $0.removeFromSuperview() })
             addNotificationTimeLabel(indexPath: buttonIndex, time: timeLabel.toString())
@@ -254,7 +255,14 @@ extension UserInitViewController {
                     for index in 0...dayList.count-1 {
                         
                         var dateComponent = Calendar.autoupdatingCurrent.dateComponents([.hour, .minute], from: dateList[index])
-                        dateComponent.day = dayList[index]
+                        let weekDay: Int = {
+                            var weekDay = dayList[index] + 2
+                            if weekDay == 8 {
+                                weekDay = 1
+                            }
+                            return weekDay
+                        }()
+                        dateComponent.weekday = weekDay
                         
                         let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponent, repeats: true)
                         let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
@@ -264,7 +272,13 @@ extension UserInitViewController {
                                 return
                             }
                         }
+                        print(dateComponent)
                     }
+                    
+                    let notificationAlert = UIAlertController(title: "알람 설정완료!", message: "알람은 설정창에서 바꿀 수 있어요 ", preferredStyle: .alert)
+                    notificationAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (_) in}))
+                    self.present(notificationAlert, animated: true)
+                    
                     // notification 허용하지 않을 경우
                 } else {
                     let alertController = UIAlertController(title: "알림을 설정하시겠어요?", message: "설정에서 알람 허용을 해주셔야해요!", preferredStyle: .alert)
