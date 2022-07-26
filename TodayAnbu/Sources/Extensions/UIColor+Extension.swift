@@ -12,4 +12,14 @@ import UIKit
 // view.backgroundColor = .mainIndigo
 extension UIColor {
     static let mainIndigo = UIColor(named: "mainIndigo")
+    static let momDeepPink = UIColor(named: "momDeepPink")
+    static let momLightPink = UIColor(named: "momLightPink")
+    static let dadDeepSkyblue = UIColor(named: "dadDeepSkyblue")
+    static let dadLightSkyblue = UIColor(named: "dadLightSkyblue")
+    static let momGaugeLight = UIColor(named: "momGaugeLight")
+    static let momGaugeDeep = UIColor(named: "momGaugeDeep")
+    static let dadGaugeLight = UIColor(named: "dadGaugeLight")
+    static let dadGaugeDeep = UIColor(named: "dadGaugeDeep")
+    static let mainTitleOrange = UIColor(named: "mainTitleOrange")
+    static let mainTitleFontColor = UIColor(named: "mainTitleFontColor")
 }

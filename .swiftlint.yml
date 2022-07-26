@@ -11,10 +11,11 @@ disabled_rules:
 #   - force_unwrapping
 
     - unused_optional_binding
-
     - line_length
-
     - todo
+    - file_length
+    - function_body_length
+
 
 
 # Default가 비활성화인 규칙을 활성화시키기
