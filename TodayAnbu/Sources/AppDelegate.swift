@@ -24,4 +24,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
+    // App delegate 패턴을 통해 앱이 background에서 foreground로 이동 될 떄 호출 하는 함수
+    // 이 함수 활용하면 전화가 끝난 뒤 원하는 뷰로 이동 가능 할 것 같습니당
+    func applicationWillEnterForeground(_ application: UIApplication) {
+        
+    }
 }
