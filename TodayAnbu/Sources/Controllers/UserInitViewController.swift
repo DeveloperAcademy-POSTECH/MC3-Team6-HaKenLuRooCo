@@ -3,27 +3,26 @@
 //  TodayAnbu
 //
 //  Created by YeongJin Jeong on 2022/07/14.
-//
-
-import UIKit
+//  Revised by Rookie Since 2022/07/25
 
 import UIKit
 
 class UserInitViewController: UIViewController, UITextFieldDelegate {
-
+    
     @IBOutlet weak var momVstackView: UIStackView!
     @IBOutlet weak var momDayVstack: UIStackView!
     @IBOutlet weak var momNumberTextfield: UITextField!
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var timePicker: UIDatePicker!
     
+    private let notificationCenter = UNUserNotificationCenter.current()
     private var notificationGuideText: UILabel = {
         let label = UILabel()
         label.text = "알람은 한 주에 최대 세번까지 설정할 수 있어요!"
         label.font = UIFont.systemFont(ofSize: 14, weight: .regular)
         return label
     }()
-
+    
     private var notificationButtonList: [NotificationButton] = []
     private let weekDays = NotificationTime.setDummyData()
     private let horizontalStack = UIStackView()
@@ -33,7 +32,7 @@ class UserInitViewController: UIViewController, UITextFieldDelegate {
         label.font = .boldSystemFont(ofSize: 20)
         return label
     }()
-
+    
     // 버튼을 탭했을때, 탭한 버튼에 나타나는 변화들
     private var buttonIndex: Int = 0 {
         didSet {
@@ -42,11 +41,17 @@ class UserInitViewController: UIViewController, UITextFieldDelegate {
             addNotificationTimeLabel(indexPath: buttonIndex, time: timeLabel.toString())
             addSubViewNotificationButton()
             horizontalStack.subviews[buttonIndex].backgroundColor = .systemBlue
-            horizontalStack.subviews[buttonIndex].layer.borderWidth = 3
-            horizontalStack.subviews[buttonIndex].layer.borderColor = CGColor(red: 255, green: 255, blue: 0, alpha: 0)
+            horizontalStack.subviews.forEach({$0.layer.borderWidth = 0 })
+            
+            if notificationButtonList[buttonIndex].isSelected == false {
+                horizontalStack.subviews[buttonIndex].layer.borderWidth = 3
+                horizontalStack.subviews[buttonIndex].layer.borderColor = CGColor(red: 255, green: 120, blue: 0, alpha: 1)
+            } else {
+                horizontalStack.subviews[buttonIndex].layer.borderWidth = 0
+            }
         }
     }
-
+    
     // 데이트 피커를 움직였을 때 나타나는 변화
     lazy private var timeLabel = timePicker.date {
         didSet {
@@ -60,7 +65,7 @@ class UserInitViewController: UIViewController, UITextFieldDelegate {
             }
         }
     }
-
+    
     // TODO : UserDefaults에 저장해야함.
     private var momPhoneNumber: String? = ""
     private var dadPhoneNumber: String? = ""
@@ -72,27 +77,32 @@ class UserInitViewController: UIViewController, UITextFieldDelegate {
         momNumberTextfield.delegate = self
         momNumberTextfield.setBottomBorder(color: UIColor.systemGray4)
         momNumberTextfield.addDoneButtonOnKeyboard()
-
+        
         momDayVstack.isHidden = true
         startButton.isEnabled = false
         startButton.layer.cornerRadius = 10
-
+        
         momDayVstack.isHidden = true
         startButton.isEnabled = false
-
-
+        
+        
         // 7무해 버튼 설정
         setHStackViewDefaultConstraints()
         makeNotificationButtonList()
         addSubViewNotificationButton()
         buttonSizeControl(size: 15)
-
+        
         // time picker 설정
         timePicker.isHidden = true
-
+        
+        notificationCenter.requestAuthorization(options: [.alert, .sound]) { (permissionGranted, error) in
+            if !permissionGranted {
+                print("Permission Denied")
+            }
+        }
         self.navigationItem.setHidesBackButton(true, animated: true)
     }
-
+    
     @IBAction func startButttonAction(_ sender: Any) {
         UserDefaults.standard.set(true, forKey: "isFisrtLogin") // 최초 로그인인지 확인
         if momNumberTextfield.hasValidPhoneNumber {
@@ -101,12 +111,13 @@ class UserInitViewController: UIViewController, UITextFieldDelegate {
     }
     @IBAction func timePickerAction(_ sender: UIDatePicker!) {
         timeLabel = sender.date
+        print("이 값은 데이트 피커의 date 값입니다. \(sender.date)")
     }
-
+    
 }
 
 extension UserInitViewController {
-
+    
     // 버튼을 담을 Hstack의 레이아웃을 설정함
     private func setHStackViewDefaultConstraints() {
         momDayVstack.addSubview(notificationTimeSettingText)
@@ -122,32 +133,32 @@ extension UserInitViewController {
             notificationGuideText.topAnchor.constraint(equalTo: notificationTimeSettingText.topAnchor, constant: 35),
             notificationGuideText.leftAnchor.constraint(equalTo: momDayVstack.leftAnchor, constant: 5)
         ])
-
+        
         momDayVstack.addSubview(horizontalStack)
         horizontalStack.axis = .horizontal
-        horizontalStack.alignment = .center
+        horizontalStack.alignment = .top
         horizontalStack.distribution = .equalSpacing
         horizontalStack.spacing = 5
         horizontalStack.translatesAutoresizingMaskIntoConstraints = false
-
+        
         NSLayoutConstraint.activate([
             horizontalStack.topAnchor.constraint(equalTo: notificationTimeSettingText.topAnchor, constant: 75),
             horizontalStack.centerXAnchor.constraint(equalTo: momDayVstack.centerXAnchor)
         ])
-
+        
         horizontalStack.translatesAutoresizingMaskIntoConstraints = false
     }
-
+    
     private func buttonSizeControl(size: CGFloat) {
         for button in notificationButtonList {
             button.buttonStack.directionalLayoutMargins =  NSDirectionalEdgeInsets(top: size, leading: size, bottom: size, trailing: size)
         }
     }
-
+    
     private func removeTimeLabel() {
         notificationButtonList[buttonIndex].buttonStack.arrangedSubviews[1].removeFromSuperview()
     }
-
+    
     // 데이트 피커가 설정한 시간에 따라 타임 레이블을 추가하는 함수
     private func addNotificationTimeLabel(indexPath: Int, time: String) {
         let timeLabel: UILabel = {
@@ -159,18 +170,21 @@ extension UserInitViewController {
         }()
         
         if notificationButtonList[indexPath].buttonStack.subviews.count != 2 {
-        notificationButtonList[indexPath].buttonStack.addArrangedSubview(timeLabel)
-        notificationButtonList[indexPath].buttonStack.directionalLayoutMargins =  NSDirectionalEdgeInsets(top: 10, leading: 3, bottom: 10, trailing: 3)
+            notificationButtonList[indexPath].buttonStack.addArrangedSubview(timeLabel)
+            notificationButtonList[indexPath].buttonStack.directionalLayoutMargins =  NSDirectionalEdgeInsets(top: 10, leading: 5, bottom: 10, trailing: 5)
+            
+            // 알람 세팅된 버튼을 다시 클릭했을 경우
         } else if notificationButtonList[indexPath].isSelected && notificationButtonList[indexPath].buttonStack.subviews.count == 2 {
             notificationButtonList[indexPath].buttonStack.subviews[1].removeFromSuperview()
             notificationButtonList[indexPath].buttonStack.directionalLayoutMargins =  NSDirectionalEdgeInsets(top: 15, leading: 15, bottom: 15, trailing: 15)
+            notificationButtonList[indexPath].buttonStack.layer.borderWidth = 0
         }
     }
     // 알람 설정 버튼의 속성을 설정하고, 배열을 만듬
     private func makeNotificationButtonList() {
-
+        
         for index in 0...weekDays.count-1 {
-
+            
             let dayButton = UIStackView()
             dayButton.axis = .vertical
             dayButton.alignment = .center
@@ -179,7 +193,7 @@ extension UserInitViewController {
             dayButton.isLayoutMarginsRelativeArrangement = true
             dayButton.translatesAutoresizingMaskIntoConstraints = false
             let notificationButton = NotificationButton(id: index, buttonStack: dayButton, isSelected: false, notificationTime: Date())
-
+            
             let firstLabel: UILabel = {
                 let label = UILabel()
                 label.text = weekDays[index].weekDay as String
@@ -187,36 +201,86 @@ extension UserInitViewController {
                 label.textColor = .white
                 return label
             }()
-
+            
             notificationButton.buttonStack.addArrangedSubview(firstLabel)
             notificationButton.buttonStack.tag = index
             notificationButton.buttonStack.backgroundColor = .systemGray
             notificationButton.buttonStack.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(setIndex(_:))))
-
+            
             notificationButtonList.append(notificationButton)
         }
     }
-
+    
     private func addSubViewNotificationButton() {
         for button in notificationButtonList {
             horizontalStack.addArrangedSubview(button.buttonStack)
         }
     }
-
-//    private func showTimePicker() {
-//        let notificationSettingView = NotificationModalViewController()
-//        self.present(notificationSettingView, animated: true)
-//    }
-
+    
     @objc func setIndex(_ recognizer: UITapGestureRecognizer!) {
         buttonIndex = recognizer.view!.tag
         notificationButtonList[buttonIndex].isSelected.toggle()
-
+        
         if notificationButtonList[buttonIndex].isSelected {
             notificationButtonList[buttonIndex].buttonStack.backgroundColor = .systemBlue
-//            showTimePicker()
+            
         } else {
             notificationButtonList[buttonIndex].buttonStack.backgroundColor = .systemGray
+        }
+    }
+}
+
+extension UserInitViewController {
+    @IBAction func setNotificationTime(_ sender: Any) {
+        var dateList: [Date] = []
+        var dayList: [Int] = []
+        for button in notificationButtonList {
+            if button.isSelected {
+                dateList.append(button.notificationTime)
+                dayList.append(button.indexPath)
+            }
+        }
+        
+        notificationCenter.getNotificationSettings { settings in
+            DispatchQueue.main.async {
+                let title = "부모님께 전화안한지 10일!"
+                let message = "오늘,안부의 알람입니다."
+                
+                if settings.authorizationStatus == .authorized {
+                    let content = UNMutableNotificationContent()
+                    content.title = title
+                    content.body = message
+                    
+                    for index in 0...dayList.count-1 {
+                        
+                        var dateComponent = Calendar.autoupdatingCurrent.dateComponents([.hour, .minute], from: dateList[index])
+                        dateComponent.day = dayList[index]
+                        
+                        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponent, repeats: true)
+                        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+                        self.notificationCenter.add(request) { error in
+                            if error != nil {
+                                print("Error " + error.debugDescription)
+                                return
+                            }
+                        }
+                    }
+                    // notification 허용하지 않을 경우
+                } else {
+                    let alertController = UIAlertController(title: "알림을 설정하시겠어요?", message: "설정에서 알람 허용을 해주셔야해요!", preferredStyle: .alert)
+                    let goToSettings = UIAlertAction(title: "설정", style: .default) { _ in
+                        guard let settingURL = URL(string: UIApplication.openSettingsURLString) else {
+                            return
+                        }
+                        if UIApplication.shared.canOpenURL(settingURL) {
+                            UIApplication.shared.open(settingURL) { (_) in}
+                        }
+                    }
+                    alertController.addAction(goToSettings)
+                    alertController.addAction(UIAlertAction(title: "취소", style: .default, handler: { (_) in }))
+                    self.present(alertController, animated: true)
+                }
+            }
         }
     }
 }
@@ -229,7 +293,7 @@ extension UserInitViewController {
         } else {
             textField.setBottomBorder(color: UIColor.red)
         }
-
+        
         if textField.text!.count < 12 {
             if textField == momNumberTextfield {
                 momDayVstack.isHidden = true
@@ -238,7 +302,7 @@ extension UserInitViewController {
         let validation = textField.text!.count + string.count - range.length
         return !(validation > 11)
     }
-
+    
     // textfield keyboard가 내려가면 호출
     func textFieldDidEndEditing(_ textField: UITextField) {
         if textField == momNumberTextfield {
@@ -253,9 +317,8 @@ extension UserInitViewController {
                 startButton.isEnabled = false
                 startButton.backgroundColor = UIColor.systemGray4
                 momDayVstack.isHidden = true
-
+                
             }
         }
     }
 }
-

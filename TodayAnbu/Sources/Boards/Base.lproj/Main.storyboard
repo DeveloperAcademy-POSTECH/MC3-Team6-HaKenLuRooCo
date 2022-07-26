@@ -66,6 +66,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
+                                    <action selector="setNotificationTime:" destination="4Mc-d9-Cdu" eventType="touchUpInside" id="ORk-VZ-fAq"/>
                                     <action selector="startButttonAction:" destination="4Mc-d9-Cdu" eventType="touchUpInside" id="yj1-ef-v0f"/>
                                     <segue destination="h9C-xi-h1l" kind="show" id="heW-VS-c87"/>
                                 </connections>

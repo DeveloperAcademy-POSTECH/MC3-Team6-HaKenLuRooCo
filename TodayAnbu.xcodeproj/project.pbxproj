@@ -24,7 +24,6 @@
 		9AA146E9288EE39A00A10D2A /* StackViewSizeControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA146E8288EE39A00A10D2A /* StackViewSizeControl.swift */; };
 		A92FC8C7287FF3C000962CA0 /* OnboardingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92FC8C6287FF3C000962CA0 /* OnboardingPageViewController.swift */; };
 		A9332C77288E908F001A1B76 /* DateFormatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9332C76288E908F001A1B76 /* DateFormatting.swift */; };
-		A9B32A9028868F1D00530B51 /* NotificationSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B32A8F28868F1D00530B51 /* NotificationSettingViewController.swift */; };
 		A9B32A9228868F7100530B51 /* NotificationModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B32A9128868F7100530B51 /* NotificationModalViewController.swift */; };
 		A9B32A94288691EA00530B51 /* NotificationTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B32A93288691EA00530B51 /* NotificationTime.swift */; };
 /* End PBXBuildFile section */
@@ -49,7 +48,6 @@
 		9AA146E8288EE39A00A10D2A /* StackViewSizeControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackViewSizeControl.swift; sourceTree = "<group>"; };
 		A92FC8C6287FF3C000962CA0 /* OnboardingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPageViewController.swift; sourceTree = "<group>"; };
 		A9332C76288E908F001A1B76 /* DateFormatting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatting.swift; sourceTree = "<group>"; };
-		A9B32A8F28868F1D00530B51 /* NotificationSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSettingViewController.swift; sourceTree = "<group>"; };
 		A9B32A9128868F7100530B51 /* NotificationModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationModalViewController.swift; sourceTree = "<group>"; };
 		A9B32A93288691EA00530B51 /* NotificationTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTime.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -84,7 +82,6 @@
 				7B2E9C712884FCF4006BE5C8 /* MainViewController.swift */,
 				7B2E9C6B28806FE3006BE5C8 /* SettingViewController.swift */,
 				A92FC8C6287FF3C000962CA0 /* OnboardingPageViewController.swift */,
-				A9B32A8F28868F1D00530B51 /* NotificationSettingViewController.swift */,
 				A9B32A9128868F7100530B51 /* NotificationModalViewController.swift */,
 				103BD8EE287FB38B00A6A0AD /* Utilities */,
 			);
@@ -263,7 +260,6 @@
 				3E2F6563287FA0E600A27FA9 /* ViewController.swift in Sources */,
 				9AA146E9288EE39A00A10D2A /* StackViewSizeControl.swift in Sources */,
 				7B2E9C6E288429B8006BE5C8 /* SettingPersonalDataCell.swift in Sources */,
-				A9B32A9028868F1D00530B51 /* NotificationSettingViewController.swift in Sources */,
 				7B2E9C702884397B006BE5C8 /* SettingHeaderView.swift in Sources */,
 				7B9B569A2887EE3700FF3DD1 /* ConfirmViewController.swift in Sources */,
 				A9B32A94288691EA00530B51 /* NotificationTime.swift in Sources */,
