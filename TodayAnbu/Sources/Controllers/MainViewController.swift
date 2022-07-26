@@ -25,7 +25,7 @@ class MainViewController: UIViewController {
     }()
     private let topTitle: UILabel = {
         let label = UILabel()
-        label.textColor = .mainTitleFontColor
+        label.textColor = .white
         label.text = "전화한지 7일 되었어요"
         label.font = .boldSystemFont(ofSize: 25)
 <<<<<<< Updated upstream
