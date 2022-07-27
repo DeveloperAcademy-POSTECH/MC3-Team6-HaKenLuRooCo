@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -214,21 +215,67 @@
                                 <color key="textColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sWU-HB-90u">
+                                <rect key="frame" x="20" y="557" width="374" height="71"/>
+                                <inset key="titleEdgeInsets" minX="-4" minY="0.0" maxX="4" maxY="0.0"/>
+                                <inset key="imageEdgeInsets" minX="-4" minY="0.0" maxX="4" maxY="0.0"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" imagePlacement="leading" title="아버지와 연락 설정하기" imagePadding="0.0" titleAlignment="leading">
+                                    <imageReference key="image" image="circle" catalog="system" symbolScale="large"/>
+                                    <backgroundConfiguration key="background"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" scale="large"/>
+                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="20"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="dadSettingButtonAction:" destination="NtZ-78-jYv" eventType="touchUpInside" id="iAe-J4-AkV"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iaf-vk-LJJ">
+                                <rect key="frame" x="17" y="456" width="374" height="74.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="iaf-vk-LJJ" secondAttribute="height" multiplier="5:1" id="Oka-yQ-Rkz"/>
+                                </constraints>
+                                <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="4" maxY="0.0"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="4" maxY="0.0"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" imagePlacement="leading" title="어머니와 연락 설정하기" imagePadding="0.0" cornerStyle="small" titleAlignment="leading">
+                                    <imageReference key="image" image="circle" catalog="system" symbolScale="large"/>
+                                    <backgroundConfiguration key="background"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" scale="large"/>
+                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="20"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="momSettingButtonAction:" destination="NtZ-78-jYv" eventType="touchUpInside" id="yJ2-BU-9Z8"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="2wo-x5-dQC"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="iaf-vk-LJJ" firstAttribute="centerX" secondItem="2wo-x5-dQC" secondAttribute="centerX" id="320-hn-0yn"/>
+                            <constraint firstItem="sWU-HB-90u" firstAttribute="trailing" secondItem="iaf-vk-LJJ" secondAttribute="trailing" id="G5q-Mb-aho"/>
+                            <constraint firstItem="sWU-HB-90u" firstAttribute="leading" secondItem="iaf-vk-LJJ" secondAttribute="leading" id="JxO-TT-Fyl"/>
+                            <constraint firstItem="iaf-vk-LJJ" firstAttribute="centerY" secondItem="2wo-x5-dQC" secondAttribute="centerY" multiplier="1.1" id="KBF-iL-0Zv"/>
                             <constraint firstItem="8t4-E2-kdY" firstAttribute="leading" secondItem="ADn-HQ-d5a" secondAttribute="leading" id="LD4-DW-TJB"/>
-                            <constraint firstItem="u7F-ax-mVe" firstAttribute="top" secondItem="2F2-DC-QjR" secondAttribute="bottom" constant="10" id="PWp-SI-xkU"/>
-                            <constraint firstItem="2F2-DC-QjR" firstAttribute="centerY" secondItem="2wo-x5-dQC" secondAttribute="centerY" multiplier="0.8" id="YuM-8Y-G04"/>
+                            <constraint firstItem="u7F-ax-mVe" firstAttribute="top" secondItem="2F2-DC-QjR" secondAttribute="bottom" constant="-1" id="PWp-SI-xkU"/>
+                            <constraint firstItem="sWU-HB-90u" firstAttribute="top" secondItem="iaf-vk-LJJ" secondAttribute="bottom" constant="26.5" id="TI7-tB-feH"/>
+                            <constraint firstItem="iaf-vk-LJJ" firstAttribute="leading" secondItem="2wo-x5-dQC" secondAttribute="leading" constant="20" id="VvZ-aL-WXj"/>
+                            <constraint firstItem="2F2-DC-QjR" firstAttribute="centerY" secondItem="2wo-x5-dQC" secondAttribute="centerY" multiplier="0.8" constant="5.0999999999999659" id="YuM-8Y-G04"/>
                             <constraint firstItem="u7F-ax-mVe" firstAttribute="leading" secondItem="2F2-DC-QjR" secondAttribute="leading" id="cIM-iB-fKT"/>
                             <constraint firstItem="ADn-HQ-d5a" firstAttribute="centerY" secondItem="2wo-x5-dQC" secondAttribute="centerY" multiplier="0.45" id="d6N-7g-Uha"/>
+                            <constraint firstItem="2wo-x5-dQC" firstAttribute="trailing" secondItem="iaf-vk-LJJ" secondAttribute="trailing" constant="20" id="hbw-V2-CkG"/>
                             <constraint firstItem="8t4-E2-kdY" firstAttribute="top" secondItem="ADn-HQ-d5a" secondAttribute="bottom" constant="8" symbolic="YES" id="mdn-c7-tj6"/>
-                            <constraint firstItem="2F2-DC-QjR" firstAttribute="leading" secondItem="8t4-E2-kdY" secondAttribute="leading" id="tr7-EL-o3Y"/>
+                            <constraint firstItem="2F2-DC-QjR" firstAttribute="leading" secondItem="8t4-E2-kdY" secondAttribute="leading" constant="-3" id="tr7-EL-o3Y"/>
+                            <constraint firstItem="sWU-HB-90u" firstAttribute="height" secondItem="iaf-vk-LJJ" secondAttribute="height" id="wOz-HO-8Y0"/>
                             <constraint firstItem="ADn-HQ-d5a" firstAttribute="leading" secondItem="2wo-x5-dQC" secondAttribute="leading" constant="20" id="x4J-na-skg"/>
+                            <constraint firstItem="sWU-HB-90u" firstAttribute="width" secondItem="iaf-vk-LJJ" secondAttribute="width" id="xBo-It-3fM"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="xJg-me-Ihb"/>
+                    <connections>
+                        <outlet property="dadSettingButton" destination="sWU-HB-90u" id="Rqy-bJ-kER"/>
+                        <outlet property="momSettingButton" destination="iaf-vk-LJJ" id="R4m-Mx-FSn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Qe-nd-rGa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -342,6 +389,7 @@
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
     <resources>
+        <image name="circle" catalog="system" width="128" height="121"/>
         <image name="dadPicture" width="502" height="584"/>
         <image name="momPicture" width="634" height="462"/>
         <namedColor name="dadDeepSkyblue">
