@@ -5,6 +5,7 @@
 //  Created by Jisu Jang on 2022/07/27.
 //
 import SwiftUI
+import Foundation
 
 extension Color {
     static let mainIndigoSwiftUI = Color(hex: "#283396")
