@@ -15,7 +15,7 @@ disabled_rules:
     - todo
     - file_length
     - function_body_length
-
+    - type_body_length
 
     - trailing_whitespace
 

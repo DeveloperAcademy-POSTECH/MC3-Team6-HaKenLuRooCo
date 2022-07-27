@@ -14,7 +14,7 @@ class MainViewController: UIViewController {
     private var genericTopicIndex: Int = 0
     private var seriousTopicIndex: Int = 0
     private var isCalling = false
-
+    private var notCalledDate: Int = 1
     private let topArea: UIView = {
         let area = UIView()
         area.layer.cornerRadius = 20
@@ -23,33 +23,76 @@ class MainViewController: UIViewController {
     }()
     private let topTitle: UILabel = {
         let label = UILabel()
+        let dayLabel = UILabel()
         label.textColor = .mainTitleFontColor
-        label.text = "전화한지 7일 되었어요"
+        label.text = "전화한지         되었어요"
         label.font = .boldSystemFont(ofSize: 25)
 
+        return label
+    }()
+    private lazy var topTitleDays: UILabel = {
+        let label = UILabel()
+        label.text = "\(notCalledDate)일"
+        label.textColor = .mainTitleOrange
+        label.font = .boldSystemFont(ofSize: 27)
         return label
     }()
     private let weeklyAnbuLabel: UILabel = {
         let label = UILabel()
         label.text = "이번주 안부"
-        label.font = .systemFont(ofSize: 20, weight: .semibold)
+        label.font = .systemFont(ofSize: 25, weight: .semibold)
         label.textColor = .white
         return label
     }()
     private let momLabel: UILabel = {
-        // 클래스를 이용하여 매개변수를 전달하는 방식으로 문자를 출력할 수 있는 방법 존재
         let label = UILabel()
-        label.text = "엄마"
-        label.font = .systemFont(ofSize: 20, weight: .semibold)
+        label.text = "어머니"
+        label.font = .systemFont(ofSize: 18, weight: .semibold)
         label.textColor = .white
         return label
     }()
     private let dadLabel: UILabel = {
         let label = UILabel()
-        label.text = "아빠"
-        label.font = .systemFont(ofSize: 20, weight: .semibold)
+        label.text = "아버지"
+        label.font = .systemFont(ofSize: 18, weight: .semibold)
         label.textColor = .white
         return label
+    }()
+    private let momGauge1: UIView = {
+        let capsule = UIView()
+        capsule.layer.cornerRadius = 10
+        capsule.backgroundColor = .momGaugeLight
+        return capsule
+    }()
+    private let momGauge2: UIView = {
+        let capsule = UIView()
+        capsule.layer.cornerRadius = 10
+        capsule.backgroundColor = .momGaugeLight
+        return capsule
+    }()
+    private let momGauge3: UIView = {
+        let capsule = UIView()
+        capsule.layer.cornerRadius = 10
+        capsule.backgroundColor = .momGaugeDeep
+        return capsule
+    }()
+    private let dadGauge1: UIView = {
+        let capsule = UIView()
+        capsule.layer.cornerRadius = 10
+        capsule.backgroundColor = .dadGaugeLight
+        return capsule
+    }()
+    private let dadGauge2: UIView = {
+        let capsule = UIView()
+        capsule.layer.cornerRadius = 10
+        capsule.backgroundColor = .dadGaugeDeep
+        return capsule
+    }()
+    private let dadGauge3: UIView = {
+        let capsule = UIView()
+        capsule.layer.cornerRadius = 10
+        capsule.backgroundColor = .dadGaugeDeep
+        return capsule
     }()
     private let topicLabel: UILabel = {
         let topicText = UILabel()
@@ -151,6 +194,7 @@ class MainViewController: UIViewController {
     private func configureAddSubView() {
         view.addSubview(topArea)
         view.addSubview(topTitle)
+        view.addSubview(topTitleDays)
         view.addSubview(weeklyAnbuLabel)
         view.addSubview(momLabel)
         view.addSubview(dadLabel)
@@ -159,18 +203,31 @@ class MainViewController: UIViewController {
         view.addSubview(refreshButton)
         view.addSubview(topicTableView)
         view.addSubview(callButton)
+        view.addSubview(momGauge1)
+        view.addSubview(momGauge2)
+        view.addSubview(momGauge3)
+        view.addSubview(dadGauge1)
+        view.addSubview(dadGauge2)
+        view.addSubview(dadGauge3)
     }
     private func configureTranslate() {
         topArea.translatesAutoresizingMaskIntoConstraints = false
         topTitle.translatesAutoresizingMaskIntoConstraints = false
+        topTitleDays.translatesAutoresizingMaskIntoConstraints = false
         weeklyAnbuLabel.translatesAutoresizingMaskIntoConstraints = false
         topicSegmentedControl.translatesAutoresizingMaskIntoConstraints = false
         topicLabel.translatesAutoresizingMaskIntoConstraints = false
         refreshButton.translatesAutoresizingMaskIntoConstraints = false
         topicTableView.translatesAutoresizingMaskIntoConstraints = false
         callButton.translatesAutoresizingMaskIntoConstraints = false
-         dadLabel.translatesAutoresizingMaskIntoConstraints = false
-         momLabel.translatesAutoresizingMaskIntoConstraints = false
+        dadLabel.translatesAutoresizingMaskIntoConstraints = false
+        momLabel.translatesAutoresizingMaskIntoConstraints = false
+        momGauge1.translatesAutoresizingMaskIntoConstraints = false
+        momGauge2.translatesAutoresizingMaskIntoConstraints = false
+        momGauge3.translatesAutoresizingMaskIntoConstraints = false
+        dadGauge1.translatesAutoresizingMaskIntoConstraints = false
+        dadGauge2.translatesAutoresizingMaskIntoConstraints = false
+        dadGauge3.translatesAutoresizingMaskIntoConstraints = false
     }
     private func configureRender() {
         topicTableView.delegate = self
@@ -184,19 +241,59 @@ class MainViewController: UIViewController {
         ])
         NSLayoutConstraint.activate([
             topTitle.leadingAnchor.constraint(equalTo: topArea.leadingAnchor, constant: 20),
-            topTitle.topAnchor.constraint(equalTo: topArea.safeAreaLayoutGuide.topAnchor, constant: -30)
+            topTitle.topAnchor.constraint(equalTo: topArea.safeAreaLayoutGuide.topAnchor, constant: -80)
+        ])
+        NSLayoutConstraint.activate([
+            topTitleDays.leadingAnchor.constraint(equalTo: topArea.leadingAnchor, constant: 112),
+            topTitleDays.bottomAnchor.constraint(equalTo: topTitle.bottomAnchor)
         ])
         NSLayoutConstraint.activate([
             weeklyAnbuLabel.leadingAnchor.constraint(equalTo: topArea.leadingAnchor, constant: 20),
             weeklyAnbuLabel.topAnchor.constraint(equalTo: topTitle.topAnchor, constant: 60)
         ])
         NSLayoutConstraint.activate([
-            momLabel.trailingAnchor.constraint(equalTo: weeklyAnbuLabel.trailingAnchor, constant: 90),
-            momLabel.topAnchor.constraint(equalTo: weeklyAnbuLabel.bottomAnchor, constant: 50)
+            momLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
+            momLabel.topAnchor.constraint(equalTo: weeklyAnbuLabel.bottomAnchor, constant: 20)
         ])
         NSLayoutConstraint.activate([
-            dadLabel.leadingAnchor.constraint(equalTo: momLabel.leadingAnchor, constant: 90),
-            dadLabel.topAnchor.constraint(equalTo: momLabel.bottomAnchor, constant: 55)
+            dadLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
+            dadLabel.topAnchor.constraint(equalTo: momLabel.bottomAnchor, constant: 20)
+        ])
+        NSLayoutConstraint.activate([
+            momGauge1.leadingAnchor.constraint(equalTo: momLabel.trailingAnchor, constant: 20),
+            momGauge1.topAnchor.constraint(equalTo: momLabel.topAnchor, constant: -3),
+            momGauge1.bottomAnchor.constraint(equalTo: momLabel.bottomAnchor, constant: 3),
+            momGauge1.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -217)
+        ])
+        NSLayoutConstraint.activate([
+            momGauge2.leadingAnchor.constraint(equalTo: momGauge1.trailingAnchor, constant: 5),
+            momGauge2.topAnchor.constraint(equalTo: momGauge1.topAnchor),
+            momGauge2.bottomAnchor.constraint(equalTo: momGauge1.bottomAnchor),
+            momGauge2.trailingAnchor.constraint(equalTo: momGauge2.leadingAnchor, constant: 75)
+        ])
+        NSLayoutConstraint.activate([
+            momGauge3.leadingAnchor.constraint(equalTo: momGauge2.trailingAnchor, constant: 5),
+            momGauge3.topAnchor.constraint(equalTo: momGauge1.topAnchor),
+            momGauge3.bottomAnchor.constraint(equalTo: momGauge1.bottomAnchor),
+            momGauge3.trailingAnchor.constraint(equalTo: momGauge3.leadingAnchor, constant: 75)
+        ])
+        NSLayoutConstraint.activate([
+            dadGauge1.leadingAnchor.constraint(equalTo: dadLabel.trailingAnchor, constant: 20),
+            dadGauge1.topAnchor.constraint(equalTo: dadLabel.topAnchor, constant: -3),
+            dadGauge1.bottomAnchor.constraint(equalTo: dadLabel.bottomAnchor, constant: 3),
+            dadGauge1.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -217)
+        ])
+        NSLayoutConstraint.activate([
+            dadGauge2.leadingAnchor.constraint(equalTo: dadGauge1.trailingAnchor, constant: 5),
+            dadGauge2.topAnchor.constraint(equalTo: dadGauge1.topAnchor),
+            dadGauge2.bottomAnchor.constraint(equalTo: dadGauge1.bottomAnchor),
+            dadGauge2.trailingAnchor.constraint(equalTo: dadGauge2.leadingAnchor, constant: 75)
+        ])
+        NSLayoutConstraint.activate([
+            dadGauge3.leadingAnchor.constraint(equalTo: dadGauge2.trailingAnchor, constant: 5),
+            dadGauge3.topAnchor.constraint(equalTo: dadGauge1.topAnchor),
+            dadGauge3.bottomAnchor.constraint(equalTo: dadGauge1.bottomAnchor),
+            dadGauge3.trailingAnchor.constraint(equalTo: dadGauge3.leadingAnchor, constant: 75)
         ])
         NSLayoutConstraint.activate([
             topicSegmentedControl.topAnchor.constraint(equalTo: topArea.bottomAnchor, constant: 50),
