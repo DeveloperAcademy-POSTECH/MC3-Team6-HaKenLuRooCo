@@ -29,6 +29,7 @@
 		9A9CB1062890ACE1009AA95C /* TodayAnbuWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 9A9CB1022890ACE0009AA95C /* TodayAnbuWidget.intentdefinition */; };
 		9A9CB1072890ACE1009AA95C /* TodayAnbuWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 9A9CB1022890ACE0009AA95C /* TodayAnbuWidget.intentdefinition */; };
 		9A9CB10A2890ACE1009AA95C /* TodayAnbuWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 9A9CB0F92890ACE0009AA95C /* TodayAnbuWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		A91AF97C28915DDA003D486B /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91AF97B28915DDA003D486B /* ColorExtension.swift */; };
 		A92FC8C7287FF3C000962CA0 /* OnboardingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92FC8C6287FF3C000962CA0 /* OnboardingPageViewController.swift */; };
 		A9B32A9028868F1D00530B51 /* NotificationSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B32A8F28868F1D00530B51 /* NotificationSettingViewController.swift */; };
 		A9B32A9228868F7100530B51 /* NotificationModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B32A9128868F7100530B51 /* NotificationModalViewController.swift */; };
@@ -84,6 +85,7 @@
 		9A9CB1022890ACE0009AA95C /* TodayAnbuWidget.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = TodayAnbuWidget.intentdefinition; sourceTree = "<group>"; };
 		9A9CB1032890ACE1009AA95C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9A9CB1052890ACE1009AA95C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A91AF97B28915DDA003D486B /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		A92FC8C6287FF3C000962CA0 /* OnboardingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPageViewController.swift; sourceTree = "<group>"; };
 		A9B32A8F28868F1D00530B51 /* NotificationSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSettingViewController.swift; sourceTree = "<group>"; };
 		A9B32A9128868F7100530B51 /* NotificationModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationModalViewController.swift; sourceTree = "<group>"; };
@@ -225,6 +227,7 @@
 			isa = PBXGroup;
 			children = (
 				9A9CB1002890ACE0009AA95C /* TodayAnbuWidget.swift */,
+				A91AF97B28915DDA003D486B /* ColorExtension.swift */,
 				9A9CB1022890ACE0009AA95C /* TodayAnbuWidget.intentdefinition */,
 				9A9CB1032890ACE1009AA95C /* Assets.xcassets */,
 				9A9CB1052890ACE1009AA95C /* Info.plist */,
@@ -363,6 +366,7 @@
 				A9B32A9028868F1D00530B51 /* NotificationSettingViewController.swift in Sources */,
 				7B2E9C702884397B006BE5C8 /* SettingHeaderView.swift in Sources */,
 				7B9B569A2887EE3700FF3DD1 /* ConfirmViewController.swift in Sources */,
+				A91AF97C28915DDA003D486B /* ColorExtension.swift in Sources */,
 				A9B32A94288691EA00530B51 /* NotificationTime.swift in Sources */,
 				3E2F655F287FA0E600A27FA9 /* AppDelegate.swift in Sources */,
 				9A9CB1072890ACE1009AA95C /* TodayAnbuWidget.intentdefinition in Sources */,

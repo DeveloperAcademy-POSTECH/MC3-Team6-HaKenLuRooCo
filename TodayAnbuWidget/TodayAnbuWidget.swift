@@ -45,9 +45,19 @@ struct TodayAnbuWidgetEntryView : View {
     var entry: Provider.Entry
 
     var body: some View {
-        VStack {
-            Text(entry.date, style: .time)
-            Text("안부 전화 한지 10일")
+        ZStack {
+            Rectangle()
+                .foregroundColor(.mainIndigoSwiftUI)
+            VStack(alignment: .leading) {
+                HStack(spacing: 5) {
+                    Text("전화한지")
+                        .foregroundColor(.yellow)
+                        .font(.system(size: 16, weight: .bold, design: .rounded))
+                    Text("10일")
+                        .foregroundColor(.orange)
+                        .font(.system(size: 24, weight: .heavy, design: .rounded))
+                }
+            }
         }
     }
 }
