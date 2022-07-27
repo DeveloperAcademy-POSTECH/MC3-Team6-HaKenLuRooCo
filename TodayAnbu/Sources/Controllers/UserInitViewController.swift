@@ -31,23 +31,35 @@ class UserInitViewController: UIViewController, UITextFieldDelegate {
         label.font = .boldSystemFont(ofSize: 20)
         return label
     }()
-    
+
+    private let dot: UILabel = {
+        let dot = UILabel()
+        dot.text = "."
+        dot.font = .boldSystemFont(ofSize: 30)
+        dot.textColor = .mainIndigo
+        return dot
+    }()
+
     // 버튼을 탭했을때, 탭한 버튼에 나타나는 변화들
     private var buttonIndex: Int = 0 {
         didSet {
-            print(buttonIndex)
-            timePicker.isHidden = false
-            horizontalStack.subviews.forEach({ $0.removeFromSuperview() })
-            addNotificationTimeLabel(indexPath: buttonIndex, time: timeLabel.toString())
-            addSubViewNotificationButton()
-            horizontalStack.subviews.forEach({$0.layer.borderWidth = 0 })
-            
-            if notificationButtonList[buttonIndex].isSelected == false {
-                horizontalStack.subviews[buttonIndex].layer.borderWidth = 3
-                horizontalStack.subviews[buttonIndex].layer.borderColor = CGColor(red: 255, green: 120, blue: 0, alpha: 1)
-            } else {
-                horizontalStack.subviews[buttonIndex].layer.borderWidth = 0
-            }
+
+//            let returnArray = numberList.map({ (number : Int) -> Int in
+//                       return number * 2 })
+//            출처: https://songios.tistory.com/13 [eeeesong-log:티스토리]
+            let numberOfSelected = notificationButtonList.map({$0.notificationTime.toString().isEmpty == false}).count
+            print("선택된 버튼의 개수는 다음과 같습니다 \(numberOfSelected)")
+                print(buttonIndex)
+                timePicker.isHidden = false
+                horizontalStack.subviews.forEach({ $0.removeFromSuperview() })
+                addNotificationTimeLabel(indexPath: buttonIndex, time: timeLabel.toString())
+                addSubViewNotificationButton()
+                horizontalStack.subviews.forEach({$0.layer.borderWidth = 0 })
+
+                if notificationButtonList[buttonIndex].isSelected == false {
+                    let stack = horizontalStack.subviews[buttonIndex] as? UIStackView
+                    stack?.addArrangedSubview(dot)
+                }
         }
     }
     
@@ -196,7 +208,7 @@ extension UserInitViewController {
             
             notificationButton.buttonStack.addArrangedSubview(firstLabel)
             notificationButton.buttonStack.tag = index
-            notificationButton.buttonStack.backgroundColor = .systemGray
+            notificationButton.buttonStack.backgroundColor = .dadDeepSkyblue
             notificationButton.buttonStack.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(setIndex(_:))))
             
             notificationButtonList.append(notificationButton)
@@ -205,7 +217,16 @@ extension UserInitViewController {
     
     private func addSubViewNotificationButton() {
         for button in notificationButtonList {
-            horizontalStack.addArrangedSubview(button.buttonStack)
+            let vStack: UIStackView = {
+                let stack = UIStackView()
+                stack.axis = .vertical
+                stack.alignment = .center
+                stack.spacing = -16
+                return stack
+            }()
+
+            vStack.addArrangedSubview(button.buttonStack)
+            horizontalStack.addArrangedSubview(vStack)
         }
     }
     
@@ -214,10 +235,10 @@ extension UserInitViewController {
         notificationButtonList[buttonIndex].isSelected.toggle()
         
         if notificationButtonList[buttonIndex].isSelected {
-            notificationButtonList[buttonIndex].buttonStack.backgroundColor = .systemBlue
+            notificationButtonList[buttonIndex].buttonStack.backgroundColor = .dadLightSkyblue
             
         } else {
-            notificationButtonList[buttonIndex].buttonStack.backgroundColor = .systemGray
+            notificationButtonList[buttonIndex].buttonStack.backgroundColor = .dadDeepSkyblue
         }
     }
 }
@@ -313,7 +334,7 @@ extension UserInitViewController {
             if momNumberTextfield.hasValidPhoneNumber && momNumberTextfield.text!.count == 11 {
                 textField.setBottomBorder(color: UIColor.systemBlue)
                 startButton.isEnabled = true
-                startButton.backgroundColor = UIColor.systemBlue
+                startButton.backgroundColor = .mainIndigo
                 momDayVstack.isHidden = false
             } else {
                 print("momNumber Error")
