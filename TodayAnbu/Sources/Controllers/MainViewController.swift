@@ -78,10 +78,10 @@ class MainViewController: UIViewController {
 
     private let topicTableView: UITableView = {
         let topicTableView = UITableView()
-//        topicTableView.setContentHuggingPriority(UILayoutPriority.defaultHigh, for: NSLayoutConstraint.Axis.vertical)
         topicTableView.estimatedRowHeight = UITableView.automaticDimension
         topicTableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         topicTableView.reloadData()
+        topicTableView.layer.cornerRadius = 10
         topicTableView.backgroundColor = .black
         topicTableView.isScrollEnabled = false
         return topicTableView
@@ -218,7 +218,7 @@ class MainViewController: UIViewController {
 
         NSLayoutConstraint.activate([
             topicTableView.topAnchor.constraint(equalTo: topicLabel.bottomAnchor, constant: 30),
-            topicTableView.bottomAnchor.constraint(equalTo: callButton.topAnchor, constant: -50),
+            topicTableView.heightAnchor.constraint(equalToConstant: 150),
             topicTableView.leadingAnchor.constraint(equalTo: topicLabel.leadingAnchor),
             topicTableView.trailingAnchor.constraint(equalTo: refreshButton.trailingAnchor)
         ])
@@ -249,18 +249,15 @@ class MainViewController: UIViewController {
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
             cell.backgroundColor = .systemGray5
-//            cell.setContentHuggingPriority(UILayoutPriority.defaultLow, for: NSLayoutConstraint.Axis.vertical)
             cell.textLabel?.text = topics[indexPath.row]
+            cell.textLabel?.numberOfLines = 2
             return cell
         }
 
-//        func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//           return UITableView.automaticDimension
-//        }
     }
     extension MainViewController: UITableViewDelegate {
         func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-            return UITableView.automaticDimension
+            return 50
         }
     }
 
