@@ -18,10 +18,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="JYe-6U-2ED">
-                                <rect key="frame" x="29.666666666666657" y="94" width="331" height="666"/>
+                                <rect key="frame" x="10" y="94" width="370" height="666"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="오늘, 안부" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BvG-bL-Get">
-                                        <rect key="frame" x="0.0" y="0.0" width="116.33333333333333" height="61"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="116.33333333333333" height="38"/>
                                         <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="30"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -33,10 +33,10 @@
                                         </variation>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="0Ca-m5-BuN">
-                                        <rect key="frame" x="0.0" y="69" width="267.66666666666669" height="97"/>
+                                        <rect key="frame" x="0.0" y="46" width="267.66666666666669" height="60.666666666666657"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&quot;부모님과 가까워지며" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wr9-mx-dKo">
-                                                <rect key="frame" x="0.0" y="0.0" width="203" height="48.333333333333336"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="203" height="30.333333333333332"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -48,7 +48,7 @@
                                                 </variation>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="함께 갱년기를 이겨나가요 ! &quot;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="izc-QI-pba">
-                                                <rect key="frame" x="0.0" y="48.333333333333343" width="267.66666666666669" height="48.666666666666657"/>
+                                                <rect key="frame" x="0.0" y="30.333333333333343" width="267.66666666666669" height="30.333333333333329"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -61,13 +61,10 @@
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="752" verticalCompressionResistancePriority="752" placeholderIntrinsicWidth="331" placeholderIntrinsicHeight="300" image="ParentPicture" translatesAutoresizingMaskIntoConstraints="NO" id="2gt-fR-tdo">
-                                        <rect key="frame" x="0.0" y="174" width="331" height="492"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FamilyPicture" translatesAutoresizingMaskIntoConstraints="NO" id="q1F-DC-jxt">
+                                        <rect key="frame" x="0.0" y="114.66666666666669" width="370" height="551.33333333333326"/>
                                     </imageView>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstItem="2gt-fR-tdo" firstAttribute="centerX" secondItem="JYe-6U-2ED" secondAttribute="centerX" id="hAW-cL-UMg"/>
-                                </constraints>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="X8z-d9-nmJ"/>
@@ -83,11 +80,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qC4-mJ-w72" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1465" y="-120"/>
+            <point key="canvasLocation" x="-1466.1538461538462" y="-120.14218009478672"/>
         </scene>
     </scenes>
     <resources>
-        <image name="ParentPicture" width="331" height="413"/>
+        <image name="FamilyPicture" width="558" height="537"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -94,12 +94,6 @@ class MainViewController: UIViewController {
         capsule.backgroundColor = .dadGaugeDeep
         return capsule
     }()
-    private let topicTitleLabel: UILabel = {
-        let topicTitle = UILabel()
-        topicTitle.text = "오늘의 토픽"
-        topicTitle.font = .systemFont(ofSize: 20, weight: .semibold)
-        return topicTitle
-    }()
     private let topicLabel: UILabel = {
         let topicText = UILabel()
         topicText.font = .systemFont(ofSize: 20, weight: .semibold)
@@ -204,8 +198,6 @@ class MainViewController: UIViewController {
         view.addSubview(weeklyAnbuLabel)
         view.addSubview(momLabel)
         view.addSubview(dadLabel)
-        view.addSubview(backGroundRectangle)
-        view.addSubview(topicTitleLabel)
         view.addSubview(topicSegmentedControl)
         view.addSubview(topicLabel)
         view.addSubview(refreshButton)
@@ -223,8 +215,6 @@ class MainViewController: UIViewController {
         topTitle.translatesAutoresizingMaskIntoConstraints = false
         topTitleDays.translatesAutoresizingMaskIntoConstraints = false
         weeklyAnbuLabel.translatesAutoresizingMaskIntoConstraints = false
-        backGroundRectangle.translatesAutoresizingMaskIntoConstraints = false
-        topicTitleLabel.translatesAutoresizingMaskIntoConstraints = false
         topicSegmentedControl.translatesAutoresizingMaskIntoConstraints = false
         topicLabel.translatesAutoresizingMaskIntoConstraints = false
         refreshButton.translatesAutoresizingMaskIntoConstraints = false
