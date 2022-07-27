@@ -199,6 +199,7 @@ class MainViewController: UIViewController {
     private func configureAddSubView() {
         view.addSubview(topArea)
         view.addSubview(topTitle)
+        view.addSubview(topTitleDays)
         view.addSubview(weeklyAnbuLabel)
         view.addSubview(momLabel)
         view.addSubview(dadLabel)
@@ -215,11 +216,11 @@ class MainViewController: UIViewController {
         view.addSubview(dadGauge1)
         view.addSubview(dadGauge2)
         view.addSubview(dadGauge3)
-        view.addSubview(topTitleDays)
     }
     private func configureTranslate() {
         topArea.translatesAutoresizingMaskIntoConstraints = false
         topTitle.translatesAutoresizingMaskIntoConstraints = false
+        topTitleDays.translatesAutoresizingMaskIntoConstraints = false
         weeklyAnbuLabel.translatesAutoresizingMaskIntoConstraints = false
         backGroundRectangle.translatesAutoresizingMaskIntoConstraints = false
         topicTitleLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -236,7 +237,6 @@ class MainViewController: UIViewController {
         dadGauge1.translatesAutoresizingMaskIntoConstraints = false
         dadGauge2.translatesAutoresizingMaskIntoConstraints = false
         dadGauge3.translatesAutoresizingMaskIntoConstraints = false
-        topTitleDays.translatesAutoresizingMaskIntoConstraints = false
     }
     private func configureRender() {
         topicTableView.dataSource = self
