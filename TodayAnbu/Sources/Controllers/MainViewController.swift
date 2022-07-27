@@ -17,7 +17,7 @@ class MainViewController: UIViewController {
 
     private let topArea: UIView = {
         let area = UIView()
-        area.layer.cornerRadius = 15
+        area.layer.cornerRadius = 20
         area.backgroundColor = .mainIndigo
         return area
     }()
