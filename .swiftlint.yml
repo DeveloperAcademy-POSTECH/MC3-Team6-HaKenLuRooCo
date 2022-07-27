@@ -11,10 +11,11 @@ disabled_rules:
 #   - force_unwrapping
 
     - unused_optional_binding
-
     - line_length
-
     - todo
+    - file_length
+    - function_body_length
+
 
     - trailing_whitespace
 
