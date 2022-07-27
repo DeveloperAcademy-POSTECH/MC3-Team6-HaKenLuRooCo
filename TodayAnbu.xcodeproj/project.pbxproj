@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		10D26710288ED1ED0056339A /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D2670F288ED1ED0056339A /* TabBarController.swift */; };
+		3E04A7F52891136D0068DBAE /* OnboardingMainVIewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E04A7F42891136D0068DBAE /* OnboardingMainVIewController.swift */; };
+		3E04A7F72891180F0068DBAE /* OnboardingMainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E04A7F62891180F0068DBAE /* OnboardingMainButton.swift */; };
 		3E2F655F287FA0E600A27FA9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2F655E287FA0E600A27FA9 /* AppDelegate.swift */; };
 		3E2F6561287FA0E600A27FA9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2F6560287FA0E600A27FA9 /* SceneDelegate.swift */; };
 		3E2F6566287FA0E600A27FA9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E2F6564287FA0E600A27FA9 /* Main.storyboard */; };
@@ -30,6 +32,8 @@
 
 /* Begin PBXFileReference section */
 		10D2670F288ED1ED0056339A /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		3E04A7F42891136D0068DBAE /* OnboardingMainVIewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingMainVIewController.swift; sourceTree = "<group>"; };
+		3E04A7F62891180F0068DBAE /* OnboardingMainButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingMainButton.swift; sourceTree = "<group>"; };
 		3E2F655B287FA0E600A27FA9 /* TodayAnbu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TodayAnbu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E2F655E287FA0E600A27FA9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3E2F6560287FA0E600A27FA9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -67,11 +71,8 @@
 			isa = PBXGroup;
 			children = (
 				3EC0D9CC2880FAD500A98E73 /* UITextfieldExtension.swift */,
-
 				A9332C76288E908F001A1B76 /* DateFormatting.swift */,
-
 				7BD2303D288E8B18002BB9F5 /* UIColor+Extension.swift */,
-
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -87,6 +88,7 @@
 				A9B32A9128868F7100530B51 /* NotificationModalViewController.swift */,
 				10D2670F288ED1ED0056339A /* TabBarController.swift */,
 				103BD8EE287FB38B00A6A0AD /* Utilities */,
+				3E04A7F42891136D0068DBAE /* OnboardingMainVIewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -115,6 +117,7 @@
 		103BD8EE287FB38B00A6A0AD /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				3E04A7F62891180F0068DBAE /* OnboardingMainButton.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -263,8 +266,10 @@
 				10D26710288ED1ED0056339A /* TabBarController.swift in Sources */,
 				7B2E9C6E288429B8006BE5C8 /* SettingPersonalDataCell.swift in Sources */,
 				7B2E9C702884397B006BE5C8 /* SettingHeaderView.swift in Sources */,
+				3E04A7F52891136D0068DBAE /* OnboardingMainVIewController.swift in Sources */,
 				7B9B569A2887EE3700FF3DD1 /* ConfirmViewController.swift in Sources */,
 				A9B32A94288691EA00530B51 /* NotificationTime.swift in Sources */,
+				3E04A7F72891180F0068DBAE /* OnboardingMainButton.swift in Sources */,
 				3E2F655F287FA0E600A27FA9 /* AppDelegate.swift in Sources */,
 				7B2E9C722884FCF4006BE5C8 /* MainViewController.swift in Sources */,
 				7BD2303E288E8B18002BB9F5 /* UIColor+Extension.swift in Sources */,

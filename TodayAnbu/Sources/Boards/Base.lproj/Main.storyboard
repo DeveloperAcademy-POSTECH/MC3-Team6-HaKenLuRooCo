@@ -23,7 +23,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fD0-Ny-AMd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2441" y="-206"/>
+            <point key="canvasLocation" x="3054" y="-206"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="tFX-Jk-wCo">
@@ -150,11 +150,11 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g3a-fE-OqV">
-                                <rect key="frame" x="340" y="822" width="54" height="31"/>
+                                <rect key="frame" x="340" y="822.5" width="54" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Next"/>
                                 <connections>
-                                    <segue destination="4Mc-d9-Cdu" kind="show" id="bD2-a6-heq"/>
+                                    <segue destination="NtZ-78-jYv" kind="show" id="a6j-sa-jZm"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -181,6 +181,58 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kFW-XS-84R" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="967" y="-206"/>
+        </scene>
+        <!--Onboarding MainV Iew Controller-->
+        <scene sceneID="tIt-xZ-LCF">
+            <objects>
+                <viewController id="NtZ-78-jYv" customClass="OnboardingMainVIewController" customModule="TodayAnbu" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="YPE-9m-1MH">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="“부모님과 가까워지며" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ADn-HQ-d5a">
+                                <rect key="frame" x="20" y="187" width="212" height="30"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="함께 갱년기를 이겨나가요 ! &quot;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8t4-E2-kdY">
+                                <rect key="frame" x="20" y="225" width="280" height="30"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="저희가 연락을 도와드릴게요" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2F2-DC-QjR">
+                                <rect key="frame" x="17" y="357" width="287" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="안부를 묻는 것만으로 갱년기 우울감 " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u7F-ax-mVe">
+                                <rect key="frame" x="17" y="377" width="287" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="2wo-x5-dQC"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="8t4-E2-kdY" firstAttribute="leading" secondItem="ADn-HQ-d5a" secondAttribute="leading" id="LD4-DW-TJB"/>
+                            <constraint firstItem="u7F-ax-mVe" firstAttribute="top" secondItem="2F2-DC-QjR" secondAttribute="bottom" constant="10" id="PWp-SI-xkU"/>
+                            <constraint firstItem="2F2-DC-QjR" firstAttribute="centerY" secondItem="2wo-x5-dQC" secondAttribute="centerY" multiplier="0.8" id="YuM-8Y-G04"/>
+                            <constraint firstItem="u7F-ax-mVe" firstAttribute="leading" secondItem="2F2-DC-QjR" secondAttribute="leading" id="cIM-iB-fKT"/>
+                            <constraint firstItem="ADn-HQ-d5a" firstAttribute="centerY" secondItem="2wo-x5-dQC" secondAttribute="centerY" multiplier="0.45" id="d6N-7g-Uha"/>
+                            <constraint firstItem="8t4-E2-kdY" firstAttribute="top" secondItem="ADn-HQ-d5a" secondAttribute="bottom" constant="8" symbolic="YES" id="mdn-c7-tj6"/>
+                            <constraint firstItem="2F2-DC-QjR" firstAttribute="leading" secondItem="8t4-E2-kdY" secondAttribute="leading" id="tr7-EL-o3Y"/>
+                            <constraint firstItem="ADn-HQ-d5a" firstAttribute="leading" secondItem="2wo-x5-dQC" secondAttribute="leading" constant="20" id="x4J-na-skg"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="xJg-me-Ihb"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8Qe-nd-rGa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="966.66666666666674" y="499.55357142857139"/>
         </scene>
         <!--User Init View Controller-->
         <scene sceneID="MWo-Rp-OkQ">
@@ -214,9 +266,7 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="Vah-c9-XoB">
-
-                                <rect key="frame" x="20" y="123" width="374" height="246"/>
-
+                                <rect key="frame" x="20" y="79" width="374" height="246"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="JYo-rh-Smd">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="91"/>
@@ -284,7 +334,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iG4-SX-mUD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1641" y="-206"/>
+            <point key="canvasLocation" x="2367" y="-206"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
