@@ -15,7 +15,7 @@
             <objects>
                 <viewController id="h9C-xi-h1l" customClass="TabBarController" customModule="TodayAnbu" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wuN-Gx-mkO">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="h7e-CH-ujs"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -73,7 +73,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Skip"/>
                                 <connections>
-                                    <segue destination="4Mc-d9-Cdu" kind="show" id="yJL-zv-pmi"/>
+                                    <segue destination="NtZ-78-jYv" kind="show" id="7fl-9i-khf"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="szI-PR-2gr">
@@ -81,7 +81,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Next"/>
                                 <connections>
-                                    <segue destination="lyG-OF-ikj" kind="show" id="tdM-VR-Cpa"/>
+                                    <segue destination="lyG-OF-ikj" kind="show" id="ic6-UZ-Jqp"/>
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="dadPicture" translatesAutoresizingMaskIntoConstraints="NO" id="Ab0-3b-621">
@@ -147,7 +147,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Skip"/>
                                 <connections>
-                                    <segue destination="4Mc-d9-Cdu" kind="show" id="9cH-ef-OPW"/>
+                                    <segue destination="NtZ-78-jYv" kind="show" id="f81-o5-jez"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g3a-fE-OqV">
@@ -155,7 +155,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Next"/>
                                 <connections>
-                                    <segue destination="NtZ-78-jYv" kind="show" id="a6j-sa-jZm"/>
+                                    <segue destination="NtZ-78-jYv" kind="show" id="tef-Cz-cHx"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -209,8 +209,8 @@
                                 <color key="textColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="안부를 묻는 것만으로 갱년기 우울감 " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u7F-ax-mVe">
-                                <rect key="frame" x="17" y="377" width="287" height="36"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="연락이 가능한 시간과 대화하실 분을 선택해주세요!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u7F-ax-mVe">
+                                <rect key="frame" x="17" y="377" width="297" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -220,7 +220,7 @@
                                 <inset key="titleEdgeInsets" minX="-4" minY="0.0" maxX="4" maxY="0.0"/>
                                 <inset key="imageEdgeInsets" minX="-4" minY="0.0" maxX="4" maxY="0.0"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" imagePlacement="leading" title="아버지와 연락 설정하기" imagePadding="0.0" titleAlignment="leading">
+                                <buttonConfiguration key="configuration" style="plain" imagePlacement="leading" title="아버지와 연락 설정하기" imagePadding="20" titleAlignment="leading">
                                     <imageReference key="image" image="circle" catalog="system" symbolScale="large"/>
                                     <backgroundConfiguration key="background"/>
                                     <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" scale="large"/>
@@ -238,7 +238,7 @@
                                 <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="4" maxY="0.0"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="4" maxY="0.0"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" imagePlacement="leading" title="어머니와 연락 설정하기" imagePadding="0.0" cornerStyle="small" titleAlignment="leading">
+                                <buttonConfiguration key="configuration" style="plain" imagePlacement="leading" title="어머니와 연락 설정하기" imagePadding="20" cornerStyle="small" titleAlignment="leading">
                                     <imageReference key="image" image="circle" catalog="system" symbolScale="large"/>
                                     <backgroundConfiguration key="background"/>
                                     <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" scale="large"/>
@@ -246,6 +246,29 @@
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="momSettingButtonAction:" destination="NtZ-78-jYv" eventType="touchUpInside" id="yJ2-BU-9Z8"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GDx-zU-TUQ">
+                                <rect key="frame" x="20" y="807" width="374" height="55"/>
+                                <color key="backgroundColor" systemColor="systemGray2Color"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="GDx-zU-TUQ" secondAttribute="height" multiplier="6:1" id="3i8-Z5-aIH"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <color key="tintColor" systemColor="systemGray2Color"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="확인">
+                                    <color key="titleColor" systemColor="systemGray6Color"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="nextButtonAction:" destination="NtZ-78-jYv" eventType="touchUpInside" id="qGZ-9G-edS"/>
+                                    <action selector="setNotificationTime:" destination="4Mc-d9-Cdu" eventType="touchUpInside" id="o92-Kk-wcb"/>
+                                    <action selector="startButttonAction:" destination="4Mc-d9-Cdu" eventType="touchUpInside" id="Nlf-hM-MQL"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -263,9 +286,13 @@
                             <constraint firstItem="2F2-DC-QjR" firstAttribute="centerY" secondItem="2wo-x5-dQC" secondAttribute="centerY" multiplier="0.8" constant="5.0999999999999659" id="YuM-8Y-G04"/>
                             <constraint firstItem="u7F-ax-mVe" firstAttribute="leading" secondItem="2F2-DC-QjR" secondAttribute="leading" id="cIM-iB-fKT"/>
                             <constraint firstItem="ADn-HQ-d5a" firstAttribute="centerY" secondItem="2wo-x5-dQC" secondAttribute="centerY" multiplier="0.45" id="d6N-7g-Uha"/>
+                            <constraint firstItem="2wo-x5-dQC" firstAttribute="trailing" secondItem="GDx-zU-TUQ" secondAttribute="trailing" constant="20" id="fso-Qu-KDQ"/>
+                            <constraint firstItem="GDx-zU-TUQ" firstAttribute="centerX" secondItem="2wo-x5-dQC" secondAttribute="centerX" id="gPM-zI-z58"/>
                             <constraint firstItem="2wo-x5-dQC" firstAttribute="trailing" secondItem="iaf-vk-LJJ" secondAttribute="trailing" constant="20" id="hbw-V2-CkG"/>
+                            <constraint firstItem="GDx-zU-TUQ" firstAttribute="bottom" secondItem="2wo-x5-dQC" secondAttribute="bottom" id="jcg-eg-q0J"/>
                             <constraint firstItem="8t4-E2-kdY" firstAttribute="top" secondItem="ADn-HQ-d5a" secondAttribute="bottom" constant="8" symbolic="YES" id="mdn-c7-tj6"/>
                             <constraint firstItem="2F2-DC-QjR" firstAttribute="leading" secondItem="8t4-E2-kdY" secondAttribute="leading" constant="-3" id="tr7-EL-o3Y"/>
+                            <constraint firstItem="GDx-zU-TUQ" firstAttribute="leading" secondItem="2wo-x5-dQC" secondAttribute="leading" constant="20" id="uTI-LS-GYx"/>
                             <constraint firstItem="sWU-HB-90u" firstAttribute="height" secondItem="iaf-vk-LJJ" secondAttribute="height" id="wOz-HO-8Y0"/>
                             <constraint firstItem="ADn-HQ-d5a" firstAttribute="leading" secondItem="2wo-x5-dQC" secondAttribute="leading" constant="20" id="x4J-na-skg"/>
                             <constraint firstItem="sWU-HB-90u" firstAttribute="width" secondItem="iaf-vk-LJJ" secondAttribute="width" id="xBo-It-3fM"/>
@@ -275,11 +302,12 @@
                     <connections>
                         <outlet property="dadSettingButton" destination="sWU-HB-90u" id="Rqy-bJ-kER"/>
                         <outlet property="momSettingButton" destination="iaf-vk-LJJ" id="R4m-Mx-FSn"/>
+                        <outlet property="nextButton" destination="GDx-zU-TUQ" id="dNW-xO-na1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Qe-nd-rGa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="966.66666666666674" y="499.55357142857139"/>
+            <point key="canvasLocation" x="1673.913043478261" y="-206.25"/>
         </scene>
         <!--User Init View Controller-->
         <scene sceneID="MWo-Rp-OkQ">
@@ -385,7 +413,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="9cH-ef-OPW"/>
+        <segue reference="tef-Cz-cHx"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
     <resources>
