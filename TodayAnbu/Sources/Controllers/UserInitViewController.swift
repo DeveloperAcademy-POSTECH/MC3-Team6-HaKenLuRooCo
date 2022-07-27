@@ -85,8 +85,7 @@ class UserInitViewController: UIViewController, UITextFieldDelegate {
         
         momDayVstack.isHidden = true
         startButton.isEnabled = false
-        
-        
+
         // 7무해 버튼 설정
         setHStackViewDefaultConstraints()
         makeNotificationButtonList()
@@ -99,6 +98,7 @@ class UserInitViewController: UIViewController, UITextFieldDelegate {
         notificationCenter.requestAuthorization(options: [.alert, .sound]) { (permissionGranted, error) in
             if !permissionGranted {
                 print("Permission Denied")
+                print(error ?? "No error")
             }
         }
         self.navigationItem.setHidesBackButton(true, animated: true)
@@ -235,11 +235,9 @@ extension UserInitViewController {
     @IBAction func setNotificationTime(_ sender: Any) {
         var dateList: [Date] = []
         var dayList: [Int] = []
-        for button in notificationButtonList {
-            if button.isSelected {
-                dateList.append(button.notificationTime)
-                dayList.append(button.indexPath)
-            }
+        for button in notificationButtonList where button.isSelected {
+            dateList.append(button.notificationTime)
+            dayList.append(button.indexPath)
         }
         
         notificationCenter.getNotificationSettings { settings in
