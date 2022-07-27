@@ -40,7 +40,6 @@ class UserInitViewController: UIViewController, UITextFieldDelegate {
             horizontalStack.subviews.forEach({ $0.removeFromSuperview() })
             addNotificationTimeLabel(indexPath: buttonIndex, time: timeLabel.toString())
             addSubViewNotificationButton()
-            horizontalStack.subviews[buttonIndex].backgroundColor = .systemBlue
             horizontalStack.subviews.forEach({$0.layer.borderWidth = 0 })
             
             if notificationButtonList[buttonIndex].isSelected == false {
@@ -81,9 +80,6 @@ class UserInitViewController: UIViewController, UITextFieldDelegate {
         momDayVstack.isHidden = true
         startButton.isEnabled = false
         startButton.layer.cornerRadius = 10
-        
-        momDayVstack.isHidden = true
-        startButton.isEnabled = false
 
         // 7개 알람 버튼 레이아웃 설정
         setHStackViewDefaultConstraints()
@@ -145,8 +141,6 @@ extension UserInitViewController {
             horizontalStack.topAnchor.constraint(equalTo: notificationTimeSettingText.topAnchor, constant: 75),
             horizontalStack.centerXAnchor.constraint(equalTo: momDayVstack.centerXAnchor)
         ])
-
-        horizontalStack.translatesAutoresizingMaskIntoConstraints = false
     }
     
     private func initializeButtonSize(size: CGFloat) {
