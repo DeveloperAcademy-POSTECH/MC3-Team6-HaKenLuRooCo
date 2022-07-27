@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		10D26710288ED1ED0056339A /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D2670F288ED1ED0056339A /* TabBarController.swift */; };
 		3E2F655F287FA0E600A27FA9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2F655E287FA0E600A27FA9 /* AppDelegate.swift */; };
 		3E2F6561287FA0E600A27FA9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2F6560287FA0E600A27FA9 /* SceneDelegate.swift */; };
-		3E2F6563287FA0E600A27FA9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2F6562287FA0E600A27FA9 /* ViewController.swift */; };
 		3E2F6566287FA0E600A27FA9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E2F6564287FA0E600A27FA9 /* Main.storyboard */; };
 		3E2F6568287FA0E700A27FA9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E2F6567287FA0E700A27FA9 /* Assets.xcassets */; };
 		3E2F656B287FA0E700A27FA9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E2F6569287FA0E700A27FA9 /* LaunchScreen.storyboard */; };
@@ -21,6 +21,7 @@
 		7B2E9C702884397B006BE5C8 /* SettingHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2E9C6F2884397B006BE5C8 /* SettingHeaderView.swift */; };
 		7B2E9C722884FCF4006BE5C8 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2E9C712884FCF4006BE5C8 /* MainViewController.swift */; };
 		7B9B569A2887EE3700FF3DD1 /* ConfirmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9B56992887EE3700FF3DD1 /* ConfirmViewController.swift */; };
+		7BD2303E288E8B18002BB9F5 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD2303D288E8B18002BB9F5 /* UIColor+Extension.swift */; };
 		A92FC8C7287FF3C000962CA0 /* OnboardingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92FC8C6287FF3C000962CA0 /* OnboardingPageViewController.swift */; };
 		A9332C77288E908F001A1B76 /* DateFormatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9332C76288E908F001A1B76 /* DateFormatting.swift */; };
 		A9B32A9228868F7100530B51 /* NotificationModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B32A9128868F7100530B51 /* NotificationModalViewController.swift */; };
@@ -28,10 +29,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		10D2670F288ED1ED0056339A /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		3E2F655B287FA0E600A27FA9 /* TodayAnbu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TodayAnbu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E2F655E287FA0E600A27FA9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3E2F6560287FA0E600A27FA9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		3E2F6562287FA0E600A27FA9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3E2F6565287FA0E600A27FA9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3E2F6567287FA0E700A27FA9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3E2F656A287FA0E700A27FA9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -44,6 +45,7 @@
 		7B2E9C6F2884397B006BE5C8 /* SettingHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingHeaderView.swift; sourceTree = "<group>"; };
 		7B2E9C712884FCF4006BE5C8 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		7B9B56992887EE3700FF3DD1 /* ConfirmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmViewController.swift; sourceTree = "<group>"; };
+		7BD2303D288E8B18002BB9F5 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		A92FC8C6287FF3C000962CA0 /* OnboardingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPageViewController.swift; sourceTree = "<group>"; };
 		A9332C76288E908F001A1B76 /* DateFormatting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatting.swift; sourceTree = "<group>"; };
 		A9B32A9128868F7100530B51 /* NotificationModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationModalViewController.swift; sourceTree = "<group>"; };
@@ -65,7 +67,11 @@
 			isa = PBXGroup;
 			children = (
 				3EC0D9CC2880FAD500A98E73 /* UITextfieldExtension.swift */,
+
 				A9332C76288E908F001A1B76 /* DateFormatting.swift */,
+
+				7BD2303D288E8B18002BB9F5 /* UIColor+Extension.swift */,
+
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -73,13 +79,13 @@
 		103BD8EB287FB31C00A6A0AD /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				3E2F6562287FA0E600A27FA9 /* ViewController.swift */,
 				7B9B56992887EE3700FF3DD1 /* ConfirmViewController.swift */,
 				3EC0D9CA28801E9F00A98E73 /* UserInitViewController.swift */,
 				7B2E9C712884FCF4006BE5C8 /* MainViewController.swift */,
 				7B2E9C6B28806FE3006BE5C8 /* SettingViewController.swift */,
 				A92FC8C6287FF3C000962CA0 /* OnboardingPageViewController.swift */,
 				A9B32A9128868F7100530B51 /* NotificationModalViewController.swift */,
+				10D2670F288ED1ED0056339A /* TabBarController.swift */,
 				103BD8EE287FB38B00A6A0AD /* Utilities */,
 			);
 			path = Controllers;
@@ -254,13 +260,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				A92FC8C7287FF3C000962CA0 /* OnboardingPageViewController.swift in Sources */,
-				3E2F6563287FA0E600A27FA9 /* ViewController.swift in Sources */,
+				10D26710288ED1ED0056339A /* TabBarController.swift in Sources */,
 				7B2E9C6E288429B8006BE5C8 /* SettingPersonalDataCell.swift in Sources */,
 				7B2E9C702884397B006BE5C8 /* SettingHeaderView.swift in Sources */,
 				7B9B569A2887EE3700FF3DD1 /* ConfirmViewController.swift in Sources */,
 				A9B32A94288691EA00530B51 /* NotificationTime.swift in Sources */,
 				3E2F655F287FA0E600A27FA9 /* AppDelegate.swift in Sources */,
 				7B2E9C722884FCF4006BE5C8 /* MainViewController.swift in Sources */,
+				7BD2303E288E8B18002BB9F5 /* UIColor+Extension.swift in Sources */,
 				A9B32A9228868F7100530B51 /* NotificationModalViewController.swift in Sources */,
 				3E2F6561287FA0E600A27FA9 /* SceneDelegate.swift in Sources */,
 				3EC0D9CB28801E9F00A98E73 /* UserInitViewController.swift in Sources */,
@@ -414,7 +421,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = YYP248S73Y;
+				DEVELOPMENT_TEAM = 3WVLC7Y373;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TodayAnbu/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -444,7 +451,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = YYP248S73Y;
+				DEVELOPMENT_TEAM = 3WVLC7Y373;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TodayAnbu/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
