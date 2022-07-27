@@ -7,6 +7,7 @@
 
 import WidgetKit
 import SwiftUI
+import UIKit
 import Intents
 
 // 렌더링할 시기를 WidgetKit에 알려주는 타임라인을 생성함
@@ -43,20 +44,29 @@ struct SimpleEntry: TimelineEntry {
 
 struct TodayAnbuWidgetEntryView : View {
     var entry: Provider.Entry
-
     var body: some View {
         ZStack {
             Rectangle()
-                .foregroundColor(.mainIndigoSwiftUI)
-            VStack(alignment: .leading) {
-                HStack(spacing: 5) {
-                    Text("전화한지")
-                        .foregroundColor(.yellow)
-                        .font(.system(size: 16, weight: .bold, design: .rounded))
-                    Text("10일")
-                        .foregroundColor(.orange)
-                        .font(.system(size: 24, weight: .heavy, design: .rounded))
-                }
+                .foregroundColor(.mainIndigo)
+            VStack(alignment: .center, spacing: 10) {
+                Text("전화한지")
+                    .foregroundColor(.yellow)
+                    .font(.system(size: 16, weight: .bold, design: .rounded))
+                Text("10일")
+                    .foregroundColor(.orange)
+                    .font(.system(size: 40, weight: .heavy, design: .rounded))
+                Text("지났어요!")
+                    .foregroundColor(.yellow)
+                    .font(.system(size: 16, weight: .bold, design: .rounded))
+                
+//                HStack(spacing: 5) {
+//                    Text("전화한지")
+//                        .foregroundColor(.yellow)
+//                        .font(.system(size: 16, weight: .bold, design: .rounded))
+//                    Text("10일")
+//                        .foregroundColor(.orange)
+//                        .font(.system(size: 24, weight: .heavy, design: .rounded))
+//                }
             }
         }
     }
@@ -84,19 +94,17 @@ struct TodayAnbuWidget_Previews: PreviewProvider {
 }
 
 extension Color {
-    static let mainIndigoSwiftUI = Color(hex: "#283396")
-
-    init(hex: String) {
-        let scanner = Scanner(string: hex)
-        _ = scanner.scanString("#")
-
-        var rgb: UInt64 = 0
-        scanner.scanHexInt64(&rgb)
-
-        let red = Double((rgb >> 16) & 0xFF) / 255.0
-        let green = Double((rgb >> 8) & 0xFF) / 255.0
-        let blue = Double((rgb >> 0) & 0xFF) / 255.0
-        self.init(red: red, green: green, blue: blue)
-    }
+    static let mainIndigo = Color("mainIndigo")
+    static let momDeepPink = Color("momDeepPink")
+    static let momLightPink = Color("momLightPink")
+    static let dadDeepSkyblue = Color("dadDeepSkyblue")
+    static let dadLightSkyblue = Color("dadLightSkyblue")
+    static let momGaugeLight = Color("momGaugeLight")
+    static let momGaugeDeep = Color("momGaugeDeep")
+    static let dadGaugeLight = Color("dadGaugeLight")
+    static let dadGaugeDeep = Color("dadGaugeDeep")
+    static let mainTitleOrange = Color("mainTitleOrange")
+    static let mainTitleFontColor = Color("mainTitleFontColor")
 }
+
 
