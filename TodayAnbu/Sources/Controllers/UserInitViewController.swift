@@ -14,7 +14,7 @@ class UserInitViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var momNumberTextfield: UITextField!
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var timePicker: UIDatePicker!
-    
+
     private let notificationCenter = UNUserNotificationCenter.current()
     private var notificationGuideText: UILabel = {
         let label = UILabel()
@@ -24,7 +24,6 @@ class UserInitViewController: UIViewController, UITextFieldDelegate {
     }()
     
     private var notificationButtonList: [NotificationButton] = []
-    private let weekDays = NotificationTime.setDummyData()
     private let horizontalStack = UIStackView()
     private let notificationTimeSettingText: UILabel = {
         let label = UILabel()
@@ -66,11 +65,11 @@ class UserInitViewController: UIViewController, UITextFieldDelegate {
             }
         }
     }
-    
-    // TODO : UserDefaults에 저장해야함.
+
+    // UserDefault 세팅용
     private var momPhoneNumber: String? = ""
     private var dadPhoneNumber: String? = ""
-    // Delegate 설정 및 Textfield 설정
+
     override func viewDidLoad() {
         super.viewDidLoad()
         UserDefaults.standard.set("", forKey: "momPhoneNumber")
@@ -86,15 +85,16 @@ class UserInitViewController: UIViewController, UITextFieldDelegate {
         momDayVstack.isHidden = true
         startButton.isEnabled = false
 
-        // 7무해 버튼 설정
+        // 7개 알람 버튼 레이아웃 설정
         setHStackViewDefaultConstraints()
         makeNotificationButtonList()
         addSubViewNotificationButton()
-        buttonSizeControl(size: 15)
+        initializeButtonSize(size: 15)
         
         // time picker 설정
         timePicker.isHidden = true
-        
+
+        // notification 접근 허가 설정
         notificationCenter.requestAuthorization(options: [.alert, .sound]) { (permissionGranted, error) in
             if !permissionGranted {
                 print("Permission Denied")
@@ -112,13 +112,12 @@ class UserInitViewController: UIViewController, UITextFieldDelegate {
     }
     @IBAction func timePickerAction(_ sender: UIDatePicker!) {
         timeLabel = sender.date
-        print("이 값은 데이트 피커의 date 값입니다. \(sender.date)")
+        print("이 값은 데이트 피커의 date 값입니다. \(sender.date)") // Test
     }
     
 }
 
 extension UserInitViewController {
-    
     // 버튼을 담을 Hstack의 레이아웃을 설정함
     private func setHStackViewDefaultConstraints() {
         momDayVstack.addSubview(notificationTimeSettingText)
@@ -134,7 +133,7 @@ extension UserInitViewController {
             notificationGuideText.topAnchor.constraint(equalTo: notificationTimeSettingText.topAnchor, constant: 35),
             notificationGuideText.leftAnchor.constraint(equalTo: momDayVstack.leftAnchor, constant: 5)
         ])
-        
+
         momDayVstack.addSubview(horizontalStack)
         horizontalStack.axis = .horizontal
         horizontalStack.alignment = .top
@@ -146,11 +145,11 @@ extension UserInitViewController {
             horizontalStack.topAnchor.constraint(equalTo: notificationTimeSettingText.topAnchor, constant: 75),
             horizontalStack.centerXAnchor.constraint(equalTo: momDayVstack.centerXAnchor)
         ])
-        
+
         horizontalStack.translatesAutoresizingMaskIntoConstraints = false
     }
     
-    private func buttonSizeControl(size: CGFloat) {
+    private func initializeButtonSize(size: CGFloat) {
         for button in notificationButtonList {
             button.buttonStack.directionalLayoutMargins =  NSDirectionalEdgeInsets(top: size, leading: size, bottom: size, trailing: size)
         }
@@ -181,11 +180,9 @@ extension UserInitViewController {
             notificationButtonList[indexPath].buttonStack.layer.borderWidth = 0
         }
     }
-    // 알람 설정 버튼의 속성을 설정하고, 배열을 만듬
+    // 알람 설정 버튼의 속성을 설정하고, 알람 버튼 배열을 만듬
     private func makeNotificationButtonList() {
-        
-        for index in 0...weekDays.count-1 {
-            
+        for index in 0...WeekDay.allCases.count-1 {
             let dayButton = UIStackView()
             dayButton.axis = .vertical
             dayButton.alignment = .center
@@ -197,7 +194,7 @@ extension UserInitViewController {
             
             let firstLabel: UILabel = {
                 let label = UILabel()
-                label.text = weekDays[index].weekDay as String
+                label.text = WeekDay.allCases[index].rawValue
                 label.font = UIFont.systemFont(ofSize: 20, weight: .bold)
                 label.textColor = .white
                 return label
@@ -270,11 +267,12 @@ extension UserInitViewController {
                                 return
                             }
                         }
-                        print(dateComponent)
+                        print("request에 요청된 날짜 정보는 다음과 같습니다. \(dateComponent)") // Test
+                        print("notification center에 요청된 정보는 다음과 같습니다 \(request)") // Test
                     }
                     
                     let notificationAlert = UIAlertController(title: "알람 설정완료!", message: "알람은 설정창에서 바꿀 수 있어요 ", preferredStyle: .alert)
-                    notificationAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (_) in}))
+                    notificationAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in }))
                     self.present(notificationAlert, animated: true)
                     
                     // notification 허용하지 않을 경우
