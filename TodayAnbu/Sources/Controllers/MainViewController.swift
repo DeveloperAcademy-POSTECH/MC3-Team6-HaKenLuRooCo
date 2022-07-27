@@ -27,6 +27,7 @@ class MainViewController: UIViewController {
         label.textColor = .mainTitleFontColor
         label.text = "전화한지         되었어요"
         label.font = .boldSystemFont(ofSize: 25)
+
         return label
     }()
     private lazy var topTitleDays: UILabel = {
@@ -104,14 +105,8 @@ class MainViewController: UIViewController {
         topicText.font = .systemFont(ofSize: 20, weight: .semibold)
         return topicText
     }()
-    private lazy var backGroundRectangle: UIView = {
-        let rectangle = UIView()
-        rectangle.layer.cornerRadius = 15
-        rectangle.backgroundColor = .systemGray5
-        return rectangle
-    }()
     private lazy var topicSegmentedControl: UISegmentedControl = {
-        let segmentItems = ["가벼운", "진지한"]
+        let segmentItems = ["가벼운 토픽", "진지한 토픽"]
         let topicSegmentedControl = UISegmentedControl(items: segmentItems)
         topicSegmentedControl.selectedSegmentIndex = 0
         topicSegmentedControl.backgroundColor = .systemGray3
@@ -122,17 +117,21 @@ class MainViewController: UIViewController {
     private lazy var refreshButton: UIButton = {
             let refreshButton = UIButton(type: UIButton.ButtonType.system)
             refreshButton.setImage(UIImage(systemName: "goforward"), for: UIControl.State.normal)
-            refreshButton.backgroundColor = .black
+            refreshButton.backgroundColor = .mainIndigo
             refreshButton.tintColor = .white
-            refreshButton.layer.cornerRadius = 10
+            refreshButton.layer.cornerRadius = 15
+            refreshButton.frame.size = CGSize(width: 30, height: 30)
             refreshButton.addTarget(self, action: #selector(buttonAction(_:)), for: .touchUpInside)
             return refreshButton
         }()
 
     private let topicTableView: UITableView = {
         let topicTableView = UITableView()
+        topicTableView.estimatedRowHeight = UITableView.automaticDimension
         topicTableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         topicTableView.reloadData()
+        topicTableView.layer.cornerRadius = 10
+        topicTableView.backgroundColor = .black
         topicTableView.isScrollEnabled = false
         return topicTableView
     }()
@@ -164,6 +163,8 @@ class MainViewController: UIViewController {
     private lazy var callButton: UIButton = {
         let callButton = UIButton(type: UIButton.ButtonType.system)
         callButton.setImage(UIImage(systemName: "phone.fill"), for: UIControl.State.normal)
+        callButton.setTitle(" 안부묻기", for: .normal)
+        callButton.titleLabel?.font = .systemFont(ofSize: 24, weight: UIFont.Weight.semibold)
         callButton.backgroundColor = .mainIndigo
         callButton.tintColor = .white
         callButton.layer.cornerRadius = 10
@@ -199,6 +200,7 @@ class MainViewController: UIViewController {
     private func configureAddSubView() {
         view.addSubview(topArea)
         view.addSubview(topTitle)
+        view.addSubview(topTitleDays)
         view.addSubview(weeklyAnbuLabel)
         view.addSubview(momLabel)
         view.addSubview(dadLabel)
@@ -215,7 +217,6 @@ class MainViewController: UIViewController {
         view.addSubview(dadGauge1)
         view.addSubview(dadGauge2)
         view.addSubview(dadGauge3)
-        view.addSubview(topTitleDays)
     }
     private func configureTranslate() {
         topArea.translatesAutoresizingMaskIntoConstraints = false
@@ -239,6 +240,7 @@ class MainViewController: UIViewController {
         topTitleDays.translatesAutoresizingMaskIntoConstraints = false
     }
     private func configureRender() {
+        topicTableView.delegate = self
         topicTableView.dataSource = self
         topicTableView.allowsSelection = false
         NSLayoutConstraint.activate([
@@ -304,26 +306,14 @@ class MainViewController: UIViewController {
             dadGauge3.trailingAnchor.constraint(equalTo: dadGauge3.leadingAnchor, constant: 75)
         ])
         NSLayoutConstraint.activate([
-            backGroundRectangle.heightAnchor.constraint(equalToConstant: 300),
-            backGroundRectangle.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -170),
-            backGroundRectangle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),
-            backGroundRectangle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15)
+            topicSegmentedControl.topAnchor.constraint(equalTo: topArea.bottomAnchor, constant: 50),
+            topicSegmentedControl.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
+            topicSegmentedControl.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30)
         ])
 
         NSLayoutConstraint.activate([
-            topicTitleLabel.leadingAnchor.constraint(equalTo: backGroundRectangle.leadingAnchor, constant: 16),
-            topicTitleLabel.topAnchor.constraint(equalTo: backGroundRectangle.topAnchor, constant: 14)
-        ])
-
-        NSLayoutConstraint.activate([
-            topicSegmentedControl.leadingAnchor.constraint(equalTo: topicTitleLabel.leadingAnchor),
-            topicSegmentedControl.trailingAnchor.constraint(equalTo: backGroundRectangle.trailingAnchor, constant: -16),
-            topicSegmentedControl.topAnchor.constraint(equalTo: topicTitleLabel.bottomAnchor, constant: 10)
-        ])
-
-        NSLayoutConstraint.activate([
-            topicLabel.leadingAnchor.constraint(equalTo: topicTitleLabel.leadingAnchor),
-            topicLabel.topAnchor.constraint(equalTo: topicSegmentedControl.bottomAnchor, constant: 10)
+            topicLabel.leadingAnchor.constraint(equalTo: topicSegmentedControl.leadingAnchor),
+            topicLabel.topAnchor.constraint(equalTo: topicSegmentedControl.bottomAnchor, constant: 35)
         ])
 
         NSLayoutConstraint.activate([
@@ -334,15 +324,15 @@ class MainViewController: UIViewController {
         ])
 
         NSLayoutConstraint.activate([
+            topicTableView.topAnchor.constraint(equalTo: topicLabel.bottomAnchor, constant: 30),
             topicTableView.heightAnchor.constraint(equalToConstant: 150),
             topicTableView.leadingAnchor.constraint(equalTo: topicLabel.leadingAnchor),
-            topicTableView.trailingAnchor.constraint(equalTo: refreshButton.trailingAnchor),
-            topicTableView.bottomAnchor.constraint(equalTo: backGroundRectangle.bottomAnchor, constant: -15)
+            topicTableView.trailingAnchor.constraint(equalTo: refreshButton.trailingAnchor)
         ])
 
         NSLayoutConstraint.activate([
-            callButton.leftAnchor.constraint(equalTo: backGroundRectangle.leftAnchor),
-            callButton.rightAnchor.constraint(equalTo: backGroundRectangle.rightAnchor),
+            callButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 5),
+            callButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -5),
             callButton.heightAnchor.constraint(equalToConstant: 55),
             callButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -50)
         ])
@@ -365,9 +355,16 @@ class MainViewController: UIViewController {
 
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-
+            cell.backgroundColor = .systemGray5
             cell.textLabel?.text = topics[indexPath.row]
+            cell.textLabel?.numberOfLines = 2
             return cell
+        }
+
+    }
+    extension MainViewController: UITableViewDelegate {
+        func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+            return 50
         }
     }
 
