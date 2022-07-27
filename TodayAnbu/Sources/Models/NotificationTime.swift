@@ -11,36 +11,21 @@ class NotificationButton {
     var indexPath: Int
     var buttonStack: UIStackView
     var isSelected: Bool
-    init(id: Int, buttonStack: UIStackView, isSelected: Bool) {
+    var notificationTime: Date
+    init(id: Int, buttonStack: UIStackView, isSelected: Bool, notificationTime: Date) {
         self.indexPath = id
         self.buttonStack = buttonStack
         self.isSelected = false
+        self.notificationTime = notificationTime
     }
 }
 
-struct ButtonData {
-    var weekDay: String
-    var time: String
-}
-
-struct NotificationTime: Hashable {
-    var weekDay: String
-    var hour: Int
-    var minute: Int
-    var isSelcted: Bool
-}
-
-extension NotificationTime {
-    static func setDummyData() -> [NotificationTime] {
-        let dummyData = [
-            NotificationTime(weekDay: "월", hour: 3, minute: 0, isSelcted: true),
-            NotificationTime(weekDay: "화", hour: 4, minute: 0, isSelcted: true),
-            NotificationTime(weekDay: "수", hour: 5, minute: 0, isSelcted: true),
-            NotificationTime(weekDay: "목", hour: 6, minute: 0, isSelcted: true),
-            NotificationTime(weekDay: "금", hour: 7, minute: 0, isSelcted: true),
-            NotificationTime(weekDay: "토", hour: 8, minute: 0, isSelcted: true),
-            NotificationTime(weekDay: "일", hour: 9, minute: 0, isSelcted: true)
-        ]
-        return dummyData
-    }
+enum WeekDay: String, CaseIterable {
+    case mon = "월"
+    case tue = "화"
+    case wed = "수"
+    case thur = "목"
+    case fri = "금"
+    case sat = "토"
+    case sun = "일"
 }

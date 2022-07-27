@@ -95,6 +95,7 @@ class NotificationModalViewController: UIViewController {
             }
         }
     }
+    
     func formattedDate(date: Date) -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = "d MMM y HH:mm"
