@@ -43,7 +43,7 @@ class UserInitViewController: UIViewController, UITextFieldDelegate {
     // 버튼을 탭했을때, 탭한 버튼에 나타나는 변화들
     private var buttonIndex: Int = 0 {
         didSet {
-            let numberOfSelected = notificationButtonList.map({$0.notificationTime.toString().isEmpty == false}).count
+            let numberOfSelected = notificationButtonList.filter({$0.notificationTime.toString().isEmpty == false}).count
             print("선택된 버튼의 개수는 다음과 같습니다 \(numberOfSelected)")
             print(buttonIndex)
             timePicker.isHidden = false
