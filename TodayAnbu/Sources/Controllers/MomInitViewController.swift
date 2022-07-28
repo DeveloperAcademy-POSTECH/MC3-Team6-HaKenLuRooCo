@@ -45,9 +45,6 @@ class MomInitViewController: UIViewController, UITextFieldDelegate {
     private var buttonIndex: Int = 0 {
 
         didSet {
-            print("print:", buttonIndex)
-            print("didset is called")
-
             timePicker.isHidden = false
             horizontalStack.subviews.forEach({ $0.removeFromSuperview() })
             horizontalStack.subviews.forEach({$0.layer.borderWidth = 0 })
