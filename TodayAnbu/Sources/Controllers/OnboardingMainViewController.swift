@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class OnboardingMainVIewController: UIViewController {
+class OnboardingMainViewController: UIViewController {
 
     @IBOutlet var momSettingButton: UIButton!
     @IBOutlet var dadSettingButton: UIButton!
@@ -18,6 +18,9 @@ class OnboardingMainVIewController: UIViewController {
     private var isDadSelected: Bool = false
 
     override func viewDidLoad() {
+
+        super.viewDidLoad()
+
         momSettingButton.layer.cornerRadius = 5
         dadSettingButton.layer.cornerRadius = 5
         nextButton.layer.cornerRadius = 5
