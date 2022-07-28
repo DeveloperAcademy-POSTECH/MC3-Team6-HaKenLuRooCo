@@ -77,7 +77,6 @@ class DadInitViewController: UIViewController, UITextFieldDelegate {
     }
 
     // UserDefault 세팅용
-    private var momPhoneNumber: String? = ""
     private var dadPhoneNumber: String? = ""
 
     override func viewDidLoad() {
