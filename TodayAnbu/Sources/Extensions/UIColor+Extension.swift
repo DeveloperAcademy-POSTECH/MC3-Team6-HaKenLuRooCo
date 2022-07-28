@@ -4,12 +4,9 @@
 //
 //  Created by Taehwan Kim on 2022/07/25.
 //
-
 import UIKit
+import SwiftUI
 
-// RGB 값을 불러와서 사용할 수 있게 만들었습니다.
-// 사용 예시
-// view.backgroundColor = .mainIndigo
 extension UIColor {
     static let mainIndigo = UIColor(named: "mainIndigo")
     static let momDeepPink = UIColor(named: "momDeepPink")
@@ -22,4 +19,18 @@ extension UIColor {
     static let dadGaugeDeep = UIColor(named: "dadGaugeDeep")
     static let mainTitleOrange = UIColor(named: "mainTitleOrange")
     static let mainTitleFontColor = UIColor(named: "mainTitleFontColor")
+}
+
+extension Color {
+    static let mainIndigo = Color("mainIndigo")
+    static let momDeepPink = Color("momDeepPink")
+    static let momLightPink = Color("momLightPink")
+    static let dadDeepSkyblue = Color("dadDeepSkyblue")
+    static let dadLightSkyblue = Color("dadLightSkyblue")
+    static let momGaugeLight = Color("momGaugeLight")
+    static let momGaugeDeep = Color("momGaugeDeep")
+    static let dadGaugeLight = Color("dadGaugeLight")
+    static let dadGaugeDeep = Color("dadGaugeDeep")
+    static let mainTitleOrange = Color("mainTitleOrange")
+    static let mainTitleFontColor = Color("mainTitleFontColor")
 }

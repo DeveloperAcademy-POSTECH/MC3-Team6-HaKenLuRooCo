@@ -24,12 +24,12 @@
 		7BD2303E288E8B18002BB9F5 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD2303D288E8B18002BB9F5 /* UIColor+Extension.swift */; };
 		9A9CB0FC2890ACE0009AA95C /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A9CB0FB2890ACE0009AA95C /* WidgetKit.framework */; };
 		9A9CB0FE2890ACE0009AA95C /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A9CB0FD2890ACE0009AA95C /* SwiftUI.framework */; };
-		9A9CB1012890ACE0009AA95C /* TodayAnbuWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9CB1002890ACE0009AA95C /* TodayAnbuWidget.swift */; };
 		9A9CB1042890ACE1009AA95C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A9CB1032890ACE1009AA95C /* Assets.xcassets */; };
 		9A9CB1062890ACE1009AA95C /* TodayAnbuWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 9A9CB1022890ACE0009AA95C /* TodayAnbuWidget.intentdefinition */; };
 		9A9CB1072890ACE1009AA95C /* TodayAnbuWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 9A9CB1022890ACE0009AA95C /* TodayAnbuWidget.intentdefinition */; };
 		9A9CB10A2890ACE1009AA95C /* TodayAnbuWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 9A9CB0F92890ACE0009AA95C /* TodayAnbuWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		A91AF97C28915DDA003D486B /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91AF97B28915DDA003D486B /* ColorExtension.swift */; };
+		A9082F942892452D00CB0603 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD2303D288E8B18002BB9F5 /* UIColor+Extension.swift */; };
+		A9082F962892459A00CB0603 /* TodayAnbuWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9CB1002890ACE0009AA95C /* TodayAnbuWidget.swift */; };
 		A92FC8C7287FF3C000962CA0 /* OnboardingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92FC8C6287FF3C000962CA0 /* OnboardingPageViewController.swift */; };
 		A9332C77288E908F001A1B76 /* DateFormatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9332C76288E908F001A1B76 /* DateFormatting.swift */; };
 		A9B32A9228868F7100530B51 /* NotificationModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B32A9128868F7100530B51 /* NotificationModalViewController.swift */; };
@@ -85,7 +85,6 @@
 		9A9CB1022890ACE0009AA95C /* TodayAnbuWidget.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = TodayAnbuWidget.intentdefinition; sourceTree = "<group>"; };
 		9A9CB1032890ACE1009AA95C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9A9CB1052890ACE1009AA95C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A91AF97B28915DDA003D486B /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		A92FC8C6287FF3C000962CA0 /* OnboardingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPageViewController.swift; sourceTree = "<group>"; };
 		A9332C76288E908F001A1B76 /* DateFormatting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatting.swift; sourceTree = "<group>"; };
 		A9B32A9128868F7100530B51 /* NotificationModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationModalViewController.swift; sourceTree = "<group>"; };
@@ -226,7 +225,6 @@
 		9A9CB0FF2890ACE0009AA95C /* TodayAnbuWidget */ = {
 			isa = PBXGroup;
 			children = (
-				A91AF97B28915DDA003D486B /* ColorExtension.swift */,
 				9A9CB1002890ACE0009AA95C /* TodayAnbuWidget.swift */,
 				9A9CB1022890ACE0009AA95C /* TodayAnbuWidget.intentdefinition */,
 				9A9CB1032890ACE1009AA95C /* Assets.xcassets */,
@@ -365,7 +363,6 @@
 				7B2E9C6E288429B8006BE5C8 /* SettingPersonalDataCell.swift in Sources */,
 				7B2E9C702884397B006BE5C8 /* SettingHeaderView.swift in Sources */,
 				7B9B569A2887EE3700FF3DD1 /* ConfirmViewController.swift in Sources */,
-				A91AF97C28915DDA003D486B /* ColorExtension.swift in Sources */,
 				A9B32A94288691EA00530B51 /* NotificationTime.swift in Sources */,
 				3E2F655F287FA0E600A27FA9 /* AppDelegate.swift in Sources */,
 				9A9CB1072890ACE1009AA95C /* TodayAnbuWidget.intentdefinition in Sources */,
@@ -384,8 +381,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9082F962892459A00CB0603 /* TodayAnbuWidget.swift in Sources */,
+				A9082F942892452D00CB0603 /* UIColor+Extension.swift in Sources */,
 				9A9CB1062890ACE1009AA95C /* TodayAnbuWidget.intentdefinition in Sources */,
-				9A9CB1012890ACE0009AA95C /* TodayAnbuWidget.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

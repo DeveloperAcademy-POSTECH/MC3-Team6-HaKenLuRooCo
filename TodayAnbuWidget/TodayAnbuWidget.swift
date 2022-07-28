@@ -77,7 +77,6 @@ struct TodayAnbuWidget: Widget {
     let kind: String = "오늘, 안부"
 
     var body: some WidgetConfiguration {
-        //사용자가 구성할 수 있는 속성 -> Edit을 통해 위젯에 보여질 내용을 바꿀 수 있음
         IntentConfiguration(kind: kind, intent: ConfigurationIntent.self, provider: Provider()) { entry in
             TodayAnbuWidgetEntryView(entry: entry)
         }
@@ -92,19 +91,3 @@ struct TodayAnbuWidget_Previews: PreviewProvider {
             .previewContext(WidgetPreviewContext(family: .systemSmall))
     }
 }
-
-extension Color {
-    static let mainIndigo = Color("mainIndigo")
-    static let momDeepPink = Color("momDeepPink")
-    static let momLightPink = Color("momLightPink")
-    static let dadDeepSkyblue = Color("dadDeepSkyblue")
-    static let dadLightSkyblue = Color("dadLightSkyblue")
-    static let momGaugeLight = Color("momGaugeLight")
-    static let momGaugeDeep = Color("momGaugeDeep")
-    static let dadGaugeLight = Color("dadGaugeLight")
-    static let dadGaugeDeep = Color("dadGaugeDeep")
-    static let mainTitleOrange = Color("mainTitleOrange")
-    static let mainTitleFontColor = Color("mainTitleFontColor")
-}
-
-
