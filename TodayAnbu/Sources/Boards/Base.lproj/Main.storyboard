@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -14,7 +15,7 @@
             <objects>
                 <viewController id="h9C-xi-h1l" customClass="TabBarController" customModule="TodayAnbu" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wuN-Gx-mkO">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="h7e-CH-ujs"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -23,7 +24,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fD0-Ny-AMd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2441" y="-206"/>
+            <point key="canvasLocation" x="3054" y="-206"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="tFX-Jk-wCo">
@@ -49,19 +50,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="혹시 부모님이 갱년기 같으신가요?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1eV-IS-3iG">
-                                <rect key="frame" x="47.5" y="652" width="319" height="29"/>
+                                <rect key="frame" x="47.5" y="619.5" width="319" height="29"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="갱년기는 급격한 호르몬 변화를 겪는 시기로" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MDk-mg-it6">
-                                <rect key="frame" x="80.5" y="701" width="253.5" height="18"/>
+                                <rect key="frame" x="80.5" y="668.5" width="253.5" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" 대표적인 증상으로 무기력함과 우울감이 있어요!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TyM-vL-RDw">
-                                <rect key="frame" x="65" y="727" width="284" height="18"/>
+                                <rect key="frame" x="65" y="694.5" width="284" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -72,7 +73,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Skip"/>
                                 <connections>
-                                    <segue destination="4Mc-d9-Cdu" kind="show" id="yJL-zv-pmi"/>
+                                    <segue destination="NtZ-78-jYv" kind="show" id="7fl-9i-khf"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="szI-PR-2gr">
@@ -80,14 +81,11 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Next"/>
                                 <connections>
-                                    <segue destination="lyG-OF-ikj" kind="show" id="tdM-VR-Cpa"/>
+                                    <segue destination="lyG-OF-ikj" kind="show" id="ic6-UZ-Jqp"/>
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dadPicture" translatesAutoresizingMaskIntoConstraints="NO" id="Ab0-3b-621">
-                                <rect key="frame" x="46.5" y="166" width="321" height="373.5"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="Ab0-3b-621" secondAttribute="height" multiplier="251:292" id="bqE-Ka-ypD"/>
-                                </constraints>
+                                <rect key="frame" x="-44" y="191.5" width="502" height="341.5"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="rmL-0a-M5c"/>
@@ -102,11 +100,11 @@
                             <constraint firstItem="Ab0-3b-621" firstAttribute="centerX" secondItem="rmL-0a-M5c" secondAttribute="centerX" id="RhT-LD-YjI"/>
                             <constraint firstItem="Ab0-3b-621" firstAttribute="width" secondItem="OvF-j1-dXT" secondAttribute="height" multiplier="160:448" constant="1" id="WeC-uA-Prx"/>
                             <constraint firstItem="IY4-tW-qWX" firstAttribute="leading" secondItem="rmL-0a-M5c" secondAttribute="leading" constant="20" id="XgD-7l-iFP"/>
-                            <constraint firstItem="szI-PR-2gr" firstAttribute="leading" secondItem="rmL-0a-M5c" secondAttribute="leading" constant="300" id="Ysv-7r-8we"/>
-                            <constraint firstItem="rmL-0a-M5c" firstAttribute="bottom" secondItem="MDk-mg-it6" secondAttribute="bottom" constant="143" id="anO-cL-ikS"/>
-                            <constraint firstItem="rmL-0a-M5c" firstAttribute="trailing" secondItem="IY4-tW-qWX" secondAttribute="trailing" constant="300" id="bKV-k4-jDA"/>
-                            <constraint firstItem="TyM-vL-RDw" firstAttribute="top" secondItem="MDk-mg-it6" secondAttribute="bottom" constant="8" symbolic="YES" id="gBd-bJ-v6m"/>
-                            <constraint firstItem="Ab0-3b-621" firstAttribute="top" secondItem="rmL-0a-M5c" secondAttribute="top" constant="122" id="krs-eZ-jRY"/>
+                            <constraint firstItem="szI-PR-2gr" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="IY4-tW-qWX" secondAttribute="trailing" constant="8" symbolic="YES" id="YX0-Q7-VG2"/>
+                            <constraint firstItem="MDk-mg-it6" firstAttribute="top" secondItem="1eV-IS-3iG" secondAttribute="bottom" constant="20" id="f6q-NH-TdA"/>
+                            <constraint firstItem="MDk-mg-it6" firstAttribute="centerX" secondItem="rmL-0a-M5c" secondAttribute="centerX" id="ilT-do-NKW"/>
+                            <constraint firstItem="Ab0-3b-621" firstAttribute="height" secondItem="OvF-j1-dXT" secondAttribute="height" multiplier="0.38" constant="1" id="mGE-MP-irR"/>
+                            <constraint firstItem="1eV-IS-3iG" firstAttribute="centerX" secondItem="rmL-0a-M5c" secondAttribute="centerX" id="tZq-yV-Cit"/>
                             <constraint firstItem="IY4-tW-qWX" firstAttribute="centerY" secondItem="rmL-0a-M5c" secondAttribute="centerY" multiplier="1.85" id="xmF-KF-d3v"/>
                         </constraints>
                     </view>
@@ -125,22 +123,22 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="momPicture" translatesAutoresizingMaskIntoConstraints="NO" id="7nc-8V-HKl">
-                                <rect key="frame" x="69.5" y="131.5" width="275" height="462"/>
+                                <rect key="frame" x="-110" y="250.5" width="634" height="224"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="부모님께 얼마나 자주 안부전화하나요?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3HO-e8-lu3">
-                                <rect key="frame" x="26.5" y="652" width="361" height="29"/>
+                                <rect key="frame" x="26.5" y="619.5" width="361" height="29"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="안부를 묻는 것만으로 갱년기 우울감 " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y5B-ds-Wwi">
-                                <rect key="frame" x="99.5" y="701" width="215" height="18"/>
+                                <rect key="frame" x="99.5" y="668.5" width="215" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="완화에 도움이 된다고 해요!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ycP-kV-iHe">
-                                <rect key="frame" x="127" y="727" width="160" height="18"/>
+                                <rect key="frame" x="127" y="694.5" width="160" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -151,15 +149,15 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Skip"/>
                                 <connections>
-                                    <segue destination="4Mc-d9-Cdu" kind="show" id="9cH-ef-OPW"/>
+                                    <segue destination="NtZ-78-jYv" kind="show" id="f81-o5-jez"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g3a-fE-OqV">
-                                <rect key="frame" x="300" y="822.5" width="94" height="31"/>
+                                <rect key="frame" x="340" y="822.5" width="54" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Next"/>
                                 <connections>
-                                    <segue destination="4Mc-d9-Cdu" kind="show" id="bD2-a6-heq"/>
+                                    <segue destination="NtZ-78-jYv" kind="show" id="tef-Cz-cHx"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -173,6 +171,7 @@
                             <constraint firstItem="ycP-kV-iHe" firstAttribute="centerX" secondItem="Jhx-1G-qFV" secondAttribute="centerX" id="L2a-Am-fnT"/>
                             <constraint firstItem="7nc-8V-HKl" firstAttribute="centerY" secondItem="Jhx-1G-qFV" secondAttribute="centerY" multiplier="0.8" id="PWh-aw-64r"/>
                             <constraint firstItem="3HO-e8-lu3" firstAttribute="centerX" secondItem="Jhx-1G-qFV" secondAttribute="centerX" id="TD6-gv-bqS"/>
+                            <constraint firstItem="g3a-fE-OqV" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="L7O-UY-DRG" secondAttribute="trailing" constant="8" symbolic="YES" id="WGZ-9r-nq1"/>
                             <constraint firstItem="Y5B-ds-Wwi" firstAttribute="centerX" secondItem="Jhx-1G-qFV" secondAttribute="centerX" id="XnH-mX-gam"/>
                             <constraint firstItem="L7O-UY-DRG" firstAttribute="centerY" secondItem="Jhx-1G-qFV" secondAttribute="centerY" multiplier="1.85" id="c6C-dq-01Y"/>
                             <constraint firstItem="Y5B-ds-Wwi" firstAttribute="top" secondItem="3HO-e8-lu3" secondAttribute="bottom" constant="20" id="g64-S3-Rjp"/>
@@ -189,10 +188,137 @@
             </objects>
             <point key="canvasLocation" x="967" y="-206"/>
         </scene>
+        <!--Onboarding Main View Controller-->
+        <scene sceneID="tIt-xZ-LCF">
+            <objects>
+                <viewController id="NtZ-78-jYv" customClass="OnboardingMainViewController" customModule="TodayAnbu" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="YPE-9m-1MH">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="“부모님과 가까워지며" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ADn-HQ-d5a">
+                                <rect key="frame" x="20" y="189" width="212" height="30"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="함께 갱년기를 이겨나가요 ! &quot;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8t4-E2-kdY">
+                                <rect key="frame" x="20" y="227" width="280" height="30"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="저희가 연락을 도와드릴게요" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2F2-DC-QjR">
+                                <rect key="frame" x="17" y="358.5" width="164" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="연락이 가능한 시간과 대화하실 분을 선택해주세요!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u7F-ax-mVe">
+                                <rect key="frame" x="17" y="375.5" width="297" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sWU-HB-90u">
+                                <rect key="frame" x="30" y="560" width="354" height="71"/>
+                                <inset key="titleEdgeInsets" minX="-4" minY="0.0" maxX="4" maxY="0.0"/>
+                                <inset key="imageEdgeInsets" minX="-4" minY="0.0" maxX="4" maxY="0.0"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" imagePlacement="leading" title="아버지와 연락 설정하기" imagePadding="20" titleAlignment="leading">
+                                    <imageReference key="image" image="circle" catalog="system" symbolScale="large"/>
+                                    <backgroundConfiguration key="background"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" scale="large"/>
+                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="20"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="dadSettingButtonAction:" destination="NtZ-78-jYv" eventType="touchUpInside" id="iAe-J4-AkV"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iaf-vk-LJJ">
+                                <rect key="frame" x="30" y="463" width="354" height="70.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="iaf-vk-LJJ" secondAttribute="height" multiplier="5:1" id="Oka-yQ-Rkz"/>
+                                </constraints>
+                                <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="4" maxY="0.0"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="4" maxY="0.0"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" imagePlacement="leading" title="어머니와 연락 설정하기" imagePadding="20" cornerStyle="small" titleAlignment="leading">
+                                    <imageReference key="image" image="circle" catalog="system" symbolScale="large"/>
+                                    <backgroundConfiguration key="background"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" scale="large"/>
+                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="20"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="momSettingButtonAction:" destination="NtZ-78-jYv" eventType="touchUpInside" id="yJ2-BU-9Z8"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GDx-zU-TUQ">
+                                <rect key="frame" x="20" y="799.5" width="374" height="62.5"/>
+                                <color key="backgroundColor" systemColor="systemGray2Color"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="GDx-zU-TUQ" secondAttribute="height" multiplier="6:1" id="3i8-Z5-aIH"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <color key="tintColor" systemColor="systemGray2Color"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="확인">
+                                    <color key="titleColor" systemColor="systemGray6Color"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="nextButtonAction:" destination="NtZ-78-jYv" eventType="touchUpInside" id="qGZ-9G-edS"/>
+                                    <action selector="setNotificationTime:" destination="4Mc-d9-Cdu" eventType="touchUpInside" id="o92-Kk-wcb"/>
+                                    <action selector="startButttonAction:" destination="4Mc-d9-Cdu" eventType="touchUpInside" id="Nlf-hM-MQL"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="2wo-x5-dQC"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="iaf-vk-LJJ" firstAttribute="centerX" secondItem="2wo-x5-dQC" secondAttribute="centerX" id="320-hn-0yn"/>
+                            <constraint firstItem="2wo-x5-dQC" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="u7F-ax-mVe" secondAttribute="trailing" symbolic="YES" id="89H-CE-t5O"/>
+                            <constraint firstItem="2wo-x5-dQC" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="2F2-DC-QjR" secondAttribute="trailing" symbolic="YES" id="BHS-7L-BKh"/>
+                            <constraint firstItem="2wo-x5-dQC" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ADn-HQ-d5a" secondAttribute="trailing" symbolic="YES" id="Gb8-az-YVX"/>
+                            <constraint firstItem="2wo-x5-dQC" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="8t4-E2-kdY" secondAttribute="trailing" symbolic="YES" id="I9c-2R-4zZ"/>
+                            <constraint firstItem="iaf-vk-LJJ" firstAttribute="centerY" secondItem="2wo-x5-dQC" secondAttribute="centerY" multiplier="1.1" id="KBF-iL-0Zv"/>
+                            <constraint firstItem="8t4-E2-kdY" firstAttribute="leading" secondItem="ADn-HQ-d5a" secondAttribute="leading" id="LD4-DW-TJB"/>
+                            <constraint firstItem="sWU-HB-90u" firstAttribute="width" secondItem="iaf-vk-LJJ" secondAttribute="width" id="OqF-kU-UF3"/>
+                            <constraint firstItem="u7F-ax-mVe" firstAttribute="top" secondItem="2F2-DC-QjR" secondAttribute="bottom" constant="-1" id="PWp-SI-xkU"/>
+                            <constraint firstItem="sWU-HB-90u" firstAttribute="top" secondItem="iaf-vk-LJJ" secondAttribute="bottom" constant="26.5" id="TI7-tB-feH"/>
+                            <constraint firstItem="2F2-DC-QjR" firstAttribute="centerY" secondItem="2wo-x5-dQC" secondAttribute="centerY" multiplier="0.8" constant="5.0999999999999996" id="YuM-8Y-G04"/>
+                            <constraint firstItem="iaf-vk-LJJ" firstAttribute="leading" secondItem="2wo-x5-dQC" secondAttribute="leading" constant="30" id="acl-z9-6Ip"/>
+                            <constraint firstItem="u7F-ax-mVe" firstAttribute="leading" secondItem="2F2-DC-QjR" secondAttribute="leading" id="cIM-iB-fKT"/>
+                            <constraint firstItem="ADn-HQ-d5a" firstAttribute="centerY" secondItem="2wo-x5-dQC" secondAttribute="centerY" multiplier="0.45" id="d6N-7g-Uha"/>
+                            <constraint firstItem="sWU-HB-90u" firstAttribute="height" secondItem="iaf-vk-LJJ" secondAttribute="height" id="dYa-ch-0cg"/>
+                            <constraint firstItem="GDx-zU-TUQ" firstAttribute="centerX" secondItem="2wo-x5-dQC" secondAttribute="centerX" id="gPM-zI-z58"/>
+                            <constraint firstItem="GDx-zU-TUQ" firstAttribute="bottom" secondItem="2wo-x5-dQC" secondAttribute="bottom" id="jcg-eg-q0J"/>
+                            <constraint firstItem="8t4-E2-kdY" firstAttribute="top" secondItem="ADn-HQ-d5a" secondAttribute="bottom" constant="8" symbolic="YES" id="mdn-c7-tj6"/>
+                            <constraint firstItem="2F2-DC-QjR" firstAttribute="leading" secondItem="8t4-E2-kdY" secondAttribute="leading" constant="-3" id="tr7-EL-o3Y"/>
+                            <constraint firstItem="GDx-zU-TUQ" firstAttribute="leading" secondItem="2wo-x5-dQC" secondAttribute="leading" constant="20" id="uTI-LS-GYx"/>
+                            <constraint firstItem="sWU-HB-90u" firstAttribute="centerX" secondItem="2wo-x5-dQC" secondAttribute="centerX" id="x0g-Tm-atc"/>
+                            <constraint firstItem="ADn-HQ-d5a" firstAttribute="leading" secondItem="2wo-x5-dQC" secondAttribute="leading" constant="20" id="x4J-na-skg"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="xJg-me-Ihb"/>
+                    <connections>
+                        <outlet property="dadSettingButton" destination="sWU-HB-90u" id="Rqy-bJ-kER"/>
+                        <outlet property="momSettingButton" destination="iaf-vk-LJJ" id="R4m-Mx-FSn"/>
+                        <outlet property="nextButton" destination="GDx-zU-TUQ" id="dNW-xO-na1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8Qe-nd-rGa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1673.913043478261" y="-206.25"/>
+        </scene>
         <!--User Init View Controller-->
         <scene sceneID="MWo-Rp-OkQ">
             <objects>
-                <viewController id="4Mc-d9-Cdu" customClass="UserInitViewController" customModule="TodayAnbu" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UserInitViewController" id="4Mc-d9-Cdu" customClass="UserInitViewController" customModule="TodayAnbu" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="h2M-uD-n9d">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -289,14 +415,15 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iG4-SX-mUD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1641" y="-206"/>
+            <point key="canvasLocation" x="2367" y="-206"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="9cH-ef-OPW"/>
+        <segue reference="tef-Cz-cHx"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
     <resources>
+        <image name="circle" catalog="system" width="128" height="121"/>
         <image name="dadPicture" width="502" height="584"/>
         <image name="momPicture" width="634" height="462"/>
         <namedColor name="dadDeepSkyblue">

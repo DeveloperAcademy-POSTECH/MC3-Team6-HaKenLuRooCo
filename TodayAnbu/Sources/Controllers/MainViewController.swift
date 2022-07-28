@@ -7,6 +7,8 @@
 import UIKit
 
 class MainViewController: UIViewController {
+    var observer: NSObjectProtocol?
+    let confirmView = ConfirmViewController()
     // MARK: - Properties
     private var genericTopics = [["최근에 가고 싶은 여행지가 있나요?", "가장 좋았던 여행지가 어디인가요?", "가장 최근에 다녀온 여행지가 어디인가요?", "여행"], ["최근에 본 영화가 있나요?", "가장 좋아하는 영화가 무엇인가요?", "보고 싶은 영화가 있나요?", "영화"], ["최근에 읽은 책이 있나요?", "읽고 싶은 책이 있나요?", "가장 감명 깊게 읽은 책이 무엇인가요?", "책"], ["가장 좋아하는 음악 장르는 무엇인가요?", "최근 들어 자주 듣는 노래가 있으신가요?", "좋아하는 가수가 있으신가요?", "음악"], ["고양이가 좋으세요? 강아지가 좋으세요?", "반려동물을 키운다면 어떨 것 같나요?", "앵무새나 물고기처럼 기르고 싶은 특별한 반려동물이 있나요?", "반려동물"], ["어떤 술을 좋아하시나요?", "음료 중에 어떤게 가장 좋으세요?", "차는 어떤게 좋으세요?", "음료"], ["좋아하는 스포츠가 있으신가요?", "재밌게 보는 스포츠가 있나요?", "운동 좋아하세요?", "스포츠"], ["취미가 무엇인가요?", "새로 배워보고 싶은 취미가 있나요?", "과거에 즐겨했었던 취미가 있나요?", "취미"], ["최근에 복날에 닭은 드셨나요?", "생일 때 뭐 받고 싶으신 게 있나요?", "결혼기념일에 뭐 하실지 생각해보셨어요?", "기념일"]]
     private var seriousTopics = [["최근에 뉴스에 나온 oo 사건 보셨어요?", "ㅇㅇ 정치인에 대해 어떻게 생각하세요?", "ㅇㅇ 정책에 대해 어떻게 생각하세요?", "사회 & 정치"], ["은퇴에 대한 걱정이 있으신가요?", "새로 하시는 일은 어떠세요?", "(이직/퇴사) 어떻게 하는게 좋을까요?", "진로"], ["주변에 괜찮은 사람 소개 좀 시켜줘요", "아는분 자녀 중에 결혼한 사람들 있어요?", "결혼한 사람들이 결혼에 대해서 어떻게 생각한대요?", "만남"], ["환율 어떨거 같아요?", "주식 어떨거 같아요?", "부동산 어떨거 같아요?", "경제"], ["사이가 안좋은 가족이 있다면 현재 어떠신지?", "지금 어머님/아버님에게 서운한 부분이 있으신가요?", "도움이 필요한데 말씀 못 하고 계시진 않나요?", "가족사"], ["금전적으로 도와드려야 할까요?", "(형제/자매) 요즘 괜찮대요?", "현재 우리 가정에 빚이 얼마나 있나요?", "가족의 경제현황"], ["지금 솔직하게 어떤게 제일 불편하세요?", "도움이 필요한데 말씀 못 하고 계시진 않나요?", "배우자에게 건강상 이상한 점을 보신적이 있나요?", "건강"]]
@@ -185,7 +187,16 @@ class MainViewController: UIViewController {
         configureRender()
         // configureCheckButtonTapGesture()
         self.navigationItem.setHidesBackButton(true, animated: true)
+        observer = NotificationCenter.default.addObserver(forName: UIApplication.willEnterForegroundNotification, object: nil, queue: .main) { [unowned self] _ in
+            self.present(confirmView, animated: true) {
+                self.confirmView.configureUI()
+            }
+        }
     }
+    deinit {
+        NotificationCenter.default.removeObserver(observer!)
+    }
+
     // MARK: - Configures
     private func configureUI() {
         view.backgroundColor = .systemBackground
