@@ -47,13 +47,12 @@ class MomInitViewController: UIViewController, UITextFieldDelegate {
         didSet {
             timePicker.isHidden = false
             horizontalStack.subviews.forEach({ $0.removeFromSuperview() })
-            horizontalStack.subviews.forEach({$0.layer.borderWidth = 0 })
             addNotificationTimeLabel(indexPath: buttonIndex, time: timeLabel.toString())
             addSubViewNotificationButton()
 
             if notificationButtonList[buttonIndex].isSelected == false {
-                horizontalStack.subviews[buttonIndex].layer.borderWidth = 3
-                horizontalStack.subviews[buttonIndex].layer.borderColor = CGColor(red: 255, green: 120, blue: 0, alpha: 1)
+                let stack = horizontalStack.subviews[buttonIndex] as? UIStackView
+                stack?.addArrangedSubview(dot)
             } else {
 
                 horizontalStack.subviews[buttonIndex].layer.borderWidth = 0
