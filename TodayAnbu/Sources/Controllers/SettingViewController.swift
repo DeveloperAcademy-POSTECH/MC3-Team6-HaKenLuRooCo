@@ -98,7 +98,8 @@ extension SettingViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
 //        let storyboard = UIStoryboard(name: String(describing: UserInitViewController.self), bundle: nil)
-        let userinitViewController = UserInitViewController(nibName: "UserinitVC", bundle: nil)
+        let userinitViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "UserInitViewController")
+//        userinitViewController.delegate = self
 //        storyboard.instantiateInitialViewController()!
         self.navigationController?.pushViewController(userinitViewController, animated: true)
     }
