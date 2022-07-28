@@ -28,6 +28,7 @@
 		A9B32A9228868F7100530B51 /* NotificationModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B32A9128868F7100530B51 /* NotificationModalViewController.swift */; };
 		A9B32A94288691EA00530B51 /* NotificationTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B32A93288691EA00530B51 /* NotificationTime.swift */; };
 		B52841CB28922D7E004A2204 /* CallCheck.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B52841CA28922D7E004A2204 /* CallCheck.storyboard */; };
+		B52841D128926DA7004A2204 /* CallCheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52841D028926DA7004A2204 /* CallCheckViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		A9B32A9128868F7100530B51 /* NotificationModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationModalViewController.swift; sourceTree = "<group>"; };
 		A9B32A93288691EA00530B51 /* NotificationTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTime.swift; sourceTree = "<group>"; };
 		B52841CA28922D7E004A2204 /* CallCheck.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CallCheck.storyboard; sourceTree = "<group>"; };
+		B52841D028926DA7004A2204 /* CallCheckViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallCheckViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 		103BD8EB287FB31C00A6A0AD /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				B52841D028926DA7004A2204 /* CallCheckViewController.swift */,
 				7B9B56992887EE3700FF3DD1 /* ConfirmViewController.swift */,
 				3EC0D9CA28801E9F00A98E73 /* UserInitViewController.swift */,
 				7B2E9C712884FCF4006BE5C8 /* MainViewController.swift */,
@@ -271,6 +274,7 @@
 				7B9B569A2887EE3700FF3DD1 /* ConfirmViewController.swift in Sources */,
 				A9B32A94288691EA00530B51 /* NotificationTime.swift in Sources */,
 				3E2F655F287FA0E600A27FA9 /* AppDelegate.swift in Sources */,
+				B52841D128926DA7004A2204 /* CallCheckViewController.swift in Sources */,
 				7B2E9C722884FCF4006BE5C8 /* MainViewController.swift in Sources */,
 				7BD2303E288E8B18002BB9F5 /* UIColor+Extension.swift in Sources */,
 				A9B32A9228868F7100530B51 /* NotificationModalViewController.swift in Sources */,
