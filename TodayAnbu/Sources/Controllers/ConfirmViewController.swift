@@ -8,7 +8,6 @@
 import UIKit
 
 class ConfirmViewController: UIViewController {
-
     // label 한개랑 버튼 두개 만들어야 함
     private let confirmLabel: UILabel = {
         let label: UILabel = UILabel()
@@ -37,6 +36,7 @@ class ConfirmViewController: UIViewController {
     }()
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureUI()
     }
 
     func configureUI() {
@@ -65,9 +65,25 @@ class ConfirmViewController: UIViewController {
         ])
     }
     @objc func positiveButtonPressed(_ sender: UIButton) {
-        navigationController?.pushViewController(MainViewController(), animated: true)
+//        navigationController?.pushViewController(MainViewController(), animated: true)
+        if MainViewController().isMomCall {
+            MainViewController().momCheckCount += 1
+            MainViewController().isMomCall = false
+        }
+        if MainViewController().isDadCall {
+            MainViewController().dadCheckCount += 1
+            MainViewController().isDadCall = false
+        }
+        self.dismiss(animated: true, completion: nil)
+//        NotificationCenter.default.removeObserver(MainViewController().observer!)
     }
     @objc func negativeButtonPressed(_ sender: UIButton) {
-        navigationController?.pushViewController(MainViewController(), animated: true)
+        self.dismiss(animated: true, completion: nil)
+//        navigationController?.pushViewController(MainViewController(), animated: true)
+//        NotificationCenter.default.removeObserver(MainViewController().observer!)
     }
+
+//    deinit {
+//        NotificationCenter.default.removeObserver(MainViewController().observer!)
+//    }
 }

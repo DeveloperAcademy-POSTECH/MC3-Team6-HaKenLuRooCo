@@ -15,7 +15,7 @@
             <objects>
                 <viewController id="h9C-xi-h1l" customClass="TabBarController" customModule="TodayAnbu" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wuN-Gx-mkO">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="h7e-CH-ujs"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -271,6 +271,7 @@
                                     <action selector="nextButtonAction:" destination="NtZ-78-jYv" eventType="touchUpInside" id="qGZ-9G-edS"/>
                                     <action selector="setNotificationTime:" destination="4Mc-d9-Cdu" eventType="touchUpInside" id="o92-Kk-wcb"/>
                                     <action selector="startButttonAction:" destination="4Mc-d9-Cdu" eventType="touchUpInside" id="Nlf-hM-MQL"/>
+                                    <segue destination="4Mc-d9-Cdu" kind="show" id="la9-hZ-NBr"/>
                                 </connections>
                             </button>
                         </subviews>
