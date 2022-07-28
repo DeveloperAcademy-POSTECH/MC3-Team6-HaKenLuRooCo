@@ -252,7 +252,7 @@ class MainViewController: UIViewController {
         ])
         NSLayoutConstraint.activate([
             topTitle.leadingAnchor.constraint(equalTo: topArea.leadingAnchor, constant: 20),
-            topTitle.topAnchor.constraint(equalTo: topArea.safeAreaLayoutGuide.topAnchor, constant: -80)
+            topTitle.topAnchor.constraint(equalTo: topArea.safeAreaLayoutGuide.topAnchor, constant: -40)
         ])
         NSLayoutConstraint.activate([
             topTitleDays.leadingAnchor.constraint(equalTo: topArea.leadingAnchor, constant: 112),
