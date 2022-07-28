@@ -8,7 +8,6 @@
 import UIKit
 
 class ConfirmViewController: UIViewController {
-    var observer: NSObjectProtocol?
 
     // label 한개랑 버튼 두개 만들어야 함
     private let confirmLabel: UILabel = {
@@ -38,14 +37,6 @@ class ConfirmViewController: UIViewController {
     }()
     override func viewDidLoad() {
         super.viewDidLoad()
-//        observer = NotificationCenter.default.addObserver(forName: UIApplication.willEnterForegroundNotification, object: nil, queue: .main) {
-//            [unowned self] notification in
-//            print("work!")
-//            configureUI()
-//        }
-    }
-    deinit {
-        NotificationCenter.default.removeObserver(observer!)
     }
 
     func configureUI() {
