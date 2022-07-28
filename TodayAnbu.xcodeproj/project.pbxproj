@@ -17,6 +17,7 @@
 		3E2F6574287FA1C600A27FA9 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 3E2F6573287FA1C600A27FA9 /* .swiftlint.yml */; };
 		3EC0D9CB28801E9F00A98E73 /* MomInitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC0D9CA28801E9F00A98E73 /* MomInitViewController.swift */; };
 		3EC0D9CD2880FAD500A98E73 /* UITextfieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC0D9CC2880FAD500A98E73 /* UITextfieldExtension.swift */; };
+		3ED6D20A289280B8008F1D93 /* DadInitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED6D209289280B8008F1D93 /* DadInitViewController.swift */; };
 		7B2E9C6C28806FE3006BE5C8 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2E9C6B28806FE3006BE5C8 /* SettingViewController.swift */; };
 		7B2E9C6E288429B8006BE5C8 /* SettingPersonalDataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2E9C6D288429B8006BE5C8 /* SettingPersonalDataCell.swift */; };
 		7B2E9C702884397B006BE5C8 /* SettingHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2E9C6F2884397B006BE5C8 /* SettingHeaderView.swift */; };
@@ -42,6 +43,7 @@
 		3E2F6573287FA1C600A27FA9 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = SOURCE_ROOT; };
 		3EC0D9CA28801E9F00A98E73 /* MomInitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MomInitViewController.swift; sourceTree = "<group>"; };
 		3EC0D9CC2880FAD500A98E73 /* UITextfieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextfieldExtension.swift; sourceTree = "<group>"; };
+		3ED6D209289280B8008F1D93 /* DadInitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DadInitViewController.swift; sourceTree = "<group>"; };
 		7B2E9C6B28806FE3006BE5C8 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		7B2E9C6D288429B8006BE5C8 /* SettingPersonalDataCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingPersonalDataCell.swift; sourceTree = "<group>"; };
 		7B2E9C6F2884397B006BE5C8 /* SettingHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingHeaderView.swift; sourceTree = "<group>"; };
@@ -80,6 +82,7 @@
 			children = (
 				7B9B56992887EE3700FF3DD1 /* ConfirmViewController.swift */,
 				3EC0D9CA28801E9F00A98E73 /* MomInitViewController.swift */,
+				3ED6D209289280B8008F1D93 /* DadInitViewController.swift */,
 				7B2E9C712884FCF4006BE5C8 /* MainViewController.swift */,
 				7B2E9C6B28806FE3006BE5C8 /* SettingViewController.swift */,
 				A92FC8C6287FF3C000962CA0 /* OnboardingPageViewController.swift */,
@@ -269,6 +272,7 @@
 				3E2F655F287FA0E600A27FA9 /* AppDelegate.swift in Sources */,
 				7B2E9C722884FCF4006BE5C8 /* MainViewController.swift in Sources */,
 				7BD2303E288E8B18002BB9F5 /* UIColor+Extension.swift in Sources */,
+				3ED6D20A289280B8008F1D93 /* DadInitViewController.swift in Sources */,
 				A9B32A9228868F7100530B51 /* NotificationModalViewController.swift in Sources */,
 				3E2F6561287FA0E600A27FA9 /* SceneDelegate.swift in Sources */,
 				3EC0D9CB28801E9F00A98E73 /* MomInitViewController.swift in Sources */,

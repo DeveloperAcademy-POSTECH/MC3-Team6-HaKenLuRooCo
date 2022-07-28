@@ -230,6 +230,7 @@
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="dadSettingButtonAction:" destination="NtZ-78-jYv" eventType="touchUpInside" id="iAe-J4-AkV"/>
+                                    <segue destination="0ul-DU-Ecl" kind="presentation" id="eo0-k7-BYx"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iaf-vk-LJJ">
@@ -412,7 +413,108 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iG4-SX-mUD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2367" y="-206"/>
+            <point key="canvasLocation" x="2367" y="-450"/>
+        </scene>
+        <!--Dad Init View Controller-->
+        <scene sceneID="NSE-tY-5Hw">
+            <objects>
+                <viewController id="0ul-DU-Ecl" customClass="DadInitViewController" customModule="TodayAnbu" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="EgN-68-aUZ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Ur-6N-Yl4">
+                                <rect key="frame" x="30" y="742" width="354" height="55"/>
+                                <color key="backgroundColor" systemColor="systemGray2Color"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="55" id="PsX-6U-1To"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <color key="tintColor" systemColor="systemGray2Color"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="이렇게 설정할래요!">
+                                    <color key="titleColor" systemColor="systemGray6Color"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="setNotificationTime:" destination="0ul-DU-Ecl" eventType="touchUpInside" id="PQf-c8-Klg"/>
+                                    <action selector="startButttonAction:" destination="0ul-DU-Ecl" eventType="touchUpInside" id="9dV-R1-B6R"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="gRx-5R-oRU">
+                                <rect key="frame" x="20" y="79" width="374" height="246"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="6ZE-fL-Lm1">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="91"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="어머니의 연락처를 입력해주세요!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SZZ-Yb-cNS">
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="29"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="어머니의 전화번호가 무엇인가요?" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hXo-oS-91s">
+                                                <rect key="frame" x="0.0" y="41" width="374" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="d9m-Fo-9MD"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="HRU-DZ-VlG">
+                                        <rect key="frame" x="0.0" y="116" width="374" height="130"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="130" id="hNT-hG-P9u"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="HRU-DZ-VlG" firstAttribute="centerX" secondItem="gRx-5R-oRU" secondAttribute="centerX" id="vdm-fS-Eh2"/>
+                                </constraints>
+                            </stackView>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" style="wheels" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="INX-g1-5ve">
+                                <rect key="frame" x="47" y="446" width="320" height="216"/>
+                                <date key="date" timeIntervalSinceReferenceDate="680443200.35427201">
+                                    <!--2022-07-25 12:00:00 +0000-->
+                                </date>
+                                <locale key="locale" localeIdentifier="ko_KR"/>
+                                <connections>
+                                    <action selector="timePickerAction:" destination="0ul-DU-Ecl" eventType="valueChanged" id="mj5-Va-8ba"/>
+                                </connections>
+                            </datePicker>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="XpS-Uu-a7J"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="gRx-5R-oRU" firstAttribute="leading" secondItem="XpS-Uu-a7J" secondAttribute="leading" constant="20" id="0Hd-qb-zZV"/>
+                            <constraint firstItem="INX-g1-5ve" firstAttribute="centerX" secondItem="EgN-68-aUZ" secondAttribute="centerX" id="1kF-iB-hys"/>
+                            <constraint firstItem="gRx-5R-oRU" firstAttribute="top" secondItem="XpS-Uu-a7J" secondAttribute="top" constant="35" id="Dd5-wR-qeJ"/>
+                            <constraint firstItem="XpS-Uu-a7J" firstAttribute="trailing" secondItem="gRx-5R-oRU" secondAttribute="trailing" constant="20" id="Ivb-9I-rkz"/>
+                            <constraint firstItem="1Ur-6N-Yl4" firstAttribute="leading" secondItem="XpS-Uu-a7J" secondAttribute="leading" constant="30" id="M3d-86-beA"/>
+                            <constraint firstItem="XpS-Uu-a7J" firstAttribute="bottom" secondItem="1Ur-6N-Yl4" secondAttribute="bottom" constant="45" id="Teg-4p-zWt"/>
+                            <constraint firstItem="XpS-Uu-a7J" firstAttribute="trailing" secondItem="1Ur-6N-Yl4" secondAttribute="trailing" constant="30" id="UjK-Ny-IkN"/>
+                            <constraint firstItem="1Ur-6N-Yl4" firstAttribute="top" secondItem="INX-g1-5ve" secondAttribute="bottom" constant="80" id="ktD-8B-aTi"/>
+                            <constraint firstItem="INX-g1-5ve" firstAttribute="centerX" secondItem="EgN-68-aUZ" secondAttribute="centerX" id="xf1-Ay-ci2"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="pjG-cB-g19"/>
+                    <connections>
+                        <outlet property="dadDayVstack" destination="HRU-DZ-VlG" id="5EG-97-SiS"/>
+                        <outlet property="dadNumberTextfield" destination="hXo-oS-91s" id="3sy-Ol-cgm"/>
+                        <outlet property="dadVstackView" destination="6ZE-fL-Lm1" id="TLV-AA-Yoo"/>
+                        <outlet property="startButton" destination="1Ur-6N-Yl4" id="ihg-64-ENm"/>
+                        <outlet property="timePicker" destination="INX-g1-5ve" id="x4D-75-hCC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="d7X-sV-pfC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2367" y="208"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
