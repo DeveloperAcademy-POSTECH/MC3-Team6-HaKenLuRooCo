@@ -16,45 +16,42 @@ class MemoViewController: UIViewController {
     }
     
     var dataSource: UICollectionViewDiffableDataSource<Section, Item>!
-    let list: [MemoData] = MemoData.list
-    
+    var list: [MemoData] = MemoData.list
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // MARK: - presentation
-        dataSource = UICollectionViewDiffableDataSource<Section, Item>(collectionView: collectionView, cellProvider: {
-            collectionView, indexPath, item in
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MemoData", for: indexPath) as? MemoData else {
+        dataSource = UICollectionViewDiffableDataSource<Section, Item>(collectionView: collectionView, cellProvider: { collectionView, indexPath, item in
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MemoCell", for: indexPath) as? MemoCell else {
                 return nil
             }
             cell.configure(item)
+            cell.layer.cornerRadius = 15
+            cell.layer.shadowOffset = CGSize(width: 5, height: 5)
             return cell
         })
         // MARK: - data
-        var snapshot = NSDiffableDataSourceSnapshot<Section, Item>()!
+        var snapshot = NSDiffableDataSourceSnapshot<Section, Item>()
         snapshot.appendSections([.main])
         snapshot.appendItems(list, toSection: .main)
         dataSource.apply(snapshot)
         
-        //MARK: - layer
+        // MARK: - layer
         collectionView.collectionViewLayout = layout()
     }
     private func layout() -> UICollectionViewCompositionalLayout {
-        let spacing: CGFloat = 10
+        let spacing: CGFloat = 15
         // Item
-        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.33), heightDimension: .fractionalWidth(0.33))
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.8), heightDimension: .fractionalWidth(0.5))
         let itemLayout = NSCollectionLayoutItem(layoutSize: itemSize)
-        
         // Group
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalWidth(0.33))
-        let groupLayout = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: itemLayout, count:   3)
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalWidth(0.5))
+        let groupLayout = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: itemLayout, count: 2)
         groupLayout.interItemSpacing = .fixed(spacing)
-        
         // Section
         let section = NSCollectionLayoutSection(group: groupLayout)
-        section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16)
+        section.contentInsets = NSDirectionalEdgeInsets(top: 25, leading: 25, bottom: 0, trailing: 25)
         section.interGroupSpacing = spacing
-        
         return UICollectionViewCompositionalLayout(section: section)
     }
 }

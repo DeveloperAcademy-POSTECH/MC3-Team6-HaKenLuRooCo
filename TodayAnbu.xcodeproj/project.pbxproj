@@ -46,7 +46,7 @@
 		3EC0D9CC2880FAD500A98E73 /* UITextfieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextfieldExtension.swift; sourceTree = "<group>"; };
 		7B22167328912CCE00B14C5C /* MemoStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MemoStoryboard.storyboard; sourceTree = "<group>"; };
 		7B2216752891452D00B14C5C /* MemoData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoData.swift; sourceTree = "<group>"; };
-		7B2216772891493500B14C5C /* MemoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoCell.swift; sourceTree = "<group>"; };
+		7B2216772891493500B14C5C /* MemoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoCell.swift; sourceTree = "<group>"; usesTabs = 0; };
 		7B2216792891553100B14C5C /* MemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoViewController.swift; sourceTree = "<group>"; };
 		7B2E9C6B28806FE3006BE5C8 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		7B2E9C6D288429B8006BE5C8 /* SettingPersonalDataCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingPersonalDataCell.swift; sourceTree = "<group>"; };

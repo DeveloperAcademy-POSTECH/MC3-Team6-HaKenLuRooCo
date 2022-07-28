@@ -13,10 +13,14 @@ class MemoCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        descriptionLabel.adjustsFontSizeToFitWidth = true
+        // descriptionLabel.sizeToFit()
+        // descriptionLabel.textAlignment = .natural
+        // descriptionLabel.numberOfLines = 0;
+        // descriptionLabel.adjustsFontSizeToFitWidth = true
     }
+
     func configure(_ memodata: MemoData) {
         descriptionLabel.text = memodata.description
-        dayLabel.text = memodata.day
+        dayLabel.text = String(memodata.day)
     }
 }
