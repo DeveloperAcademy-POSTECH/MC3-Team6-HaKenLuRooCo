@@ -14,6 +14,7 @@ class CallCheckViewController: UIViewController {
     @IBOutlet weak var callFailButton: UIButton!
     private let placeholder = "ex) 어머니에게 최근 먹은 과일에 대해 여쭤보았다. 어머니가 수박을 좋아하시는 걸 알게 되어서, 여름이 가기 전에 수박을 사드려야겠다."
 
+    // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTextView()
@@ -21,6 +22,7 @@ class CallCheckViewController: UIViewController {
     }
 }
 
+// MARK: - Functions
 extension CallCheckViewController {
     func configureTextView() {
         memoView.font = .systemFont(ofSize: 16.0, weight: .regular)
@@ -67,6 +69,7 @@ extension CallCheckViewController {
     }
 }
 
+// MARK: - Delegate
 extension CallCheckViewController: UITextViewDelegate {
     func textViewDidBeginEditing(_ textView: UITextView) {
         guard textView.textColor == .placeholderText else { return }
