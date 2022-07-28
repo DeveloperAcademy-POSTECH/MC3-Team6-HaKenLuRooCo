@@ -187,11 +187,9 @@ class MainViewController: UIViewController {
         configureRender()
         // configureCheckButtonTapGesture()
         self.navigationItem.setHidesBackButton(true, animated: true)
-        observer = NotificationCenter.default.addObserver(forName: UIApplication.willEnterForegroundNotification, object: nil, queue: .main) {
-            [unowned self] notification in
-            print("work!")
+        observer = NotificationCenter.default.addObserver(forName: UIApplication.willEnterForegroundNotification, object: nil, queue: .main) { [unowned self] _ in
             self.present(confirmView, animated: true) {
-                confirmView.configureUI()
+                self.confirmView.configureUI()
             }
         }
     }

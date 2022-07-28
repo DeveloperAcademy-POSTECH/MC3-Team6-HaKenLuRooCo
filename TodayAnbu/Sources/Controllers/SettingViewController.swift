@@ -77,11 +77,6 @@ extension SettingViewController: UITableViewDataSource {
         return 60.0
     }
 
-    // Header Title
-//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-//        return "설정"
-//    }
-
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         tableCellHeader
     }
@@ -97,10 +92,7 @@ extension SettingViewController: UITableViewDelegate {
 //    }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-//        let storyboard = UIStoryboard(name: String(describing: UserInitViewController.self), bundle: nil)
         let userinitViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "UserInitViewController")
-//        userinitViewController.delegate = self
-//        storyboard.instantiateInitialViewController()!
         self.navigationController?.pushViewController(userinitViewController, animated: true)
     }
 }
