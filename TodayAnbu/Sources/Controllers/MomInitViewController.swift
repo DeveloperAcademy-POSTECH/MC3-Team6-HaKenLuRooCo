@@ -252,7 +252,7 @@ extension MomInitViewController {
         }
 
         if notificationButtonList[buttonIndex].isSelected {
-            notificationButtonList[buttonIndex].buttonStack.backgroundColor = .dadLightSkyblue
+            notificationButtonList[buttonIndex].buttonStack.backgroundColor = .momLightPink
         } else {
             notificationButtonList[buttonIndex].buttonStack.backgroundColor = .dadDeepSkyblue
         }
