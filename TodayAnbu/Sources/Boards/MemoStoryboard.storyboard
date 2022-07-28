@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
@@ -15,11 +15,11 @@
             <objects>
                 <viewController storyboardIdentifier="MemoViewController" id="Y6W-OH-hqX" customClass="MemoViewController" customModule="TodayAnbu" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LNM-k1-Gzb">
-                                <rect key="frame" x="0.0" y="-6" width="414" height="205"/>
+                                <rect key="frame" x="0.0" y="0.0" width="428" height="229"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="자신이 남긴 메모를 확인해보세요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fgd-qA-dbA">
                                         <rect key="frame" x="48" y="87" width="319" height="30"/>
@@ -32,14 +32,14 @@
                                 <color key="backgroundColor" name="mainIndigo"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1JH-79-PMt">
-                                <rect key="frame" x="20" y="771" width="374" height="71"/>
+                                <rect key="frame" x="20" y="800" width="388" height="72"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="다음">
                                     <fontDescription key="titleFontDescription" type="system" weight="heavy" pointSize="30"/>
                                 </buttonConfiguration>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalCompressionResistancePriority="500" verticalCompressionResistancePriority="500" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="dk1-Wv-mzr">
-                                <rect key="frame" x="0.0" y="198" width="414" height="565"/>
+                                <rect key="frame" x="0.0" y="198" width="428" height="594"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="fsy-oG-6wO">
                                     <size key="itemSize" width="180" height="225"/>
@@ -79,6 +79,10 @@
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="180" height="225"/>
+                                        <connections>
+                                            <outlet property="dayLabel" destination="k6r-8K-oVl" id="eSz-yC-fTV"/>
+                                            <outlet property="descriptionLabel" destination="YPr-Pi-ddu" id="cbh-y6-BU5"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -86,7 +90,7 @@
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="top" secondItem="LNM-k1-Gzb" secondAttribute="top" constant="50" id="0KS-6E-ktr"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="top" secondItem="LNM-k1-Gzb" secondAttribute="top" constant="44" id="0KS-6E-ktr"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="LNM-k1-Gzb" secondAttribute="bottom" constant="663" id="6KC-kp-dge"/>
                             <constraint firstItem="1JH-79-PMt" firstAttribute="top" secondItem="dk1-Wv-mzr" secondAttribute="bottom" constant="8" symbolic="YES" id="KDX-MM-JO7"/>
                             <constraint firstItem="1JH-79-PMt" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="M3f-vz-jcT"/>
@@ -100,6 +104,9 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="LNM-k1-Gzb" secondAttribute="trailing" id="zg4-Ob-aWe"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="collectionView" destination="dk1-Wv-mzr" id="LvT-uu-Ymk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
