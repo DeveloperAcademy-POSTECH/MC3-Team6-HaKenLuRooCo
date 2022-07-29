@@ -10,7 +10,6 @@ import UIKit
 class SettingViewController: UIViewController {
     // MARK: Properties
     let switchOnAndOff = UISwitch()
-    
     let tableView = UITableView(frame: .zero, style: .insetGrouped)
     let personalMenu = ["어머니 설정", "아버지 설정", "알림"]
     let tableViewSection: [String] = ["설정", "추가정보"]
