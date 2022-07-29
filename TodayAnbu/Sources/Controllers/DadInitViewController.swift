@@ -205,7 +205,7 @@ extension DadInitViewController {
 
             notificationButton.buttonStack.addArrangedSubview(firstLabel)
             notificationButton.buttonStack.tag = index
-            notificationButton.buttonStack.backgroundColor = .dadDeepSkyblue
+            notificationButton.buttonStack.backgroundColor = .systemGray3
             notificationButton.buttonStack.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(setIndex(_:))))
 
             notificationButtonList.append(notificationButton)
@@ -251,7 +251,7 @@ extension DadInitViewController {
         if notificationButtonList[buttonIndex].isSelected {
             notificationButtonList[buttonIndex].buttonStack.backgroundColor = .dadLightSkyblue
         } else {
-            notificationButtonList[buttonIndex].buttonStack.backgroundColor = .dadDeepSkyblue
+            notificationButtonList[buttonIndex].buttonStack.backgroundColor = .systemGray3
         }
     }
 }
@@ -326,6 +326,8 @@ extension DadInitViewController {
                 }
             }
         }
+
+        self.dismiss(animated: true)
     }
 }
 

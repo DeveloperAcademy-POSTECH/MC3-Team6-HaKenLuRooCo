@@ -37,7 +37,7 @@ class MomInitViewController: UIViewController, UITextFieldDelegate {
         let dot = UILabel()
         dot.text = "."
         dot.font = .boldSystemFont(ofSize: 30)
-        dot.textColor = .mainIndigo
+        dot.textColor = .activePinkColor
         return dot
     }()
     
@@ -206,7 +206,7 @@ extension MomInitViewController {
             
             notificationButton.buttonStack.addArrangedSubview(firstLabel)
             notificationButton.buttonStack.tag = index
-            notificationButton.buttonStack.backgroundColor = .dadDeepSkyblue
+            notificationButton.buttonStack.backgroundColor = .systemGray3
             notificationButton.buttonStack.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(setIndex(_:))))
             
             notificationButtonList.append(notificationButton)
@@ -252,7 +252,7 @@ extension MomInitViewController {
         if notificationButtonList[buttonIndex].isSelected {
             notificationButtonList[buttonIndex].buttonStack.backgroundColor = .momLightPink
         } else {
-            notificationButtonList[buttonIndex].buttonStack.backgroundColor = .dadDeepSkyblue
+            notificationButtonList[buttonIndex].buttonStack.backgroundColor = .systemGray3
         }
     }
 }
@@ -327,6 +327,7 @@ extension MomInitViewController {
                 }
             }
         }
+        self.dismiss(animated: true)
     }
 }
 
