@@ -50,25 +50,25 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="혹시 부모님이 갱년기 같으신가요?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1eV-IS-3iG">
-                                <rect key="frame" x="47.5" y="619.5" width="319" height="29"/>
+                                <rect key="frame" x="47.5" y="652" width="319" height="29"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="갱년기는 급격한 호르몬 변화를 겪는 시기로" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MDk-mg-it6">
-                                <rect key="frame" x="80.5" y="668.5" width="253.5" height="18"/>
+                                <rect key="frame" x="80.5" y="701" width="253.5" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" 대표적인 증상으로 무기력함과 우울감이 있어요!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TyM-vL-RDw">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text=" 대표적인 증상으로 무기력함과 우울감이 있어요!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TyM-vL-RDw">
                                 <rect key="frame" x="65" y="694.5" width="284" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IY4-tW-qWX">
-                                <rect key="frame" x="20" y="822.5" width="94" height="31"/>
+                                <rect key="frame" x="20" y="822.5" width="52" height="31"/>
                                 <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Skip"/>
@@ -77,15 +77,15 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="szI-PR-2gr">
-                                <rect key="frame" x="300" y="822.5" width="94" height="31"/>
+                                <rect key="frame" x="340" y="822.5" width="54" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Next"/>
                                 <connections>
                                     <segue destination="lyG-OF-ikj" kind="show" id="ic6-UZ-Jqp"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dadPicture" translatesAutoresizingMaskIntoConstraints="NO" id="Ab0-3b-621">
-                                <rect key="frame" x="-44" y="191.5" width="502" height="341.5"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="dadPicture" translatesAutoresizingMaskIntoConstraints="NO" id="Ab0-3b-621">
+                                <rect key="frame" x="46.5" y="191.5" width="321" height="341.5"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="rmL-0a-M5c"/>
@@ -123,22 +123,22 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="momPicture" translatesAutoresizingMaskIntoConstraints="NO" id="7nc-8V-HKl">
-                                <rect key="frame" x="-110" y="250.5" width="634" height="224"/>
+                                <rect key="frame" x="69.5" y="131.5" width="275" height="462"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="부모님께 얼마나 자주 안부전화하나요?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3HO-e8-lu3">
-                                <rect key="frame" x="26.5" y="619.5" width="361" height="29"/>
+                                <rect key="frame" x="26.5" y="652" width="361" height="29"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="안부를 묻는 것만으로 갱년기 우울감 " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y5B-ds-Wwi">
-                                <rect key="frame" x="99.5" y="668.5" width="215" height="18"/>
+                                <rect key="frame" x="99.5" y="701" width="215" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="완화에 도움이 된다고 해요!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ycP-kV-iHe">
-                                <rect key="frame" x="127" y="694.5" width="160" height="18"/>
+                                <rect key="frame" x="127" y="727" width="160" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -153,7 +153,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g3a-fE-OqV">
-                                <rect key="frame" x="340" y="822.5" width="54" height="31"/>
+                                <rect key="frame" x="300" y="822.5" width="94" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Next"/>
                                 <connections>
@@ -276,6 +276,7 @@
                                     <action selector="nextButtonAction:" destination="NtZ-78-jYv" eventType="touchUpInside" id="qGZ-9G-edS"/>
                                     <action selector="setNotificationTime:" destination="4Mc-d9-Cdu" eventType="touchUpInside" id="o92-Kk-wcb"/>
                                     <action selector="startButttonAction:" destination="4Mc-d9-Cdu" eventType="touchUpInside" id="Nlf-hM-MQL"/>
+                                    <segue destination="h9C-xi-h1l" kind="show" id="qjY-Is-6iQ"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -320,7 +321,7 @@
         <!--Mom Init View Controller-->
         <scene sceneID="MWo-Rp-OkQ">
             <objects>
-                <viewController id="4Mc-d9-Cdu" customClass="MomInitViewController" customModule="TodayAnbu" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MomInitViewController" id="4Mc-d9-Cdu" customClass="MomInitViewController" customModule="TodayAnbu" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="h2M-uD-n9d">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -421,7 +422,7 @@
         <!--Dad Init View Controller-->
         <scene sceneID="NSE-tY-5Hw">
             <objects>
-                <viewController id="0ul-DU-Ecl" customClass="DadInitViewController" customModule="TodayAnbu" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DadInitViewController" id="0ul-DU-Ecl" customClass="DadInitViewController" customModule="TodayAnbu" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EgN-68-aUZ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
