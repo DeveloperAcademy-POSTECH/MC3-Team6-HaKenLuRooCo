@@ -14,6 +14,7 @@ class CallCheckViewController: UIViewController {
     @IBOutlet weak var callFailButton: UIButton!
     private let placeholder = "ex) 어머니에게 최근 먹은 과일에 대해 여쭤보았다. 어머니가 수박을 좋아하시는 걸 알게 되어서, 여름이 가기 전에 수박을 사드려야겠다."
 
+    // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTextView()
@@ -21,6 +22,7 @@ class CallCheckViewController: UIViewController {
     }
 }
 
+// MARK: - Functions
 extension CallCheckViewController {
     func configureTextView() {
         memoView.font = .systemFont(ofSize: 16.0, weight: .regular)
@@ -47,17 +49,8 @@ extension CallCheckViewController {
     }
 
     func appendMemos() {
-        // Date Int format ex) 220729003621
-        let dateFormatter = DateFormatter()
-        dateFormatter.locale = Locale(identifier: "ko")
-        dateFormatter.dateFormat = "yyMMddHHmmss"
-        let now = dateFormatter.string(from: Date())
+        let now = Date.currentNumericLocalizedDateTime
 
-        // Date LocalizedString format ex) 2022년 7월. 29일, 오전 12:47
-//        let now = Date()
-//        let timeText = now.formatted(date: .omitted, time: .shortened)
-//        let dateText = now.formatted(.dateTime.year().month(.abbreviated).day())
-//        let dateAndTimeFormat = NSLocalizedString("%@, %@", comment: "Date and time format string")
         var memos: [String: String] = UserDefaults.standard.dictionary(forKey: "memos") as? [String: String] ?? [:]
         if !memos.isEmpty {
             UserDefaults.standard.removeObject(forKey: "memos")
@@ -67,6 +60,7 @@ extension CallCheckViewController {
     }
 }
 
+// MARK: - Delegate
 extension CallCheckViewController: UITextViewDelegate {
     func textViewDidBeginEditing(_ textView: UITextView) {
         guard textView.textColor == .placeholderText else { return }
