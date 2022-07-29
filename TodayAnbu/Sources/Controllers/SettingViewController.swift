@@ -9,6 +9,8 @@ import UIKit
 
 class SettingViewController: UIViewController {
     // MARK: Properties
+    let switchOnAndOff = UISwitch()
+    
     let tableView = UITableView(frame: .zero, style: .insetGrouped)
     let personalMenu = ["어머니 설정", "아버지 설정", "알림"]
     let tableViewSection: [String] = ["설정", "추가정보"]
@@ -33,16 +35,17 @@ class SettingViewController: UIViewController {
         super.viewDidLoad()
         configureViewComponent()
     }
-
+    
     func configureViewComponent() {
         view.addSubview(tableView)
         view.addSubview(settingTopArea)
+        // view.addSubview(switchOnAndOff)
         settingTopArea.translatesAutoresizingMaskIntoConstraints = false
         tableView.translatesAutoresizingMaskIntoConstraints = false
+        // switchOnAndOff.translatesAutoresizingMaskIntoConstraints = false
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(SettingPersonalDataCell.self, forCellReuseIdentifier: "Cell")
-
         NSLayoutConstraint.activate([
             settingTopArea.topAnchor.constraint(equalTo: view.topAnchor),
             settingTopArea.bottomAnchor.constraint(equalTo: view.topAnchor, constant: 150),
@@ -56,6 +59,11 @@ class SettingViewController: UIViewController {
             tableView.rightAnchor.constraint(equalTo: view.rightAnchor)
         ])
     }
+    @objc func changedSwitch() {
+        print("온오프 감지")
+        
+    }
+    
 }
 
 extension SettingViewController: UITableViewDataSource {
@@ -64,7 +72,15 @@ extension SettingViewController: UITableViewDataSource {
             return UITableViewCell()
         }
         cell.menuLable.text = personalMenu[indexPath.row]
-        cell.accessoryType = .disclosureIndicator
+        switch indexPath.row {
+        case 2:
+            let switchView = UISwitch(frame: .zero)
+            switchView.setOn(true, animated: true)
+            switchView.addTarget(self, action: #selector(changedSwitch), for: .valueChanged)
+            cell.accessoryView = switchView
+        default:
+            cell.accessoryType = .disclosureIndicator
+        }
         cell.layer.cornerRadius = 10
         return cell
     }
@@ -92,7 +108,16 @@ extension SettingViewController: UITableViewDelegate {
 //    }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let userinitViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "UserInitViewController")
-        self.navigationController?.pushViewController(userinitViewController, animated: true)
+        print("지금 \(indexPath.row) 선택")
+        switch indexPath.row {
+        case 0:
+            let userinitViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "UserInitViewController")
+            self.navigationController?.pushViewController(userinitViewController, animated: true)
+        case 1:
+            let userinitViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "UserInitViewController")
+            self.navigationController?.pushViewController(userinitViewController, animated: true)
+        default :
+            print("몰라")
+        }
     }
 }
