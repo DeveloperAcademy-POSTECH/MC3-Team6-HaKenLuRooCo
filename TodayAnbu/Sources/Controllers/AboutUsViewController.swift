@@ -24,19 +24,23 @@ class AboutUsViewController: UIViewController {
     }
 
     @IBAction func hardyButtonAction(_ sender: Any) {
-        
+
     }
 
     @IBAction func kenButtonAction(_ sender: Any) {
+
     }
 
     @IBAction func lumiButtonAction(_ sender: Any) {
+
     }
 
     @IBAction func rookieButtonAction(_ sender: Any) {
+
     }
 
     @IBAction func cozyButtonAction(_ sender: Any) {
+        
     }
     
 }
