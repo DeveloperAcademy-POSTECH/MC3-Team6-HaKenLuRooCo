@@ -20,6 +20,7 @@
 		3ED6D20A289280B8008F1D93 /* DadInitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED6D209289280B8008F1D93 /* DadInitViewController.swift */; };
 		3ED6D21628936306008F1D93 /* AboutUsView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3ED6D21528936306008F1D93 /* AboutUsView.storyboard */; };
 		3ED6D21828936316008F1D93 /* AboutUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED6D21728936316008F1D93 /* AboutUsViewController.swift */; };
+		3ED6D21A289385D7008F1D93 /* AboutUsWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED6D219289385D7008F1D93 /* AboutUsWebViewController.swift */; };
 		7B22167428912CCE00B14C5C /* MemoStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B22167328912CCE00B14C5C /* MemoStoryboard.storyboard */; };
 		7B2216762891452D00B14C5C /* MemoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2216752891452D00B14C5C /* MemoData.swift */; };
 		7B2216782891493500B14C5C /* MemoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2216772891493500B14C5C /* MemoCell.swift */; };
@@ -52,6 +53,7 @@
 		3ED6D209289280B8008F1D93 /* DadInitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DadInitViewController.swift; sourceTree = "<group>"; };
 		3ED6D21528936306008F1D93 /* AboutUsView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AboutUsView.storyboard; sourceTree = "<group>"; };
 		3ED6D21728936316008F1D93 /* AboutUsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUsViewController.swift; sourceTree = "<group>"; };
+		3ED6D219289385D7008F1D93 /* AboutUsWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUsWebViewController.swift; sourceTree = "<group>"; };
 		7B22167328912CCE00B14C5C /* MemoStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MemoStoryboard.storyboard; sourceTree = "<group>"; };
 		7B2216752891452D00B14C5C /* MemoData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoData.swift; sourceTree = "<group>"; };
 		7B2216772891493500B14C5C /* MemoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoCell.swift; sourceTree = "<group>"; usesTabs = 0; };
@@ -104,6 +106,7 @@
 				3E04A7F42891136D0068DBAE /* OnboardingMainViewController.swift */,
 				103BD8EE287FB38B00A6A0AD /* Utilities */,
 				3ED6D21728936316008F1D93 /* AboutUsViewController.swift */,
+				3ED6D219289385D7008F1D93 /* AboutUsWebViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -287,6 +290,7 @@
 				7B2216762891452D00B14C5C /* MemoData.swift in Sources */,
 				10D26710288ED1ED0056339A /* TabBarController.swift in Sources */,
 				3ED6D21828936316008F1D93 /* AboutUsViewController.swift in Sources */,
+				3ED6D21A289385D7008F1D93 /* AboutUsWebViewController.swift in Sources */,
 				7B2E9C6E288429B8006BE5C8 /* SettingPersonalDataCell.swift in Sources */,
 				7B2E9C702884397B006BE5C8 /* SettingHeaderView.swift in Sources */,
 				3E04A7F52891136D0068DBAE /* OnboardingMainViewController.swift in Sources */,
@@ -450,7 +454,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 3WVLC7Y373;
+				DEVELOPMENT_TEAM = 2S73QX9MMY;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TodayAnbu/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -480,7 +484,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 3WVLC7Y373;
+				DEVELOPMENT_TEAM = 2S73QX9MMY;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TodayAnbu/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
