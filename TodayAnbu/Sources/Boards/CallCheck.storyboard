@@ -12,6 +12,7 @@
         <!--CallCheckViewController-->
         <scene sceneID="SRi-8n-Vv6">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7eU-AP-wJk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController title="CallCheckViewController" id="dFI-89-8sy" customClass="CallCheckViewController" customModule="TodayAnbu" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rdh-Cs-t13">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -97,9 +98,9 @@
                         <outlet property="callDoneButton" destination="Oi3-hi-V2r" id="JdM-w2-XG5"/>
                         <outlet property="callFailButton" destination="V9y-ei-Hsy" id="Aav-fO-Te2"/>
                         <outlet property="memoView" destination="5dC-5y-gUR" id="Zbr-9s-d0b"/>
+                        <outlet property="titleBox" destination="bXP-EX-1Ib" id="4I9-kV-Ftl"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7eU-AP-wJk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-526" y="296"/>
         </scene>
