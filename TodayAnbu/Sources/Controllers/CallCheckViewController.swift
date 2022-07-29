@@ -49,17 +49,8 @@ extension CallCheckViewController {
     }
 
     func appendMemos() {
-        // Date Int format ex) 220729003621
-        let dateFormatter = DateFormatter()
-        dateFormatter.locale = Locale(identifier: "ko")
-        dateFormatter.dateFormat = "yyMMddHHmmss"
-        let now = dateFormatter.string(from: Date())
+        let now = Date.currentNumericLocalizedDateTime
 
-        // Date LocalizedString format ex) 2022년 7월. 29일, 오전 12:47
-//        let now = Date()
-//        let timeText = now.formatted(date: .omitted, time: .shortened)
-//        let dateText = now.formatted(.dateTime.year().month(.abbreviated).day())
-//        let dateAndTimeFormat = NSLocalizedString("%@, %@", comment: "Date and time format string")
         var memos: [String: String] = UserDefaults.standard.dictionary(forKey: "memos") as? [String: String] ?? [:]
         if !memos.isEmpty {
             UserDefaults.standard.removeObject(forKey: "memos")
