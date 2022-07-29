@@ -27,14 +27,14 @@ class AboutUsViewController: UIViewController {
 
     private func sendURL(url: String) {
         print("function call")
-        guard let vc = self.storyboard?.instantiateViewController(identifier: "AboutUsWebViewController") as? AboutUsWebViewController else {
+        guard let viewController = self.storyboard?.instantiateViewController(identifier: "AboutUsWebViewController") as? AboutUsWebViewController else {
             print("vc 생성 실패")
             return
 
         }
 
-        print(vc)
-        vc.userURL = url
+        print(viewController)
+        viewController.userURL = url
     }
 
     @IBAction func hardyButtonAction(_ sender: Any) {
