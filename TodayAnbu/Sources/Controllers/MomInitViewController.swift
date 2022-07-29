@@ -106,7 +106,7 @@ class MomInitViewController: UIViewController, UITextFieldDelegate {
                 print(error ?? "No error")
             }
         }
-        self.navigationItem.setHidesBackButton(true, animated: true)
+//        self.navigationItem.setHidesBackButton(true, animated: true)
     }
     
     @IBAction func startButttonAction(_ sender: Any) {
@@ -290,7 +290,7 @@ extension MomInitViewController {
                             dateComponent.weekday = weekDay
                             
                             let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponent, repeats: true)
-                            let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+                            let request = UNNotificationRequest(identifier: "firstSetting", content: content, trigger: trigger)
                             self.notificationCenter.add(request) { error in
                                 if error != nil {
                                     print("Error " + error.debugDescription)
