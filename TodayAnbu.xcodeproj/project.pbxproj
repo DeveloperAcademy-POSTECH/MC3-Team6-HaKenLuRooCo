@@ -15,8 +15,9 @@
 		3E2F6568287FA0E700A27FA9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E2F6567287FA0E700A27FA9 /* Assets.xcassets */; };
 		3E2F656B287FA0E700A27FA9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E2F6569287FA0E700A27FA9 /* LaunchScreen.storyboard */; };
 		3E2F6574287FA1C600A27FA9 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 3E2F6573287FA1C600A27FA9 /* .swiftlint.yml */; };
-		3EC0D9CB28801E9F00A98E73 /* UserInitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC0D9CA28801E9F00A98E73 /* UserInitViewController.swift */; };
+		3EC0D9CB28801E9F00A98E73 /* MomInitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC0D9CA28801E9F00A98E73 /* MomInitViewController.swift */; };
 		3EC0D9CD2880FAD500A98E73 /* UITextfieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC0D9CC2880FAD500A98E73 /* UITextfieldExtension.swift */; };
+		3ED6D20A289280B8008F1D93 /* DadInitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED6D209289280B8008F1D93 /* DadInitViewController.swift */; };
 		7B22167428912CCE00B14C5C /* MemoStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B22167328912CCE00B14C5C /* MemoStoryboard.storyboard */; };
 		7B2216762891452D00B14C5C /* MemoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2216752891452D00B14C5C /* MemoData.swift */; };
 		7B2216782891493500B14C5C /* MemoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2216772891493500B14C5C /* MemoCell.swift */; };
@@ -31,6 +32,8 @@
 		A9332C77288E908F001A1B76 /* DateFormatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9332C76288E908F001A1B76 /* DateFormatting.swift */; };
 		A9B32A9228868F7100530B51 /* NotificationModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B32A9128868F7100530B51 /* NotificationModalViewController.swift */; };
 		A9B32A94288691EA00530B51 /* NotificationTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B32A93288691EA00530B51 /* NotificationTime.swift */; };
+		B52841CB28922D7E004A2204 /* CallCheck.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B52841CA28922D7E004A2204 /* CallCheck.storyboard */; };
+		B52841D128926DA7004A2204 /* CallCheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52841D028926DA7004A2204 /* CallCheckViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,8 +47,9 @@
 		3E2F656A287FA0E700A27FA9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3E2F656C287FA0E700A27FA9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3E2F6573287FA1C600A27FA9 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = SOURCE_ROOT; };
-		3EC0D9CA28801E9F00A98E73 /* UserInitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInitViewController.swift; sourceTree = "<group>"; };
+		3EC0D9CA28801E9F00A98E73 /* MomInitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MomInitViewController.swift; sourceTree = "<group>"; };
 		3EC0D9CC2880FAD500A98E73 /* UITextfieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextfieldExtension.swift; sourceTree = "<group>"; };
+		3ED6D209289280B8008F1D93 /* DadInitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DadInitViewController.swift; sourceTree = "<group>"; };
 		7B22167328912CCE00B14C5C /* MemoStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MemoStoryboard.storyboard; sourceTree = "<group>"; };
 		7B2216752891452D00B14C5C /* MemoData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoData.swift; sourceTree = "<group>"; };
 		7B2216772891493500B14C5C /* MemoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoCell.swift; sourceTree = "<group>"; usesTabs = 0; };
@@ -60,6 +64,8 @@
 		A9332C76288E908F001A1B76 /* DateFormatting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatting.swift; sourceTree = "<group>"; };
 		A9B32A9128868F7100530B51 /* NotificationModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationModalViewController.swift; sourceTree = "<group>"; };
 		A9B32A93288691EA00530B51 /* NotificationTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTime.swift; sourceTree = "<group>"; };
+		B52841CA28922D7E004A2204 /* CallCheck.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CallCheck.storyboard; sourceTree = "<group>"; };
+		B52841D028926DA7004A2204 /* CallCheckViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallCheckViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,9 +92,11 @@
 		103BD8EB287FB31C00A6A0AD /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				B52841D028926DA7004A2204 /* CallCheckViewController.swift */,
 				7B2216792891553100B14C5C /* MemoViewController.swift */,
 				7B9B56992887EE3700FF3DD1 /* ConfirmViewController.swift */,
-				3EC0D9CA28801E9F00A98E73 /* UserInitViewController.swift */,
+				3EC0D9CA28801E9F00A98E73 /* MomInitViewController.swift */,
+				3ED6D209289280B8008F1D93 /* DadInitViewController.swift */,
 				7B2E9C712884FCF4006BE5C8 /* MainViewController.swift */,
 				7B2E9C6B28806FE3006BE5C8 /* SettingViewController.swift */,
 				A92FC8C6287FF3C000962CA0 /* OnboardingPageViewController.swift */,
@@ -133,6 +141,7 @@
 			children = (
 				3E2F6564287FA0E600A27FA9 /* Main.storyboard */,
 				3E2F6569287FA0E700A27FA9 /* LaunchScreen.storyboard */,
+				B52841CA28922D7E004A2204 /* CallCheck.storyboard */,
 				7B22167328912CCE00B14C5C /* MemoStoryboard.storyboard */,
 			);
 			path = Boards;
@@ -240,6 +249,7 @@
 				3E2F656B287FA0E700A27FA9 /* LaunchScreen.storyboard in Resources */,
 				3E2F6568287FA0E700A27FA9 /* Assets.xcassets in Resources */,
 				3E2F6566287FA0E600A27FA9 /* Main.storyboard in Resources */,
+				B52841CB28922D7E004A2204 /* CallCheck.storyboard in Resources */,
 				7B22167428912CCE00B14C5C /* MemoStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -283,11 +293,13 @@
 				A9B32A94288691EA00530B51 /* NotificationTime.swift in Sources */,
 				7B22167A2891553100B14C5C /* MemoViewController.swift in Sources */,
 				3E2F655F287FA0E600A27FA9 /* AppDelegate.swift in Sources */,
+				B52841D128926DA7004A2204 /* CallCheckViewController.swift in Sources */,
 				7B2E9C722884FCF4006BE5C8 /* MainViewController.swift in Sources */,
 				7BD2303E288E8B18002BB9F5 /* UIColor+Extension.swift in Sources */,
+				3ED6D20A289280B8008F1D93 /* DadInitViewController.swift in Sources */,
 				A9B32A9228868F7100530B51 /* NotificationModalViewController.swift in Sources */,
 				3E2F6561287FA0E600A27FA9 /* SceneDelegate.swift in Sources */,
-				3EC0D9CB28801E9F00A98E73 /* UserInitViewController.swift in Sources */,
+				3EC0D9CB28801E9F00A98E73 /* MomInitViewController.swift in Sources */,
 				3EC0D9CD2880FAD500A98E73 /* UITextfieldExtension.swift in Sources */,
 				A9332C77288E908F001A1B76 /* DateFormatting.swift in Sources */,
 				7B2E9C6C28806FE3006BE5C8 /* SettingViewController.swift in Sources */,
@@ -438,7 +450,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 3WVLC7Y373;
+				DEVELOPMENT_TEAM = Y7G824SH3W;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TodayAnbu/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -468,7 +480,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 3WVLC7Y373;
+				DEVELOPMENT_TEAM = Y7G824SH3W;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TodayAnbu/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
