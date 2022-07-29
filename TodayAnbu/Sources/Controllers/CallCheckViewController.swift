@@ -12,11 +12,15 @@ class CallCheckViewController: UIViewController {
     @IBOutlet weak var memoView: UITextView!
     @IBOutlet weak var callDoneButton: UIButton!
     @IBOutlet weak var callFailButton: UIButton!
+    @IBOutlet weak var titleBox: UIView!
+
     private let placeholder = "ex) 어머니에게 최근 먹은 과일에 대해 여쭤보았다. 어머니가 수박을 좋아하시는 걸 알게 되어서, 여름이 가기 전에 수박을 사드려야겠다."
+    private let tempIsMom = true
 
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureTopBox()
         configureTextView()
         configureButtons()
     }
@@ -24,6 +28,9 @@ class CallCheckViewController: UIViewController {
 
 // MARK: - Functions
 extension CallCheckViewController {
+    func configureTopBox() {
+        titleBox.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+    }
     func configureTextView() {
         memoView.font = .systemFont(ofSize: 16.0, weight: .regular)
         memoView.text = placeholder
@@ -43,20 +50,31 @@ extension CallCheckViewController {
     }
     @objc func onTapDoneButton() {
         appendMemos()
+        navigateToMain()
     }
 
     @objc func onTapFailButton() {
+        navigateToMain()
     }
 
     func appendMemos() {
+        let key = tempIsMom ? "momMemo" : "dadMemo"
         let now = Date.currentNumericLocalizedDateTime
 
-        var memos: [String: String] = UserDefaults.standard.dictionary(forKey: "memos") as? [String: String] ?? [:]
+        var memos: [String: String] = UserDefaults.standard.dictionary(forKey: key) as? [String: String] ?? [:]
         if !memos.isEmpty {
-            UserDefaults.standard.removeObject(forKey: "memos")
+            UserDefaults.standard.removeObject(forKey: key)
         }
         memos[now] = memoView.text!
-        UserDefaults.standard.set(memos, forKey: "memos")
+        UserDefaults.standard.set(memos, forKey: key)
+    }
+    func navigateToMain() {
+        // FIXME: present modally to page
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "TabBarView") as? TabBarController
+        self.show(nextViewController!, sender: self)
+        // navigationControl 이 동작을 안 함
+//        navigationController?.pushViewController(nextViewController!, animated: true)
     }
 }
 
@@ -78,5 +96,9 @@ extension CallCheckViewController: UITextViewDelegate {
             textView.resignFirstResponder()
         }
         return true
+    }
+    // 다른 영역 터치할때 나가기
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
 }
