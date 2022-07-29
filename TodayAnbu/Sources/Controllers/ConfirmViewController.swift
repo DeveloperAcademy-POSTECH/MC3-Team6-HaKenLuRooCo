@@ -35,8 +35,24 @@ class ConfirmViewController: UIViewController {
         button.addTarget(self, action: #selector(negativeButtonPressed), for: .touchUpInside)
         return button
     }()
+
+    @objc func changeData(notification: NSNotification) {
+        let testData = notification.object.self
+        print("this is test Data \(testData ?? "테스트 데이터없음")")
+    }
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureUI()
+        CallManager.shared.$data.sink {
+            print($0)
+        }
+//        CallManager.shared.data.$isMomCall.sink { data in
+//            print(CallManager.shared.data.isMomCall)
+//        }
+//        CallManager.shared.data.$isDadCall.sink { data in
+//        }
     }
 
     func configureUI() {
@@ -65,9 +81,23 @@ class ConfirmViewController: UIViewController {
         ])
     }
     @objc func positiveButtonPressed(_ sender: UIButton) {
-        navigationController?.pushViewController(MainViewController(), animated: true)
+        NotificationCenter.default.post(name: NSNotification.Name("ConfirmView"), object: nil)
+        if CallManager.shared.data.isMomCall {
+            var currentData = CallManager.shared.data
+            currentData.momCheckCount += 1
+            currentData.isMomCall.toggle()
+            CallManager.shared.data = currentData
+        }
+
+        if CallManager.shared.data.isDadCall {
+            var currentData = CallManager.shared.data
+            currentData.dadCheckCount += 1
+            currentData.isMomCall.toggle()
+            CallManager.shared.data.isDadCall.toggle()
+        }
+        self.dismiss(animated: true, completion: nil)
     }
     @objc func negativeButtonPressed(_ sender: UIButton) {
-        navigationController?.pushViewController(MainViewController(), animated: true)
+        self.dismiss(animated: true, completion: nil)
     }
 }

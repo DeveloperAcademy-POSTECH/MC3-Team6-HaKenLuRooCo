@@ -276,6 +276,7 @@
                                     <action selector="nextButtonAction:" destination="NtZ-78-jYv" eventType="touchUpInside" id="qGZ-9G-edS"/>
                                     <action selector="setNotificationTime:" destination="4Mc-d9-Cdu" eventType="touchUpInside" id="o92-Kk-wcb"/>
                                     <action selector="startButttonAction:" destination="4Mc-d9-Cdu" eventType="touchUpInside" id="Nlf-hM-MQL"/>
+
                                     <segue destination="h9C-xi-h1l" kind="show" id="qjY-Is-6iQ"/>
                                 </connections>
                             </button>
