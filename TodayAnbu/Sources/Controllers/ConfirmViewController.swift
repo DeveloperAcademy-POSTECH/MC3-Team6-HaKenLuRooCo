@@ -8,6 +8,7 @@
 import UIKit
 
 class ConfirmViewController: UIViewController {
+
     // label 한개랑 버튼 두개 만들어야 함
     private let confirmLabel: UILabel = {
         let label: UILabel = UILabel()
@@ -34,9 +35,24 @@ class ConfirmViewController: UIViewController {
         button.addTarget(self, action: #selector(negativeButtonPressed), for: .touchUpInside)
         return button
     }()
+
+    @objc func changeData(notification: NSNotification) {
+        let testData = notification.object.self
+        print("this is test Data \(testData ?? "테스트 데이터없음")")
+    }
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+        CallManager.shared.$data.sink {
+            print($0)
+        }
+//        CallManager.shared.data.$isMomCall.sink { data in
+//            print(CallManager.shared.data.isMomCall)
+//        }
+//        CallManager.shared.data.$isDadCall.sink { data in
+//        }
     }
 
     func configureUI() {
@@ -65,25 +81,23 @@ class ConfirmViewController: UIViewController {
         ])
     }
     @objc func positiveButtonPressed(_ sender: UIButton) {
-//        navigationController?.pushViewController(MainViewController(), animated: true)
-        if MainViewController().isMomCall {
-            MainViewController().momCheckCount += 1
-            MainViewController().isMomCall = false
+        NotificationCenter.default.post(name: NSNotification.Name("ConfirmView"), object: nil)
+        if CallManager.shared.data.isMomCall {
+            var currentData = CallManager.shared.data
+            currentData.momCheckCount += 1
+            currentData.isMomCall.toggle()
+            CallManager.shared.data = currentData
         }
-        if MainViewController().isDadCall {
-            MainViewController().dadCheckCount += 1
-            MainViewController().isDadCall = false
+
+        if CallManager.shared.data.isDadCall {
+            var currentData = CallManager.shared.data
+            currentData.dadCheckCount += 1
+            currentData.isMomCall.toggle()
+            CallManager.shared.data.isDadCall.toggle()
         }
         self.dismiss(animated: true, completion: nil)
-//        NotificationCenter.default.removeObserver(MainViewController().observer!)
     }
     @objc func negativeButtonPressed(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
-//        navigationController?.pushViewController(MainViewController(), animated: true)
-//        NotificationCenter.default.removeObserver(MainViewController().observer!)
     }
-
-//    deinit {
-//        NotificationCenter.default.removeObserver(MainViewController().observer!)
-//    }
 }

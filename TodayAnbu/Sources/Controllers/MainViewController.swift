@@ -4,6 +4,7 @@
 //
 //  Created by Taehwan Kim, 김연호, 코지 on 2022/07/18.
 
+import Combine
 import UIKit
 
 class MainViewController: UIViewController {
@@ -12,6 +13,7 @@ class MainViewController: UIViewController {
     private var genericTopics = [["최근에 가고 싶은 여행지가 있나요?", "가장 좋았던 여행지가 어디인가요?", "가장 최근에 다녀온 여행지가 어디인가요?", "여행"], ["최근에 본 영화가 있나요?", "가장 좋아하는 영화가 무엇인가요?", "보고 싶은 영화가 있나요?", "영화"], ["최근에 읽은 책이 있나요?", "읽고 싶은 책이 있나요?", "가장 감명 깊게 읽은 책이 무엇인가요?", "책"], ["가장 좋아하는 음악 장르는 무엇인가요?", "최근 들어 자주 듣는 노래가 있으신가요?", "좋아하는 가수가 있으신가요?", "음악"], ["고양이가 좋으세요? 강아지가 좋으세요?", "반려동물을 키운다면 어떨 것 같나요?", "앵무새나 물고기처럼 기르고 싶은 특별한 반려동물이 있나요?", "반려동물"], ["어떤 술을 좋아하시나요?", "음료 중에 어떤게 가장 좋으세요?", "차는 어떤게 좋으세요?", "음료"], ["좋아하는 스포츠가 있으신가요?", "재밌게 보는 스포츠가 있나요?", "운동 좋아하세요?", "스포츠"], ["취미가 무엇인가요?", "새로 배워보고 싶은 취미가 있나요?", "과거에 즐겨했었던 취미가 있나요?", "취미"], ["최근에 복날에 닭은 드셨나요?", "생일 때 뭐 받고 싶으신 게 있나요?", "결혼기념일에 뭐 하실지 생각해보셨어요?", "기념일"]]
     private var seriousTopics = [["최근에 뉴스에 나온 oo 사건 보셨어요?", "ㅇㅇ 정치인에 대해 어떻게 생각하세요?", "ㅇㅇ 정책에 대해 어떻게 생각하세요?", "사회 & 정치"], ["은퇴에 대한 걱정이 있으신가요?", "새로 하시는 일은 어떠세요?", "(이직/퇴사) 어떻게 하는게 좋을까요?", "진로"], ["주변에 괜찮은 사람 소개 좀 시켜줘요", "아는분 자녀 중에 결혼한 사람들 있어요?", "결혼한 사람들이 결혼에 대해서 어떻게 생각한대요?", "만남"], ["환율 어떨거 같아요?", "주식 어떨거 같아요?", "부동산 어떨거 같아요?", "경제"], ["사이가 안좋은 가족이 있다면 현재 어떠신지?", "지금 어머님/아버님에게 서운한 부분이 있으신가요?", "도움이 필요한데 말씀 못 하고 계시진 않나요?", "가족사"], ["금전적으로 도와드려야 할까요?", "(형제/자매) 요즘 괜찮대요?", "현재 우리 가정에 빚이 얼마나 있나요?", "가족의 경제현황"], ["지금 솔직하게 어떤게 제일 불편하세요?", "도움이 필요한데 말씀 못 하고 계시진 않나요?", "배우자에게 건강상 이상한 점을 보신적이 있나요?", "건강"]]
     var observer: NSObjectProtocol?
+    var sceneObserver: NSObjectProtocol?
 
     private var topics: [String] = []
     private var genericTopicIndex: Int = 0
@@ -20,21 +22,28 @@ class MainViewController: UIViewController {
     private var notCalledDate: Int = 1
     var isMomCall = false
     var isDadCall = false
-    var momCheckCount: Int = 0 {
+
+    
+    lazy var momCheckCount: Int = 0 {
         didSet {
+            print("이게 될까?")
             switch momCheckCount {
             case 1:
+                print("111111")
                 momGauge1 = momGauge(momCheckCount: 1, gaugeColor: .momGaugeLight)
+                configureAddSubView()
             case 2:
                 momGauge2 = momGauge(momCheckCount: 2, gaugeColor: .momGaugeLight)
+                configureAddSubView()
             case 3:
                 momGauge3 = momGauge(momCheckCount: 3, gaugeColor: .momGaugeLight)
+                configureAddSubView()
             default:
-                return
+                print("이게 되면 switch 안되는거임")
             }
         }
     }
-    var dadCheckCount: Int = 0 {
+    lazy var dadCheckCount: Int = 0 {
         didSet {
             switch dadCheckCount {
             case 1:
@@ -151,11 +160,13 @@ class MainViewController: UIViewController {
     private lazy var callAlert: UIAlertController = {
         let callAlert = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertController.Style.actionSheet)
         let momCall = UIAlertAction(title: "엄마한테 전화하기", style: .default) { _ in
-            self.isMomCall = true
+            CallManager.shared.data.isMomCall.toggle()
+
             self.goCallApp(url: "tel://" + (UserDefaults.standard.string(forKey: "momPhoneNumber") ?? ""))
         }
+        
         let dadCall = UIAlertAction(title: "아빠한테 전화하기", style: .default) { _ in
-            self.isDadCall = true
+            CallManager.shared.data.isDadCall.toggle()
             self.goCallApp(url: "tel://" + (UserDefaults.standard.string(forKey: "dadPhoneNumber") ?? ""))
         }
         let cancel = UIAlertAction(title: "취소하기", style: .cancel)
@@ -186,6 +197,15 @@ class MainViewController: UIViewController {
         return callButton
     }()
 
+    @objc func getNotificationFromConfirmView() {
+        print("ConfirmView로 부터 알람을 받습니다")
+        print(CallManager.shared.data.momCheckCount)
+//        CallManager.shared.data.$momCheckCount.sink { countData in
+//            self.momCheckCount = countData
+//        }
+
+    }
+
     // MARK: - LifeCycle
     override func loadView() {
         let formatter = DateFormatter()
@@ -197,20 +217,43 @@ class MainViewController: UIViewController {
         super.loadView()
     }
 
+    private var cancelBag = Set<AnyCancellable>()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
         configureAddSubView()
         configureTranslate()
         configureRender()
-        // configureCheckButtonTapGesture()
+        NotificationCenter.default.addObserver(self, selector: #selector(getNotificationFromConfirmView), name: NSNotification.Name("ConfirmView"), object: nil)
+
+        CallManager.shared.$data
+            .sink { [weak self] in
+                print("main입니당", $0)
+            }
+            .store(in: &cancelBag)
+
         self.navigationItem.setHidesBackButton(true, animated: true)
+//        NotificationCenter.default.addObserver(self, selector: #selector(getNotificationFromConfirmView), name: NSNotification.Name("ConfirmView"), object: nil)
         observer = NotificationCenter.default.addObserver(forName: UIApplication.willEnterForegroundNotification, object: nil, queue: .main) { [unowned self] _ in
+
             self.present(confirmView, animated: true) {
                 self.confirmView.configureUI()
             }
         }
-//        print("[Log] \(observer)")
+//        sceneObserver = NotificationCenter.default.addObserver(forName: UIScene., object: nil, queue: .main) { [unowned self] _ in
+//            CallManager.shared.data.$momCheckCount.sink { data in
+//                print("------")
+//                print(data)
+//                print("------")
+//            }
+//        }
+    }
+
+    deinit {
+        if let observer = observer {
+            NotificationCenter.default.removeObserver(observer)
+        }
     }
 
     // MARK: - Configures
@@ -355,13 +398,7 @@ class MainViewController: UIViewController {
         ])
     }
 
-//    private func configureCheckButtonTapGesture() {
-//        for index in 0 ... 5 {
-//             let tapGestureRecognizer = CheckButtonTapGesture(target: self, action: #selector(didTapImageView(_:)))
-//             weeklyCheckBox[index].addGestureRecognizer(tapGestureRecognizer)
-//             tapGestureRecognizer.indexOfButton = index
-//         }
-//    }
+    var modalClass = ConfirmViewController()
 }
     // MARK: - extension
     extension MainViewController: UITableViewDataSource {
