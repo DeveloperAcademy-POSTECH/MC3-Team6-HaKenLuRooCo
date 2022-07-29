@@ -59,9 +59,42 @@ class SettingViewController: UIViewController {
             tableView.rightAnchor.constraint(equalTo: view.rightAnchor)
         ])
     }
-    @objc func changedSwitch() {
-        print("온오프 감지")
+    @objc func changedSwitch(_ sender: UISwitch) {
+        print(sender.isOn)
+        if !sender.isOn {
+            removeLocalNotifications()
+        }
+//        let state = switchOnAndOff.isOn ? "On" : "Off"
+//        print(state)
         
+    }
+    
+    func removeLocalNotifications() {
+        if #available(iOS 10.0, *) {
+            UNUserNotificationCenter.current().getPendingNotificationRequests(completionHandler: { requests -> Void in
+                print("\(requests.count) requests -------")
+                for request in requests {
+                    let notifIdentifier: String = request.identifier as String
+                    print("notifIdentifier deleted: \(notifIdentifier)")
+                    UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [notifIdentifier])
+                }
+            })
+            UNUserNotificationCenter.current().getDeliveredNotifications(completionHandler: { deliveredNotifications -> Void in
+                print("\(deliveredNotifications.count) Delivered notifications-------")
+                for notification in deliveredNotifications {
+                    let notifIdentifier: String = notification.request.identifier as String
+                    print("notifIdentifier deleted: \(notifIdentifier)")
+                    UNUserNotificationCenter.current().removeDeliveredNotifications(withIdentifiers: [notifIdentifier])
+                }
+            })
+        } else { // for iOS < 10
+            let app: UIApplication = UIApplication.shared
+            for oneEvent in app.scheduledLocalNotifications! {
+                print("oneEvent Deleted ======================= \(oneEvent)")
+                let notification = oneEvent as UILocalNotification
+                app.cancelLocalNotification(notification)
+            }
+        }
     }
     
 }
@@ -111,10 +144,10 @@ extension SettingViewController: UITableViewDelegate {
         print("지금 \(indexPath.row) 선택")
         switch indexPath.row {
         case 0:
-            let userinitViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "UserInitViewController")
+            let userinitViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MomInitViewController")
             self.navigationController?.pushViewController(userinitViewController, animated: true)
         case 1:
-            let userinitViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "UserInitViewController")
+            let userinitViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DadInitViewController")
             self.navigationController?.pushViewController(userinitViewController, animated: true)
         default :
             print("몰라")
