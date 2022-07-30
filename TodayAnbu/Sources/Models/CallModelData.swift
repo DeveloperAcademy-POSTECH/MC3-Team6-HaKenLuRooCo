@@ -19,6 +19,8 @@ struct CallData {
 class CallManager: ObservableObject {
     @Published var data = CallData()
     static let shared = CallManager()
+
+    private init() {}
 }
 
 //class CallData: ObservableObject {

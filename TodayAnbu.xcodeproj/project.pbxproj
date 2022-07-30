@@ -35,12 +35,9 @@
 		A9332C77288E908F001A1B76 /* DateFormatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9332C76288E908F001A1B76 /* DateFormatting.swift */; };
 		A9B32A9228868F7100530B51 /* NotificationModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B32A9128868F7100530B51 /* NotificationModalViewController.swift */; };
 		A9B32A94288691EA00530B51 /* NotificationTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B32A93288691EA00530B51 /* NotificationTime.swift */; };
-
 		A9CF7E652892D22700189E8B /* CallModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CF7E642892D22700189E8B /* CallModelData.swift */; };
-
 		B52841CB28922D7E004A2204 /* CallCheck.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B52841CA28922D7E004A2204 /* CallCheck.storyboard */; };
 		B52841D128926DA7004A2204 /* CallCheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52841D028926DA7004A2204 /* CallCheckViewController.swift */; };
-
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -167,12 +164,9 @@
 				7B2E9C6D288429B8006BE5C8 /* SettingPersonalDataCell.swift */,
 				7B2E9C6F2884397B006BE5C8 /* SettingHeaderView.swift */,
 				A9B32A93288691EA00530B51 /* NotificationTime.swift */,
-
 				A9CF7E642892D22700189E8B /* CallModelData.swift */,
-
 				7B2216752891452D00B14C5C /* MemoData.swift */,
 				7B2216772891493500B14C5C /* MemoCell.swift */,
-
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -320,7 +314,7 @@
 				3ED6D20A289280B8008F1D93 /* DadInitViewController.swift in Sources */,
 				A9B32A9228868F7100530B51 /* NotificationModalViewController.swift in Sources */,
 				3E2F6561287FA0E600A27FA9 /* SceneDelegate.swift in Sources */,
-				3EC0D9CB28801E9F00A98E73 /* UserInitViewController.swift in Sources */,
+				3EC0D9CB28801E9F00A98E73 /* MomInitViewController.swift in Sources */,
 				A9CF7E652892D22700189E8B /* CallModelData.swift in Sources */,
 				3EC0D9CB28801E9F00A98E73 /* MomInitViewController.swift in Sources */,
 				3EC0D9CD2880FAD500A98E73 /* UITextfieldExtension.swift in Sources */,
@@ -473,7 +467,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = Y7G824SH3W;
+				DEVELOPMENT_TEAM = 5N6FVFS939;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TodayAnbu/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -503,7 +497,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = Y7G824SH3W;
+				DEVELOPMENT_TEAM = 5N6FVFS939;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TodayAnbu/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

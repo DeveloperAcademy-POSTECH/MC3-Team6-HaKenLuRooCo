@@ -23,13 +23,11 @@ class MainViewController: UIViewController {
     var isMomCall = false
     var isDadCall = false
 
-    
     lazy var momCheckCount: Int = 0 {
         didSet {
             print("이게 될까?")
             switch momCheckCount {
             case 1:
-                print("111111")
                 momGauge1 = momGauge(momCheckCount: 1, gaugeColor: .momGaugeLight)
                 configureAddSubView()
             case 2:
@@ -228,8 +226,10 @@ class MainViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(getNotificationFromConfirmView), name: NSNotification.Name("ConfirmView"), object: nil)
 
         CallManager.shared.$data
-            .sink { [weak self] in
-                print("main입니당", $0)
+            .sink { [weak self] data in
+//                print("main입니당", data)
+                self?.momCheckCount = data.momCheckCount
+//                print(self?.momCheckCount as Any)
             }
             .store(in: &cancelBag)
 
@@ -280,6 +280,7 @@ class MainViewController: UIViewController {
         view.addSubview(dadGauge2)
         view.addSubview(dadGauge3)
     }
+
     private func configureTranslate() {
         topArea.translatesAutoresizingMaskIntoConstraints = false
         topTitle.translatesAutoresizingMaskIntoConstraints = false
