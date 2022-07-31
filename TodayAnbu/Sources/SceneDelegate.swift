@@ -23,8 +23,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.rootViewController = UINavigationController(rootViewController: TabBarController())
         window?.makeKeyAndVisible()
          */
-
-
         // MARK: - 또 다른 스토리보드로 접근하고 싶을 경우
         /*
         let storyboard = UIStoryboard(name: "MemoStoryboard", bundle: nil)
