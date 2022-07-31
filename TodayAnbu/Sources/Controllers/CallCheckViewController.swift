@@ -50,11 +50,11 @@ extension CallCheckViewController {
     }
     @objc func onTapDoneButton() {
         appendMemos()
-        navigateToMain()
+        dismiss(animated: true)
     }
 
     @objc func onTapFailButton() {
-        navigateToMain()
+        dismiss(animated: true)
     }
 
     func appendMemos() {
@@ -67,14 +67,6 @@ extension CallCheckViewController {
         }
         memos[now] = memoView.text!
         UserDefaults.standard.set(memos, forKey: key)
-    }
-    func navigateToMain() {
-        // FIXME: present modally to page
-        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "TabBarView") as? TabBarController
-        self.show(nextViewController!, sender: self)
-        // navigationControl 이 동작을 안 함
-//        navigationController?.pushViewController(nextViewController!, animated: true)
     }
 }
 

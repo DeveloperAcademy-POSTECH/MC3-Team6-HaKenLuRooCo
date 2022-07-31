@@ -237,7 +237,10 @@ class MainViewController: UIViewController {
 //        NotificationCenter.default.addObserver(self, selector: #selector(getNotificationFromConfirmView), name: NSNotification.Name("ConfirmView"), object: nil)
         observer = NotificationCenter.default.addObserver(forName: UIApplication.willEnterForegroundNotification, object: nil, queue: .main) { [unowned self] _ in
 
-            self.present(confirmView, animated: true) {
+            let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let nextViewController = storyBoard.instantiateViewController(withIdentifier: "CallCheck") as? CallCheckViewController
+
+            self.present(nextViewController!, animated: true) {
                 self.confirmView.configureUI()
             }
         }
