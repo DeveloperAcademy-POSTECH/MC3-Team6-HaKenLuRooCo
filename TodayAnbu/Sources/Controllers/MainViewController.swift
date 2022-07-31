@@ -23,7 +23,6 @@ class MainViewController: UIViewController {
     var isMomCall = false
     var isDadCall = false
 
-    
     lazy var momCheckCount: Int = 0 {
         didSet {
             print("이게 될까?")
