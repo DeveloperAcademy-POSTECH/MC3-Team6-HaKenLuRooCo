@@ -289,7 +289,7 @@ extension DadInitViewController {
                             dateComponent.weekday = weekDay
 
                             let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponent, repeats: true)
-                            let request = UNNotificationRequest(identifier:UUID().uuidString, content: content, trigger: trigger)
+                            let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
                             self.notificationCenter.add(request) { error in
                                 if error != nil {
                                     print("Error " + error.debugDescription)
