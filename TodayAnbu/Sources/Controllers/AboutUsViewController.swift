@@ -61,5 +61,4 @@ class AboutUsViewController: UIViewController {
         userURL = "https://github.com/cozytk"
         sendURL(url: userURL)
     }
-    
 }

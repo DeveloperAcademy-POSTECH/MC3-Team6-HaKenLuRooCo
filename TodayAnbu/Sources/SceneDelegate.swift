@@ -15,7 +15,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let _ = (scene as? UIWindowScene) else { return }
-        
         // MARK: 개발 생산성을 위해 엔트리 포인트를 고정하고자 하는 경우 아래의 코드에서 rootViewController를 지정하여 사용
         /*
         guard let scene = (scene as? UIWindowScene) else { return }
@@ -23,8 +22,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.rootViewController = UINavigationController(rootViewController: TabBarController())
         window?.makeKeyAndVisible()
          */
-
-
         // MARK: - 또 다른 스토리보드로 접근하고 싶을 경우
         /*
         let storyboard = UIStoryboard(name: "MemoStoryboard", bundle: nil)

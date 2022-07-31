@@ -34,7 +34,7 @@ class SettingViewController: UIViewController {
         super.viewDidLoad()
         configureViewComponent()
     }
-    
+
     func configureViewComponent() {
         view.addSubview(tableView)
         view.addSubview(settingTopArea)
@@ -65,16 +65,16 @@ class SettingViewController: UIViewController {
         }
 //        let state = switchOnAndOff.isOn ? "On" : "Off"
 //        print(state)
-        
+
     }
-    
+
     func removeLocalNotifications() {
         if #available(iOS 10.0, *) {
             UNUserNotificationCenter.current().getPendingNotificationRequests(completionHandler: { requests -> Void in
-                print("\(requests.count) requests -------")
+                print("현재 설정된 request의 개수 \(requests.count)")
                 for request in requests {
                     let notifIdentifier: String = request.identifier as String
-                    print("notifIdentifier deleted: \(notifIdentifier)")
+                    print("삭제될 request: \(notifIdentifier)")
                     UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [notifIdentifier])
                 }
             })
@@ -95,7 +95,7 @@ class SettingViewController: UIViewController {
             }
         }
     }
-    
+
 }
 
 extension SettingViewController: UITableViewDataSource {
