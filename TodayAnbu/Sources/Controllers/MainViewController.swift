@@ -163,7 +163,7 @@ class MainViewController: UIViewController {
 
             self.goCallApp(url: "tel://" + (UserDefaults.standard.string(forKey: "momPhoneNumber") ?? ""))
         }
-        
+
         let dadCall = UIAlertAction(title: "아빠한테 전화하기", style: .default) { _ in
             CallManager.shared.data.isDadCall.toggle()
             self.goCallApp(url: "tel://" + (UserDefaults.standard.string(forKey: "dadPhoneNumber") ?? ""))

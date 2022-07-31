@@ -34,7 +34,7 @@ class SettingViewController: UIViewController {
         super.viewDidLoad()
         configureViewComponent()
     }
-    
+
     func configureViewComponent() {
         view.addSubview(tableView)
         view.addSubview(settingTopArea)
@@ -65,9 +65,9 @@ class SettingViewController: UIViewController {
         }
 //        let state = switchOnAndOff.isOn ? "On" : "Off"
 //        print(state)
-        
+
     }
-    
+
     func removeLocalNotifications() {
         if #available(iOS 10.0, *) {
             UNUserNotificationCenter.current().getPendingNotificationRequests(completionHandler: { requests -> Void in
@@ -95,7 +95,7 @@ class SettingViewController: UIViewController {
             }
         }
     }
-    
+
 }
 
 extension SettingViewController: UITableViewDataSource {
