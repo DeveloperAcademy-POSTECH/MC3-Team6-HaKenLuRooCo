@@ -268,8 +268,8 @@ extension MomInitViewController {
         
         notificationCenter.getNotificationSettings { settings in
             DispatchQueue.main.async {
-                let title = "부모님께 전화안한지 10일!"
-                let message = "오늘,안부의 알람입니다."
+                let title = "어머니에게 안부 전화드려보세요!"
+                let message = "오늘의 토픽 주제로 이야기해봐요!"
                 
                 if settings.authorizationStatus == .authorized {
                     let content = UNMutableNotificationContent()
@@ -290,7 +290,7 @@ extension MomInitViewController {
                             dateComponent.weekday = weekDay
                             
                             let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponent, repeats: true)
-                            let request = UNNotificationRequest(identifier: "firstSetting", content: content, trigger: trigger)
+                            let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
                             self.notificationCenter.add(request) { error in
                                 if error != nil {
                                     print("Error " + error.debugDescription)
@@ -302,12 +302,16 @@ extension MomInitViewController {
                         }
                     } else {
                         let notificationAlert = UIAlertController(title: "알람을 설정하지 않으셨나요?", message: "알람은 설정창에서 바꿀 수 있어요! ", preferredStyle: .alert)
-                        notificationAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in }))
+                        notificationAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
+                            self.dismiss(animated: true)
+                        }))
                         self.present(notificationAlert, animated: true)
                     }
                     
                     let notificationAlert = UIAlertController(title: "알람 설정완료!", message: "알람은 설정창에서 바꿀 수 있어요! ", preferredStyle: .alert)
-                    notificationAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in }))
+                    notificationAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
+                        self.dismiss(animated: true)
+                    }))
                     self.present(notificationAlert, animated: true)
                     
                     // notification 허용하지 않을 경우
@@ -322,12 +326,13 @@ extension MomInitViewController {
                         }
                     }
                     alertController.addAction(goToSettings)
-                    alertController.addAction(UIAlertAction(title: "취소", style: .default, handler: { (_) in }))
+                    alertController.addAction(UIAlertAction(title: "취소", style: .default, handler: { (_) in
+                        self.dismiss(animated: true)
+                    }))
                     self.present(alertController, animated: true)
                 }
             }
         }
-        self.dismiss(animated: true)
     }
 }
 
