@@ -65,7 +65,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 extension SceneDelegate {
     private func setRootViewController(_ scene: UIScene) {
         if Storage.goToOnborading {
-            setRootViewController(scene, name: "Main", identifier: "OnboardingPageViewController")
+            setRootViewController(scene, name: "Main", identifier: "RootView")
         } else {
             setRootViewController(scene, name: "Main", identifier: "TabBarView")
         }

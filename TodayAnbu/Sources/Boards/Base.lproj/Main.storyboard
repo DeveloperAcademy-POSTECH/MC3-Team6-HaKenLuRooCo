@@ -29,7 +29,7 @@
         <!--Navigation Controller-->
         <scene sceneID="tFX-Jk-wCo">
             <objects>
-                <navigationController navigationBarHidden="YES" id="Cma-4u-btn" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="RootView" useStoryboardIdentifierAsRestorationIdentifier="YES" navigationBarHidden="YES" id="Cma-4u-btn" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="PmX-JR-Rgg">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
