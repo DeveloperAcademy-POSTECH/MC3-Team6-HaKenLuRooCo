@@ -227,9 +227,7 @@ class MainViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(getNotificationFromConfirmView), name: NSNotification.Name("ConfirmView"), object: nil)
 
         CallManager.shared.$data
-            .sink { [weak self] in
-                print("main입니당", $0)
-            }
+            .sink { /*[weak self] in*/ print("main입니당", $0) }
             .store(in: &cancelBag)
 
         self.navigationItem.setHidesBackButton(true, animated: true)
