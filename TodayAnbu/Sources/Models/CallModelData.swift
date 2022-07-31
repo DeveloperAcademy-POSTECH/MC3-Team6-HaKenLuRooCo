@@ -8,7 +8,6 @@
 import Foundation
 import Combine
 
-
 struct CallData {
     var isMomCall: Bool = false
     var isDadCall: Bool = false
@@ -31,6 +30,6 @@ class CallManager: ObservableObject {
 //}
 //
 //class CallManager2 {
-//    var data = CallData()
+//  var data = CallData()
 //    static let shared = CallManager2()
 //}

@@ -12,7 +12,7 @@ class TabBarController: UITabBarController {
         view.backgroundColor = .white
 
         let firstTab = UINavigationController(rootViewController: MainViewController())
-        let secondTab = UINavigationController(rootViewController: SettingViewController())
+        let secondTab = UINavigationController(rootViewController: CallCheckViewController())
         secondTab.navigationBar.isHidden = true
         firstTab.tabBarItem.image = UIImage(systemName: "house")
         firstTab.tabBarItem.selectedImage = UIImage(systemName: "house.fill")
