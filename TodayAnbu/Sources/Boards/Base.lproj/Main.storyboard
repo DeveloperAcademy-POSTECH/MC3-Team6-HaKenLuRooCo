@@ -50,25 +50,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="혹시 부모님이 갱년기 같으신가요?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1eV-IS-3iG">
-                                <rect key="frame" x="47.5" y="652" width="319" height="29"/>
+                                <rect key="frame" x="47.5" y="653" width="319" height="29"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="갱년기는 급격한 호르몬 변화를 겪는 시기로" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MDk-mg-it6">
-                                <rect key="frame" x="80.5" y="701" width="253.5" height="18"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text=" 대표적인 증상으로 무기력함과 우울감이 있어요!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TyM-vL-RDw">
-                                <rect key="frame" x="65" y="694.5" width="284" height="18"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" 대표적인 증상으로 무기력함과 우울감이 있어요!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TyM-vL-RDw">
+                                <rect key="frame" x="65" y="725" width="284" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IY4-tW-qWX">
-                                <rect key="frame" x="20" y="822.5" width="52" height="31"/>
+                                <rect key="frame" x="36" y="822.5" width="52" height="31"/>
                                 <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Skip"/>
@@ -77,35 +71,39 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="szI-PR-2gr">
-                                <rect key="frame" x="340" y="822.5" width="54" height="31"/>
+                                <rect key="frame" x="325" y="822.5" width="54" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Next"/>
                                 <connections>
                                     <segue destination="lyG-OF-ikj" kind="show" id="ic6-UZ-Jqp"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="dadPicture" translatesAutoresizingMaskIntoConstraints="NO" id="Ab0-3b-621">
-                                <rect key="frame" x="46.5" y="191.5" width="321" height="341.5"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dadPicture" translatesAutoresizingMaskIntoConstraints="NO" id="Ab0-3b-621">
+                                <rect key="frame" x="40" y="70.5" width="334" height="584"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="갱년기는 급격한 호르몬 변화를 겪는 시기로" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MDk-mg-it6">
+                                <rect key="frame" x="80.5" y="702" width="253.5" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="rmL-0a-M5c"/>
                         <color key="backgroundColor" name="dadDeepSkyblue"/>
                         <constraints>
-                            <constraint firstItem="szI-PR-2gr" firstAttribute="centerY" secondItem="rmL-0a-M5c" secondAttribute="centerY" multiplier="1.85" id="3pK-Ac-a51"/>
-                            <constraint firstItem="TyM-vL-RDw" firstAttribute="centerX" secondItem="rmL-0a-M5c" secondAttribute="centerX" id="5Wq-pv-FAG"/>
-                            <constraint firstItem="rmL-0a-M5c" firstAttribute="trailing" secondItem="szI-PR-2gr" secondAttribute="trailing" constant="20" id="Grd-fu-AWT"/>
-                            <constraint firstItem="1eV-IS-3iG" firstAttribute="centerX" secondItem="rmL-0a-M5c" secondAttribute="centerX" id="NAt-Jh-ohW"/>
-                            <constraint firstItem="MDk-mg-it6" firstAttribute="centerX" secondItem="rmL-0a-M5c" secondAttribute="centerX" id="O2N-3c-OQ1"/>
-                            <constraint firstItem="rmL-0a-M5c" firstAttribute="bottom" secondItem="1eV-IS-3iG" secondAttribute="bottom" constant="181" id="OqH-5V-yca"/>
-                            <constraint firstItem="Ab0-3b-621" firstAttribute="centerX" secondItem="rmL-0a-M5c" secondAttribute="centerX" id="RhT-LD-YjI"/>
-                            <constraint firstItem="Ab0-3b-621" firstAttribute="width" secondItem="OvF-j1-dXT" secondAttribute="height" multiplier="160:448" constant="1" id="WeC-uA-Prx"/>
-                            <constraint firstItem="IY4-tW-qWX" firstAttribute="leading" secondItem="rmL-0a-M5c" secondAttribute="leading" constant="20" id="XgD-7l-iFP"/>
-                            <constraint firstItem="szI-PR-2gr" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="IY4-tW-qWX" secondAttribute="trailing" constant="8" symbolic="YES" id="YX0-Q7-VG2"/>
-                            <constraint firstItem="MDk-mg-it6" firstAttribute="top" secondItem="1eV-IS-3iG" secondAttribute="bottom" constant="20" id="f6q-NH-TdA"/>
-                            <constraint firstItem="MDk-mg-it6" firstAttribute="centerX" secondItem="rmL-0a-M5c" secondAttribute="centerX" id="ilT-do-NKW"/>
-                            <constraint firstItem="Ab0-3b-621" firstAttribute="height" secondItem="OvF-j1-dXT" secondAttribute="height" multiplier="0.38" constant="1" id="mGE-MP-irR"/>
-                            <constraint firstItem="1eV-IS-3iG" firstAttribute="centerX" secondItem="rmL-0a-M5c" secondAttribute="centerX" id="tZq-yV-Cit"/>
-                            <constraint firstItem="IY4-tW-qWX" firstAttribute="centerY" secondItem="rmL-0a-M5c" secondAttribute="centerY" multiplier="1.85" id="xmF-KF-d3v"/>
+                            <constraint firstItem="Ab0-3b-621" firstAttribute="leading" secondItem="OvF-j1-dXT" secondAttribute="leading" constant="40" id="0jd-aX-L3e"/>
+                            <constraint firstItem="TyM-vL-RDw" firstAttribute="top" secondItem="MDk-mg-it6" secondAttribute="bottom" constant="5" id="98o-Hs-SI0"/>
+                            <constraint firstItem="TyM-vL-RDw" firstAttribute="centerX" secondItem="rmL-0a-M5c" secondAttribute="centerX" id="9I6-09-4yO"/>
+                            <constraint firstItem="IY4-tW-qWX" firstAttribute="centerX" secondItem="rmL-0a-M5c" secondAttribute="centerX" multiplier="0.3" id="Nmd-EZ-cUR"/>
+                            <constraint firstItem="MDk-mg-it6" firstAttribute="centerX" secondItem="rmL-0a-M5c" secondAttribute="centerX" id="PYA-vN-hk3"/>
+                            <constraint firstItem="1eV-IS-3iG" firstAttribute="centerX" secondItem="rmL-0a-M5c" secondAttribute="centerX" id="Sec-at-YbP"/>
+                            <constraint firstItem="rmL-0a-M5c" firstAttribute="bottom" secondItem="1eV-IS-3iG" secondAttribute="bottom" constant="180" id="a0U-8u-1iw"/>
+                            <constraint firstItem="IY4-tW-qWX" firstAttribute="centerY" secondItem="rmL-0a-M5c" secondAttribute="centerY" multiplier="1.85" id="bAT-cK-7FK"/>
+                            <constraint firstItem="MDk-mg-it6" firstAttribute="top" secondItem="1eV-IS-3iG" secondAttribute="bottom" constant="20" id="esP-Ty-7Eh"/>
+                            <constraint firstItem="szI-PR-2gr" firstAttribute="centerX" secondItem="rmL-0a-M5c" secondAttribute="centerX" multiplier="1.7" id="lMl-53-Aww"/>
+                            <constraint firstItem="Ab0-3b-621" firstAttribute="centerY" secondItem="rmL-0a-M5c" secondAttribute="centerY" multiplier="0.8" id="oVi-sp-lgE"/>
+                            <constraint firstItem="szI-PR-2gr" firstAttribute="centerY" secondItem="rmL-0a-M5c" secondAttribute="centerY" multiplier="1.85" id="r74-KI-40d"/>
+                            <constraint firstItem="Ab0-3b-621" firstAttribute="centerX" secondItem="rmL-0a-M5c" secondAttribute="centerX" id="wW5-RL-HFW"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="BOv-Xa-CKc"/>
@@ -126,25 +124,25 @@
                                 <rect key="frame" x="69.5" y="131.5" width="275" height="462"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="부모님께 얼마나 자주 안부전화하나요?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3HO-e8-lu3">
-                                <rect key="frame" x="26.5" y="652" width="361" height="29"/>
+                                <rect key="frame" x="26.5" y="653" width="361" height="29"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="안부를 묻는 것만으로 갱년기 우울감 " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y5B-ds-Wwi">
-                                <rect key="frame" x="99.5" y="701" width="215" height="18"/>
+                                <rect key="frame" x="99.5" y="702" width="215" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="완화에 도움이 된다고 해요!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ycP-kV-iHe">
-                                <rect key="frame" x="127" y="727" width="160" height="18"/>
+                                <rect key="frame" x="127" y="725" width="160" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L7O-UY-DRG">
-                                <rect key="frame" x="20" y="822.5" width="94" height="31"/>
+                                <rect key="frame" x="36" y="822.5" width="52" height="31"/>
                                 <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Skip"/>
@@ -153,7 +151,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g3a-fE-OqV">
-                                <rect key="frame" x="300" y="822.5" width="94" height="31"/>
+                                <rect key="frame" x="325" y="822.5" width="54" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Next"/>
                                 <connections>
@@ -164,22 +162,19 @@
                         <viewLayoutGuide key="safeArea" id="Jhx-1G-qFV"/>
                         <color key="backgroundColor" red="0.94901961089999998" green="0.95686274770000002" blue="0.96470588450000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="Jhx-1G-qFV" firstAttribute="trailing" secondItem="L7O-UY-DRG" secondAttribute="trailing" constant="300" id="297-xU-MpK"/>
                             <constraint firstItem="g3a-fE-OqV" firstAttribute="centerY" secondItem="Jhx-1G-qFV" secondAttribute="centerY" multiplier="1.85" id="GK0-Zx-Cn6"/>
-                            <constraint firstItem="L7O-UY-DRG" firstAttribute="leading" secondItem="Jhx-1G-qFV" secondAttribute="leading" constant="20" id="HZZ-TC-AoP"/>
-                            <constraint firstItem="Jhx-1G-qFV" firstAttribute="trailing" secondItem="g3a-fE-OqV" secondAttribute="trailing" constant="20" id="Hbf-P6-o0M"/>
                             <constraint firstItem="ycP-kV-iHe" firstAttribute="centerX" secondItem="Jhx-1G-qFV" secondAttribute="centerX" id="L2a-Am-fnT"/>
                             <constraint firstItem="7nc-8V-HKl" firstAttribute="centerY" secondItem="Jhx-1G-qFV" secondAttribute="centerY" multiplier="0.8" id="PWh-aw-64r"/>
                             <constraint firstItem="3HO-e8-lu3" firstAttribute="centerX" secondItem="Jhx-1G-qFV" secondAttribute="centerX" id="TD6-gv-bqS"/>
-                            <constraint firstItem="g3a-fE-OqV" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="L7O-UY-DRG" secondAttribute="trailing" constant="8" symbolic="YES" id="WGZ-9r-nq1"/>
+                            <constraint firstItem="L7O-UY-DRG" firstAttribute="centerX" secondItem="Jhx-1G-qFV" secondAttribute="centerX" multiplier="0.3" id="TPv-vY-RKb"/>
                             <constraint firstItem="Y5B-ds-Wwi" firstAttribute="centerX" secondItem="Jhx-1G-qFV" secondAttribute="centerX" id="XnH-mX-gam"/>
                             <constraint firstItem="L7O-UY-DRG" firstAttribute="centerY" secondItem="Jhx-1G-qFV" secondAttribute="centerY" multiplier="1.85" id="c6C-dq-01Y"/>
                             <constraint firstItem="Y5B-ds-Wwi" firstAttribute="top" secondItem="3HO-e8-lu3" secondAttribute="bottom" constant="20" id="g64-S3-Rjp"/>
-                            <constraint firstItem="g3a-fE-OqV" firstAttribute="leading" secondItem="Jhx-1G-qFV" secondAttribute="leading" constant="300" id="hkv-pd-Bjw"/>
                             <constraint firstItem="7nc-8V-HKl" firstAttribute="width" secondItem="HGk-3c-Ohq" secondAttribute="height" multiplier="137:448" constant="1" id="i7F-gu-hEf"/>
+                            <constraint firstItem="g3a-fE-OqV" firstAttribute="centerX" secondItem="Jhx-1G-qFV" secondAttribute="centerX" multiplier="1.7" id="sQh-7X-R8i"/>
                             <constraint firstItem="7nc-8V-HKl" firstAttribute="centerX" secondItem="Jhx-1G-qFV" secondAttribute="centerX" id="sZo-Op-2gz"/>
-                            <constraint firstItem="Jhx-1G-qFV" firstAttribute="bottom" secondItem="3HO-e8-lu3" secondAttribute="bottom" constant="181" id="vrp-ki-x0g"/>
-                            <constraint firstItem="ycP-kV-iHe" firstAttribute="top" secondItem="Y5B-ds-Wwi" secondAttribute="bottom" constant="8" symbolic="YES" id="yGG-LT-DFl"/>
+                            <constraint firstItem="Jhx-1G-qFV" firstAttribute="bottom" secondItem="3HO-e8-lu3" secondAttribute="bottom" constant="180" id="vrp-ki-x0g"/>
+                            <constraint firstItem="ycP-kV-iHe" firstAttribute="top" secondItem="Y5B-ds-Wwi" secondAttribute="bottom" constant="5" id="yGG-LT-DFl"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="qiw-P2-y7Q"/>
@@ -276,7 +271,6 @@
                                     <action selector="nextButtonAction:" destination="NtZ-78-jYv" eventType="touchUpInside" id="qGZ-9G-edS"/>
                                     <action selector="setNotificationTime:" destination="4Mc-d9-Cdu" eventType="touchUpInside" id="o92-Kk-wcb"/>
                                     <action selector="startButttonAction:" destination="4Mc-d9-Cdu" eventType="touchUpInside" id="Nlf-hM-MQL"/>
-
                                     <segue destination="h9C-xi-h1l" kind="show" id="qjY-Is-6iQ"/>
                                 </connections>
                             </button>
@@ -418,7 +412,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iG4-SX-mUD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2367" y="-450"/>
+            <point key="canvasLocation" x="2367" y="-582"/>
         </scene>
         <!--Dad Init View Controller-->
         <scene sceneID="NSE-tY-5Hw">
@@ -523,7 +517,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="7fl-9i-khf"/>
+        <segue reference="tef-Cz-cHx"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
     <resources>

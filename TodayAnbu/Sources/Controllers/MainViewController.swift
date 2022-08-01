@@ -163,7 +163,7 @@ class MainViewController: UIViewController {
 
             self.goCallApp(url: "tel://" + (UserDefaults.standard.string(forKey: "momPhoneNumber") ?? ""))
         }
-        
+
         let dadCall = UIAlertAction(title: "아빠한테 전화하기", style: .default) { _ in
             CallManager.shared.data.isDadCall.toggle()
             self.goCallApp(url: "tel://" + (UserDefaults.standard.string(forKey: "dadPhoneNumber") ?? ""))
@@ -227,9 +227,7 @@ class MainViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(getNotificationFromConfirmView), name: NSNotification.Name("ConfirmView"), object: nil)
 
         CallManager.shared.$data
-            .sink { [weak self] in
-                print("main입니당", $0)
-            }
+            .sink { /*[weak self] in*/ print("main입니당", $0) }
             .store(in: &cancelBag)
 
         self.navigationItem.setHidesBackButton(true, animated: true)

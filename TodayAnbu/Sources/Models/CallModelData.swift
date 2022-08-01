@@ -19,6 +19,7 @@ class CallManager: ObservableObject {
     @Published var data = CallData()
     static let shared = CallManager()
 }
+
 // class CallData: ObservableObject {
 //    @Published var isMomCall: Bool = false
 //    @Published var isDadCall: Bool = false
