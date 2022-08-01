@@ -115,7 +115,8 @@ class MomInitViewController: UIViewController, UITextFieldDelegate {
 
     @IBAction func startButttonAction(_ sender: Any) {
         if momNumberTextfield.hasValidPhoneNumber {
-            UserDefaults.standard.set(momNumberTextfield.text!, forKey: "momPhoneNumber")
+            momPhoneNumber = momNumberTextfield.text!
+             UserDefaults.standard.set(momPhoneNumber, forKey: "momPhoneNumber")
         }
     }
     @IBAction func timePickerAction(_ sender: UIDatePicker!) {
