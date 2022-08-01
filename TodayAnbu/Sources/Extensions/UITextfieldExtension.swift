@@ -24,6 +24,26 @@ extension UITextField {
         self.layer.shadowOpacity = 1.0
         self.layer.shadowRadius = 0.0
     }
+
+    // Textfield 오른쪽 옆에 있는 색상 바꾸기
+    func setRightImageColor(color: UIColor) {
+        guard let rightImage = self.rightView else {
+            return
+        }
+        rightImage.backgroundColor = UIColor.white
+        rightImage.tintColor = color
+    }
+
+    func addRightImage(image: UIImage) {
+        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: self.frame.height))
+        let rightImage = UIImageView(frame: CGRect(x: 0, y: 0, width: image.size.width, height: image.size.height))
+        self.rightView = paddingView
+        self.rightViewMode = ViewMode.always
+        rightImage.image = image
+        self.rightView = rightImage
+        self.rightViewMode = .always
+    }
+
     // Done 버튼 추가하기
     @IBInspectable var doneAccessory: Bool {
         get {

@@ -82,6 +82,8 @@ class MomInitViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
 
         momNumberTextfield.delegate = self
+        momNumberTextfield.addRightImage(image: UIImage(systemName: "circle") ?? UIImage())
+        momNumberTextfield.setRightImageColor(color: UIColor.systemGray4)
         momNumberTextfield.setBottomBorder(color: UIColor.systemGray4)
         momNumberTextfield.addDoneButtonOnKeyboard()
 
@@ -353,10 +355,14 @@ extension MomInitViewController {
 
         // Validation Check
         if textField.hasValidPhoneNumber {
-            textField.setBottomBorder(color: UIColor.systemBlue)
+            textField.addRightImage(image: UIImage(systemName: "circle") ?? UIImage())
+            textField.setRightImageColor(color: UIColor.systemMint)
+            textField.setBottomBorder(color: UIColor.systemMint)
             momDayVstack.isHidden = false
         } else {
-            textField.setBottomBorder(color: UIColor.red)
+            textField.addRightImage(image: UIImage(systemName: "xmark") ?? UIImage())
+            textField.setRightImageColor(color: UIColor.systemPink)
+            textField.setBottomBorder(color: UIColor.systemPink)
             momDayVstack.isHidden = true
         }
 
