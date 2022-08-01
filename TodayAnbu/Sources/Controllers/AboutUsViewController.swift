@@ -9,13 +9,14 @@ import UIKit
 
 class AboutUsViewController: UIViewController {
 
+    // 각 하켄루루코 인원들 버튼
     @IBOutlet var hardyButton: UIButton!
     @IBOutlet var kenButton: UIButton!
     @IBOutlet var lumiButton: UIButton!
     @IBOutlet var rookieButton: UIButton!
     @IBOutlet var cozybutton: UIButton!
 
-    @IBOutlet var topTitleBox: UIView!
+    @IBOutlet var topTitleBox: UIView! // 상단 제목 박스
 
     private var userURL: String = "https://github.com/DeveloperAcademy-POSTECH/MC3-Team6-HaKenLuRooCo"
 
@@ -25,18 +26,16 @@ class AboutUsViewController: UIViewController {
         topTitleBox.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
     }
 
+    // ViewController 호출, Data Passing, 화면 전환 순서
     private func sendURL(url: String) {
-        print("function call")
         guard let viewController = self.storyboard?.instantiateViewController(identifier: "AboutUsWebViewController") as? AboutUsWebViewController else {
-            print("vc 생성 실패")
             return
-
         }
-
-        print(viewController)
         viewController.userURL = url
+        self.present(viewController, animated: true)
     }
 
+    // Action : 1. 각 고유 URL저장, sendURL 호출
     @IBAction func hardyButtonAction(_ sender: Any) {
         userURL = "https://github.com/Kim-Yeon-ho"
         sendURL(url: userURL)
@@ -61,5 +60,4 @@ class AboutUsViewController: UIViewController {
         userURL = "https://github.com/cozytk"
         sendURL(url: userURL)
     }
-    
 }

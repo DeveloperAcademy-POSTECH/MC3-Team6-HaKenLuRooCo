@@ -22,14 +22,14 @@ class CallManager: ObservableObject {
     private init() {}
 }
 
-//class CallData: ObservableObject {
+// class CallData: ObservableObject {
 //    @Published var isMomCall: Bool = false
 //    @Published var isDadCall: Bool = false
 //    @Published var momCheckCount: Int = 0
 //    @Published var dadCheckCount: Int = 0
-//}
+// }
 //
-//class CallManager2 {
-//  var data = CallData()
+// class CallManager2 {
+//    var data = CallData()
 //    static let shared = CallManager2()
-//}
+// }

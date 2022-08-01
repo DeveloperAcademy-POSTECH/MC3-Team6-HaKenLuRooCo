@@ -80,7 +80,6 @@ class DadInitViewController: UIViewController, UITextFieldDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        UserDefaults.standard.set("", forKey: "dadPhoneNumber")
         dadNumberTextfield.delegate = self
         dadNumberTextfield.setBottomBorder(color: UIColor.systemGray4)
         dadNumberTextfield.addDoneButtonOnKeyboard()
@@ -109,9 +108,8 @@ class DadInitViewController: UIViewController, UITextFieldDelegate {
     }
 
     @IBAction func startButttonAction(_ sender: Any) {
-        UserDefaults.standard.set(true, forKey: "isFisrtLogin") // 최초 로그인인지 확인
         if dadNumberTextfield.hasValidPhoneNumber {
-            UserDefaults.standard.set(dadNumberTextfield.text!, forKey: "momPhoneNumber")
+            UserDefaults.standard.set(dadNumberTextfield.text!, forKey: "dadPhoneNumber")
         }
     }
     @IBAction func timePickerAction(_ sender: UIDatePicker!) {
@@ -205,7 +203,7 @@ extension DadInitViewController {
 
             notificationButton.buttonStack.addArrangedSubview(firstLabel)
             notificationButton.buttonStack.tag = index
-            notificationButton.buttonStack.backgroundColor = .dadDeepSkyblue
+            notificationButton.buttonStack.backgroundColor = .systemGray3
             notificationButton.buttonStack.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(setIndex(_:))))
 
             notificationButtonList.append(notificationButton)
@@ -251,7 +249,7 @@ extension DadInitViewController {
         if notificationButtonList[buttonIndex].isSelected {
             notificationButtonList[buttonIndex].buttonStack.backgroundColor = .dadLightSkyblue
         } else {
-            notificationButtonList[buttonIndex].buttonStack.backgroundColor = .dadDeepSkyblue
+            notificationButtonList[buttonIndex].buttonStack.backgroundColor = .systemGray3
         }
     }
 }
@@ -267,8 +265,8 @@ extension DadInitViewController {
 
         notificationCenter.getNotificationSettings { settings in
             DispatchQueue.main.async {
-                let title = "부모님께 전화안한지 10일!"
-                let message = "오늘,안부의 알람입니다."
+                let title = "아버지에게 안부 전화드려보세요!"
+                let message = "오늘의 토픽 주제로 이야기해봐요!"
 
                 if settings.authorizationStatus == .authorized {
                     let content = UNMutableNotificationContent()
@@ -301,12 +299,16 @@ extension DadInitViewController {
                         }
                     } else {
                         let notificationAlert = UIAlertController(title: "알람을 설정하지 않으셨나요?", message: "알람은 설정창에서 바꿀 수 있어요! ", preferredStyle: .alert)
-                        notificationAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in }))
+                        notificationAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
+                            self.dismiss(animated: true)
+                        }))
                         self.present(notificationAlert, animated: true)
                     }
 
                     let notificationAlert = UIAlertController(title: "알람 설정완료!", message: "알람은 설정창에서 바꿀 수 있어요! ", preferredStyle: .alert)
-                    notificationAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in }))
+                    notificationAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
+                        self.dismiss(animated: true)
+                    }))
                     self.present(notificationAlert, animated: true)
 
                     // notification 허용하지 않을 경우
@@ -321,7 +323,9 @@ extension DadInitViewController {
                         }
                     }
                     alertController.addAction(goToSettings)
-                    alertController.addAction(UIAlertAction(title: "취소", style: .default, handler: { (_) in }))
+                    alertController.addAction(UIAlertAction(title: "취소", style: .default, handler: { (_) in
+                        self.dismiss(animated: true)
+                    }))
                     self.present(alertController, animated: true)
                 }
             }

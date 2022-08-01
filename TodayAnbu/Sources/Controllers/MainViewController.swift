@@ -192,7 +192,7 @@ class MainViewController: UIViewController {
 
             self.goCallApp(url: "tel://" + (UserDefaults.standard.string(forKey: "momPhoneNumber") ?? ""))
         }
-        
+
         let dadCall = UIAlertAction(title: "아빠한테 전화하기", style: .default) { _ in
             CallManager.shared.data.isDadCall.toggle()
             self.goCallApp(url: "tel://" + (UserDefaults.standard.string(forKey: "dadPhoneNumber") ?? ""))
@@ -251,14 +251,17 @@ class MainViewController: UIViewController {
                 self?.momCheckCount = data.momCheckCount
 //                print(self?.momCheckCount as Any)
             }
+
             .store(in: &cancelBag)
 
         self.navigationItem.setHidesBackButton(true, animated: true)
 //        NotificationCenter.default.addObserver(self, selector: #selector(getNotificationFromConfirmView), name: NSNotification.Name("ConfirmView"), object: nil)
         observer = NotificationCenter.default.addObserver(forName: UIApplication.willEnterForegroundNotification, object: nil, queue: .main) { [unowned self] _ in
             if self.isCalling {
-            self.present(confirmView, animated: true) {
-                self.confirmView.configureUI()
+            let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let nextViewController = storyBoard.instantiateViewController(withIdentifier: "CallCheck") as? CallCheckViewController
+
+            self.present(nextViewController!, animated: true) {
                 self.isCalling.toggle()
                 }
             }

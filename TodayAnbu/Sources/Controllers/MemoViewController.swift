@@ -14,12 +14,12 @@ class MemoViewController: UIViewController {
     enum Section {
         case main
     }
-    
+
     var dataSource: UICollectionViewDiffableDataSource<Section, Item>!
     var list: [MemoData] = MemoData.list
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         // MARK: - presentation
         dataSource = UICollectionViewDiffableDataSource<Section, Item>(collectionView: collectionView, cellProvider: { collectionView, indexPath, item in
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MemoCell", for: indexPath) as? MemoCell else {
@@ -35,7 +35,7 @@ class MemoViewController: UIViewController {
         snapshot.appendSections([.main])
         snapshot.appendItems(list, toSection: .main)
         dataSource.apply(snapshot)
-        
+
         // MARK: - layer
         collectionView.collectionViewLayout = layout()
     }
