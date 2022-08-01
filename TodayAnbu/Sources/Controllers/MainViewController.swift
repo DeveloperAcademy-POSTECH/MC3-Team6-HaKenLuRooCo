@@ -72,7 +72,7 @@ class MainViewController: UIViewController {
                 configureTranslate()
                 configureRender()
             default:
-                return
+                print("")
             }
         }
     }
@@ -249,8 +249,8 @@ class MainViewController: UIViewController {
 
         CallManager.shared.$data
             .sink { [weak self] data in
-                print("main입니당", data)
                 self?.momCheckCount = data.momCheckCount
+                self?.dadCheckCount = data.dadCheckCount
             }.store(in: &cancelBag)
 
         self.navigationItem.setHidesBackButton(true, animated: true)
@@ -265,13 +265,6 @@ class MainViewController: UIViewController {
         }
         self.navigationController?.setNavigationBarHidden(true, animated: true)
         self.navigationController?.setToolbarHidden(true, animated: true)
-//        sceneObserver = NotificationCenter.default.addObserver(forName: UIScene., object: nil, queue: .main) { [unowned self] _ in
-//            CallManager.shared.data.$momCheckCount.sink { data in
-//                print("------")
-//                print(data)
-//                print("------")
-//            }
-//        }
     }
 
     deinit {
@@ -430,7 +423,7 @@ class MainViewController: UIViewController {
         ])
     }
 
-    var modalClass = ConfirmViewController()
+//    var modalClass = ConfirmViewController()
 }
 
     // MARK: - extension

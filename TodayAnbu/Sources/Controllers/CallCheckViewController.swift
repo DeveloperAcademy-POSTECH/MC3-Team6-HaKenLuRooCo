@@ -23,9 +23,10 @@ class CallCheckViewController: UIViewController {
         configureTopBox()
         configureTextView()
         configureButtons()
-        CallManager.shared.$data.sink {
-            print($0)
-        }
+//        CallManager.shared.$data.sink {data in
+//            var currentData = CallManager.shared.data
+//
+//        }
     }
 }
 
@@ -63,8 +64,8 @@ extension CallCheckViewController {
         if CallManager.shared.data.isDadCall {
             var currentData = CallManager.shared.data
             currentData.dadCheckCount += 1
-            currentData.isMomCall.toggle()
-            CallManager.shared.data.isDadCall.toggle()
+            currentData.isDadCall.toggle()
+            CallManager.shared.data = currentData
         }
     }
 
