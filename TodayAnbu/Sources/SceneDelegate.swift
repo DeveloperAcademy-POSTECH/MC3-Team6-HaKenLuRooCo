@@ -20,10 +20,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         /*
         guard let scene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: scene)
-        window?.rootViewController = UINavigationController(rootViewController: MemoDetailViewController())
+        window?.rootViewController = UINavigationController(rootViewController: TabBarController())
         window?.makeKeyAndVisible()
-        */
-         // MARK: - 또 다른 스토리보드로 접근하고 싶을 경우
+         */
+        // MARK: - 또 다른 스토리보드로 접근하고 싶을 경우
         /*
         let storyboard = UIStoryboard(name: "MemoStoryboard", bundle: nil)
         if let controller = storyboard.instantiateViewController(withIdentifier: "MemoViewController") as? MemoViewController {

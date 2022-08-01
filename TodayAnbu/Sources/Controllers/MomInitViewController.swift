@@ -60,16 +60,19 @@ class MomInitViewController: UIViewController, UITextFieldDelegate {
         }
     }
 
-    // 데이트 피커를 움직였을 때 나타나는 변화
+    // MARK: 데이트 피커를 움직였을 때 나타나는 변화
     lazy private var timeLabel = timePicker.date {
         didSet {
-            notificationButtonList[buttonIndex].notificationTime = timeLabel
-
-            if timeLabel.toString().isEmpty {
-                addNotificationTimeLabel(indexPath: buttonIndex, time: timeLabel.toString())
-            } else {
-                removeTimeLabel()
-                addNotificationTimeLabel(indexPath: buttonIndex, time: timeLabel.toString())
+            print("현재 선택된 버튼의 개수는 다음과 같습니다 \(notificationButtonList.filter({$0.isSelected == true}).count)") // test
+            if notificationButtonList.filter({$0.isSelected == true}).isEmpty == false {
+                print("선택된 버튼이 있네요. 다음과 같습니다 button Index \(buttonIndex)") // test
+                notificationButtonList[buttonIndex].notificationTime = timeLabel
+                if timeLabel.toString().isEmpty {
+                    addNotificationTimeLabel(indexPath: buttonIndex, time: timeLabel.toString())
+                } else if notificationButtonList[buttonIndex].buttonStack.subviews.count == 2 {
+                    removeTimeLabel()
+                    addNotificationTimeLabel(indexPath: buttonIndex, time: timeLabel.toString())
+                }
             }
         }
     }
@@ -104,7 +107,7 @@ class MomInitViewController: UIViewController, UITextFieldDelegate {
                 print(error ?? "No error")
             }
         }
-//        self.navigationItem.setHidesBackButton(true, animated: true)
+        //        self.navigationItem.setHidesBackButton(true, animated: true)
     }
 
     @IBAction func startButttonAction(_ sender: Any) {
@@ -158,7 +161,7 @@ extension MomInitViewController {
         notificationButtonList[buttonIndex].buttonStack.arrangedSubviews[1].removeFromSuperview()
     }
 
-    // 데이트 피커가 설정한 시간에 따라 타임 레이블을 추가하는 함수
+    // MARK: 데이트 피커가 설정한 시간에 따라 타임 레이블을 추가하는 함수
     private func addNotificationTimeLabel(indexPath: Int, time: String) {
         let timeLabel: UILabel = {
             let label = UILabel()
@@ -167,12 +170,11 @@ extension MomInitViewController {
             label.textColor = .white
             return label
         }()
-
         if notificationButtonList[indexPath].buttonStack.subviews.count != 2 {
             notificationButtonList[indexPath].buttonStack.addArrangedSubview(timeLabel)
             notificationButtonList[indexPath].buttonStack.directionalLayoutMargins =  NSDirectionalEdgeInsets(top: 10, leading: 5, bottom: 10, trailing: 5)
 
-            // 알람 세팅된 버튼을 다시 클릭했을 경우
+            // MARK: 알람 세팅된 버튼을 다시 클릭했을 경우
         } else if notificationButtonList[indexPath].isSelected && notificationButtonList[indexPath].buttonStack.subviews.count == 2 {
             notificationButtonList[indexPath].buttonStack.subviews[1].removeFromSuperview()
             notificationButtonList[indexPath].buttonStack.directionalLayoutMargins =  NSDirectionalEdgeInsets(top: 15, leading: 15, bottom: 15, trailing: 15)
