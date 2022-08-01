@@ -80,7 +80,6 @@ class DadInitViewController: UIViewController, UITextFieldDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        UserDefaults.standard.set("", forKey: "dadPhoneNumber")
         dadNumberTextfield.delegate = self
         dadNumberTextfield.setBottomBorder(color: UIColor.systemGray4)
         dadNumberTextfield.addDoneButtonOnKeyboard()
@@ -109,9 +108,8 @@ class DadInitViewController: UIViewController, UITextFieldDelegate {
     }
 
     @IBAction func startButttonAction(_ sender: Any) {
-        UserDefaults.standard.set(true, forKey: "isFisrtLogin") // 최초 로그인인지 확인
         if dadNumberTextfield.hasValidPhoneNumber {
-            UserDefaults.standard.set(dadNumberTextfield.text!, forKey: "momPhoneNumber")
+            UserDefaults.standard.set(dadNumberTextfield.text!, forKey: "dadPhoneNumber")
         }
     }
     @IBAction func timePickerAction(_ sender: UIDatePicker!) {
