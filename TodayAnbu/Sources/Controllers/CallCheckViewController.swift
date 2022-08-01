@@ -23,6 +23,10 @@ class CallCheckViewController: UIViewController {
         configureTopBox()
         configureTextView()
         configureButtons()
+//        CallManager.shared.$data.sink {data in
+//            var currentData = CallManager.shared.data
+//
+//        }
     }
 }
 
@@ -51,6 +55,18 @@ extension CallCheckViewController {
     @objc func onTapDoneButton() {
         appendMemos()
         dismiss(animated: true)
+        if CallManager.shared.data.isMomCall {
+            var currentData = CallManager.shared.data
+            currentData.momCheckCount += 1
+            currentData.isMomCall.toggle()
+            CallManager.shared.data = currentData
+        }
+        if CallManager.shared.data.isDadCall {
+            var currentData = CallManager.shared.data
+            currentData.dadCheckCount += 1
+            currentData.isDadCall.toggle()
+            CallManager.shared.data = currentData
+        }
     }
 
     @objc func onTapFailButton() {
