@@ -24,18 +24,12 @@ class MainViewController: UIViewController {
     var isDadCall = false
     var momPhoneNumber: String = "" {
         didSet {
-            configureUI()
-            configureAddSubView()
-            configureTranslate()
-            configureRender()
+            configureAll()
         }
     }
     var dadPhoneNumber: String = "" {
         didSet {
-            configureUI()
-            configureAddSubView()
-            configureTranslate()
-            configureRender()
+            configureAll()
         }
     }
 
@@ -44,25 +38,14 @@ class MainViewController: UIViewController {
             switch momCheckCount {
             case 1:
                 momGauge1 = momGauge(momCheckCount: 1, gaugeColor: .momGaugeLight)
-                configureUI()
-                configureAddSubView()
-                configureTranslate()
-                configureRender()
             case 2:
                 momGauge2 = momGauge(momCheckCount: 2, gaugeColor: .momGaugeLight)
-                configureUI()
-                configureAddSubView()
-                configureTranslate()
-                configureRender()
             case 3:
                 momGauge3 = momGauge(momCheckCount: 3, gaugeColor: .momGaugeLight)
-                configureUI()
-                configureAddSubView()
-                configureTranslate()
-                configureRender()
             default:
                 print("")
             }
+            configureAll()
         }
     }
     lazy var dadCheckCount: Int = 0 {
@@ -70,25 +53,14 @@ class MainViewController: UIViewController {
             switch dadCheckCount {
             case 1:
                 dadGauge1 = dadGauge(dadCheckCount: 1, gaugeColor: .dadGaugeLight)
-                configureUI()
-                configureAddSubView()
-                configureTranslate()
-                configureRender()
             case 2:
                 dadGauge2 = dadGauge(dadCheckCount: 2, gaugeColor: .dadGaugeLight)
-                configureUI()
-                configureAddSubView()
-                configureTranslate()
-                configureRender()
             case 3:
                 dadGauge3 = dadGauge(dadCheckCount: 3, gaugeColor: .dadGaugeLight)
-                configureUI()
-                configureAddSubView()
-                configureTranslate()
-                configureRender()
             default:
                 print("")
             }
+            configureAll()
         }
     }
 
@@ -256,10 +228,7 @@ class MainViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureUI()
-        configureAddSubView()
-        configureTranslate()
-        configureRender()
+        configureAll()
 
         CallManager.shared.$data
             .sink { [weak self] data in
@@ -286,6 +255,12 @@ class MainViewController: UIViewController {
         }
     }
 
+    private func configureAll() {
+        configureUI()
+        configureAddSubView()
+        configureTranslate()
+        configureRender()
+    }
     // MARK: - Configures
     private func configureUI() {
         view.backgroundColor = .systemBackground
@@ -509,9 +484,7 @@ extension MainViewController {
     }
 
     @objc private func setButtonAction(_: UIButton!) {
-        self.present(settingView, animated: true) {
-            self.settingView.configureViewComponent()
-        }
+        navigationController?.pushViewController(SettingViewController(), animated: true)
     }
 
     @objc private func segmentedValueChanged(_ segmentedControl: UISegmentedControl) {

@@ -16,6 +16,7 @@ class SettingViewController: UIViewController {
 
     private let settingTopArea: UIView = {
         let area = UIView()
+        area.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
         area.layer.cornerRadius = 20
         area.backgroundColor = .mainIndigo
         return area

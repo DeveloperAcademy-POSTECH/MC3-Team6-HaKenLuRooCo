@@ -64,13 +64,15 @@ class DadInitViewController: UIViewController, UITextFieldDelegate {
     // 데이트 피커를 움직였을 때 나타나는 변화
     lazy private var timeLabel = timePicker.date {
         didSet {
-            notificationButtonList[buttonIndex].notificationTime = timeLabel
+            if notificationButtonList.filter({$0.isSelected == true}).isEmpty == false {
+                notificationButtonList[buttonIndex].notificationTime = timeLabel
 
-            if timeLabel.toString().isEmpty {
-                addNotificationTimeLabel(indexPath: buttonIndex, time: timeLabel.toString())
-            } else {
-                removeTimeLabel()
-                addNotificationTimeLabel(indexPath: buttonIndex, time: timeLabel.toString())
+                if timeLabel.toString().isEmpty {
+                    addNotificationTimeLabel(indexPath: buttonIndex, time: timeLabel.toString())
+                } else {
+                    removeTimeLabel()
+                    addNotificationTimeLabel(indexPath: buttonIndex, time: timeLabel.toString())
+                }
             }
         }
     }
@@ -80,6 +82,8 @@ class DadInitViewController: UIViewController, UITextFieldDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        navigationController?.setNavigationBarHidden(false, animated: false)
         dadNumberTextfield.delegate = self
         dadNumberTextfield.addRightImage(image: UIImage(systemName: "xmark") ?? UIImage())
         dadNumberTextfield.setRightImageColor(color: UIColor.systemGray4)
@@ -106,7 +110,12 @@ class DadInitViewController: UIViewController, UITextFieldDelegate {
                 print(error ?? "No error")
             }
         }
-        self.navigationItem.setHidesBackButton(true, animated: true)
+        self.navigationItem.setHidesBackButton(false, animated: true)
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: false)
     }
 
     @IBAction func startButttonAction(_ sender: Any) {
