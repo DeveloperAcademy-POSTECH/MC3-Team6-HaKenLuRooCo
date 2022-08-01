@@ -32,7 +32,6 @@ class OnboardingMainViewController: UIViewController {
         momSettingButton.setImage(UIImage(systemName: "circle"), for: .normal)
 
         dadSettingButton.setImage(UIImage(systemName: "circle"), for: .normal)
-
     }
 
     // 어머니와 연락 설정하기 버튼 액션 함수
@@ -46,7 +45,6 @@ class OnboardingMainViewController: UIViewController {
         } else {
             momSettingButton.backgroundColor = UIColor.systemGray5
             momSettingButton.setImage(UIImage(systemName: "circle"), for: .normal)
-
         }
     }
 
@@ -68,7 +66,6 @@ class OnboardingMainViewController: UIViewController {
 
     @IBAction func nextButtonAction(_ sender: Any) {
         // TODO: Action 추가해야함 추후 수정할 예정
-
     }
 
 }
