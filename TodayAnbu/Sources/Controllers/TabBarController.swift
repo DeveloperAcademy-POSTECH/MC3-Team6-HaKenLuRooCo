@@ -12,8 +12,8 @@ class TabBarController: UITabBarController {
         view.backgroundColor = .white
 
         let firstTab = UINavigationController(rootViewController: MainViewController())
+
         let secondTab = UIStoryboard(name: "MemoStoryboard", bundle: nil).instantiateViewController(withIdentifier: "MemoViewController")
-        self.navigationController?.pushViewController(secondTab, animated: true)
 
         firstTab.tabBarItem.image = UIImage(systemName: "house")
         firstTab.tabBarItem.selectedImage = UIImage(systemName: "house.fill")
