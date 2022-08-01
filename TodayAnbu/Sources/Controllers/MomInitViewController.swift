@@ -105,7 +105,7 @@ class MomInitViewController: UIViewController, UITextFieldDelegate {
                 print(error ?? "No error")
             }
         }
-//        self.navigationItem.setHidesBackButton(true, animated: true)
+        //        self.navigationItem.setHidesBackButton(true, animated: true)
     }
 
     @IBAction func startButttonAction(_ sender: Any) {
@@ -332,38 +332,49 @@ extension MomInitViewController {
 }
 
 extension MomInitViewController {
-    // 텍스트 필드 validation check
+
+    // Textfield Delegate
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        if textField.hasValidPhoneNumber {
-            textField.setBottomBorder(color: UIColor.systemBlue)
-        } else {
-            textField.setBottomBorder(color: UIColor.red)
+
+        guard let text = textField.text else {
+            return false
+        }
+        let characterSet = CharacterSet(charactersIn: string)
+        if CharacterSet.decimalDigits.isSuperset(of: characterSet) == false {
+            return false
         }
 
-        if textField.text!.count < 12 {
-            if textField == momNumberTextfield {
-                momDayVstack.isHidden = true
-            }
+        // ###-####-#### 형태로 Text를 포맷: 숫자만 입력할 수 있음
+        let formatter = DefaultTextInputFormatter(textPattern: "###-####-####")
+        let result = formatter.formatInput(currentText: text, range: range, replacementString: string)
+        textField.text = result.formattedText
+        let position = textField.position(from: textField.beginningOfDocument, offset: result.caretBeginOffset)!
+        textField.selectedTextRange = textField.textRange(from: position, to: position)
+
+        // Validation Check
+        if textField.hasValidPhoneNumber {
+            textField.setBottomBorder(color: UIColor.systemBlue)
+            momDayVstack.isHidden = false
+        } else {
+            textField.setBottomBorder(color: UIColor.red)
+            momDayVstack.isHidden = true
         }
-        let validation = textField.text!.count + string.count - range.length
-        return !(validation > 11)
+
+        return false
     }
 
     // textfield keyboard가 내려가면 호출
     func textFieldDidEndEditing(_ textField: UITextField) {
         if textField == momNumberTextfield {
-            if momNumberTextfield.hasValidPhoneNumber && momNumberTextfield.text!.count == 11 {
+            if momNumberTextfield.hasValidPhoneNumber && momNumberTextfield.text!.count == 13 {
                 textField.setBottomBorder(color: UIColor.systemBlue)
                 startButton.isEnabled = true
                 startButton.backgroundColor = .mainIndigo
-                momDayVstack.isHidden = false
             } else {
                 print("momNumber Error")
                 textField.setBottomBorder(color: UIColor.red)
                 startButton.isEnabled = false
                 startButton.backgroundColor = UIColor.systemGray4
-                momDayVstack.isHidden = true
-
             }
         }
     }
