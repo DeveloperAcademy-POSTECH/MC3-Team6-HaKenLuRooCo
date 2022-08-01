@@ -59,14 +59,99 @@ class SettingViewController: UIViewController {
             tableView.rightAnchor.constraint(equalTo: view.rightAnchor)
         ])
     }
+
     @objc func changedSwitch(_ sender: UISwitch) {
         print(sender.isOn)
         if !sender.isOn {
             removeLocalNotifications()
-        }
-//        let state = switchOnAndOff.isOn ? "On" : "Off"
-//        print(state)
+            let notificationAlert = UIAlertController(title: "알람 비활성화", message: "원래 설정한 알람을 중단할게요! ", preferredStyle: .alert)
+            notificationAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
+            }))
+            self.present(notificationAlert, animated: true)
 
+        } else {
+            let notificationCenter = UNUserNotificationCenter.current()
+            let userDefaultsData = UserDefaults.standard
+
+            let momDateList = userDefaultsData.object(forKey: "Mom-FirstSetting-dateList") as? [Date] ?? [Date()]
+            let momDayList = userDefaultsData.object(forKey: "Mom-FirstSetting-dayList") as? [Int] ?? [0]
+
+            let dadDateList = userDefaultsData.object(forKey: "Dad-FirstSetting-dateList") as? [Date] ?? [Date()]
+            let dadDayList = userDefaultsData.object(forKey: "Dad-FirstSetting-dayList") as? [Int] ?? [0]
+
+            let dateList: [Date] = momDateList + dadDateList
+            let dayList: [Int] = momDayList + dadDayList
+
+            notificationCenter.getNotificationSettings { settings in
+                DispatchQueue.main.async {
+                    let title = "어머니에게 안부 전화드려보세요!"
+                    let message = "오늘의 토픽 주제로 이야기해봐요!"
+
+                    if settings.authorizationStatus == .authorized {
+                        let content = UNMutableNotificationContent()
+                        content.title = title
+                        content.body = message
+
+                        if dayList.isEmpty == false {
+                            var requestNumber = 0
+                            for index in 0...dayList.count-1 {
+                                var dateComponent = Calendar.autoupdatingCurrent.dateComponents([.hour, .minute], from: dateList[index])
+
+                                let weekDay: Int = {
+                                    var weekDay = dayList[index] + 2
+                                    if weekDay == 8 {
+                                        weekDay = 1
+                                    }
+                                    return weekDay
+                                }()
+
+                                dateComponent.weekday = weekDay
+
+                                let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponent, repeats: true)
+                                let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+                                notificationCenter.add(request) { error in
+                                    if error != nil {
+                                        print("Error " + error.debugDescription)
+                                        return
+                                    }
+                                }
+                                requestNumber += 1
+
+                                print("RE: request에 요청된 날짜 정보는 다음과 같습니다. \(dateComponent)") // Test
+                                print("RE: notification center에 요청된 정보는 다음과 같습니다 \(request)") // Test
+
+                                print("총 전송된 request의 개수는 다음과 같습니다. \(requestNumber)")
+                            }
+                        } else {
+                            let notificationAlert = UIAlertController(title: "알람을 설정하지 않으셨나요?", message: "알람은 설정창에서 바꿀 수 있어요! ", preferredStyle: .alert)
+                            notificationAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
+                            }))
+                            self.present(notificationAlert, animated: true)
+                        }
+
+                        let notificationAlert = UIAlertController(title: "알람 재활성화", message: "원래 설정했던 대로 다시 알람을 드릴게요! ", preferredStyle: .alert)
+                        notificationAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
+                        }))
+                        self.present(notificationAlert, animated: true)
+
+                    } else {
+                        let alertController = UIAlertController(title: "알림을 설정하시겠어요?", message: "설정에서 알람 허용을 해주셔야해요!", preferredStyle: .alert)
+                        let goToSettings = UIAlertAction(title: "설정", style: .default) { _ in
+                            guard let settingURL = URL(string: UIApplication.openSettingsURLString) else {
+                                return
+                            }
+                            if UIApplication.shared.canOpenURL(settingURL) {
+                                UIApplication.shared.open(settingURL) { (_) in}
+                            }
+                        }
+                        alertController.addAction(goToSettings)
+                        alertController.addAction(UIAlertAction(title: "취소", style: .default, handler: { (_) in
+                        }))
+                        self.present(alertController, animated: true)
+                    }
+                }
+            }
+        }
     }
 
     func removeLocalNotifications() {
@@ -132,13 +217,6 @@ extension SettingViewController: UITableViewDataSource {
 }
 
 extension SettingViewController: UITableViewDelegate {
-//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//        let header = SettingHeaderView()
-//        return header
-//    }
-//    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-//        return 300
-//    }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         print("지금 \(indexPath.row) 선택")

@@ -532,7 +532,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 5N6FVFS939;
+				DEVELOPMENT_TEAM = YYP248S73Y;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TodayAnbu/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -564,7 +564,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 5N6FVFS939;
+				DEVELOPMENT_TEAM = YYP248S73Y;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TodayAnbu/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
