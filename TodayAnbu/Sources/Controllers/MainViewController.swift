@@ -60,6 +60,7 @@ class MainViewController: UIViewController {
     private let topArea: UIView = {
         let area = UIView()
         area.layer.cornerRadius = 20
+        area.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
         area.backgroundColor = .mainIndigo
         return area
     }()
@@ -220,6 +221,8 @@ class MainViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(UserDefaults.standard.object(forKey: "momPhoneNumber"))
+        print(UserDefaults.standard.object(forKey: "dadPhoneNumber"))
         configureUI()
         configureAddSubView()
         configureTranslate()
