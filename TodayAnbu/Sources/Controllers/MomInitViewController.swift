@@ -63,9 +63,9 @@ class MomInitViewController: UIViewController, UITextFieldDelegate {
     // MARK: 데이트 피커를 움직였을 때 나타나는 변화
     lazy private var timeLabel = timePicker.date {
         didSet {
-            print("현재 선택된 버튼의 개수는 다음과 같습니다 \(notificationButtonList.filter({$0.isSelected == true}).count)")
+            print("현재 선택된 버튼의 개수는 다음과 같습니다 \(notificationButtonList.filter({$0.isSelected == true}).count)") // test
             if notificationButtonList.filter({$0.isSelected == true}).isEmpty == false {
-                print("선택된 버튼이 있네요. 다음과 같습니다 button Index \(buttonIndex)")
+                print("선택된 버튼이 있네요. 다음과 같습니다 button Index \(buttonIndex)") // test
                 notificationButtonList[buttonIndex].notificationTime = timeLabel
                 if timeLabel.toString().isEmpty {
                     addNotificationTimeLabel(indexPath: buttonIndex, time: timeLabel.toString())
@@ -161,7 +161,7 @@ extension MomInitViewController {
         notificationButtonList[buttonIndex].buttonStack.arrangedSubviews[1].removeFromSuperview()
     }
 
-    //MARK: 데이트 피커가 설정한 시간에 따라 타임 레이블을 추가하는 함수
+    // MARK: 데이트 피커가 설정한 시간에 따라 타임 레이블을 추가하는 함수
     private func addNotificationTimeLabel(indexPath: Int, time: String) {
         let timeLabel: UILabel = {
             let label = UILabel()
@@ -170,13 +170,11 @@ extension MomInitViewController {
             label.textColor = .white
             return label
         }()
-
-        //MARK: 데이트 피커가 설정한 시간에 따라 타임 레이블을 추가하는 함수
         if notificationButtonList[indexPath].buttonStack.subviews.count != 2 {
             notificationButtonList[indexPath].buttonStack.addArrangedSubview(timeLabel)
             notificationButtonList[indexPath].buttonStack.directionalLayoutMargins =  NSDirectionalEdgeInsets(top: 10, leading: 5, bottom: 10, trailing: 5)
 
-            //MARK: 알람 세팅된 버튼을 다시 클릭했을 경우
+            // MARK: 알람 세팅된 버튼을 다시 클릭했을 경우
         } else if notificationButtonList[indexPath].isSelected && notificationButtonList[indexPath].buttonStack.subviews.count == 2 {
             notificationButtonList[indexPath].buttonStack.subviews[1].removeFromSuperview()
             notificationButtonList[indexPath].buttonStack.directionalLayoutMargins =  NSDirectionalEdgeInsets(top: 15, leading: 15, bottom: 15, trailing: 15)
