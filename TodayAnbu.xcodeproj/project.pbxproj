@@ -37,7 +37,6 @@
 		A9B32A9228868F7100530B51 /* NotificationModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B32A9128868F7100530B51 /* NotificationModalViewController.swift */; };
 		A9B32A94288691EA00530B51 /* NotificationTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B32A93288691EA00530B51 /* NotificationTime.swift */; };
 		A9CF7E652892D22700189E8B /* CallModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CF7E642892D22700189E8B /* CallModelData.swift */; };
-		B52841CB28922D7E004A2204 /* CallCheck.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B52841CA28922D7E004A2204 /* CallCheck.storyboard */; };
 		B52841D128926DA7004A2204 /* CallCheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52841D028926DA7004A2204 /* CallCheckViewController.swift */; };
 		B55143EC2896785100D9E4D4 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55143EB2896785100D9E4D4 /* Storage.swift */; };
 /* End PBXBuildFile section */
@@ -472,7 +471,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = YYP248S73Y;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TodayAnbu/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -503,7 +502,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = YYP248S73Y;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TodayAnbu/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
