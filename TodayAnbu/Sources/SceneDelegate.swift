@@ -15,6 +15,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let _ = (scene as? UIWindowScene) else { return }
+        setRootViewController(scene)
         // MARK: 개발 생산성을 위해 엔트리 포인트를 고정하고자 하는 경우 아래의 코드에서 rootViewController를 지정하여 사용
         /*
         guard let scene = (scene as? UIWindowScene) else { return }
@@ -58,5 +59,26 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Called as the scene transitions from the foreground to the background.
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
+    }
+}
+
+extension SceneDelegate {
+    private func setRootViewController(_ scene: UIScene) {
+        if Storage.goToOnborading {
+            setRootViewController(scene, name: "Main", identifier: "RootView")
+        } else {
+            setRootViewController(scene, name: "Main", identifier: "TabBarView")
+        }
+    }
+
+    private func setRootViewController(_ scene: UIScene, name: String, identifier: String) {
+        if let windowScene = scene as? UIWindowScene {
+            let window = UIWindow(windowScene: windowScene)
+            let storyboard = UIStoryboard(name: name, bundle: nil)
+            let viewController = storyboard.instantiateViewController(withIdentifier: identifier)
+            window.rootViewController = viewController
+            self.window = window
+            window.makeKeyAndVisible()
+        }
     }
 }

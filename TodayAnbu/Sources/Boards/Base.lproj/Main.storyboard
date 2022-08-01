@@ -13,7 +13,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="TnR-en-IDc">
             <objects>
-                <viewController storyboardIdentifier="TabBarView" id="h9C-xi-h1l" customClass="TabBarController" customModule="TodayAnbu" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TabBarView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="h9C-xi-h1l" customClass="TabBarController" customModule="TodayAnbu" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wuN-Gx-mkO">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -29,7 +29,7 @@
         <!--Navigation Controller-->
         <scene sceneID="tFX-Jk-wCo">
             <objects>
-                <navigationController navigationBarHidden="YES" id="Cma-4u-btn" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="RootView" useStoryboardIdentifierAsRestorationIdentifier="YES" navigationBarHidden="YES" id="Cma-4u-btn" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="PmX-JR-Rgg">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -41,10 +41,10 @@
             </objects>
             <point key="canvasLocation" x="-717" y="-206"/>
         </scene>
-        <!--View Controller-->
+        <!--Onboarding Page View Controller-->
         <scene sceneID="utk-aL-twr">
             <objects>
-                <viewController id="H6m-4V-Raq" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="OnboardingPageViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="H6m-4V-Raq" customClass="OnboardingPageViewController" customModule="TodayAnbu" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OvF-j1-dXT">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -612,7 +612,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="tef-Cz-cHx"/>
+        <segue reference="7fl-9i-khf"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
     <resources>
