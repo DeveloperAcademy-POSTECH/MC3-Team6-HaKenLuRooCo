@@ -30,7 +30,6 @@
 		7B2E9C6E288429B8006BE5C8 /* SettingPersonalDataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2E9C6D288429B8006BE5C8 /* SettingPersonalDataCell.swift */; };
 		7B2E9C702884397B006BE5C8 /* SettingHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2E9C6F2884397B006BE5C8 /* SettingHeaderView.swift */; };
 		7B2E9C722884FCF4006BE5C8 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2E9C712884FCF4006BE5C8 /* MainViewController.swift */; };
-		7B9B569A2887EE3700FF3DD1 /* ConfirmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9B56992887EE3700FF3DD1 /* ConfirmViewController.swift */; };
 		7BD2303E288E8B18002BB9F5 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD2303D288E8B18002BB9F5 /* UIColor+Extension.swift */; };
 		A92FC8C7287FF3C000962CA0 /* OnboardingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92FC8C6287FF3C000962CA0 /* OnboardingPageViewController.swift */; };
 		A9332C77288E908F001A1B76 /* DateFormatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9332C76288E908F001A1B76 /* DateFormatting.swift */; };
@@ -70,7 +69,6 @@
 		7B2E9C6D288429B8006BE5C8 /* SettingPersonalDataCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingPersonalDataCell.swift; sourceTree = "<group>"; };
 		7B2E9C6F2884397B006BE5C8 /* SettingHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingHeaderView.swift; sourceTree = "<group>"; };
 		7B2E9C712884FCF4006BE5C8 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		7B9B56992887EE3700FF3DD1 /* ConfirmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmViewController.swift; sourceTree = "<group>"; };
 		7BD2303D288E8B18002BB9F5 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		A92FC8C6287FF3C000962CA0 /* OnboardingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPageViewController.swift; sourceTree = "<group>"; };
 		A9332C76288E908F001A1B76 /* DateFormatting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatting.swift; sourceTree = "<group>"; };
@@ -116,7 +114,6 @@
 				7B2E9C712884FCF4006BE5C8 /* MainViewController.swift */,
 				10D2670F288ED1ED0056339A /* TabBarController.swift */,
 				7B2E9C6B28806FE3006BE5C8 /* SettingViewController.swift */,
-				7B9B56992887EE3700FF3DD1 /* ConfirmViewController.swift */,
 				7B2216792891553100B14C5C /* MemoViewController.swift */,
 				7B22167D2896129A00B14C5C /* MemoDetailViewController.swift */,
 				3ED6D21728936316008F1D93 /* AboutUsViewController.swift */,
@@ -371,7 +368,6 @@
 				7B2E9C6E288429B8006BE5C8 /* SettingPersonalDataCell.swift in Sources */,
 				7B2E9C702884397B006BE5C8 /* SettingHeaderView.swift in Sources */,
 				3E04A7F52891136D0068DBAE /* OnboardingMainViewController.swift in Sources */,
-				7B9B569A2887EE3700FF3DD1 /* ConfirmViewController.swift in Sources */,
 				A9B32A94288691EA00530B51 /* NotificationTime.swift in Sources */,
 				7B22167A2891553100B14C5C /* MemoViewController.swift in Sources */,
 				3E2F655F287FA0E600A27FA9 /* AppDelegate.swift in Sources */,
@@ -536,7 +532,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 5N6FVFS939;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TodayAnbu/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -568,7 +564,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 5N6FVFS939;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TodayAnbu/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

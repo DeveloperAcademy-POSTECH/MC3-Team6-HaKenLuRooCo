@@ -112,7 +112,7 @@ class DadInitViewController: UIViewController, UITextFieldDelegate {
     @IBAction func startButttonAction(_ sender: Any) {
         if dadNumberTextfield.hasValidPhoneNumber {
             dadPhoneNumber = dadNumberTextfield.text!
-            UserDefaults.standard.set(dadNumberTextfield.text!, forKey: "dadPhoneNumber")
+            UserDefaults.standard.set(dadPhoneNumber, forKey: "dadPhoneNumber")
         }
     }
     @IBAction func timePickerAction(_ sender: UIDatePicker!) {
