@@ -125,8 +125,7 @@ class MainViewController: UIViewController {
     private lazy var settingButton: UIButton = {
         let setButton = UIButton()
         setButton.setImage(UIImage(systemName: "gearshape.fill"), for: UIControl.State.normal)
-
-        setButton.backgroundColor = .red
+        setButton.backgroundColor = .mainIndigo
         setButton.tintColor = .white
         setButton.addTarget(self, action: #selector(setButtonAction(_:)), for: .touchUpInside)
         return setButton
@@ -344,14 +343,14 @@ class MainViewController: UIViewController {
         ])
         NSLayoutConstraint.activate([
             topTitle.leadingAnchor.constraint(equalTo: topArea.leadingAnchor, constant: 20),
-            topTitle.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: -40)
+            topTitle.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10)
         ])
         NSLayoutConstraint.activate([
             topTitleDays.leadingAnchor.constraint(equalTo: topArea.leadingAnchor, constant: 112),
             topTitleDays.bottomAnchor.constraint(equalTo: topTitle.bottomAnchor)
         ])
         NSLayoutConstraint.activate([
-            settingButton.topAnchor.constraint(equalTo: weeklyAnbuLabel.topAnchor),
+            settingButton.centerYAnchor.constraint(equalTo: topTitle.centerYAnchor),
             settingButton.widthAnchor.constraint(equalToConstant: 40),
             settingButton.trailingAnchor.constraint(equalTo: topArea.trailingAnchor, constant: -20)
         ])
