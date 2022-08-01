@@ -283,12 +283,6 @@ class MainViewController: UIViewController {
         self.navigationController?.setToolbarHidden(true, animated: true)
     }
 
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        print(UserDefaults.standard.object(forKey: "momPhoneNumber"))
-        print(UserDefaults.standard.object(forKey: "dadPhoneNumber"))
-    }
-
     deinit {
         if let observer = observer {
             NotificationCenter.default.removeObserver(observer)
