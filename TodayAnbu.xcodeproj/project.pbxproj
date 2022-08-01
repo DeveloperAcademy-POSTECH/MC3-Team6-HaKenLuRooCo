@@ -25,6 +25,7 @@
 		7B2216762891452D00B14C5C /* MemoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2216752891452D00B14C5C /* MemoData.swift */; };
 		7B2216782891493500B14C5C /* MemoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2216772891493500B14C5C /* MemoCell.swift */; };
 		7B22167A2891553100B14C5C /* MemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2216792891553100B14C5C /* MemoViewController.swift */; };
+		7B22167E2896129A00B14C5C /* MemoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B22167D2896129A00B14C5C /* MemoDetailViewController.swift */; };
 		7B2E9C6C28806FE3006BE5C8 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2E9C6B28806FE3006BE5C8 /* SettingViewController.swift */; };
 		7B2E9C6E288429B8006BE5C8 /* SettingPersonalDataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2E9C6D288429B8006BE5C8 /* SettingPersonalDataCell.swift */; };
 		7B2E9C702884397B006BE5C8 /* SettingHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2E9C6F2884397B006BE5C8 /* SettingHeaderView.swift */; };
@@ -38,6 +39,7 @@
 		A9CF7E652892D22700189E8B /* CallModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CF7E642892D22700189E8B /* CallModelData.swift */; };
 		B52841CB28922D7E004A2204 /* CallCheck.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B52841CA28922D7E004A2204 /* CallCheck.storyboard */; };
 		B52841D128926DA7004A2204 /* CallCheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52841D028926DA7004A2204 /* CallCheckViewController.swift */; };
+		B55143EC2896785100D9E4D4 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55143EB2896785100D9E4D4 /* Storage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +63,7 @@
 		7B2216752891452D00B14C5C /* MemoData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoData.swift; sourceTree = "<group>"; };
 		7B2216772891493500B14C5C /* MemoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoCell.swift; sourceTree = "<group>"; usesTabs = 0; };
 		7B2216792891553100B14C5C /* MemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoViewController.swift; sourceTree = "<group>"; };
+		7B22167D2896129A00B14C5C /* MemoDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoDetailViewController.swift; sourceTree = "<group>"; };
 		7B2E9C6B28806FE3006BE5C8 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		7B2E9C6D288429B8006BE5C8 /* SettingPersonalDataCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingPersonalDataCell.swift; sourceTree = "<group>"; };
 		7B2E9C6F2884397B006BE5C8 /* SettingHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingHeaderView.swift; sourceTree = "<group>"; };
@@ -73,6 +76,7 @@
 		A9B32A93288691EA00530B51 /* NotificationTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTime.swift; sourceTree = "<group>"; };
 		A9CF7E642892D22700189E8B /* CallModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallModelData.swift; sourceTree = "<group>"; };
 		B52841D028926DA7004A2204 /* CallCheckViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallCheckViewController.swift; sourceTree = "<group>"; };
+		B55143EB2896785100D9E4D4 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,16 +104,17 @@
 			isa = PBXGroup;
 			children = (
 				B52841D028926DA7004A2204 /* CallCheckViewController.swift */,
-				7B2216792891553100B14C5C /* MemoViewController.swift */,
-				7B9B56992887EE3700FF3DD1 /* ConfirmViewController.swift */,
+				3E04A7F42891136D0068DBAE /* OnboardingMainViewController.swift */,
+				A92FC8C6287FF3C000962CA0 /* OnboardingPageViewController.swift */,
+				A9B32A9128868F7100530B51 /* NotificationModalViewController.swift */,
 				3EC0D9CA28801E9F00A98E73 /* MomInitViewController.swift */,
 				3ED6D209289280B8008F1D93 /* DadInitViewController.swift */,
 				7B2E9C712884FCF4006BE5C8 /* MainViewController.swift */,
-				7B2E9C6B28806FE3006BE5C8 /* SettingViewController.swift */,
-				A92FC8C6287FF3C000962CA0 /* OnboardingPageViewController.swift */,
-				A9B32A9128868F7100530B51 /* NotificationModalViewController.swift */,
 				10D2670F288ED1ED0056339A /* TabBarController.swift */,
-				3E04A7F42891136D0068DBAE /* OnboardingMainViewController.swift */,
+				7B2E9C6B28806FE3006BE5C8 /* SettingViewController.swift */,
+				7B9B56992887EE3700FF3DD1 /* ConfirmViewController.swift */,
+				7B2216792891553100B14C5C /* MemoViewController.swift */,
+				7B22167D2896129A00B14C5C /* MemoDetailViewController.swift */,
 				3ED6D21728936316008F1D93 /* AboutUsViewController.swift */,
 				3ED6D219289385D7008F1D93 /* AboutUsWebViewController.swift */,
 				103BD8EE287FB38B00A6A0AD /* Utilities */,
@@ -165,6 +170,7 @@
 				A9CF7E642892D22700189E8B /* CallModelData.swift */,
 				7B2216752891452D00B14C5C /* MemoData.swift */,
 				7B2216772891493500B14C5C /* MemoCell.swift */,
+				B55143EB2896785100D9E4D4 /* Storage.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -313,10 +319,12 @@
 				3E2F6561287FA0E600A27FA9 /* SceneDelegate.swift in Sources */,
 				3EC0D9CB28801E9F00A98E73 /* MomInitViewController.swift in Sources */,
 				A9CF7E652892D22700189E8B /* CallModelData.swift in Sources */,
+				7B22167E2896129A00B14C5C /* MemoDetailViewController.swift in Sources */,
 				3EC0D9CB28801E9F00A98E73 /* MomInitViewController.swift in Sources */,
 				3EC0D9CD2880FAD500A98E73 /* UITextfieldExtension.swift in Sources */,
 				A9332C77288E908F001A1B76 /* DateFormatting.swift in Sources */,
 				7B2E9C6C28806FE3006BE5C8 /* SettingViewController.swift in Sources */,
+				B55143EC2896785100D9E4D4 /* Storage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
