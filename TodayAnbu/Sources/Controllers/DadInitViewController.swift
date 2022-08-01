@@ -111,7 +111,8 @@ class DadInitViewController: UIViewController, UITextFieldDelegate {
 
     @IBAction func startButttonAction(_ sender: Any) {
         if dadNumberTextfield.hasValidPhoneNumber {
-            UserDefaults.standard.set(dadNumberTextfield.text!, forKey: "dadPhoneNumber")
+            dadPhoneNumber = dadNumberTextfield.text!
+            UserDefaults.standard.set(dadPhoneNumber, forKey: "dadPhoneNumber")
         }
     }
     @IBAction func timePickerAction(_ sender: UIDatePicker!) {
@@ -257,7 +258,6 @@ extension DadInitViewController {
 }
 
 extension DadInitViewController {
-    // MARK: 알람 설정 완료 함수
     @IBAction func setNotificationTime(_ sender: Any) {
         var dateList: [Date] = []
         var dayList: [Int] = []
@@ -265,9 +265,6 @@ extension DadInitViewController {
             dateList.append(button.notificationTime)
             dayList.append(button.indexPath)
         }
-
-        UserDefaults.standard.set(dateList, forKey: "Dad-FirstSetting-dateList")
-        UserDefaults.standard.set(dayList, forKey: "Dad-FirstSetting-dayList")
 
         notificationCenter.getNotificationSettings { settings in
             DispatchQueue.main.async {
