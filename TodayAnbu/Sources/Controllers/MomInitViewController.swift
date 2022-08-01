@@ -82,7 +82,7 @@ class MomInitViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
 
         momNumberTextfield.delegate = self
-        momNumberTextfield.addRightImage(image: UIImage(systemName: "circle") ?? UIImage())
+        momNumberTextfield.addRightImage(image: UIImage(systemName: "xmark") ?? UIImage())
         momNumberTextfield.setRightImageColor(color: UIColor.systemGray4)
         momNumberTextfield.setBottomBorder(color: UIColor.systemGray4)
         momNumberTextfield.addDoneButtonOnKeyboard()
