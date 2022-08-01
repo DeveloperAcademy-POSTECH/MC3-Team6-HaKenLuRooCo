@@ -6,6 +6,7 @@
 //  Revised by Rookie Since 2022/07/25
 
 import UIKit
+import AnyFormatKit
 
 class MomInitViewController: UIViewController, UITextFieldDelegate {
 
@@ -60,16 +61,19 @@ class MomInitViewController: UIViewController, UITextFieldDelegate {
         }
     }
 
-    // 데이트 피커를 움직였을 때 나타나는 변화
+    // MARK: 데이트 피커를 움직였을 때 나타나는 변화
     lazy private var timeLabel = timePicker.date {
         didSet {
-            notificationButtonList[buttonIndex].notificationTime = timeLabel
-
-            if timeLabel.toString().isEmpty {
-                addNotificationTimeLabel(indexPath: buttonIndex, time: timeLabel.toString())
-            } else {
-                removeTimeLabel()
-                addNotificationTimeLabel(indexPath: buttonIndex, time: timeLabel.toString())
+            print("현재 선택된 버튼의 개수는 다음과 같습니다 \(notificationButtonList.filter({$0.isSelected == true}).count)") // test
+            if notificationButtonList.filter({$0.isSelected == true}).isEmpty == false {
+                print("선택된 버튼이 있네요. 다음과 같습니다 button Index \(buttonIndex)") // test
+                notificationButtonList[buttonIndex].notificationTime = timeLabel
+                if timeLabel.toString().isEmpty {
+                    addNotificationTimeLabel(indexPath: buttonIndex, time: timeLabel.toString())
+                } else if notificationButtonList[buttonIndex].buttonStack.subviews.count == 2 {
+                    removeTimeLabel()
+                    addNotificationTimeLabel(indexPath: buttonIndex, time: timeLabel.toString())
+                }
             }
         }
     }
@@ -81,6 +85,8 @@ class MomInitViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
 
         momNumberTextfield.delegate = self
+        momNumberTextfield.addRightImage(image: UIImage(systemName: "xmark") ?? UIImage())
+        momNumberTextfield.setRightImageColor(color: UIColor.systemGray4)
         momNumberTextfield.setBottomBorder(color: UIColor.systemGray4)
         momNumberTextfield.addDoneButtonOnKeyboard()
 
@@ -104,7 +110,7 @@ class MomInitViewController: UIViewController, UITextFieldDelegate {
                 print(error ?? "No error")
             }
         }
-//        self.navigationItem.setHidesBackButton(true, animated: true)
+        //        self.navigationItem.setHidesBackButton(true, animated: true)
     }
 
     @IBAction func startButttonAction(_ sender: Any) {
@@ -159,7 +165,7 @@ extension MomInitViewController {
         notificationButtonList[buttonIndex].buttonStack.arrangedSubviews[1].removeFromSuperview()
     }
 
-    // 데이트 피커가 설정한 시간에 따라 타임 레이블을 추가하는 함수
+    // MARK: 데이트 피커가 설정한 시간에 따라 타임 레이블을 추가하는 함수
     private func addNotificationTimeLabel(indexPath: Int, time: String) {
         let timeLabel: UILabel = {
             let label = UILabel()
@@ -168,12 +174,11 @@ extension MomInitViewController {
             label.textColor = .white
             return label
         }()
-
         if notificationButtonList[indexPath].buttonStack.subviews.count != 2 {
             notificationButtonList[indexPath].buttonStack.addArrangedSubview(timeLabel)
             notificationButtonList[indexPath].buttonStack.directionalLayoutMargins =  NSDirectionalEdgeInsets(top: 10, leading: 5, bottom: 10, trailing: 5)
 
-            // 알람 세팅된 버튼을 다시 클릭했을 경우
+            // MARK: 알람 세팅된 버튼을 다시 클릭했을 경우
         } else if notificationButtonList[indexPath].isSelected && notificationButtonList[indexPath].buttonStack.subviews.count == 2 {
             notificationButtonList[indexPath].buttonStack.subviews[1].removeFromSuperview()
             notificationButtonList[indexPath].buttonStack.directionalLayoutMargins =  NSDirectionalEdgeInsets(top: 15, leading: 15, bottom: 15, trailing: 15)
@@ -332,38 +337,53 @@ extension MomInitViewController {
 }
 
 extension MomInitViewController {
-    // 텍스트 필드 validation check
+
+    // Textfield Delegate
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        if textField.hasValidPhoneNumber {
-            textField.setBottomBorder(color: UIColor.systemBlue)
-        } else {
-            textField.setBottomBorder(color: UIColor.red)
+
+        guard let text = textField.text else {
+            return false
+        }
+        let characterSet = CharacterSet(charactersIn: string)
+        if CharacterSet.decimalDigits.isSuperset(of: characterSet) == false {
+            return false
         }
 
-        if textField.text!.count < 12 {
-            if textField == momNumberTextfield {
-                momDayVstack.isHidden = true
-            }
+        // ###-####-#### 형태로 Text를 포맷: 숫자만 입력할 수 있음
+        let formatter = DefaultTextInputFormatter(textPattern: "###-####-####")
+        let result = formatter.formatInput(currentText: text, range: range, replacementString: string)
+        textField.text = result.formattedText
+        let position = textField.position(from: textField.beginningOfDocument, offset: result.caretBeginOffset)!
+        textField.selectedTextRange = textField.textRange(from: position, to: position)
+
+        // Validation Check
+        if textField.hasValidPhoneNumber {
+            textField.addRightImage(image: UIImage(systemName: "circle") ?? UIImage())
+            textField.setRightImageColor(color: UIColor.systemMint)
+            textField.setBottomBorder(color: UIColor.systemMint)
+            momDayVstack.isHidden = false
+        } else {
+            textField.addRightImage(image: UIImage(systemName: "xmark") ?? UIImage())
+            textField.setRightImageColor(color: UIColor.systemPink)
+            textField.setBottomBorder(color: UIColor.systemPink)
+            momDayVstack.isHidden = true
         }
-        let validation = textField.text!.count + string.count - range.length
-        return !(validation > 11)
+
+        return false
     }
 
     // textfield keyboard가 내려가면 호출
     func textFieldDidEndEditing(_ textField: UITextField) {
         if textField == momNumberTextfield {
-            if momNumberTextfield.hasValidPhoneNumber && momNumberTextfield.text!.count == 11 {
+            if momNumberTextfield.hasValidPhoneNumber && momNumberTextfield.text!.count == 13 {
                 textField.setBottomBorder(color: UIColor.systemBlue)
                 startButton.isEnabled = true
                 startButton.backgroundColor = .mainIndigo
-                momDayVstack.isHidden = false
             } else {
                 print("momNumber Error")
                 textField.setBottomBorder(color: UIColor.red)
                 startButton.isEnabled = false
                 startButton.backgroundColor = UIColor.systemGray4
-                momDayVstack.isHidden = true
-
             }
         }
     }

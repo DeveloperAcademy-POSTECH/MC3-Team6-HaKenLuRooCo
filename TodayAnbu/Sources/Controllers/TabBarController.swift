@@ -12,13 +12,14 @@ class TabBarController: UITabBarController {
         view.backgroundColor = .white
 
         let firstTab = UINavigationController(rootViewController: MainViewController())
-        let secondTab = UINavigationController(rootViewController: CallCheckViewController())
-        secondTab.navigationBar.isHidden = true
+
+        let secondTab = UIStoryboard(name: "MemoStoryboard", bundle: nil).instantiateViewController(withIdentifier: "MemoViewController")
+
         firstTab.tabBarItem.image = UIImage(systemName: "house")
         firstTab.tabBarItem.selectedImage = UIImage(systemName: "house.fill")
 
-        secondTab.tabBarItem.image = UIImage(systemName: "person.circle")
-        secondTab.tabBarItem.selectedImage = UIImage(systemName: "person.circle.fill")
+        secondTab.tabBarItem.image = UIImage(systemName: "book")
+        secondTab.tabBarItem.selectedImage = UIImage(systemName: "book.fill")
 
         setViewControllers([firstTab, secondTab], animated: true)
         self.navigationItem.setHidesBackButton(true, animated: true)
