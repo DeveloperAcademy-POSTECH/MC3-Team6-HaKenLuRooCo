@@ -30,13 +30,22 @@ class MainViewController: UIViewController {
             switch momCheckCount {
             case 1:
                 momGauge1 = momGauge(momCheckCount: 1, gaugeColor: .momGaugeLight)
+                configureUI()
                 configureAddSubView()
+                configureTranslate()
+                configureRender()
             case 2:
                 momGauge2 = momGauge(momCheckCount: 2, gaugeColor: .momGaugeLight)
+                configureUI()
                 configureAddSubView()
+                configureTranslate()
+                configureRender()
             case 3:
                 momGauge3 = momGauge(momCheckCount: 3, gaugeColor: .momGaugeLight)
+                configureUI()
                 configureAddSubView()
+                configureTranslate()
+                configureRender()
             default:
                 print("이게 되면 switch 안되는거임")
             }
@@ -47,10 +56,22 @@ class MainViewController: UIViewController {
             switch dadCheckCount {
             case 1:
                 dadGauge1 = dadGauge(dadCheckCount: 1, gaugeColor: .dadGaugeLight)
+                configureUI()
+                configureAddSubView()
+                configureTranslate()
+                configureRender()
             case 2:
                 dadGauge2 = dadGauge(dadCheckCount: 2, gaugeColor: .dadGaugeLight)
+                configureUI()
+                configureAddSubView()
+                configureTranslate()
+                configureRender()
             case 3:
                 dadGauge3 = dadGauge(dadCheckCount: 3, gaugeColor: .dadGaugeLight)
+                configureUI()
+                configureAddSubView()
+                configureTranslate()
+                configureRender()
             default:
                 return
             }
@@ -91,8 +112,6 @@ class MainViewController: UIViewController {
         setButton.setImage(UIImage(systemName: "gearshape.fill"), for: UIControl.State.normal)
         setButton.backgroundColor = .mainIndigo
         setButton.tintColor = .white
-        setButton.layer.cornerRadius = 25
-        setButton.frame.size = CGSize(width: 50, height: 50)
         setButton.addTarget(self, action: #selector(setButtonAction(_:)), for: .touchUpInside)
         return setButton
     }()
@@ -490,6 +509,7 @@ extension MainViewController {
     @objc private func callbuttonAction(_: UIButton!) {
         present(callAlert, animated: true, completion: nil)
     }
+
     @objc private func setButtonAction(_: UIButton!) {
         print("Word")
         self.present(settingView, animated: true) {
