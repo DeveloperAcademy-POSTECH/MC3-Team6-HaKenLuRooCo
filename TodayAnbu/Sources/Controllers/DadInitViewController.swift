@@ -355,10 +355,14 @@ extension DadInitViewController {
 
         // Validation Check
         if textField.hasValidPhoneNumber {
-            textField.setBottomBorder(color: UIColor.systemBlue)
+            textField.addRightImage(image: UIImage(systemName: "circle") ?? UIImage())
+            textField.setRightImageColor(color: UIColor.systemMint)
+            textField.setBottomBorder(color: UIColor.systemMint)
             dadDayVstack.isHidden = false
         } else {
-            textField.setBottomBorder(color: UIColor.red)
+            textField.addRightImage(image: UIImage(systemName: "xmark") ?? UIImage())
+            textField.setRightImageColor(color: UIColor.systemPink)
+            textField.setBottomBorder(color: UIColor.systemPink)
             dadDayVstack.isHidden = true
         }
 
