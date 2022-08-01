@@ -8,7 +8,6 @@
 import UIKit
 
 class MemoDetailViewController: UIViewController {
-
     private let topArea: UIView = {
         let area = UIView()
         area.layer.cornerRadius = 15
@@ -37,7 +36,11 @@ class MemoDetailViewController: UIViewController {
     }()
     private let memoLabel: UILabel = {
         let label = UILabel()
-        label.text = UserDefaults.standard.value(forKey: "KenExample") as? String
+        var dict: [String: String] = [:]
+        dict = UserDefaults.standard.value(forKey: "momMemo") as? [String: String] ?? [:]
+        let memoDates = [String](dict.keys)
+        let memoDescription = [String](dict.values)
+        label.text = memoDescription[0]
         label.font = .systemFont(ofSize: 18)
         label.textColor = .black
         label.numberOfLines = 0

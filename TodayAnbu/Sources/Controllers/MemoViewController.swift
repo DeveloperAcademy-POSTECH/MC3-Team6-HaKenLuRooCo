@@ -16,10 +16,10 @@ class MemoViewController: UIViewController {
     }
 
     var dataSource: UICollectionViewDiffableDataSource<Section, Item>!
-    var list: [MemoData] = MemoData.list
+    // var list: [MemoData] = MemoData.list
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        let list: [MemoData] = makeMemoList()
         // MARK: - presentation
         dataSource = UICollectionViewDiffableDataSource<Section, Item>(collectionView: collectionView, cellProvider: { collectionView, indexPath, item in
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MemoCell", for: indexPath) as? MemoCell else {
@@ -54,10 +54,25 @@ class MemoViewController: UIViewController {
         section.interGroupSpacing = spacing
         return UICollectionViewCompositionalLayout(section: section)
     }
+    func makeMemoList() -> [MemoData] {
+        var list: [MemoData] = []
+        var dict: [String: String] = [:]
+        dict = UserDefaults.standard.value(forKey: "momMemo") as? [String: String] ?? [:]
+        let memoDates = [String](dict.keys)
+        let memoDescription = [String](dict.values)
+        let memoCount: Int = memoDates.count
+        for idx in 0 ..< memoCount {
+            let strArray = Array(memoDates[idx])
+            let dateString = "\(strArray[2])\(strArray[3])/\(strArray[4])\(strArray[5])"
+            list.append(MemoData(date: String(dateString), description: memoDescription[idx]))
+        }
+        return list
+    }
 }
 extension MemoViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let list: [MemoData] = makeMemoList()
         let framework = list[indexPath.item]
-        print(">>> selected: \(framework.day)")
+        print(">>> selected: \(framework.date)")
     }
 }
