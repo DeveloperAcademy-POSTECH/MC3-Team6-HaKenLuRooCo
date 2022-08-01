@@ -36,10 +36,6 @@ class ConfirmViewController: UIViewController {
         return button
     }()
 
-    @objc func changeData(notification: NSNotification) {
-        let testData = notification.object.self
-        print("this is test Data \(testData ?? "테스트 데이터없음")")
-    }
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()

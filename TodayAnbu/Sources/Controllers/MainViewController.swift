@@ -190,12 +190,13 @@ class MainViewController: UIViewController {
         let callAlert = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertController.Style.actionSheet)
         let momCall = UIAlertAction(title: "엄마한테 전화하기", style: .default) { _ in
             CallManager.shared.data.isMomCall.toggle()
-
+            self.isCalling.toggle()
             self.goCallApp(url: "tel://" + (UserDefaults.standard.string(forKey: "momPhoneNumber") ?? ""))
         }
 
         let dadCall = UIAlertAction(title: "아빠한테 전화하기", style: .default) { _ in
             CallManager.shared.data.isDadCall.toggle()
+            self.isCalling.toggle()
             self.goCallApp(url: "tel://" + (UserDefaults.standard.string(forKey: "dadPhoneNumber") ?? ""))
         }
         let cancel = UIAlertAction(title: "취소하기", style: .cancel)
@@ -250,16 +251,13 @@ class MainViewController: UIViewController {
             .sink { [weak self] data in
                 print("main입니당", data)
                 self?.momCheckCount = data.momCheckCount
-//                print(self?.momCheckCount as Any)
             }.store(in: &cancelBag)
 
         self.navigationItem.setHidesBackButton(true, animated: true)
-//        NotificationCenter.default.addObserver(self, selector: #selector(getNotificationFromConfirmView), name: NSNotification.Name("ConfirmView"), object: nil)
         observer = NotificationCenter.default.addObserver(forName: UIApplication.willEnterForegroundNotification, object: nil, queue: .main) { [unowned self] _ in
             if self.isCalling {
             let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let nextViewController = storyBoard.instantiateViewController(withIdentifier: "CallCheck") as? CallCheckViewController
-
+            let nextViewController = storyBoard.instantiateViewController(withIdentifier: "CallCheckViewController") as? CallCheckViewController
             self.present(nextViewController!, animated: true) {
                 self.isCalling.toggle()
                 }
@@ -505,22 +503,11 @@ extension MainViewController {
         }
 
     @objc private func callbuttonAction(_: UIButton!) {
-        isCalling.toggle()
-        print(isCalling)
         present(callAlert, animated: true, completion: nil)
     }
 
-//    @objc private func setButtonAction(_: UIButton!) {
-//        print("Word")
-//        self.present(settingView, animated: true) {
-//            self.settingView.configureViewComponent()
-//        }
-//    }
-
     @objc private func setButtonAction(_: UIButton!) {
-        print("selector")
         self.present(settingView, animated: true) {
-            print("present")
             self.settingView.configureViewComponent()
         }
     }
@@ -540,11 +527,6 @@ extension MainViewController {
 
         topicTableView.reloadData()
     }
-
-//    @objc private func didTapImageView(_ sender: CheckButtonTapGesture) {
-//        let stamp = weeklyCheckBox[sender.indexOfButton]
-//        stamp.tintColor = stamp.tintColor == .systemGray ? .systemBlue : .systemGray
-//    }
 }
 
 class CheckButtonTapGesture: UITapGestureRecognizer {
