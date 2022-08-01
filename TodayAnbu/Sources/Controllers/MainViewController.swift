@@ -26,7 +26,6 @@ class MainViewController: UIViewController {
 
     lazy var momCheckCount: Int = 0 {
         didSet {
-            print("이게 될까?")
             switch momCheckCount {
             case 1:
                 momGauge1 = momGauge(momCheckCount: 1, gaugeColor: .momGaugeLight)
@@ -47,7 +46,7 @@ class MainViewController: UIViewController {
                 configureTranslate()
                 configureRender()
             default:
-                print("이게 되면 switch 안되는거임")
+                print("")
             }
         }
     }
@@ -110,7 +109,8 @@ class MainViewController: UIViewController {
     private lazy var settingButton: UIButton = {
         let setButton = UIButton()
         setButton.setImage(UIImage(systemName: "gearshape.fill"), for: UIControl.State.normal)
-        setButton.backgroundColor = .mainIndigo
+
+        setButton.backgroundColor = .red
         setButton.tintColor = .white
         setButton.addTarget(self, action: #selector(setButtonAction(_:)), for: .touchUpInside)
         return setButton
@@ -225,15 +225,6 @@ class MainViewController: UIViewController {
         return callButton
     }()
 
-    @objc func getNotificationFromConfirmView() {
-        print("ConfirmView로 부터 알람을 받습니다")
-        print(CallManager.shared.data.momCheckCount)
-//        CallManager.shared.data.$momCheckCount.sink { countData in
-//            self.momCheckCount = countData
-//        }
-
-    }
-
     // MARK: - LifeCycle
     override func loadView() {
         let formatter = DateFormatter()
@@ -253,11 +244,10 @@ class MainViewController: UIViewController {
         configureAddSubView()
         configureTranslate()
         configureRender()
-        NotificationCenter.default.addObserver(self, selector: #selector(getNotificationFromConfirmView), name: NSNotification.Name("ConfirmView"), object: nil)
 
         CallManager.shared.$data
             .sink { [weak self] data in
-//                print("main입니당", data)
+                print("main입니당", data)
                 self?.momCheckCount = data.momCheckCount
 //                print(self?.momCheckCount as Any)
             }
@@ -266,11 +256,15 @@ class MainViewController: UIViewController {
         self.navigationItem.setHidesBackButton(true, animated: true)
 //        NotificationCenter.default.addObserver(self, selector: #selector(getNotificationFromConfirmView), name: NSNotification.Name("ConfirmView"), object: nil)
         observer = NotificationCenter.default.addObserver(forName: UIApplication.willEnterForegroundNotification, object: nil, queue: .main) { [unowned self] _ in
-
+            if self.isCalling {
             self.present(confirmView, animated: true) {
                 self.confirmView.configureUI()
+                self.isCalling.toggle()
+                }
             }
         }
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+        self.navigationController?.setToolbarHidden(true, animated: true)
 //        sceneObserver = NotificationCenter.default.addObserver(forName: UIScene., object: nil, queue: .main) { [unowned self] _ in
 //            CallManager.shared.data.$momCheckCount.sink { data in
 //                print("------")
@@ -351,7 +345,8 @@ class MainViewController: UIViewController {
             topTitleDays.bottomAnchor.constraint(equalTo: topTitle.bottomAnchor)
         ])
         NSLayoutConstraint.activate([
-            settingButton.topAnchor.constraint(equalTo: topArea.safeAreaLayoutGuide.topAnchor, constant: -40),
+            settingButton.topAnchor.constraint(equalTo: weeklyAnbuLabel.topAnchor),
+            settingButton.widthAnchor.constraint(equalToConstant: 40),
             settingButton.trailingAnchor.constraint(equalTo: topArea.trailingAnchor, constant: -20)
         ])
         NSLayoutConstraint.activate([
@@ -507,12 +502,22 @@ extension MainViewController {
         }
 
     @objc private func callbuttonAction(_: UIButton!) {
+        isCalling.toggle()
+        print(isCalling)
         present(callAlert, animated: true, completion: nil)
     }
 
+//    @objc private func setButtonAction(_: UIButton!) {
+//        print("Word")
+//        self.present(settingView, animated: true) {
+//            self.settingView.configureViewComponent()
+//        }
+//    }
+
     @objc private func setButtonAction(_: UIButton!) {
-        print("Word")
+        print("selector")
         self.present(settingView, animated: true) {
+            print("present")
             self.settingView.configureViewComponent()
         }
     }
