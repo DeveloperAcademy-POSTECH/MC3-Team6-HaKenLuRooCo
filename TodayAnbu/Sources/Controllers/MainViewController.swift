@@ -8,7 +8,6 @@ import Combine
 import UIKit
 
 class MainViewController: UIViewController {
-    let confirmView = ConfirmViewController()
     let settingView = SettingViewController()
     // MARK: - Properties
     private var genericTopics = [["최근에 가고 싶은 여행지가 있나요?", "가장 좋았던 여행지가 어디인가요?", "가장 최근에 다녀온 여행지가 어디인가요?", "여행"], ["최근에 본 영화가 있나요?", "가장 좋아하는 영화가 무엇인가요?", "보고 싶은 영화가 있나요?", "영화"], ["최근에 읽은 책이 있나요?", "읽고 싶은 책이 있나요?", "가장 감명 깊게 읽은 책이 무엇인가요?", "책"], ["가장 좋아하는 음악 장르는 무엇인가요?", "최근 들어 자주 듣는 노래가 있으신가요?", "좋아하는 가수가 있으신가요?", "음악"], ["고양이가 좋으세요? 강아지가 좋으세요?", "반려동물을 키운다면 어떨 것 같나요?", "앵무새나 물고기처럼 기르고 싶은 특별한 반려동물이 있나요?", "반려동물"], ["어떤 술을 좋아하시나요?", "음료 중에 어떤게 가장 좋으세요?", "차는 어떤게 좋으세요?", "음료"], ["좋아하는 스포츠가 있으신가요?", "재밌게 보는 스포츠가 있나요?", "운동 좋아하세요?", "스포츠"], ["취미가 무엇인가요?", "새로 배워보고 싶은 취미가 있나요?", "과거에 즐겨했었던 취미가 있나요?", "취미"], ["최근에 복날에 닭은 드셨나요?", "생일 때 뭐 받고 싶으신 게 있나요?", "결혼기념일에 뭐 하실지 생각해보셨어요?", "기념일"]]
@@ -23,6 +22,22 @@ class MainViewController: UIViewController {
     private var notCalledDate: Int = 1
     var isMomCall = false
     var isDadCall = false
+    var momPhoneNumber: String = "" {
+        didSet {
+            configureUI()
+            configureAddSubView()
+            configureTranslate()
+            configureRender()
+        }
+    }
+    var dadPhoneNumber: String = "" {
+        didSet {
+            configureUI()
+            configureAddSubView()
+            configureTranslate()
+            configureRender()
+        }
+    }
 
     lazy var momCheckCount: Int = 0 {
         didSet {
@@ -110,8 +125,7 @@ class MainViewController: UIViewController {
     private lazy var settingButton: UIButton = {
         let setButton = UIButton()
         setButton.setImage(UIImage(systemName: "gearshape.fill"), for: UIControl.State.normal)
-
-        setButton.backgroundColor = .red
+        setButton.backgroundColor = .mainIndigo
         setButton.tintColor = .white
         setButton.addTarget(self, action: #selector(setButtonAction(_:)), for: .touchUpInside)
         return setButton
@@ -188,13 +202,13 @@ class MainViewController: UIViewController {
 
     private lazy var callAlert: UIAlertController = {
         let callAlert = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertController.Style.actionSheet)
-        let momCall = UIAlertAction(title: "엄마한테 전화하기", style: .default) { _ in
+        let momCall = UIAlertAction(title: "어머니한테 전화하기", style: .default) { _ in
             CallManager.shared.data.isMomCall.toggle()
             self.isCalling.toggle()
             self.goCallApp(url: "tel://" + (UserDefaults.standard.string(forKey: "momPhoneNumber") ?? ""))
         }
 
-        let dadCall = UIAlertAction(title: "아빠한테 전화하기", style: .default) { _ in
+        let dadCall = UIAlertAction(title: "아버지한테 전화하기", style: .default) { _ in
             CallManager.shared.data.isDadCall.toggle()
             self.isCalling.toggle()
             self.goCallApp(url: "tel://" + (UserDefaults.standard.string(forKey: "dadPhoneNumber") ?? ""))
@@ -263,7 +277,6 @@ class MainViewController: UIViewController {
                 }
             }
         }
-        self.navigationController?.setNavigationBarHidden(true, animated: true)
         self.navigationController?.setToolbarHidden(true, animated: true)
     }
 
@@ -276,7 +289,6 @@ class MainViewController: UIViewController {
     // MARK: - Configures
     private func configureUI() {
         view.backgroundColor = .systemBackground
-        // makeBox()
     }
     private func configureAddSubView() {
         view.addSubview(topArea)
@@ -331,14 +343,14 @@ class MainViewController: UIViewController {
         ])
         NSLayoutConstraint.activate([
             topTitle.leadingAnchor.constraint(equalTo: topArea.leadingAnchor, constant: 20),
-            topTitle.topAnchor.constraint(equalTo: topArea.safeAreaLayoutGuide.topAnchor, constant: -40)
+            topTitle.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10)
         ])
         NSLayoutConstraint.activate([
             topTitleDays.leadingAnchor.constraint(equalTo: topArea.leadingAnchor, constant: 112),
             topTitleDays.bottomAnchor.constraint(equalTo: topTitle.bottomAnchor)
         ])
         NSLayoutConstraint.activate([
-            settingButton.topAnchor.constraint(equalTo: weeklyAnbuLabel.topAnchor),
+            settingButton.centerYAnchor.constraint(equalTo: topTitle.centerYAnchor),
             settingButton.widthAnchor.constraint(equalToConstant: 40),
             settingButton.trailingAnchor.constraint(equalTo: topArea.trailingAnchor, constant: -20)
         ])
@@ -422,8 +434,6 @@ class MainViewController: UIViewController {
             callButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -50)
         ])
     }
-
-//    var modalClass = ConfirmViewController()
 }
 
     // MARK: - extension
@@ -440,7 +450,6 @@ class MainViewController: UIViewController {
             cell.textLabel?.numberOfLines = 2
             return cell
         }
-
     }
     extension MainViewController: UITableViewDelegate {
         func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
