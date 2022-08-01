@@ -54,7 +54,6 @@
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="kenButtonAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Hix-3u-iZQ"/>
-                                    <segue destination="aR6-kr-qL2" kind="presentation" id="M78-DV-Or5"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JCN-G3-lJ0">
@@ -73,7 +72,6 @@
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="rookieButtonAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="LLP-bI-WoK"/>
-                                    <segue destination="aR6-kr-qL2" kind="presentation" id="bDY-cU-hrl"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qxl-68-au8">
@@ -90,7 +88,6 @@
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="lumiButtonAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="4td-6i-bLc"/>
-                                    <segue destination="aR6-kr-qL2" kind="presentation" id="H90-Xm-X34"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6FH-y9-h3A">
@@ -108,7 +105,6 @@
                                 <connections>
                                     <action selector="cozyButtonAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="UUo-Rn-wH3"/>
                                     <action selector="rookieButtonAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="y1G-ac-pfw"/>
-                                    <segue destination="aR6-kr-qL2" kind="presentation" id="8o4-Gy-gq1"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="하디" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DEB-sR-UE7">
@@ -184,7 +180,6 @@
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="hardyButtonAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="39i-O1-7L3"/>
-                                    <segue destination="aR6-kr-qL2" kind="presentation" id="532-kR-ePN"/>
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cozyFrame" translatesAutoresizingMaskIntoConstraints="NO" id="zhP-js-Y06">
@@ -254,11 +249,11 @@
             <objects>
                 <viewController storyboardIdentifier="AboutUsWebViewController" id="aR6-kr-qL2" customClass="AboutUsWebViewController" customModule="TodayAnbu" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Jzh-8T-g4g">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v1R-LZ-A5a">
-                                <rect key="frame" x="0.0" y="49" width="414" height="832"/>
+                                <rect key="frame" x="0.0" y="33" width="414" height="885.5"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
@@ -284,9 +279,6 @@
             <point key="canvasLocation" x="750.72463768115949" y="39.508928571428569"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="532-kR-ePN"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <image name="Cozy" width="144" height="146"/>
         <image name="HakenLuRooCo" width="1428" height="452"/>
