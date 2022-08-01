@@ -72,7 +72,6 @@
 		A9B32A9128868F7100530B51 /* NotificationModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationModalViewController.swift; sourceTree = "<group>"; };
 		A9B32A93288691EA00530B51 /* NotificationTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTime.swift; sourceTree = "<group>"; };
 		A9CF7E642892D22700189E8B /* CallModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallModelData.swift; sourceTree = "<group>"; };
-		B52841CA28922D7E004A2204 /* CallCheck.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CallCheck.storyboard; sourceTree = "<group>"; };
 		B52841D028926DA7004A2204 /* CallCheckViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallCheckViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -151,7 +150,6 @@
 			children = (
 				3E2F6564287FA0E600A27FA9 /* Main.storyboard */,
 				3E2F6569287FA0E700A27FA9 /* LaunchScreen.storyboard */,
-				B52841CA28922D7E004A2204 /* CallCheck.storyboard */,
 				7B22167328912CCE00B14C5C /* MemoStoryboard.storyboard */,
 				3ED6D21528936306008F1D93 /* AboutUsView.storyboard */,
 			);
@@ -262,7 +260,6 @@
 				3E2F656B287FA0E700A27FA9 /* LaunchScreen.storyboard in Resources */,
 				3E2F6568287FA0E700A27FA9 /* Assets.xcassets in Resources */,
 				3E2F6566287FA0E600A27FA9 /* Main.storyboard in Resources */,
-				B52841CB28922D7E004A2204 /* CallCheck.storyboard in Resources */,
 				7B22167428912CCE00B14C5C /* MemoStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -467,7 +464,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 2S73QX9MMY;
+				DEVELOPMENT_TEAM = YYP248S73Y;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TodayAnbu/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -498,7 +495,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 2S73QX9MMY;
+				DEVELOPMENT_TEAM = YYP248S73Y;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TodayAnbu/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

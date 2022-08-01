@@ -22,4 +22,5 @@ extension UIColor {
     static let dadGaugeDeep = UIColor(named: "dadGaugeDeep")
     static let mainTitleOrange = UIColor(named: "mainTitleOrange")
     static let mainTitleFontColor = UIColor(named: "mainTitleFontColor")
+    static let activePinkColor = UIColor(named: "activePinkColor")
 }
