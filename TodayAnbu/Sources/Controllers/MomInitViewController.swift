@@ -115,8 +115,7 @@ class MomInitViewController: UIViewController, UITextFieldDelegate {
 
     @IBAction func startButttonAction(_ sender: Any) {
         if momNumberTextfield.hasValidPhoneNumber {
-            momPhoneNumber = momNumberTextfield.text!
-            UserDefaults.standard.set(momPhoneNumber, forKey: "momPhoneNumber")
+            UserDefaults.standard.set(momNumberTextfield.text!, forKey: "momPhoneNumber")
         }
     }
     @IBAction func timePickerAction(_ sender: UIDatePicker!) {
@@ -260,6 +259,7 @@ extension MomInitViewController {
 }
 
 extension MomInitViewController {
+    // MARK: 알람 설정 완료 함수
     @IBAction func setNotificationTime(_ sender: Any) {
         var dateList: [Date] = []
         var dayList: [Int] = []
@@ -267,6 +267,9 @@ extension MomInitViewController {
             dateList.append(button.notificationTime)
             dayList.append(button.indexPath)
         }
+
+        UserDefaults.standard.set(dateList, forKey: "Mom-FirstSetting-dateList")
+        UserDefaults.standard.set(dayList, forKey: "Mom-FirstSetting-dayList")
 
         notificationCenter.getNotificationSettings { settings in
             DispatchQueue.main.async {
@@ -281,6 +284,7 @@ extension MomInitViewController {
                     if dayList.isEmpty == false {
                         for index in 0...dayList.count-1 {
                             var dateComponent = Calendar.autoupdatingCurrent.dateComponents([.hour, .minute], from: dateList[index])
+
                             let weekDay: Int = {
                                 var weekDay = dayList[index] + 2
                                 if weekDay == 8 {
@@ -288,7 +292,9 @@ extension MomInitViewController {
                                 }
                                 return weekDay
                             }()
+
                             dateComponent.weekday = weekDay
+
                             let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponent, repeats: true)
                             let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
                             self.notificationCenter.add(request) { error in
