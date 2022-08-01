@@ -81,6 +81,8 @@ class DadInitViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         dadNumberTextfield.delegate = self
+        dadNumberTextfield.addRightImage(image: UIImage(systemName: "xmark") ?? UIImage())
+        dadNumberTextfield.setRightImageColor(color: UIColor.systemGray4)
         dadNumberTextfield.setBottomBorder(color: UIColor.systemGray4)
         dadNumberTextfield.addDoneButtonOnKeyboard()
 
