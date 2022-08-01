@@ -23,6 +23,22 @@ class MainViewController: UIViewController {
     private var notCalledDate: Int = 1
     var isMomCall = false
     var isDadCall = false
+    var momPhoneNumber: String = "" {
+        didSet {
+            configureUI()
+            configureAddSubView()
+            configureTranslate()
+            configureRender()
+        }
+    }
+    var dadPhoneNumber: String = "" {
+        didSet {
+            configureUI()
+            configureAddSubView()
+            configureTranslate()
+            configureRender()
+        }
+    }
 
     lazy var momCheckCount: Int = 0 {
         didSet {
@@ -188,13 +204,13 @@ class MainViewController: UIViewController {
 
     private lazy var callAlert: UIAlertController = {
         let callAlert = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertController.Style.actionSheet)
-        let momCall = UIAlertAction(title: "엄마한테 전화하기", style: .default) { _ in
+        let momCall = UIAlertAction(title: "어머니한테 전화하기", style: .default) { _ in
             CallManager.shared.data.isMomCall.toggle()
 
             self.goCallApp(url: "tel://" + (UserDefaults.standard.string(forKey: "momPhoneNumber") ?? ""))
         }
 
-        let dadCall = UIAlertAction(title: "아빠한테 전화하기", style: .default) { _ in
+        let dadCall = UIAlertAction(title: "아버지한테 전화하기", style: .default) { _ in
             CallManager.shared.data.isDadCall.toggle()
             self.goCallApp(url: "tel://" + (UserDefaults.standard.string(forKey: "dadPhoneNumber") ?? ""))
         }
@@ -276,6 +292,12 @@ class MainViewController: UIViewController {
 //                print("------")
 //            }
 //        }
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        print(UserDefaults.standard.object(forKey: "momPhoneNumber"))
+        print(UserDefaults.standard.object(forKey: "dadPhoneNumber"))
     }
 
     deinit {
