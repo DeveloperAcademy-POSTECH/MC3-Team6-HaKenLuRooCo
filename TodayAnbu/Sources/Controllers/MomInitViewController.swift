@@ -84,6 +84,7 @@ class MomInitViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        navigationController?.setNavigationBarHidden(false, animated: false)
         momNumberTextfield.delegate = self
         momNumberTextfield.addRightImage(image: UIImage(systemName: "xmark") ?? UIImage())
         momNumberTextfield.setRightImageColor(color: UIColor.systemGray4)
@@ -110,7 +111,11 @@ class MomInitViewController: UIViewController, UITextFieldDelegate {
                 print(error ?? "No error")
             }
         }
-        //        self.navigationItem.setHidesBackButton(true, animated: true)
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: false)
     }
 
     @IBAction func startButttonAction(_ sender: Any) {

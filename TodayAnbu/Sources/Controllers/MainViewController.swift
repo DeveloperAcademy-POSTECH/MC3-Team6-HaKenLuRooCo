@@ -484,9 +484,7 @@ extension MainViewController {
     }
 
     @objc private func setButtonAction(_: UIButton!) {
-        self.present(settingView, animated: true) {
-            self.settingView.configureViewComponent()
-        }
+        navigationController?.pushViewController(SettingViewController(), animated: true)
     }
 
     @objc private func segmentedValueChanged(_ segmentedControl: UISegmentedControl) {
