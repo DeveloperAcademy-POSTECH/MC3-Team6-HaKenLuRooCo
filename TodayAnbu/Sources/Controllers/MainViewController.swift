@@ -248,19 +248,10 @@ class MainViewController: UIViewController {
 
         CallManager.shared.$data
             .sink { [weak self] data in
-<<<<<<< refs/remotes/origin/develop
                 print("main입니당", data)
                 self?.momCheckCount = data.momCheckCount
 //                print(self?.momCheckCount as Any)
-            }
-
-=======
-//                print("main입니당", data)
-                self?.momCheckCount = data.momCheckCount
-//                print(self?.momCheckCount as Any)
-            }
->>>>>>> [fix] main confirm data
-            .store(in: &cancelBag)
+            }.store(in: &cancelBag)
 
         self.navigationItem.setHidesBackButton(true, animated: true)
 //        NotificationCenter.default.addObserver(self, selector: #selector(getNotificationFromConfirmView), name: NSNotification.Name("ConfirmView"), object: nil)
@@ -443,6 +434,7 @@ class MainViewController: UIViewController {
 
     var modalClass = ConfirmViewController()
 }
+
     // MARK: - extension
     extension MainViewController: UITableViewDataSource {
 
