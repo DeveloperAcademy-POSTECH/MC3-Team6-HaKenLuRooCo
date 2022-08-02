@@ -523,7 +523,8 @@ extension MainViewController {
     }
 
     @objc private func setButtonAction(_: UIButton!) {
-        navigationController?.pushViewController(SettingViewController(), animated: true)
+        // navigationController?.pushViewController(SettingViewController(), animated: true)
+        present(SettingViewController(), animated: true, completion: nil)
     }
 
     @objc private func segmentedValueChanged(_ segmentedControl: UISegmentedControl) {
