@@ -78,8 +78,8 @@
                                     <segue destination="lyG-OF-ikj" kind="show" id="ic6-UZ-Jqp"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dadPicture" translatesAutoresizingMaskIntoConstraints="NO" id="Ab0-3b-621">
-                                <rect key="frame" x="40" y="70.5" width="334" height="584"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="momPicture" translatesAutoresizingMaskIntoConstraints="NO" id="Ab0-3b-621">
+                                <rect key="frame" x="40" y="131.5" width="334" height="462"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="갱년기는 급격한 호르몬 변화를 겪는 시기로" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MDk-mg-it6">
                                 <rect key="frame" x="80.5" y="702" width="253.5" height="18"/>
@@ -89,7 +89,7 @@
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="rmL-0a-M5c"/>
-                        <color key="backgroundColor" name="dadDeepSkyblue"/>
+                        <color key="backgroundColor" systemColor="secondarySystemGroupedBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Ab0-3b-621" firstAttribute="leading" secondItem="OvF-j1-dXT" secondAttribute="leading" constant="40" id="0jd-aX-L3e"/>
                             <constraint firstItem="TyM-vL-RDw" firstAttribute="top" secondItem="MDk-mg-it6" secondAttribute="bottom" constant="5" id="98o-Hs-SI0"/>
@@ -120,8 +120,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="momPicture" translatesAutoresizingMaskIntoConstraints="NO" id="7nc-8V-HKl">
-                                <rect key="frame" x="69.5" y="131.5" width="275" height="462"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="testImage" translatesAutoresizingMaskIntoConstraints="NO" id="7nc-8V-HKl">
+                                <rect key="frame" x="57" y="222" width="300" height="371"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="부모님께 얼마나 자주 안부전화하나요?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3HO-e8-lu3">
                                 <rect key="frame" x="26.5" y="653" width="361" height="29"/>
@@ -160,17 +160,17 @@
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Jhx-1G-qFV"/>
-                        <color key="backgroundColor" red="0.94901961089999998" green="0.95686274770000002" blue="0.96470588450000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="g3a-fE-OqV" firstAttribute="centerY" secondItem="Jhx-1G-qFV" secondAttribute="centerY" multiplier="1.85" id="GK0-Zx-Cn6"/>
                             <constraint firstItem="ycP-kV-iHe" firstAttribute="centerX" secondItem="Jhx-1G-qFV" secondAttribute="centerX" id="L2a-Am-fnT"/>
-                            <constraint firstItem="7nc-8V-HKl" firstAttribute="centerY" secondItem="Jhx-1G-qFV" secondAttribute="centerY" multiplier="0.8" id="PWh-aw-64r"/>
+                            <constraint firstItem="7nc-8V-HKl" firstAttribute="centerY" secondItem="Jhx-1G-qFV" secondAttribute="centerY" multiplier="0.9" id="PWh-aw-64r"/>
                             <constraint firstItem="3HO-e8-lu3" firstAttribute="centerX" secondItem="Jhx-1G-qFV" secondAttribute="centerX" id="TD6-gv-bqS"/>
                             <constraint firstItem="L7O-UY-DRG" firstAttribute="centerX" secondItem="Jhx-1G-qFV" secondAttribute="centerX" multiplier="0.3" id="TPv-vY-RKb"/>
                             <constraint firstItem="Y5B-ds-Wwi" firstAttribute="centerX" secondItem="Jhx-1G-qFV" secondAttribute="centerX" id="XnH-mX-gam"/>
                             <constraint firstItem="L7O-UY-DRG" firstAttribute="centerY" secondItem="Jhx-1G-qFV" secondAttribute="centerY" multiplier="1.85" id="c6C-dq-01Y"/>
                             <constraint firstItem="Y5B-ds-Wwi" firstAttribute="top" secondItem="3HO-e8-lu3" secondAttribute="bottom" constant="20" id="g64-S3-Rjp"/>
-                            <constraint firstItem="7nc-8V-HKl" firstAttribute="width" secondItem="HGk-3c-Ohq" secondAttribute="height" multiplier="137:448" constant="1" id="i7F-gu-hEf"/>
+                            <constraint firstItem="7nc-8V-HKl" firstAttribute="width" secondItem="HGk-3c-Ohq" secondAttribute="height" multiplier="200:600" constant="1" id="i7F-gu-hEf"/>
                             <constraint firstItem="g3a-fE-OqV" firstAttribute="centerX" secondItem="Jhx-1G-qFV" secondAttribute="centerX" multiplier="1.7" id="sQh-7X-R8i"/>
                             <constraint firstItem="7nc-8V-HKl" firstAttribute="centerX" secondItem="Jhx-1G-qFV" secondAttribute="centerX" id="sZo-Op-2gz"/>
                             <constraint firstItem="Jhx-1G-qFV" firstAttribute="bottom" secondItem="3HO-e8-lu3" secondAttribute="bottom" constant="180" id="vrp-ki-x0g"/>
@@ -192,25 +192,25 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="“부모님과 가까워지며" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ADn-HQ-d5a">
-                                <rect key="frame" x="20" y="189" width="212" height="30"/>
+                                <rect key="frame" x="45" y="189" width="212" height="30"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="함께 갱년기를 이겨나가요 ! &quot;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8t4-E2-kdY">
-                                <rect key="frame" x="20" y="227" width="280" height="30"/>
+                                <rect key="frame" x="45" y="227" width="280" height="30"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="저희가 연락을 도와드릴게요" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2F2-DC-QjR">
-                                <rect key="frame" x="17" y="358.5" width="164" height="18"/>
+                                <rect key="frame" x="42" y="358.5" width="164" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="연락이 가능한 시간과 대화하실 분을 선택해주세요!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u7F-ax-mVe">
-                                <rect key="frame" x="17" y="375.5" width="297" height="18"/>
+                                <rect key="frame" x="42" y="375.5" width="297" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -299,7 +299,7 @@
                             <constraint firstItem="2F2-DC-QjR" firstAttribute="leading" secondItem="8t4-E2-kdY" secondAttribute="leading" constant="-3" id="tr7-EL-o3Y"/>
                             <constraint firstItem="GDx-zU-TUQ" firstAttribute="leading" secondItem="2wo-x5-dQC" secondAttribute="leading" constant="10" id="uTI-LS-GYx"/>
                             <constraint firstItem="sWU-HB-90u" firstAttribute="centerX" secondItem="2wo-x5-dQC" secondAttribute="centerX" id="x0g-Tm-atc"/>
-                            <constraint firstItem="ADn-HQ-d5a" firstAttribute="leading" secondItem="2wo-x5-dQC" secondAttribute="leading" constant="20" id="x4J-na-skg"/>
+                            <constraint firstItem="ADn-HQ-d5a" firstAttribute="leading" secondItem="2wo-x5-dQC" secondAttribute="leading" constant="45" id="x4J-na-skg"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="xJg-me-Ihb"/>
@@ -619,21 +619,21 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="7fl-9i-khf"/>
+        <segue reference="f81-o5-jez"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
     <resources>
         <image name="circle" catalog="system" width="128" height="121"/>
-        <image name="dadPicture" width="502" height="584"/>
         <image name="momPicture" width="634" height="462"/>
-        <namedColor name="dadDeepSkyblue">
-            <color red="0.792156862745098" green="0.83137254901960789" blue="0.92549019607843142" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
+        <image name="testImage" width="636" height="371"/>
         <namedColor name="mainIndigo">
             <color red="0.15686274509803921" green="0.20000000000000001" blue="0.58823529411764708" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="placeholderTextColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="secondarySystemGroupedBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
