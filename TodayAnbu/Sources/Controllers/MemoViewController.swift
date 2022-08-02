@@ -76,6 +76,5 @@ extension MemoViewController: UICollectionViewDelegate {
         // let list: [MemoData] = makeMemoList()
         let framework = list[indexPath.item]
         // navigationController?.pushViewController(SettingViewController(), animated: true)
-        print(">>> selected: ")
     }
 }
