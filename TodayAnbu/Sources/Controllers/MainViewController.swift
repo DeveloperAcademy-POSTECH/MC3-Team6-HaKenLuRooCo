@@ -83,7 +83,7 @@ class MainViewController: UIViewController {
         let label = UILabel()
         let dayLabel = UILabel()
         label.textColor = .mainTitleFontColor
-        label.text = "전화한지         되었어요"
+        label.text = "전화한지             되었어요"
         label.font = .boldSystemFont(ofSize: 25)
 
         return label
@@ -349,7 +349,7 @@ class MainViewController: UIViewController {
             topTitle.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10)
         ])
         NSLayoutConstraint.activate([
-            topTitleDays.leadingAnchor.constraint(equalTo: topArea.leadingAnchor, constant: 112),
+            topTitleDays.trailingAnchor.constraint(equalTo: topArea.trailingAnchor, constant: -220),
             topTitleDays.bottomAnchor.constraint(equalTo: topTitle.bottomAnchor)
         ])
         NSLayoutConstraint.activate([
