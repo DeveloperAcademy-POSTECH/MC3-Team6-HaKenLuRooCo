@@ -14,14 +14,6 @@ class SettingViewController: UIViewController {
     let personalMenu = ["어머니 설정", "아버지 설정", "알림"]
     let tableViewSection: [String] = ["설정", "추가정보"]
 
-    private let settingTopArea: UIView = {
-        let area = UIView()
-        area.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
-        area.layer.cornerRadius = 20
-        area.backgroundColor = .mainIndigo
-        return area
-    }()
-
     private let tableCellHeader: UILabel = {
         let label = UILabel()
         label.text = "설정"
@@ -42,22 +34,22 @@ class SettingViewController: UIViewController {
 
     func configureViewComponent() {
         view.addSubview(tableView)
-        view.addSubview(settingTopArea)
+        // view.addSubview(settingTopArea)
         // view.addSubview(switchOnAndOff)
-        settingTopArea.translatesAutoresizingMaskIntoConstraints = false
+        // settingTopArea.translatesAutoresizingMaskIntoConstraints = false
         tableView.translatesAutoresizingMaskIntoConstraints = false
         // switchOnAndOff.translatesAutoresizingMaskIntoConstraints = false
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(SettingPersonalDataCell.self, forCellReuseIdentifier: "Cell")
+//        NSLayoutConstraint.activate([
+//            settingTopArea.topAnchor.constraint(equalTo: view.topAnchor),
+//            settingTopArea.bottomAnchor.constraint(equalTo: view.topAnchor, constant: 150),
+//            settingTopArea.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+//            settingTopArea.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+//        ])
         NSLayoutConstraint.activate([
-            settingTopArea.topAnchor.constraint(equalTo: view.topAnchor),
-            settingTopArea.bottomAnchor.constraint(equalTo: view.topAnchor, constant: 150),
-            settingTopArea.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            settingTopArea.trailingAnchor.constraint(equalTo: view.trailingAnchor)
-        ])
-        NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: settingTopArea.bottomAnchor),
+            tableView.topAnchor.constraint(equalTo: view.topAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             tableView.leftAnchor.constraint(equalTo: view.leftAnchor),
             tableView.rightAnchor.constraint(equalTo: view.rightAnchor)

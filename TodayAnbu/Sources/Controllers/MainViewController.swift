@@ -524,7 +524,10 @@ extension MainViewController {
 
     @objc private func setButtonAction(_: UIButton!) {
         // navigationController?.pushViewController(SettingViewController(), animated: true)
-        present(SettingViewController(), animated: true, completion: nil)
+        let settingViewControllerNavigation = UINavigationController(rootViewController: SettingViewController())
+        // UINavigationController(rootViewController: MemoDetailViewController())
+        // settingViewControllerNavigation.modalPresentationStyle = UIModalPresentationStyle.fullScreen
+        present(settingViewControllerNavigation, animated: true, completion: nil)
     }
 
     @objc private func segmentedValueChanged(_ segmentedControl: UISegmentedControl) {
