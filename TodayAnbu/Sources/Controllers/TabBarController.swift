@@ -22,6 +22,5 @@ class TabBarController: UITabBarController {
         secondTab.tabBarItem.selectedImage = UIImage(systemName: "book.fill")
 
         setViewControllers([firstTab, secondTab], animated: true)
-        self.navigationItem.setHidesBackButton(true, animated: true)
     }
 }

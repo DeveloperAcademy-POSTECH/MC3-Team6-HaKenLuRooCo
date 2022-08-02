@@ -36,6 +36,10 @@ class SettingViewController: UIViewController {
         configureViewComponent()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+
     func configureViewComponent() {
         view.addSubview(tableView)
         view.addSubview(settingTopArea)
