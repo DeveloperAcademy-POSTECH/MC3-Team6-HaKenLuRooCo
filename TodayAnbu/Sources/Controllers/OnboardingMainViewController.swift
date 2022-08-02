@@ -23,7 +23,7 @@ class OnboardingMainViewController: UIViewController {
 
         momSettingButton.layer.cornerRadius = 5
         dadSettingButton.layer.cornerRadius = 5
-        nextButton.layer.cornerRadius = 5
+        nextButton.layer.cornerRadius = 10
 
         momSettingButton.backgroundColor = UIColor.systemGray5
         dadSettingButton.backgroundColor = UIColor.systemGray5
