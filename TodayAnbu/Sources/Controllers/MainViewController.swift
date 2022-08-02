@@ -540,7 +540,6 @@ extension MainViewController {
 
     @objc private func callbuttonAction(_: UIButton!) {
         present(callAlert, animated: true, completion: nil)
-        print(self.notCalledDate)
     }
 
     @objc private func setButtonAction(_: UIButton!) {
