@@ -10,6 +10,7 @@ import UIKit
 class MemoViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
+    var list: [MemoData] = []
     typealias Item = MemoData
     enum Section {
         case main
@@ -19,7 +20,8 @@ class MemoViewController: UIViewController {
     // var list: [MemoData] = MemoData.list
     override func viewDidLoad() {
         super.viewDidLoad()
-        let list: [MemoData] = makeMemoList()
+        list = makeMemoList()
+        collectionView.delegate = self
         // MARK: - presentation
         dataSource = UICollectionViewDiffableDataSource<Section, Item>(collectionView: collectionView, cellProvider: { collectionView, indexPath, item in
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MemoCell", for: indexPath) as? MemoCell else {
@@ -63,7 +65,7 @@ class MemoViewController: UIViewController {
         let memoCount: Int = memoDates.count
         for idx in 0 ..< memoCount {
             let strArray = Array(memoDates[idx])
-            let dateString = "\(strArray[2])\(strArray[3])/\(strArray[4])\(strArray[5])"
+            let dateString = "\(strArray[2])\(strArray[3])월 \(strArray[4])\(strArray[5])일"
             list.append(MemoData(date: String(dateString), description: memoDescription[idx]))
         }
         return list
@@ -71,8 +73,9 @@ class MemoViewController: UIViewController {
 }
 extension MemoViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let list: [MemoData] = makeMemoList()
+        // let list: [MemoData] = makeMemoList()
         let framework = list[indexPath.item]
-        print(">>> selected: \(framework.date)")
+        // navigationController?.pushViewController(SettingViewController(), animated: true)
+        print(">>> selected: ")
     }
 }

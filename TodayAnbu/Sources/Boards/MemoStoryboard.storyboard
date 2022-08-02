@@ -50,13 +50,23 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="top" reuseIdentifier="MemoCell" id="wU4-wy-NO9" customClass="MemoCell" customModule="TodayAnbu" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="top" reuseIdentifier="MemoCell" id="wU4-wy-NO9" customClass="MemoCell" customModule="TodayAnbu" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="180" height="225"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="53a-cf-Jfb">
                                             <rect key="frame" x="0.0" y="0.0" width="180" height="225"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q5Y-z8-5tO">
+                                                    <rect key="frame" x="0.0" y="0.0" width="180" height="195"/>
+                                                    <color key="backgroundColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k6r-8K-oVl" userLabel="Day">
+                                                    <rect key="frame" x="10" y="199" width="160" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="myLabel" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YPr-Pi-ddu">
                                                     <rect key="frame" x="15" y="15.000000000000002" width="150" height="26.666666666666671"/>
                                                     <attributedString key="attributedText">
@@ -69,20 +79,18 @@
                                                     </attributedString>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k6r-8K-oVl" userLabel="Day">
-                                                    <rect key="frame" x="10" y="204" width="160" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                             </subviews>
                                             <color key="backgroundColor" systemColor="systemGray6Color"/>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="YPr-Pi-ddu" secondAttribute="trailing" constant="15" id="1Hy-V0-bqG"/>
+                                                <constraint firstItem="Q5Y-z8-5tO" firstAttribute="leading" secondItem="53a-cf-Jfb" secondAttribute="leading" id="2C4-qm-r8r"/>
                                                 <constraint firstAttribute="trailing" secondItem="k6r-8K-oVl" secondAttribute="trailing" constant="10" id="9zp-a3-i8u"/>
-                                                <constraint firstAttribute="bottom" secondItem="k6r-8K-oVl" secondAttribute="bottom" id="EfV-Ta-DBl"/>
+                                                <constraint firstAttribute="bottom" secondItem="k6r-8K-oVl" secondAttribute="bottom" constant="5" id="EfV-Ta-DBl"/>
                                                 <constraint firstItem="YPr-Pi-ddu" firstAttribute="leading" secondItem="53a-cf-Jfb" secondAttribute="leading" constant="15" id="QXD-E8-0jT"/>
+                                                <constraint firstAttribute="trailing" secondItem="Q5Y-z8-5tO" secondAttribute="trailing" id="YDs-7S-PKL"/>
                                                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="YPr-Pi-ddu" secondAttribute="bottom" constant="30" id="YOk-xq-VfD"/>
+                                                <constraint firstItem="Q5Y-z8-5tO" firstAttribute="top" secondItem="53a-cf-Jfb" secondAttribute="top" id="Zyz-DS-wEk"/>
+                                                <constraint firstAttribute="bottom" secondItem="Q5Y-z8-5tO" secondAttribute="bottom" constant="30" id="ePU-o4-lk6"/>
                                                 <constraint firstItem="YPr-Pi-ddu" firstAttribute="top" secondItem="53a-cf-Jfb" secondAttribute="top" constant="15" id="njh-5E-dNb"/>
                                                 <constraint firstItem="k6r-8K-oVl" firstAttribute="leading" secondItem="53a-cf-Jfb" secondAttribute="leading" constant="10" id="rCY-5N-W8j"/>
                                             </constraints>
