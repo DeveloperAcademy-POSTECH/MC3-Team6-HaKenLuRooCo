@@ -10,7 +10,7 @@ extension Date {
     static var currentNumericLocalizedDateTime: String {
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "ko")
-        dateFormatter.dateFormat = "yyMMddHHmmss" // 202207032314 (KST)
+        dateFormatter.dateFormat = "yyMMddHHmmss" // 220703231423 (KST)
         return dateFormatter.string(from: Date())
     }
 
@@ -26,5 +26,14 @@ extension Date {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH:mm" // 2022-07-03 23:14
         return dateFormatter.string(from: self)
+    }
+
+    static func dayDifference(_ before: String, _ after: String) -> Int? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyMMddHHmmss" // 220703231428 (KST)
+        guard let beforeDate = dateFormatter.date(from: before) else { return nil }
+        guard let afterDate = dateFormatter.date(from: after) else { return nil }
+        let interval = afterDate.timeIntervalSince(beforeDate)
+        return Int(interval / 86400)
     }
 }

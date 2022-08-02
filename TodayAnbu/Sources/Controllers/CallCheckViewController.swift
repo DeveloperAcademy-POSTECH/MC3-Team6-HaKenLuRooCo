@@ -63,12 +63,20 @@ extension CallCheckViewController {
             currentData.isMomCall.toggle()
             CallManager.shared.data = currentData
         }
+
         if CallManager.shared.data.isDadCall {
             var currentData = CallManager.shared.data
             currentData.dadCheckCount += 1
             currentData.isDadCall.toggle()
             CallManager.shared.data = currentData
         }
+
+        var currentData = CallManager.shared.data
+        currentData.notCallDate = 0
+        // 전화를 하면 notCallDate는 0으로 초기화
+        CallManager.shared.data = currentData
+        // 전화 후 전화 한 시간 저장
+        UserDefaults.standard.set(Date.currentNumericLocalizedDateTime, forKey: "lastCallTime")
     }
 
     @objc func onTapFailButton() {
