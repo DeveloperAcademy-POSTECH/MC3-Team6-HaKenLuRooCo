@@ -29,14 +29,4 @@ extension UIColor {
 
 extension Color {
     static let mainIndigo = Color("mainIndigo")
-    static let momDeepPink = Color("momDeepPink")
-    static let momLightPink = Color("momLightPink")
-    static let dadDeepSkyblue = Color("dadDeepSkyblue")
-    static let dadLightSkyblue = Color("dadLightSkyblue")
-    static let momGaugeLight = Color("momGaugeLight")
-    static let momGaugeDeep = Color("momGaugeDeep")
-    static let dadGaugeLight = Color("dadGaugeLight")
-    static let dadGaugeDeep = Color("dadGaugeDeep")
-    static let mainTitleOrange = Color("mainTitleOrange")
-    static let mainTitleFontColor = Color("mainTitleFontColor")
 }
