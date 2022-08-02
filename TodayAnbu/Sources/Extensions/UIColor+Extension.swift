@@ -23,4 +23,5 @@ extension UIColor {
     static let mainTitleOrange = UIColor(named: "mainTitleOrange")
     static let mainTitleFontColor = UIColor(named: "mainTitleFontColor")
     static let activePinkColor = UIColor(named: "activePinkColor")
+    static let memoColor = UIColor(named: "memoColor")
 }
