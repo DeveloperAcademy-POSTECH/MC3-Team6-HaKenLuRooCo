@@ -35,7 +35,7 @@ struct SimpleEntry: TimelineEntry {
     let configuration: ConfigurationIntent
 }
 
-struct TodayAnbuWidgetEntryView : View {
+struct TodayAnbuWidgetEntryView: View {
     var entry: Provider.Entry
     var body: some View {
         ZStack {
@@ -45,7 +45,7 @@ struct TodayAnbuWidgetEntryView : View {
                 Text("전화한지")
                     .foregroundColor(.yellow)
                     .font(.system(size: 16, weight: .bold, design: .rounded))
-                Text("10일")
+                Text("6일")
                     .foregroundColor(.orange)
                     .font(.system(size: 40, weight: .heavy, design: .rounded))
                 Text("지났어요!")
@@ -74,7 +74,7 @@ struct TodayAnbuWidget: Widget {
             TodayAnbuWidgetEntryView(entry: entry)
         }
         .configurationDisplayName("오늘, 안부")
-        .description("부모님께 드릴 전화가 있는지 리마인드 해드릴께요!.")
+        .description("부모님께 드릴 전화가 있는지 리마인드 해드릴께요!")
     }
 }
 
