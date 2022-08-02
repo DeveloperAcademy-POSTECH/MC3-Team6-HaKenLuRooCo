@@ -19,7 +19,15 @@ class MainViewController: UIViewController {
     private var genericTopicIndex: Int = 0
     private var seriousTopicIndex: Int = 0
     private var isCalling = false
-    private var notCalledDate: Int = 1
+    private var notCalledDate: Int = 0 {
+        didSet(oldVal) {
+            topTitleDays = topTitleDays(notCalledDate: notCalledDate)
+            configureUI()
+            configureAddSubView()
+            configureTranslate()
+            configureRender()
+        }
+    }
     var isMomCall = false
     var isDadCall = false
     var momPhoneNumber: String = "" {
@@ -108,13 +116,15 @@ class MainViewController: UIViewController {
 
         return label
     }()
-    private lazy var topTitleDays: UILabel = {
+    private func topTitleDays(notCalledDate: Int) -> UILabel {
         let label = UILabel()
         label.text = "\(notCalledDate)일"
         label.textColor = .mainTitleOrange
         label.font = .boldSystemFont(ofSize: 27)
         return label
-    }()
+    }
+    private lazy var topTitleDays = topTitleDays(notCalledDate: self.notCalledDate)
+
     private let weeklyAnbuLabel: UILabel = {
         let label = UILabel()
         label.text = "이번주 안부"
@@ -206,6 +216,7 @@ class MainViewController: UIViewController {
             CallManager.shared.data.isMomCall.toggle()
             self.isCalling.toggle()
             self.goCallApp(url: "tel://" + (UserDefaults.standard.string(forKey: "momPhoneNumber") ?? ""))
+            print(self.notCalledDate)
         }
 
         let dadCall = UIAlertAction(title: "아버지한테 전화하기", style: .default) { _ in
@@ -260,11 +271,15 @@ class MainViewController: UIViewController {
         configureAddSubView()
         configureTranslate()
         configureRender()
+        configureNotCalledDate()
 
         CallManager.shared.$data
             .sink { [weak self] data in
                 self?.momCheckCount = data.momCheckCount
                 self?.dadCheckCount = data.dadCheckCount
+                if let notCalledDate = data.notCallDate {
+                    self?.notCalledDate = notCalledDate
+                }
             }.store(in: &cancelBag)
 
         self.navigationItem.setHidesBackButton(true, animated: true)
@@ -278,6 +293,14 @@ class MainViewController: UIViewController {
             }
         }
         self.navigationController?.setToolbarHidden(true, animated: true)
+
+//        let currentTime =  Date.currentNumericLocalizedDateTime
+//        guard let callTime = UserDefaults.standard.string(forKey: "lastCallTime") else {
+//            self.notCalledDate = 0
+//            UserDefaults.standard.set(Date.currentNumericLocalizedDateTime, forKey: "lastCallTime")
+//            return
+//        }
+//        self.notCalledDate = Date.dayDifference(callTime, currentTime) ?? 0
     }
 
     deinit {
@@ -434,6 +457,17 @@ class MainViewController: UIViewController {
             callButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -50)
         ])
     }
+
+    private func configureNotCalledDate() {
+        let currentTime =  Date.currentNumericLocalizedDateTime
+        guard let callTime = UserDefaults.standard.string(forKey: "lastCallTime") else {
+            self.notCalledDate = 0
+            UserDefaults.standard.set(Date.currentNumericLocalizedDateTime, forKey: "lastCallTime")
+            return
+        }
+        //callTime을 원하는 값으로 설정해주면 영상 찍을 때 가라 가능합니다.
+        notCalledDate = Date.dayDifference(callTime, currentTime) ?? 0
+    }
 }
 
     // MARK: - extension
@@ -506,6 +540,7 @@ extension MainViewController {
 
     @objc private func callbuttonAction(_: UIButton!) {
         present(callAlert, animated: true, completion: nil)
+        print(self.notCalledDate)
     }
 
     @objc private func setButtonAction(_: UIButton!) {

@@ -13,6 +13,7 @@ struct CallData {
     var isDadCall: Bool = false
     var momCheckCount: Int = 0
     var dadCheckCount: Int = 0
+    var notCallDate: Int? = nil
 }
 
 class CallManager: ObservableObject {
