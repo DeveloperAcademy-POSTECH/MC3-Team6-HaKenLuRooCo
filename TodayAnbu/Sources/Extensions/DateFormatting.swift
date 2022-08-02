@@ -30,7 +30,7 @@ extension Date {
 
     static func dayDifference(_ before: String, _ after: String) -> Int? {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyMMddHHmmss" // 202207032314 (KST)
+        dateFormatter.dateFormat = "yyMMddHHmmss" // 220703231428 (KST)
         guard let beforeDate = dateFormatter.date(from: before) else { return nil }
         guard let afterDate = dateFormatter.date(from: after) else { return nil }
         let interval = afterDate.timeIntervalSince(beforeDate)
