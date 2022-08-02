@@ -92,7 +92,7 @@ class MomInitViewController: UIViewController, UITextFieldDelegate {
 
         momDayVstack.isHidden = true
         startButton.isEnabled = false
-        startButton.layer.cornerRadius = 10
+        startButton.layer.cornerRadius = 5
 
         // 7개 알람 버튼 레이아웃 설정
         setHStackViewDefaultConstraints()

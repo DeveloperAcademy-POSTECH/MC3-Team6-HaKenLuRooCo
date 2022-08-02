@@ -49,6 +49,8 @@ extension CallCheckViewController {
         memoView.delegate = self
     }
     func configureButtons() {
+        callDoneButton.layer.cornerRadius = 5
+        callFailButton.layer.cornerRadius = 5
         callDoneButton.addTarget(self, action: #selector(onTapDoneButton), for: .touchUpInside)
         callFailButton.addTarget(self, action: #selector(onTapFailButton), for: .touchUpInside)
     }
