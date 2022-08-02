@@ -64,13 +64,15 @@ class DadInitViewController: UIViewController, UITextFieldDelegate {
     // 데이트 피커를 움직였을 때 나타나는 변화
     lazy private var timeLabel = timePicker.date {
         didSet {
-            notificationButtonList[buttonIndex].notificationTime = timeLabel
+            if notificationButtonList.filter({$0.isSelected == true}).isEmpty == false {
+                notificationButtonList[buttonIndex].notificationTime = timeLabel
 
-            if timeLabel.toString().isEmpty {
-                addNotificationTimeLabel(indexPath: buttonIndex, time: timeLabel.toString())
-            } else {
-                removeTimeLabel()
-                addNotificationTimeLabel(indexPath: buttonIndex, time: timeLabel.toString())
+                if timeLabel.toString().isEmpty {
+                    addNotificationTimeLabel(indexPath: buttonIndex, time: timeLabel.toString())
+                } else {
+                    removeTimeLabel()
+                    addNotificationTimeLabel(indexPath: buttonIndex, time: timeLabel.toString())
+                }
             }
         }
     }
@@ -80,6 +82,7 @@ class DadInitViewController: UIViewController, UITextFieldDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         dadNumberTextfield.delegate = self
         dadNumberTextfield.addRightImage(image: UIImage(systemName: "xmark") ?? UIImage())
         dadNumberTextfield.setRightImageColor(color: UIColor.systemGray4)
@@ -106,13 +109,13 @@ class DadInitViewController: UIViewController, UITextFieldDelegate {
                 print(error ?? "No error")
             }
         }
-        self.navigationItem.setHidesBackButton(true, animated: true)
+        self.navigationItem.setHidesBackButton(false, animated: true)
     }
 
     @IBAction func startButttonAction(_ sender: Any) {
         if dadNumberTextfield.hasValidPhoneNumber {
             dadPhoneNumber = dadNumberTextfield.text!
-            UserDefaults.standard.set(dadPhoneNumber, forKey: "dadPhoneNumber")
+             UserDefaults.standard.set(dadPhoneNumber, forKey: "dadPhoneNumber")
         }
     }
     @IBAction func timePickerAction(_ sender: UIDatePicker!) {
@@ -258,6 +261,7 @@ extension DadInitViewController {
 }
 
 extension DadInitViewController {
+    // MARK: 알람 설정 완료 함수
     @IBAction func setNotificationTime(_ sender: Any) {
         var dateList: [Date] = []
         var dayList: [Int] = []
@@ -265,6 +269,9 @@ extension DadInitViewController {
             dateList.append(button.notificationTime)
             dayList.append(button.indexPath)
         }
+
+        UserDefaults.standard.set(dateList, forKey: "Dad-FirstSetting-dateList")
+        UserDefaults.standard.set(dayList, forKey: "Dad-FirstSetting-dayList")
 
         notificationCenter.getNotificationSettings { settings in
             DispatchQueue.main.async {
