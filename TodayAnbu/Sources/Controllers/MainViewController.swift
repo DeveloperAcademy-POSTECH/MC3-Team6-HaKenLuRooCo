@@ -250,11 +250,10 @@ class MainViewController: UIViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        print("Appeared", self)
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: animated)
     }
-    
+
     deinit {
         if let observer = observer {
             NotificationCenter.default.removeObserver(observer)
