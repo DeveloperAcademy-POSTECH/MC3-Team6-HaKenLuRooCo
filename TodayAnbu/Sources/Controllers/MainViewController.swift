@@ -445,7 +445,7 @@ class MainViewController: UIViewController {
             UserDefaults.standard.set(Date.currentNumericLocalizedDateTime, forKey: "lastCallTime")
             return
         }
-        //callTime을 원하는 값으로 설정해주면 영상 찍을 때 가라 가능합니다.
+        // callTime을 원하는 값으로 설정해주면 영상 찍을 때 가라 가능합니다.
         notCalledDate = Date.dayDifference(callTime, currentTime) ?? 0
     }
 }
