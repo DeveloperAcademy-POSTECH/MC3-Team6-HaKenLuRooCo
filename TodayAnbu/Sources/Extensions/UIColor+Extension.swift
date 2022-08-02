@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 // RGB 값을 불러와서 사용할 수 있게 만들었습니다.
 // 사용 예시
@@ -24,4 +25,8 @@ extension UIColor {
     static let mainTitleFontColor = UIColor(named: "mainTitleFontColor")
     static let activePinkColor = UIColor(named: "activePinkColor")
     static let memoColor = UIColor(named: "memoColor")
+}
+
+extension Color {
+    static let mainIndigo = Color("mainIndigo")
 }
