@@ -21,7 +21,6 @@ class SettingPersonalDataCell: UITableViewCell {
         super.awakeFromNib()
         self.contentView.layer.cornerRadius = 10
     }
-
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
@@ -34,5 +33,4 @@ class SettingPersonalDataCell: UITableViewCell {
             menuLable.leftAnchor.constraint(equalTo: leftAnchor, constant: 12)
         ])
     }
-
 }
