@@ -11,7 +11,7 @@ class SettingViewController: UIViewController {
     // MARK: Properties
     let switchOnAndOff = UISwitch()
     let tableView = UITableView(frame: .zero, style: .insetGrouped)
-    let personalMenu = ["어머니 설정", "아버지 설정", "알림"]
+    let personalMenu = ["어머니 설정", "아버지 설정", "알림", "About Us"]
     let tableViewSection: [String] = ["설정", "추가정보"]
 
     private let tableCellHeader: UILabel = {
@@ -35,20 +35,10 @@ class SettingViewController: UIViewController {
 
     func configureViewComponent() {
         view.addSubview(tableView)
-        // view.addSubview(settingTopArea)
-        // view.addSubview(switchOnAndOff)
-        // settingTopArea.translatesAutoresizingMaskIntoConstraints = false
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        // switchOnAndOff.translatesAutoresizingMaskIntoConstraints = false
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(SettingPersonalDataCell.self, forCellReuseIdentifier: "Cell")
-//        NSLayoutConstraint.activate([
-//            settingTopArea.topAnchor.constraint(equalTo: view.topAnchor),
-//            settingTopArea.bottomAnchor.constraint(equalTo: view.topAnchor, constant: 150),
-//            settingTopArea.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-//            settingTopArea.trailingAnchor.constraint(equalTo: view.trailingAnchor)
-//        ])
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: view.topAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
@@ -224,6 +214,9 @@ extension SettingViewController: UITableViewDelegate {
         case 1:
             let userinitViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DadInitViewController")
             self.navigationController?.pushViewController(userinitViewController, animated: true)
+        case 3:
+            let aboutUsViewController = UIStoryboard(name: "AboutUsView", bundle: nil).instantiateViewController(withIdentifier: "AboutUsViewController")
+            self.navigationController?.pushViewController(aboutUsViewController, animated: true)
         default :
             print("몰라")
         }

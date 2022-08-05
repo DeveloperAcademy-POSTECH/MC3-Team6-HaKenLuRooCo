@@ -163,10 +163,10 @@ class MainViewController: UIViewController {
     private lazy var refreshButton: UIButton = {
             let refreshButton = UIButton(type: UIButton.ButtonType.system)
             refreshButton.setImage(UIImage(systemName: "goforward"), for: UIControl.State.normal)
-            refreshButton.backgroundColor = .mainIndigo
-            refreshButton.tintColor = .white
-            refreshButton.layer.cornerRadius = 15
-            refreshButton.frame.size = CGSize(width: 30, height: 30)
+            refreshButton.backgroundColor = .white
+            refreshButton.tintColor = .mainIndigo
+            refreshButton.layer.cornerRadius = 5
+            refreshButton.frame.size = CGSize(width: 50, height: 30)
             refreshButton.addTarget(self, action: #selector(buttonAction(_:)), for: .touchUpInside)
             return refreshButton
         }()
@@ -537,13 +537,11 @@ extension MainViewController {
             topics = genericTopics[genericTopicIndex]
             topicLabel.text = topics.last
             topicLabel.font = .systemFont(ofSize: 20, weight: .semibold)
-
         default:
             topics = seriousTopics[seriousTopicIndex]
             topicLabel.text = topics.last
             topicLabel.font = .systemFont(ofSize: 20, weight: .semibold)
         }
-
         topicTableView.reloadData()
     }
 }
