@@ -15,9 +15,12 @@ class TabBarController: UITabBarController {
 
         let secondTab = UIStoryboard(name: "MemoStoryboard", bundle: nil).instantiateViewController(withIdentifier: "MemoViewController")
 
+        firstTab.tabBarItem.title = "안부"
         firstTab.tabBarItem.image = UIImage(systemName: "house")
         firstTab.tabBarItem.selectedImage = UIImage(systemName: "house.fill")
         firstTab.isNavigationBarHidden = true
+
+        secondTab.tabBarItem.title = "메모"
         secondTab.tabBarItem.image = UIImage(systemName: "book")
         secondTab.tabBarItem.selectedImage = UIImage(systemName: "book.fill")
 

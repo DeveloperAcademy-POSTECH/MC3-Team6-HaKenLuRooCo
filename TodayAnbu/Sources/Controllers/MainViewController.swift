@@ -56,15 +56,16 @@ class MainViewController: UIViewController {
             configureAll()
         }
     }
+
     lazy var dadCheckCount: Int = 0 {
         didSet {
             switch dadCheckCount {
             case 1:
-                dadGauge1 = dadGauge(dadCheckCount: 1, gaugeColor: .dadGaugeLight)
+                dadGauge1 = dadGauge(dadCheckCount: 1, gaugeColor: .systemPurple)
             case 2:
-                dadGauge2 = dadGauge(dadCheckCount: 2, gaugeColor: .dadGaugeLight)
+                dadGauge2 = dadGauge(dadCheckCount: 2, gaugeColor: .systemPurple)
             case 3:
-                dadGauge3 = dadGauge(dadCheckCount: 3, gaugeColor: .dadGaugeLight)
+                dadGauge3 = dadGauge(dadCheckCount: 3, gaugeColor: .systemPurple)
             default:
                 print("")
             }
@@ -100,7 +101,7 @@ class MainViewController: UIViewController {
     private let weeklyAnbuLabel: UILabel = {
         let label = UILabel()
         label.text = "이번주 안부"
-        label.font = .systemFont(ofSize: 25, weight: .semibold)
+        label.font = .systemFont(ofSize: 26, weight: .heavy)
         label.textColor = .white
         return label
     }()
@@ -146,20 +147,22 @@ class MainViewController: UIViewController {
     private lazy var dadGauge2 = dadGauge(dadCheckCount: 2, gaugeColor: .dadGaugeDeep)
     private lazy var dadGauge3 = dadGauge(dadCheckCount: 3, gaugeColor: .dadGaugeDeep)
 
-    private let topicLabel: UILabel = {
-        let topicText = UILabel()
-        topicText.font = .systemFont(ofSize: 20, weight: .semibold)
-        return topicText
-    }()
     private lazy var topicSegmentedControl: UISegmentedControl = {
         let segmentItems = ["가벼운 토픽", "진지한 토픽"]
         let topicSegmentedControl = UISegmentedControl(items: segmentItems)
+
         topicSegmentedControl.selectedSegmentIndex = 0
-        topicSegmentedControl.backgroundColor = .systemGray3
         topicSegmentedControl.tintColor = .black
         topicSegmentedControl.addTarget(self, action: #selector(segmentedValueChanged(_:)), for: .valueChanged)
         return topicSegmentedControl
     }()
+
+    private let topicLabel: UILabel = {
+        let topicText = UILabel()
+        topicText.font = .systemFont(ofSize: 24, weight: .semibold)
+        return topicText
+    }()
+
     private lazy var refreshButton: UIButton = {
             let refreshButton = UIButton(type: UIButton.ButtonType.system)
             refreshButton.setImage(UIImage(systemName: "goforward"), for: UIControl.State.normal)
@@ -177,7 +180,6 @@ class MainViewController: UIViewController {
         topicTableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         topicTableView.reloadData()
         topicTableView.layer.cornerRadius = 10
-        topicTableView.backgroundColor = .black
         topicTableView.isScrollEnabled = false
         return topicTableView
     }()
@@ -262,14 +264,6 @@ class MainViewController: UIViewController {
             }
         }
         self.navigationController?.setToolbarHidden(true, animated: true)
-
-//        let currentTime =  Date.currentNumericLocalizedDateTime
-//        guard let callTime = UserDefaults.standard.string(forKey: "lastCallTime") else {
-//            self.notCalledDate = 0
-//            UserDefaults.standard.set(Date.currentNumericLocalizedDateTime, forKey: "lastCallTime")
-//            return
-//        }
-//        self.notCalledDate = Date.dayDifference(callTime, currentTime) ?? 0
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -347,7 +341,7 @@ class MainViewController: UIViewController {
         ])
         NSLayoutConstraint.activate([
             topTitle.leadingAnchor.constraint(equalTo: topArea.leadingAnchor, constant: 20),
-            topTitle.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10)
+            topTitle.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20)
         ])
         NSLayoutConstraint.activate([
             topTitleDays.trailingAnchor.constraint(equalTo: topArea.trailingAnchor, constant: -220),
@@ -413,21 +407,21 @@ class MainViewController: UIViewController {
         ])
 
         NSLayoutConstraint.activate([
-            topicLabel.leadingAnchor.constraint(equalTo: topicSegmentedControl.leadingAnchor),
-            topicLabel.topAnchor.constraint(equalTo: topicSegmentedControl.bottomAnchor, constant: 35)
+            topicLabel.leadingAnchor.constraint(equalTo: topicSegmentedControl.leadingAnchor, constant: 15),
+            topicLabel.topAnchor.constraint(equalTo: topicSegmentedControl.bottomAnchor, constant: 20)
         ])
 
         NSLayoutConstraint.activate([
             refreshButton.heightAnchor.constraint(equalToConstant: 32),
             refreshButton.widthAnchor.constraint(equalToConstant: 32),
             refreshButton.trailingAnchor.constraint(equalTo: topicSegmentedControl.trailingAnchor),
-            refreshButton.topAnchor.constraint(equalTo: topicLabel.topAnchor)
+            refreshButton.topAnchor.constraint(equalTo: topicSegmentedControl.bottomAnchor, constant: 17)
         ])
 
         NSLayoutConstraint.activate([
-            topicTableView.topAnchor.constraint(equalTo: topicLabel.bottomAnchor, constant: 30),
+            topicTableView.topAnchor.constraint(equalTo: topicLabel.bottomAnchor, constant: 20),
             topicTableView.heightAnchor.constraint(equalToConstant: 150),
-            topicTableView.leadingAnchor.constraint(equalTo: topicLabel.leadingAnchor),
+            topicTableView.leadingAnchor.constraint(equalTo: topicSegmentedControl.leadingAnchor),
             topicTableView.trailingAnchor.constraint(equalTo: refreshButton.trailingAnchor)
         ])
 
@@ -460,7 +454,7 @@ class MainViewController: UIViewController {
 
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-            cell.backgroundColor = .systemGray5
+            cell.backgroundColor = .systemGray6
             cell.textLabel?.text = topics[indexPath.row]
             cell.textLabel?.numberOfLines = 2
             return cell
@@ -484,7 +478,6 @@ extension MainViewController {
                 UIApplication.shared.openURL(openApp)
             }
         }
-
         // 스키마명을 사용해 외부앱 실행이 불가능한 경우
         else {
             print("[goDeviceApp : 디바이스 외부 앱 열기 실패]")
@@ -536,11 +529,11 @@ extension MainViewController {
         case 0:
             topics = genericTopics[genericTopicIndex]
             topicLabel.text = topics.last
-            topicLabel.font = .systemFont(ofSize: 20, weight: .semibold)
+            topicLabel.font = .systemFont(ofSize: 24, weight: .semibold)
         default:
             topics = seriousTopics[seriousTopicIndex]
             topicLabel.text = topics.last
-            topicLabel.font = .systemFont(ofSize: 20, weight: .semibold)
+            topicLabel.font = .systemFont(ofSize: 24, weight: .semibold)
         }
         topicTableView.reloadData()
     }
