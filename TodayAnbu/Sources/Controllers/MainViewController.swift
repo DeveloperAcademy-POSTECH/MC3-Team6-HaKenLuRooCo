@@ -188,6 +188,13 @@ class MainViewController: UIViewController {
         return topicText
     }()
 
+    private let topicSuggest: UILabel = {
+        let topicSuggestLabel = UILabel()
+        topicSuggestLabel.text = "토픽 선택"
+        topicSuggestLabel.font = .systemFont(ofSize: 24, weight: .semibold)
+        return topicSuggestLabel
+    }()
+
     private lazy var refreshButton: UIButton = {
             let refreshButton = UIButton(type: UIButton.ButtonType.system)
             refreshButton.setImage(UIImage(systemName: "goforward"), for: UIControl.State.normal)
@@ -319,6 +326,7 @@ class MainViewController: UIViewController {
         view.addSubview(weeklyAnbuLabel)
         view.addSubview(momLabel)
         view.addSubview(dadLabel)
+        view.addSubview(topicSuggest)
         view.addSubview(topicSegmentedControl)
         view.addSubview(topicLabel)
         view.addSubview(refreshButton)
@@ -338,6 +346,7 @@ class MainViewController: UIViewController {
         topTitle.translatesAutoresizingMaskIntoConstraints = false
         topTitleDays.translatesAutoresizingMaskIntoConstraints = false
         weeklyAnbuLabel.translatesAutoresizingMaskIntoConstraints = false
+        topicSuggest.translatesAutoresizingMaskIntoConstraints = false
         topicSegmentedControl.translatesAutoresizingMaskIntoConstraints = false
         topicLabel.translatesAutoresizingMaskIntoConstraints = false
         refreshButton.translatesAutoresizingMaskIntoConstraints = false
@@ -421,8 +430,13 @@ class MainViewController: UIViewController {
             dadGauge3.bottomAnchor.constraint(equalTo: dadGauge1.bottomAnchor),
             dadGauge3.trailingAnchor.constraint(equalTo: dadGauge3.leadingAnchor, constant: 75)
         ])
+
         NSLayoutConstraint.activate([
-            topicSegmentedControl.topAnchor.constraint(equalTo: topArea.bottomAnchor, constant: 30),
+            topicSuggest.topAnchor.constraint(equalTo: topArea.bottomAnchor, constant: 20),
+            topicSuggest.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40)        ])
+
+        NSLayoutConstraint.activate([
+            topicSegmentedControl.topAnchor.constraint(equalTo: topicSuggest.bottomAnchor, constant: 10),
             topicSegmentedControl.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
             topicSegmentedControl.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30)
         ])
@@ -436,7 +450,7 @@ class MainViewController: UIViewController {
             refreshButton.heightAnchor.constraint(equalToConstant: 32),
             refreshButton.widthAnchor.constraint(equalToConstant: 32),
             refreshButton.trailingAnchor.constraint(equalTo: topicSegmentedControl.trailingAnchor),
-            refreshButton.topAnchor.constraint(equalTo: topicSegmentedControl.bottomAnchor, constant: 17)
+            refreshButton.topAnchor.constraint(equalTo: topicSegmentedControl.bottomAnchor, constant: 15)
         ])
 
         NSLayoutConstraint.activate([
@@ -461,7 +475,6 @@ class MainViewController: UIViewController {
             UserDefaults.standard.set(Date.currentNumericLocalizedDateTime, forKey: "lastCallTime")
             return
         }
-        // callTime을 원하는 값으로 설정해주면 영상 찍을 때 가라 가능합니다.
         notCalledDate = Date.dayDifference(callTime, currentTime) ?? 0
     }
 }

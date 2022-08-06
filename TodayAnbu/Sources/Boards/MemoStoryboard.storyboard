@@ -22,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="428" height="150"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="어떤 대화를 했을까요?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fgd-qA-dbA">
-                                        <rect key="frame" x="104.66666666666669" y="67.666666666666671" width="219" height="30"/>
+                                        <rect key="frame" x="104.66666666666669" y="71.333333333333329" width="219" height="30"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                         <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -31,7 +31,7 @@
                                 <color key="backgroundColor" name="mainIndigo"/>
                                 <constraints>
                                     <constraint firstItem="fgd-qA-dbA" firstAttribute="centerX" secondItem="LNM-k1-Gzb" secondAttribute="centerX" id="Uvt-OV-aEi"/>
-                                    <constraint firstItem="fgd-qA-dbA" firstAttribute="centerY" secondItem="LNM-k1-Gzb" secondAttribute="centerY" multiplier="1.1" id="g5z-wM-9A2"/>
+                                    <constraint firstItem="fgd-qA-dbA" firstAttribute="centerY" secondItem="LNM-k1-Gzb" secondAttribute="centerY" multiplier="1.15" id="g5z-wM-9A2"/>
                                     <constraint firstAttribute="height" constant="150" id="k23-sg-Qnw"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
