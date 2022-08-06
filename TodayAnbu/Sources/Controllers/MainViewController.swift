@@ -75,20 +75,40 @@ class MainViewController: UIViewController {
 
     private let topArea: UIView = {
         let area = UIView()
-        area.layer.cornerRadius = 20
+        area.layer.cornerRadius = 15
         area.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
         area.backgroundColor = .mainIndigo
         return area
     }()
-    private let topTitle: UILabel = {
+
+    lazy private var topTitle: UIStackView = {
+        let titleHStack = UIStackView()
+        titleHStack.axis = .horizontal
+        titleHStack.spacing = 10
+        titleHStack.addArrangedSubview(topTitleFirstLabel)
+        titleHStack.addArrangedSubview(topTitleDays)
+        titleHStack.addArrangedSubview(topTitleSecondLabel)
+        return titleHStack
+    }()
+
+    private let topTitleFirstLabel: UILabel = {
         let label = UILabel()
         let dayLabel = UILabel()
         label.textColor = .mainTitleFontColor
-        label.text = "전화한지             되었어요"
+        label.text = "전화한지"
         label.font = .boldSystemFont(ofSize: 25)
-
         return label
     }()
+
+    private let topTitleSecondLabel: UILabel = {
+        let label = UILabel()
+        let dayLabel = UILabel()
+        label.textColor = .mainTitleFontColor
+        label.text = "되었어요"
+        label.font = .boldSystemFont(ofSize: 25)
+        return label
+    }()
+
     private func topTitleDays(notCalledDate: Int) -> UILabel {
         let label = UILabel()
         label.text = "\(notCalledDate)일"
@@ -96,6 +116,7 @@ class MainViewController: UIViewController {
         label.font = .boldSystemFont(ofSize: 27)
         return label
     }
+
     private lazy var topTitleDays = topTitleDays(notCalledDate: self.notCalledDate)
 
     private let weeklyAnbuLabel: UILabel = {
@@ -105,6 +126,7 @@ class MainViewController: UIViewController {
         label.textColor = .white
         return label
     }()
+
     private lazy var settingButton: UIButton = {
         let setButton = UIButton()
         setButton.setImage(UIImage(systemName: "gearshape.fill"), for: UIControl.State.normal)
@@ -113,6 +135,7 @@ class MainViewController: UIViewController {
         setButton.addTarget(self, action: #selector(setButtonAction(_:)), for: .touchUpInside)
         return setButton
     }()
+
     private let momLabel: UILabel = {
         let label = UILabel()
         label.text = "어머니"
@@ -120,6 +143,7 @@ class MainViewController: UIViewController {
         label.textColor = .white
         return label
     }()
+
     private let dadLabel: UILabel = {
         let label = UILabel()
         label.text = "아버지"
@@ -127,6 +151,7 @@ class MainViewController: UIViewController {
         label.textColor = .white
         return label
     }()
+
     private func momGauge(momCheckCount: Int, gaugeColor: UIColor!) -> UIView {
         let capsule = UIView()
         capsule.layer.cornerRadius = 10
@@ -291,7 +316,6 @@ class MainViewController: UIViewController {
     private func configureAddSubView() {
         view.addSubview(topArea)
         view.addSubview(topTitle)
-        view.addSubview(topTitleDays)
         view.addSubview(weeklyAnbuLabel)
         view.addSubview(momLabel)
         view.addSubview(dadLabel)
@@ -343,10 +367,7 @@ class MainViewController: UIViewController {
             topTitle.leadingAnchor.constraint(equalTo: topArea.leadingAnchor, constant: 20),
             topTitle.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20)
         ])
-        NSLayoutConstraint.activate([
-            topTitleDays.trailingAnchor.constraint(equalTo: topArea.trailingAnchor, constant: -220),
-            topTitleDays.bottomAnchor.constraint(equalTo: topTitle.bottomAnchor)
-        ])
+
         NSLayoutConstraint.activate([
             settingButton.centerYAnchor.constraint(equalTo: topTitle.centerYAnchor),
             settingButton.widthAnchor.constraint(equalToConstant: 40),
@@ -354,7 +375,7 @@ class MainViewController: UIViewController {
         ])
         NSLayoutConstraint.activate([
             weeklyAnbuLabel.leadingAnchor.constraint(equalTo: topArea.leadingAnchor, constant: 20),
-            weeklyAnbuLabel.topAnchor.constraint(equalTo: topTitle.topAnchor, constant: 60)
+            weeklyAnbuLabel.topAnchor.constraint(equalTo: topTitle.topAnchor, constant: 50)
         ])
         NSLayoutConstraint.activate([
             momLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
@@ -401,7 +422,7 @@ class MainViewController: UIViewController {
             dadGauge3.trailingAnchor.constraint(equalTo: dadGauge3.leadingAnchor, constant: 75)
         ])
         NSLayoutConstraint.activate([
-            topicSegmentedControl.topAnchor.constraint(equalTo: topArea.bottomAnchor, constant: 50),
+            topicSegmentedControl.topAnchor.constraint(equalTo: topArea.bottomAnchor, constant: 30),
             topicSegmentedControl.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
             topicSegmentedControl.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30)
         ])
@@ -429,7 +450,7 @@ class MainViewController: UIViewController {
             callButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 5),
             callButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -5),
             callButton.heightAnchor.constraint(equalToConstant: 55),
-            callButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -50)
+            callButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20)
         ])
     }
 

@@ -19,10 +19,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LNM-k1-Gzb">
-                                <rect key="frame" x="0.0" y="0.0" width="428" height="172"/>
+                                <rect key="frame" x="0.0" y="0.0" width="428" height="150"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="자신이 남긴 메모를 확인해보세요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fgd-qA-dbA">
-                                        <rect key="frame" x="54.666666666666657" y="71" width="319" height="30"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="어떤 대화를 했을까요?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fgd-qA-dbA">
+                                        <rect key="frame" x="104.66666666666669" y="67.666666666666671" width="219" height="30"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                         <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -31,17 +31,17 @@
                                 <color key="backgroundColor" name="mainIndigo"/>
                                 <constraints>
                                     <constraint firstItem="fgd-qA-dbA" firstAttribute="centerX" secondItem="LNM-k1-Gzb" secondAttribute="centerX" id="Uvt-OV-aEi"/>
-                                    <constraint firstItem="fgd-qA-dbA" firstAttribute="centerY" secondItem="LNM-k1-Gzb" secondAttribute="centerY" id="g5z-wM-9A2"/>
-                                    <constraint firstAttribute="height" constant="172" id="k23-sg-Qnw"/>
+                                    <constraint firstItem="fgd-qA-dbA" firstAttribute="centerY" secondItem="LNM-k1-Gzb" secondAttribute="centerY" multiplier="1.1" id="g5z-wM-9A2"/>
+                                    <constraint firstAttribute="height" constant="150" id="k23-sg-Qnw"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="10"/>
+                                        <integer key="value" value="15"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalCompressionResistancePriority="500" verticalCompressionResistancePriority="500" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="dk1-Wv-mzr">
-                                <rect key="frame" x="0.0" y="172" width="428" height="720"/>
+                                <rect key="frame" x="0.0" y="150" width="428" height="742"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="fsy-oG-6wO">
                                     <size key="itemSize" width="180" height="225"/>
@@ -130,7 +130,7 @@
             <color red="0.15686274509803921" green="0.20000000000000001" blue="0.58823529411764708" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="memoColor">
-            <color red="0.99215686274509807" green="0.99215686274509807" blue="0.58823529411764708" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.99199998378753662" green="0.99199998378753662" blue="0.58799999952316284" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
