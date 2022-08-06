@@ -143,7 +143,6 @@ class SettingViewController: UIViewController {
 
     @objc func doneButtonAction(_ sender: UIButton!) {
         self.dismiss(animated: true)
-        print("dismiss")
     }
 
     func removeLocalNotifications() {
