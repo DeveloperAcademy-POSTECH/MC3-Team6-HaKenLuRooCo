@@ -24,7 +24,7 @@ class MemoDetailViewController: UIViewController {
     private let memoDate: UILabel = {
         let label = UILabel()
         label.text = "7월 11일"
-        label.font = .boldSystemFont(ofSize: 25)
+        label.font = .boldSystemFont(ofSize: 16)
         label.textColor = .black
         return label
     }()
@@ -41,7 +41,7 @@ class MemoDetailViewController: UIViewController {
         let memoDates = [String](dict.keys)
         let memoDescription = [String](dict.values)
         label.text = memoDescription[0]
-        label.font = .systemFont(ofSize: 18)
+        label.font = .systemFont(ofSize: 16)
         label.textColor = .black
         label.numberOfLines = 0
         return label

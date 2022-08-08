@@ -28,7 +28,7 @@ class MemoViewController: UIViewController {
                 return nil
             }
             cell.configure(item)
-            cell.layer.cornerRadius = 15
+            cell.layer.cornerRadius = 25
             cell.layer.shadowOffset = CGSize(width: 5, height: 5)
             return cell
         })
