@@ -18,7 +18,6 @@ class MemoViewController: UIViewController {
     }
 
     var dataSource: UICollectionViewDiffableDataSource<Section, Item>!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         searchBar.delegate = self
@@ -58,7 +57,6 @@ class MemoViewController: UIViewController {
         section.interGroupSpacing = spacing
         return UICollectionViewCompositionalLayout(section: section)
     }
-    
     func makeMemoList() -> [MemoData] {
         var list: [MemoData] = []
         var dict: [String: String] = [:]
@@ -73,7 +71,6 @@ class MemoViewController: UIViewController {
         }
         return list
     }
-    
 }
 extension MemoViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -84,7 +81,6 @@ extension MemoViewController: UICollectionViewDelegate {
 }
 
 extension MemoViewController: UISearchBarDelegate {
-    
     // MARK: - searchText 변화시 호출되는 함수
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText.isEmpty {
@@ -100,7 +96,6 @@ extension MemoViewController: UISearchBarDelegate {
                 cell.layer.shadowOffset = CGSize(width: 5, height: 5)
                 return cell
             })
-            
             var snapshot = NSDiffableDataSourceSnapshot<Section, Item>()
             snapshot.appendSections([.main])
             snapshot.appendItems(list, toSection: .main)
@@ -124,7 +119,6 @@ extension MemoViewController: UISearchBarDelegate {
             snapshot.appendItems(list, toSection: .main)
             dataSource.apply(snapshot)
             collectionView.collectionViewLayout = layout()
-            
             // MARK: - 검색어를 포함하는 메모리스트를 반환
             func makeFilteredMemoList() -> [MemoData] {
                 var list: [MemoData] = []
@@ -143,11 +137,8 @@ extension MemoViewController: UISearchBarDelegate {
             }
         }
     }
-    
     // MARK: - 검색 버튼 클릭시, 키보드 dismiss
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         self.searchBar.endEditing(true)
     }
 }
-
-
