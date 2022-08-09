@@ -32,7 +32,8 @@ class SettingViewController: UIViewController {
         tabBarController?.tabBar.isHidden = true
     }
 
-    func configureViewComponent() {        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "완료", style: .plain, target: self, action: #selector(doneButtonAction(_:)))
+    func configureViewComponent() {
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "완료", style: .plain, target: self, action: #selector(doneButtonAction(_:)))
 
         view.addSubview(tableView)
         tableView.translatesAutoresizingMaskIntoConstraints = false
