@@ -21,7 +21,6 @@ class SettingViewController: UIViewController {
         label.textColor = .systemGray
         return label
     }()
-
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +33,8 @@ class SettingViewController: UIViewController {
     }
 
     func configureViewComponent() {
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "완료", style: .plain, target: self, action: #selector(doneButtonAction(_:)))
+
         view.addSubview(tableView)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.delegate = self
@@ -139,6 +140,10 @@ class SettingViewController: UIViewController {
                 }
             }
         }
+    }
+
+    @objc func doneButtonAction(_ sender: UIButton!) {
+        self.dismiss(animated: true)
     }
 
     func removeLocalNotifications() {

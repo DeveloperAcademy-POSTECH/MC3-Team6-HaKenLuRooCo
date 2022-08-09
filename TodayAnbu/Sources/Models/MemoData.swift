@@ -7,7 +7,8 @@
 // MemoView에서 사용하기 위한 더미 Data입니다. 실험이 끝나고 삭제하겠습니다.
 import Foundation
 
-struct MemoData: Hashable {
+struct MemoData: Hashable, Identifiable {
+    let id = UUID().uuidString
     let date: String
     let description: String
 }
