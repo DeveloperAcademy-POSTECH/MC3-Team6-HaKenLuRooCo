@@ -50,7 +50,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="top" restorationIdentifier="cellRegister" reuseIdentifier="MemoCell" id="wU4-wy-NO9" customClass="MemoCell" customModule="TodayAnbu" customModuleProvider="target" colorLabel="IBBuiltInLabel-Red">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="top" restorationIdentifier="cellRegister" reuseIdentifier="MemoCell" id="wU4-wy-NO9" customClass="MemoCell" customModule="TodayAnbu" customModuleProvider="target" colorLabel="IBBuiltInLabel-Red">
                                         <rect key="frame" x="0.0" y="0.0" width="180" height="225"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="53a-cf-Jfb">
@@ -123,12 +123,46 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="LNM-k1-Gzb" secondAttribute="trailing" id="zg4-Ob-aWe"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="v5L-Um-ZTs"/>
                     <connections>
                         <outlet property="collectionView" destination="dk1-Wv-mzr" id="8jK-S9-iyl"/>
                         <outlet property="searchBar" destination="ump-AJ-ndm" id="sqM-C2-DRj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="843.92523364485976" y="-95.248380129589634"/>
+        </scene>
+        <!--Memo Detail View Controller-->
+        <scene sceneID="eWm-CQ-iCa">
+            <objects>
+                <viewController storyboardIdentifier="MemoDetailViewController" id="zs7-Cc-whs" customClass="MemoDetailViewController" customModule="TodayAnbu" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DS6-oz-wBs">
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="kia-Wg-whq"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hx4-0T-d8u" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1742" y="-88"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="d7M-fN-b2I">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gEJ-s8-qbP" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="4vy-1D-c3a">
+                        <rect key="frame" x="0.0" y="44" width="428" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Y6W-OH-hqX" kind="relationship" relationship="rootViewController" id="YHy-iZ-JXF"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HTY-J4-4sL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-56.074766355140184" y="-95.248380129589634"/>
         </scene>
@@ -138,7 +172,7 @@
             <color red="0.15700000524520874" green="0.20000000298023224" blue="0.58799999952316284" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="memoColor">
-            <color red="0.99215686274509807" green="0.99215686274509807" blue="0.58823529411764708" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.99199998378753662" green="0.99199998378753662" blue="0.58799999952316284" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
