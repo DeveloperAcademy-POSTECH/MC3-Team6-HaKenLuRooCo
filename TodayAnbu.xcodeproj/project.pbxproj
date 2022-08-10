@@ -31,6 +31,9 @@
 		7B2E9C702884397B006BE5C8 /* SettingHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2E9C6F2884397B006BE5C8 /* SettingHeaderView.swift */; };
 		7B2E9C722884FCF4006BE5C8 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2E9C712884FCF4006BE5C8 /* MainViewController.swift */; };
 		7BD2303E288E8B18002BB9F5 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD2303D288E8B18002BB9F5 /* UIColor+Extension.swift */; };
+		9AD121A128A3D20F00A75A76 /* TopicData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD121A028A3D20F00A75A76 /* TopicData.swift */; };
+		9AD121A228A3D8ED00A75A76 /* CallModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CF7E642892D22700189E8B /* CallModelData.swift */; };
+		9AD121A328A3E15D00A75A76 /* TopicData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD121A028A3D20F00A75A76 /* TopicData.swift */; };
 		A92FC8C7287FF3C000962CA0 /* OnboardingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92FC8C6287FF3C000962CA0 /* OnboardingPageViewController.swift */; };
 		A9332C77288E908F001A1B76 /* DateFormatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9332C76288E908F001A1B76 /* DateFormatting.swift */; };
 		A978444F28991C2300179CF0 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A978444E28991C2300179CF0 /* WidgetKit.framework */; };
@@ -102,6 +105,7 @@
 		7B2E9C6F2884397B006BE5C8 /* SettingHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingHeaderView.swift; sourceTree = "<group>"; };
 		7B2E9C712884FCF4006BE5C8 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		7BD2303D288E8B18002BB9F5 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		9AD121A028A3D20F00A75A76 /* TopicData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicData.swift; sourceTree = "<group>"; };
 		A92FC8C6287FF3C000962CA0 /* OnboardingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPageViewController.swift; sourceTree = "<group>"; };
 		A9332C76288E908F001A1B76 /* DateFormatting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatting.swift; sourceTree = "<group>"; };
 		A978444D28991C2300179CF0 /* TodayAnbuWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TodayAnbuWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -217,6 +221,7 @@
 				7B2E9C6F2884397B006BE5C8 /* SettingHeaderView.swift */,
 				A9B32A93288691EA00530B51 /* NotificationTime.swift */,
 				A9CF7E642892D22700189E8B /* CallModelData.swift */,
+				9AD121A028A3D20F00A75A76 /* TopicData.swift */,
 				7B2216752891452D00B14C5C /* MemoData.swift */,
 				7B2216772891493500B14C5C /* MemoCell.swift */,
 				B55143EB2896785100D9E4D4 /* Storage.swift */,
@@ -454,6 +459,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7B2216782891493500B14C5C /* MemoCell.swift in Sources */,
+				9AD121A128A3D20F00A75A76 /* TopicData.swift in Sources */,
 				A92FC8C7287FF3C000962CA0 /* OnboardingPageViewController.swift in Sources */,
 				7B2216762891452D00B14C5C /* MemoData.swift in Sources */,
 				10D26710288ED1ED0056339A /* TabBarController.swift in Sources */,
@@ -487,6 +493,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A978446228991C7E00179CF0 /* UIColor+Extension.swift in Sources */,
+				9AD121A228A3D8ED00A75A76 /* CallModelData.swift in Sources */,
+				9AD121A328A3E15D00A75A76 /* TopicData.swift in Sources */,
 				A978445928991C2500179CF0 /* TodayAnbuWidget.intentdefinition in Sources */,
 				A978445428991C2300179CF0 /* TodayAnbuWidget.swift in Sources */,
 			);
