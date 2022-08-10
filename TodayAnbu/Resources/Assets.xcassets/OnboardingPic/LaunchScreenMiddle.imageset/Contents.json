@@ -1,11 +1,11 @@
 {
   "images" : [
     {
-      "filename" : "App_Onboarding_1st 중간.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "LaunchScreenMiddle.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
