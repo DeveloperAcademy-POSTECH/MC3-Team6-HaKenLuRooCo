@@ -60,7 +60,7 @@
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchScreenMiddle" translatesAutoresizingMaskIntoConstraints="NO" id="oDW-Mp-cG0">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchScreenMiddle" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oDW-Mp-cG0">
                                         <rect key="frame" x="0.0" y="123.33333333333331" width="330" height="542.66666666666674"/>
                                     </imageView>
                                 </subviews>
@@ -83,7 +83,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="LaunchScreenMiddle" width="1135" height="1280"/>
+        <image name="LaunchScreenMiddle" width="567.5" height="640"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
