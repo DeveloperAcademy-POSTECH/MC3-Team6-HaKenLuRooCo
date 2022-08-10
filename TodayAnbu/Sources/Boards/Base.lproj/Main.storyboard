@@ -78,8 +78,8 @@
                                     <segue destination="lyG-OF-ikj" kind="show" id="ic6-UZ-Jqp"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="momPicture" translatesAutoresizingMaskIntoConstraints="NO" id="Ab0-3b-621">
-                                <rect key="frame" x="40" y="131.5" width="334" height="462"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="App_OnboardingFirst" translatesAutoresizingMaskIntoConstraints="NO" id="Ab0-3b-621">
+                                <rect key="frame" x="40" y="-1882.5" width="334" height="4490"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="갱년기는 급격한 호르몬 변화를 겪는 시기로" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MDk-mg-it6">
                                 <rect key="frame" x="80.5" y="702" width="253.5" height="18"/>
@@ -120,8 +120,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="testImage" translatesAutoresizingMaskIntoConstraints="NO" id="7nc-8V-HKl">
-                                <rect key="frame" x="57" y="222" width="300" height="371"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="App_OnboardingThird" translatesAutoresizingMaskIntoConstraints="NO" id="7nc-8V-HKl">
+                                <rect key="frame" x="57" y="-1964.5" width="300" height="4654"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="부모님께 자주 안부 전화하나요?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3HO-e8-lu3">
                                 <rect key="frame" x="57.5" y="653" width="299" height="29"/>
@@ -164,7 +164,7 @@
                         <constraints>
                             <constraint firstItem="g3a-fE-OqV" firstAttribute="centerY" secondItem="Jhx-1G-qFV" secondAttribute="centerY" multiplier="1.85" id="GK0-Zx-Cn6"/>
                             <constraint firstItem="ycP-kV-iHe" firstAttribute="centerX" secondItem="Jhx-1G-qFV" secondAttribute="centerX" id="L2a-Am-fnT"/>
-                            <constraint firstItem="7nc-8V-HKl" firstAttribute="centerY" secondItem="Jhx-1G-qFV" secondAttribute="centerY" multiplier="0.9" id="PWh-aw-64r"/>
+                            <constraint firstItem="7nc-8V-HKl" firstAttribute="centerY" secondItem="Jhx-1G-qFV" secondAttribute="centerY" multiplier="0.8" id="PWh-aw-64r"/>
                             <constraint firstItem="3HO-e8-lu3" firstAttribute="centerX" secondItem="Jhx-1G-qFV" secondAttribute="centerX" id="TD6-gv-bqS"/>
                             <constraint firstItem="L7O-UY-DRG" firstAttribute="centerX" secondItem="Jhx-1G-qFV" secondAttribute="centerX" multiplier="0.3" id="TPv-vY-RKb"/>
                             <constraint firstItem="Y5B-ds-Wwi" firstAttribute="centerX" secondItem="Jhx-1G-qFV" secondAttribute="centerX" id="XnH-mX-gam"/>
@@ -619,13 +619,13 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="f81-o5-jez"/>
+        <segue reference="7fl-9i-khf"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
     <resources>
+        <image name="App_OnboardingFirst" width="3174" height="4490"/>
+        <image name="App_OnboardingThird" width="3291" height="4654"/>
         <image name="circle" catalog="system" width="128" height="121"/>
-        <image name="momPicture" width="634" height="462"/>
-        <image name="testImage" width="636" height="371"/>
         <namedColor name="mainIndigo">
             <color red="0.15686274509803921" green="0.20000000000000001" blue="0.58823529411764708" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
