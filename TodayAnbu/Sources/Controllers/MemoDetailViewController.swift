@@ -4,7 +4,6 @@
 //
 //  Created by Taehwan Kim on 2022/07/31.
 //
-
 import UIKit
 
 class MemoDetailViewController: UIViewController {
@@ -21,20 +20,19 @@ class MemoDetailViewController: UIViewController {
 
     private let topArea: UIView = {
         let area = UIView()
-        area.layer.cornerRadius = 15
         area.backgroundColor = .mainIndigo
         return area
     }()
-    private let topTitle: UILabel = {
+    private lazy var topTitle: UILabel = {
         let label = UILabel()
-        label.text = "어떤 대화였을까요?"
+        label.text = "대화 내용"
         label.font = .boldSystemFont(ofSize: 25)
         label.textColor = .white
         return label
     }()
-    private let memoDate: UILabel = {
+    private lazy var memoDate: UILabel = {
         let label = UILabel()
-        label.text = "7월 11일"
+        label.text = memoData.date
         label.font = .boldSystemFont(ofSize: 16)
         label.textColor = .black
         return label
@@ -42,19 +40,15 @@ class MemoDetailViewController: UIViewController {
     private let memoArea: UIView = {
         let area = UIView()
         area.layer.cornerRadius = 15
-        area.backgroundColor = .systemGray5
+        area.backgroundColor = .memoColor
         return area
     }()
-    private let memoLabel: UILabel = {
+    private lazy var memoLabel: UILabel = {
         let label = UILabel()
-        var dict: [String: String] = [:]
-        dict = UserDefaults.standard.value(forKey: "momMemo") as? [String: String] ?? [:]
-        let memoDates = [String](dict.keys)
-        let memoDescription = [String](dict.values)
-        label.text = memoDescription[0]
+        label.text = memoData.description
         label.font = .systemFont(ofSize: 16)
         label.textColor = .black
-        label.numberOfLines = 0
+        label.numberOfLines = 4
         return label
     }()
     override func viewDidLoad() {
@@ -76,13 +70,13 @@ class MemoDetailViewController: UIViewController {
         memoLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             topArea.topAnchor.constraint(equalTo: view.topAnchor),
-            topArea.bottomAnchor.constraint(equalTo: view.topAnchor, constant: 150),
+            topArea.bottomAnchor.constraint(equalTo: view.topAnchor, constant: 120),
             topArea.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             topArea.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
         NSLayoutConstraint.activate([
-            topTitle.leadingAnchor.constraint(equalTo: topArea.leadingAnchor, constant: 80),
-            topTitle.topAnchor.constraint(equalTo: topArea.safeAreaLayoutGuide.topAnchor, constant: -15)
+            topTitle.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            topTitle.topAnchor.constraint(equalTo: topArea.safeAreaLayoutGuide.topAnchor, constant: -25)
         ])
         NSLayoutConstraint.activate([
             memoDate.topAnchor.constraint(equalTo: topArea.bottomAnchor, constant: 20),

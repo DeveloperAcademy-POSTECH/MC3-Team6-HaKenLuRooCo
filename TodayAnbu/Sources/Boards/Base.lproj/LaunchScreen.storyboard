@@ -83,7 +83,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="LaunchScreenMiddle" width="567.5" height="640"/>
+        <image name="LaunchScreenMiddle" width="1135" height="1280"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
