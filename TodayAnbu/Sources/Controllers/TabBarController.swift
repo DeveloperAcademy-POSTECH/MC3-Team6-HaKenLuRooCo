@@ -11,15 +11,13 @@ class TabBarController: UITabBarController {
         super.viewDidLoad()
         view.backgroundColor = .white
 
-        // let firstTab = UINavigationController(rootViewController: MainViewController())
-        // 해당 부분에서 MainViewController가 담당하는 Navigation 기능이 없음
         let firstTab = MainViewController()
-        let secondTab = UIStoryboard(name: "MemoStoryboard", bundle: nil).instantiateViewController(withIdentifier: "MemoViewController")
-        
+        let memoVC = UIStoryboard(name: "MemoStoryboard", bundle: nil).instantiateViewController(withIdentifier: "MemoViewController")
+        let secondTab = UINavigationController(rootViewController: memoVC)
+
         firstTab.tabBarItem.title = "안부"
         firstTab.tabBarItem.image = UIImage(systemName: "house")
         firstTab.tabBarItem.selectedImage = UIImage(systemName: "house.fill")
-        // firstTab.isNavigationBarHidden = true
 
         secondTab.tabBarItem.title = "메모"
         secondTab.tabBarItem.image = UIImage(systemName: "book")
