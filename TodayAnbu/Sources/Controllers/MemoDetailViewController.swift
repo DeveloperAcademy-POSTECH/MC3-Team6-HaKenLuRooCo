@@ -8,6 +8,17 @@
 import UIKit
 
 class MemoDetailViewController: UIViewController {
+
+    var memoData: MemoData
+    init(memoData: MemoData) {
+        self.memoData = memoData
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     private let topArea: UIView = {
         let area = UIView()
         area.layer.cornerRadius = 15

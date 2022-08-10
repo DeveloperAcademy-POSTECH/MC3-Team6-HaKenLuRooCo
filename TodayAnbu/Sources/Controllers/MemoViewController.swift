@@ -74,14 +74,7 @@ class MemoViewController: UIViewController {
 }
 extension MemoViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        // let list: [MemoData] = makeMemoList()
-        let framework = list[indexPath.item]
-        print("\(framework)")
-        // navigationController?.pushViewController(MemoDetailViewController(), animated: true)
-        // 네비게이션이 현재 작동되지 않는 상황이므로 임시로 모달을 사용함
-        present(MemoDetailViewController(), animated: true, completion: nil)
-        
-        // let settingViewControllerNavigation = UINavigationController(rootViewController: SettingViewController())
+        navigationController?.pushViewController(MemoDetailViewController(memoData: list[indexPath.item]), animated: true)
     }
 }
 
