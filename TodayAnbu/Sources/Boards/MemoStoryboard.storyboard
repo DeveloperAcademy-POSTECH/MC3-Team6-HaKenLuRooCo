@@ -50,7 +50,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="top" restorationIdentifier="cellRegister" reuseIdentifier="MemoCell" id="wU4-wy-NO9" customClass="MemoCell" customModule="TodayAnbu" customModuleProvider="target" colorLabel="IBBuiltInLabel-Red">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" contentMode="top" restorationIdentifier="cellRegister" reuseIdentifier="MemoCell" id="wU4-wy-NO9" customClass="MemoCell" customModule="TodayAnbu" customModuleProvider="target" colorLabel="IBBuiltInLabel-Red">
                                         <rect key="frame" x="0.0" y="0.0" width="180" height="225"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="53a-cf-Jfb">
@@ -61,12 +61,6 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="180" height="195"/>
                                                     <color key="backgroundColor" name="memoColor"/>
                                                 </view>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k6r-8K-oVl" userLabel="Day">
-                                                    <rect key="frame" x="10" y="200.66666666666666" width="150" height="14.333333333333343"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
-                                                    <color key="textColor" red="0.36714565576881392" green="0.38528324485670107" blue="0.20265447418691659" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="myLabel" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YPr-Pi-ddu">
                                                     <rect key="frame" x="15" y="15.000000000000002" width="150" height="26.666666666666671"/>
                                                     <attributedString key="attributedText">
@@ -77,6 +71,12 @@
                                                             </attributes>
                                                         </fragment>
                                                     </attributedString>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k6r-8K-oVl" userLabel="Day">
+                                                    <rect key="frame" x="10" y="200.66666666666666" width="150" height="14.333333333333343"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
+                                                    <color key="textColor" red="0.36714565576881392" green="0.38528324485670107" blue="0.20265447418691659" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -123,6 +123,7 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="LNM-k1-Gzb" secondAttribute="trailing" id="zg4-Ob-aWe"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="xWI-m5-1kZ"/>
                     <connections>
                         <outlet property="collectionView" destination="dk1-Wv-mzr" id="8jK-S9-iyl"/>
                         <outlet property="searchBar" destination="ump-AJ-ndm" id="sqM-C2-DRj"/>
@@ -135,7 +136,7 @@
     </scenes>
     <resources>
         <namedColor name="mainIndigo">
-            <color red="0.15700000524520874" green="0.20000000298023224" blue="0.58799999952316284" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.15686274509803921" green="0.20000000000000001" blue="0.58823529411764708" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="memoColor">
             <color red="0.99215686274509807" green="0.99215686274509807" blue="0.58823529411764708" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

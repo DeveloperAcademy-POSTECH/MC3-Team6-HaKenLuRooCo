@@ -17,6 +17,7 @@ class MemoViewController: UIViewController {
         case main
     }
 
+    var memoDataTransport: MemoData = MemoData(date: "", description: "")
     var dataSource: UICollectionViewDiffableDataSource<Section, Item>!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,11 +73,10 @@ class MemoViewController: UIViewController {
         return list
     }
 }
+
 extension MemoViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        // let list: [MemoData] = makeMemoList()
-        _ = list[indexPath.item]
-        // navigationController?.pushViewController(SettingViewController(), animated: true)
+        navigationController?.pushViewController(MemoDetailViewController(memoData: list[indexPath.item]), animated: true)
     }
 }
 

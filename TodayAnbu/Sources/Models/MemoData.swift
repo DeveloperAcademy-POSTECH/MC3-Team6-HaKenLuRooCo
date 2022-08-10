@@ -8,7 +8,7 @@
 import Foundation
 
 struct MemoData: Hashable, Identifiable {
-    let id = UUID().uuidString
+    var id: IndexPath?
     let date: String
     let description: String
 }

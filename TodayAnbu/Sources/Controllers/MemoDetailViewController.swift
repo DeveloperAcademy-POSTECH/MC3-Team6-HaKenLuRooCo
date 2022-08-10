@@ -8,12 +8,24 @@
 import UIKit
 
 class MemoDetailViewController: UIViewController {
+
+    var memoData: MemoData
+    init(memoData: MemoData) {
+        self.memoData = memoData
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     private let topArea: UIView = {
         let area = UIView()
-        area.layer.cornerRadius = 15
+        area.layer.cornerRadius = 20
         area.backgroundColor = .mainIndigo
         return area
     }()
+
     private let topTitle: UILabel = {
         let label = UILabel()
         label.text = "어떤 대화였을까요?"
