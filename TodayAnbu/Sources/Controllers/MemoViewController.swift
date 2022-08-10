@@ -62,10 +62,11 @@ class MemoViewController: UIViewController {
         var dict: [String: String] = [:]
         dict = UserDefaults.standard.value(forKey: "momMemo") as? [String: String] ?? [:]
         let memoDates = [String](dict.keys)
+        let sortedMemoDates = memoDates.sorted(by: >)
         let memoDescription = [String](dict.values)
-        let memoCount: Int = memoDates.count
+        let memoCount: Int = sortedMemoDates.count
         for idx in 0 ..< memoCount {
-            let strArray = Array(memoDates[idx])
+            let strArray = Array(sortedMemoDates[idx])
             let dateString = "\(strArray[2])\(strArray[3])월 \(strArray[4])\(strArray[5])일"
             list.append(MemoData(date: String(dateString), description: memoDescription[idx]))
         }
