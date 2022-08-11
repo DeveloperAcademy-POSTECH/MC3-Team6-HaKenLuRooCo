@@ -42,6 +42,26 @@ class MemoViewController: UIViewController {
         // MARK: - layer
         collectionView.collectionViewLayout = layout()
     }
+    override func viewDidAppear(_ animated: Bool) {
+        list = makeMemoList()
+        dataSource = UICollectionViewDiffableDataSource<Section, Item>(collectionView: collectionView, cellProvider: { collectionView, indexPath, item in
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MemoCell", for: indexPath) as? MemoCell else {
+                return nil
+            }
+            cell.configure(item)
+            cell.layer.cornerRadius = 25
+            cell.layer.shadowOffset = CGSize(width: 5, height: 5)
+            return cell
+        })
+        // MARK: - data
+        var snapshot = NSDiffableDataSourceSnapshot<Section, Item>()
+        snapshot.appendSections([.main])
+        snapshot.appendItems(list, toSection: .main)
+        dataSource.apply(snapshot)
+
+        // MARK: - layer
+        collectionView.collectionViewLayout = layout()
+    }
     private func layout() -> UICollectionViewCompositionalLayout {
         let spacing: CGFloat = 15
         // Item
@@ -63,12 +83,12 @@ class MemoViewController: UIViewController {
         dict = UserDefaults.standard.value(forKey: "momMemo") as? [String: String] ?? [:]
         let memoDates = [String](dict.keys)
         let sortedMemoDates = memoDates.sorted(by: >)
-        let memoDescription = [String](dict.values)
-        let memoCount: Int = sortedMemoDates.count
-        for idx in 0 ..< memoCount {
-            let strArray = Array(sortedMemoDates[idx])
+        // let memoDescription = [String](dict.values)
+        // let memoCount: Int = sortedMemoDates.count
+        for date in sortedMemoDates {
+            let strArray = Array(date)
             let dateString = "\(strArray[2])\(strArray[3])월 \(strArray[4])\(strArray[5])일"
-            list.append(MemoData(date: String(dateString), description: memoDescription[idx]))
+            list.append(MemoData(date: String(dateString), description: dict[date]!))
         }
         return list
     }
