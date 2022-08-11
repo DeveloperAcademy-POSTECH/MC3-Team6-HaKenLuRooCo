@@ -24,7 +24,6 @@ class MainViewController: UIViewController {
     }
 
     private lazy var topTitleDays = topTitleDays(notCalledDate: self.notCalledDate)
-    
     private var topics: [String] = []
     private var genericTopicIndex: Int = 0
     private var seriousTopicIndex: Int = 0
