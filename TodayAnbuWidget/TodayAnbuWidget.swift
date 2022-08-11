@@ -36,7 +36,7 @@ struct SimpleEntry: TimelineEntry {
 }
 
 struct TodayAnbuWidgetEntryView: View {
-//    @EnvironmentObject var callData: CallManager
+    @ObservedObject var callData: CallManager = CallManager.shared
     var entry: Provider.Entry
     var body: some View {
         ZStack {
@@ -46,20 +46,12 @@ struct TodayAnbuWidgetEntryView: View {
                 Text("전화한지")
                     .foregroundColor(.yellow)
                     .font(.system(size: 16, weight: .bold, design: .rounded))
-                Text("\(CallManager.shared.data.notCallDate ?? 0)일")
+                Text("\(callData.data.notCallDate ?? 0)일")
                     .foregroundColor(.orange)
                     .font(.system(size: 40, weight: .heavy, design: .rounded))
                 Text("지났어요!")
                     .foregroundColor(.yellow)
                     .font(.system(size: 16, weight: .bold, design: .rounded))
-//
-//                Text("마지막 전화")
-//                    .foregroundColor(.yellow)
-//                    .font(.system(size: 16, weight: .heavy, design: .rounded))
-//                Text(UserDefaults.standard.string(forKey: "lastCallTimeDateType"), style: .date)
-//                    .foregroundColor(.orange)
-//                    .multilineTextAlignment(.center)
-//                    .font(.system(size: 26, weight: .heavy, design: .rounded))
             }
         }
     }
