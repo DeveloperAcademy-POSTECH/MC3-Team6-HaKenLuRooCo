@@ -55,10 +55,13 @@ class MainViewController: UIViewController {
             switch momCheckCount {
             case 1:
                 momGauge1 = momGauge(momCheckCount: 1, gaugeColor: .momGaugeLight)
+                UserDefaults.standard.set("check", forKey: "momCheckCountFirst")
             case 2:
                 momGauge2 = momGauge(momCheckCount: 2, gaugeColor: .momGaugeLight)
+                UserDefaults.standard.set("check", forKey: "momCheckCountSecond")
             case 3:
                 momGauge3 = momGauge(momCheckCount: 3, gaugeColor: .momGaugeLight)
+                UserDefaults.standard.set("check", forKey: "momCheckCountThird")
             default:
                 print("")
             }
@@ -71,10 +74,13 @@ class MainViewController: UIViewController {
             switch dadCheckCount {
             case 1:
                 dadGauge1 = dadGauge(dadCheckCount: 1, gaugeColor: .systemPurple)
+                UserDefaults.standard.set("check", forKey: "dadCheckCountFirst")
             case 2:
                 dadGauge2 = dadGauge(dadCheckCount: 2, gaugeColor: .systemPurple)
+                UserDefaults.standard.set("check", forKey: "dadCheckCountSecond")
             case 3:
                 dadGauge3 = dadGauge(dadCheckCount: 3, gaugeColor: .systemPurple)
+                UserDefaults.standard.set("check", forKey: "dadCheckCountThird")
             default:
                 print("")
             }
@@ -157,9 +163,9 @@ class MainViewController: UIViewController {
         capsule.backgroundColor = gaugeColor
         return capsule
     }
-    private lazy var momGauge1 = momGauge(momCheckCount: 1, gaugeColor: .momGaugeDeep)
-    private lazy var momGauge2 = momGauge(momCheckCount: 2, gaugeColor: .momGaugeDeep)
-    private lazy var momGauge3 = momGauge(momCheckCount: 3, gaugeColor: .momGaugeDeep)
+    private lazy var momGauge1 = momGauge(momCheckCount: 1, gaugeColor: UserDefaults.standard.string(forKey: "momCheckCountFirst")?.isEmpty ?? true ? .momGaugeDeep : .momGaugeLight)
+    private lazy var momGauge2 = momGauge(momCheckCount: 2, gaugeColor: UserDefaults.standard.string(forKey: "momCheckCountSecond")?.isEmpty ?? true ? .momGaugeDeep : .momGaugeLight)
+    private lazy var momGauge3 = momGauge(momCheckCount: 3, gaugeColor: UserDefaults.standard.string(forKey: "momCheckCountThird")?.isEmpty ?? true ? .momGaugeDeep : .momGaugeLight)
 
     private func dadGauge(dadCheckCount: Int, gaugeColor: UIColor!) -> UIView {
         let capsule = UIView()
@@ -167,9 +173,9 @@ class MainViewController: UIViewController {
         capsule.backgroundColor = gaugeColor
         return capsule
     }
-    private lazy var dadGauge1 = dadGauge(dadCheckCount: 1, gaugeColor: .dadGaugeDeep)
-    private lazy var dadGauge2 = dadGauge(dadCheckCount: 2, gaugeColor: .dadGaugeDeep)
-    private lazy var dadGauge3 = dadGauge(dadCheckCount: 3, gaugeColor: .dadGaugeDeep)
+    private lazy var dadGauge1 = dadGauge(dadCheckCount: 1, gaugeColor: UserDefaults.standard.string(forKey: "dadCheckCountFirst")?.isEmpty ?? true ? .dadGaugeDeep : .systemPurple)
+    private lazy var dadGauge2 = dadGauge(dadCheckCount: 2, gaugeColor: UserDefaults.standard.string(forKey: "dadCheckCountSecond")?.isEmpty ?? true ? .dadGaugeDeep : .systemPurple)
+    private lazy var dadGauge3 = dadGauge(dadCheckCount: 3, gaugeColor: UserDefaults.standard.string(forKey: "dadCheckCountThird")?.isEmpty ?? true ? .dadGaugeDeep : .systemPurple)
 
     private lazy var topicSegmentedControl: UISegmentedControl = {
         let segmentItems = ["가벼운 토픽", "진지한 토픽"]

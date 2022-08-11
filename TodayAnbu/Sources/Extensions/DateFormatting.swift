@@ -34,6 +34,12 @@ extension Date {
         guard let beforeDate = dateFormatter.date(from: before) else { return nil }
         guard let afterDate = dateFormatter.date(from: after) else { return nil }
         let interval = afterDate.timeIntervalSince(beforeDate)
-        return Int(interval / 86400)
+        var lastDayDifference = Int(interval / 86400)
+        if lastDayDifference == 7 {
+            lastDayDifference = 0
+            return lastDayDifference
+        } else {
+            return lastDayDifference
+        }
     }
 }
