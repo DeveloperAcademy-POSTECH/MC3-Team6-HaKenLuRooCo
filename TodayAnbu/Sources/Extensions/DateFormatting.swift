@@ -34,6 +34,15 @@ extension Date {
         guard let beforeDate = dateFormatter.date(from: before) else { return nil }
         guard let afterDate = dateFormatter.date(from: after) else { return nil }
         let interval = afterDate.timeIntervalSince(beforeDate)
-        return Int(interval / 86400)
+        let lastDayDifference = Int(interval / 86400)
+        if (lastDayDifference % 7) == 0 {
+            UserDefaults.standard.set("", forKey: "momCheckCountFirst")
+            UserDefaults.standard.set("", forKey: "momCheckCountSecond")
+            UserDefaults.standard.set("", forKey: "momCheckCountThird")
+            UserDefaults.standard.set("", forKey: "dadCheckCountFirst")
+            UserDefaults.standard.set("", forKey: "dadCheckCountSecond")
+            UserDefaults.standard.set("", forKey: "dadCheckCountThrid")
+        }
+        return lastDayDifference
     }
 }
