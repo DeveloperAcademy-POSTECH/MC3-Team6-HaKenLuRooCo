@@ -21,9 +21,29 @@ class MemoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         searchBar.delegate = self
-        list = makeMemoList()
         collectionView.delegate = self
+        list = makeMemoList()
         // MARK: - presentation
+        dataSource = UICollectionViewDiffableDataSource<Section, Item>(collectionView: collectionView, cellProvider: { collectionView, indexPath, item in
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MemoCell", for: indexPath) as? MemoCell else {
+                return nil
+            }
+            cell.configure(item)
+            cell.layer.cornerRadius = 25
+            cell.layer.shadowOffset = CGSize(width: 5, height: 5)
+            return cell
+        })
+        // MARK: - data
+        var snapshot = NSDiffableDataSourceSnapshot<Section, Item>()
+        snapshot.appendSections([.main])
+        snapshot.appendItems(list, toSection: .main)
+        dataSource.apply(snapshot)
+
+        // MARK: - layer
+        collectionView.collectionViewLayout = layout()
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        list = makeMemoList()
         dataSource = UICollectionViewDiffableDataSource<Section, Item>(collectionView: collectionView, cellProvider: { collectionView, indexPath, item in
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MemoCell", for: indexPath) as? MemoCell else {
                 return nil
@@ -62,21 +82,20 @@ class MemoViewController: UIViewController {
         var dict: [String: String] = [:]
         dict = UserDefaults.standard.value(forKey: "momMemo") as? [String: String] ?? [:]
         let memoDates = [String](dict.keys)
-        let memoDescription = [String](dict.values)
-        let memoCount: Int = memoDates.count
-        for idx in 0 ..< memoCount {
-            let strArray = Array(memoDates[idx])
+        let sortedMemoDates = memoDates.sorted(by: >)
+        // let memoDescription = [String](dict.values)
+        // let memoCount: Int = sortedMemoDates.count
+        for date in sortedMemoDates {
+            let strArray = Array(date)
             let dateString = "\(strArray[2])\(strArray[3])월 \(strArray[4])\(strArray[5])일"
-            list.append(MemoData(date: String(dateString), description: memoDescription[idx]))
+            list.append(MemoData(date: String(dateString), description: dict[date]!))
         }
         return list
     }
 }
 extension MemoViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        // let list: [MemoData] = makeMemoList()
-        _ = list[indexPath.item]
-        // navigationController?.pushViewController(SettingViewController(), animated: true)
+        navigationController?.pushViewController(MemoDetailViewController(memoData: list[indexPath.row]), animated: true)
     }
 }
 
@@ -125,11 +144,11 @@ extension MemoViewController: UISearchBarDelegate {
                 var dict: [String: String] = [:]
                 dict = UserDefaults.standard.value(forKey: "momMemo") as? [String: String] ?? [:]
                 let memoDates = [String](dict.keys)
-                // MARK: - 검색어를 포함하는 메모 추출
-                let memoDescription = [String](dict.values).filter({$0.contains(searchText)})
-                let memoCount: Int = memoDescription.count
+                let sortedMemoDates = memoDates.sorted(by: >)
+                let memoDescription = [String](dict.values)
+                let memoCount: Int = sortedMemoDates.count
                 for idx in 0 ..< memoCount {
-                    let strArray = Array(memoDates[idx])
+                    let strArray = Array(sortedMemoDates[idx])
                     let dateString = "\(strArray[2])\(strArray[3])월 \(strArray[4])\(strArray[5])일"
                     list.append(MemoData(date: String(dateString), description: memoDescription[idx]))
                 }

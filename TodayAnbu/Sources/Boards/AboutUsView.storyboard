@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="138"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Who we are?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ka-UZ-mQR">
-                                        <rect key="frame" x="117" y="51" width="180" height="36"/>
+                                        <rect key="frame" x="117" y="61.5" width="180" height="36"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                                         <color key="textColor" red="0.94901961089999998" green="0.95686274770000002" blue="0.96470588450000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
@@ -31,7 +31,7 @@
                                 <constraints>
                                     <constraint firstItem="9Ka-UZ-mQR" firstAttribute="centerX" secondItem="tCE-uo-ANO" secondAttribute="centerX" id="BbU-e8-ttG"/>
                                     <constraint firstAttribute="width" secondItem="tCE-uo-ANO" secondAttribute="height" multiplier="3:1" id="a29-oJ-UCw"/>
-                                    <constraint firstItem="9Ka-UZ-mQR" firstAttribute="centerY" secondItem="tCE-uo-ANO" secondAttribute="centerY" id="lby-DW-mxI"/>
+                                    <constraint firstItem="9Ka-UZ-mQR" firstAttribute="centerY" secondItem="tCE-uo-ANO" secondAttribute="centerY" multiplier="1.15" id="lby-DW-mxI"/>
                                 </constraints>
                             </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HakenLuRooCo" translatesAutoresizingMaskIntoConstraints="NO" id="whx-Xd-K8H">
@@ -292,7 +292,7 @@
         <image name="lumiFrame" width="248" height="57"/>
         <image name="rookieFrame" width="268" height="57"/>
         <namedColor name="mainIndigo">
-            <color red="0.15700000524520874" green="0.20000000298023224" blue="0.58799999952316284" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.15686274509803921" green="0.20000000000000001" blue="0.58823529411764708" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

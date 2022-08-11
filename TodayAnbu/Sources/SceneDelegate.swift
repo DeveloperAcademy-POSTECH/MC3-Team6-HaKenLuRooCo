@@ -27,8 +27,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         /*
         let storyboard = UIStoryboard(name: "MemoStoryboard", bundle: nil)
         if let controller = storyboard.instantiateViewController(withIdentifier: "MemoViewController") as? MemoViewController {
-            window?.rootViewController = UINavigationController(rootViewController: controller)
-            window?.makeKeyAndVisible()
+        window?.rootViewController = UINavigationController(rootViewController: controller)
+        window?.makeKeyAndVisible()
         }
          */
     }

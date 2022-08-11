@@ -14,7 +14,7 @@ class CallCheckViewController: UIViewController {
     @IBOutlet weak var callFailButton: UIButton!
     @IBOutlet weak var titleBox: UIView!
 
-    private let placeholder = "ex) 어머니에게 최근 먹은 과일에 대해 여쭤보았다. 어머니가 수박을 좋아하시는 걸 알게 되어서, 여름이 가기 전에 수박을 사드려야겠다."
+    private let placeholder = "ex) 어머니에게 최근 먹은 과일에 대해 여쭤보았다!! 어머니가 수박을 좋아하시는 걸 알게 되어서, 여름이 가기 전에 수박을 사드려야겠는걸!!"
     private let tempIsMom = true
 
     // MARK: - LifeCycle
@@ -23,10 +23,6 @@ class CallCheckViewController: UIViewController {
         configureTopBox()
         configureTextView()
         configureButtons()
-//        CallManager.shared.$data.sink {data in
-//            var currentData = CallManager.shared.data
-//
-//        }
     }
 }
 
@@ -40,10 +36,6 @@ extension CallCheckViewController {
         memoView.text = placeholder
         memoView.textColor = .placeholderText
         memoView.textContainerInset = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
-        memoView.layer.shadowColor = UIColor.systemGray.cgColor
-        memoView.layer.shadowOffset = CGSize(width: 0, height: 4)
-        memoView.layer.shadowRadius = 5
-        memoView.layer.shadowOpacity = 1
         memoView.layer.masksToBounds = false
         memoView.layer.cornerRadius = 20
         memoView.delegate = self
