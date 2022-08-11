@@ -69,6 +69,7 @@ extension CallCheckViewController {
         CallManager.shared.data = currentData
         // 전화 후 전화 한 시간 저장
         UserDefaults.standard.set(Date.currentNumericLocalizedDateTime, forKey: "lastCallTime")
+        UserDefaults.standard.set(DateFormatter().defaultDate, forKey: "lastCallTimeDateType")
     }
 
     @objc func onTapFailButton() {
