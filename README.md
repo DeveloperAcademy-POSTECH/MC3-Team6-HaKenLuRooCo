@@ -1,8 +1,7 @@
-하디 켄 루미 루키 코지
-# :iphone: Povida
+# :iphone: Today, Anbu
 
 MC3-Team6-HaKenLuRooCo
-팀 하켄루루코의 오늘, 하루입니다.
+팀 하켄루루코의 오늘, 안부입니다.
 
 ## :pushpin: Features
 
