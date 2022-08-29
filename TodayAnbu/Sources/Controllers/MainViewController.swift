@@ -166,6 +166,17 @@ class MainViewController: UIViewController {
     private lazy var momGauge1 = momGauge(momCheckCount: 1, gaugeColor: UserDefaults.standard.string(forKey: "momCheckCountFirst")?.isEmpty ?? true ? .momGaugeDeep : .momGaugeLight)
     private lazy var momGauge2 = momGauge(momCheckCount: 2, gaugeColor: UserDefaults.standard.string(forKey: "momCheckCountSecond")?.isEmpty ?? true ? .momGaugeDeep : .momGaugeLight)
     private lazy var momGauge3 = momGauge(momCheckCount: 3, gaugeColor: UserDefaults.standard.string(forKey: "momCheckCountThird")?.isEmpty ?? true ? .momGaugeDeep : .momGaugeLight)
+// TODO: 어머니 라벨 및 게이지 하나로 묶기 변수 값이 특정할때만 뜨도록
+    lazy private var totalMomGauge: UIStackView = {
+        let momGauge = UIStackView()
+        momGauge.axis = .horizontal
+        momGauge.spacing = 5
+        momGauge.addArrangedSubview(momLabel)
+        momGauge.addArrangedSubview(momGauge1)
+        momGauge.addArrangedSubview(momGauge2)
+        momGauge.addArrangedSubview(momGauge3)
+        return momGauge
+    }()
 
     private func dadGauge(dadCheckCount: Int, gaugeColor: UIColor!) -> UIView {
         let capsule = UIView()
@@ -173,6 +184,7 @@ class MainViewController: UIViewController {
         capsule.backgroundColor = gaugeColor
         return capsule
     }
+
     private lazy var dadGauge1 = dadGauge(dadCheckCount: 1, gaugeColor: UserDefaults.standard.string(forKey: "dadCheckCountFirst")?.isEmpty ?? true ? .dadGaugeDeep : .systemPurple)
     private lazy var dadGauge2 = dadGauge(dadCheckCount: 2, gaugeColor: UserDefaults.standard.string(forKey: "dadCheckCountSecond")?.isEmpty ?? true ? .dadGaugeDeep : .systemPurple)
     private lazy var dadGauge3 = dadGauge(dadCheckCount: 3, gaugeColor: UserDefaults.standard.string(forKey: "dadCheckCountThird")?.isEmpty ?? true ? .dadGaugeDeep : .systemPurple)
@@ -322,16 +334,16 @@ class MainViewController: UIViewController {
         view.addSubview(topArea)
         view.addSubview(topTitle)
         view.addSubview(weeklyAnbuLabel)
-        view.addSubview(momLabel)
+//        view.addSubview(momLabel)
         view.addSubview(dadLabel)
         view.addSubview(topicSegmentedControl)
         view.addSubview(topicLabel)
         view.addSubview(refreshButton)
         view.addSubview(topicTableView)
         view.addSubview(callButton)
-        view.addSubview(momGauge1)
-        view.addSubview(momGauge2)
-        view.addSubview(momGauge3)
+
+        view.addSubview(totalMomGauge)
+
         view.addSubview(dadGauge1)
         view.addSubview(dadGauge2)
         view.addSubview(dadGauge3)
@@ -349,10 +361,11 @@ class MainViewController: UIViewController {
         topicTableView.translatesAutoresizingMaskIntoConstraints = false
         callButton.translatesAutoresizingMaskIntoConstraints = false
         dadLabel.translatesAutoresizingMaskIntoConstraints = false
-        momLabel.translatesAutoresizingMaskIntoConstraints = false
-        momGauge1.translatesAutoresizingMaskIntoConstraints = false
-        momGauge2.translatesAutoresizingMaskIntoConstraints = false
-        momGauge3.translatesAutoresizingMaskIntoConstraints = false
+//        momLabel.translatesAutoresizingMaskIntoConstraints = false
+        totalMomGauge.translatesAutoresizingMaskIntoConstraints = false
+//        momGauge1.translatesAutoresizingMaskIntoConstraints = false
+//        momGauge2.translatesAutoresizingMaskIntoConstraints = false
+//        momGauge3.translatesAutoresizingMaskIntoConstraints = false
         dadGauge1.translatesAutoresizingMaskIntoConstraints = false
         dadGauge2.translatesAutoresizingMaskIntoConstraints = false
         dadGauge3.translatesAutoresizingMaskIntoConstraints = false
@@ -382,31 +395,31 @@ class MainViewController: UIViewController {
             weeklyAnbuLabel.leadingAnchor.constraint(equalTo: topArea.leadingAnchor, constant: 20),
             weeklyAnbuLabel.topAnchor.constraint(equalTo: topTitle.topAnchor, constant: 50)
         ])
-        NSLayoutConstraint.activate([
-            momLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
-            momLabel.topAnchor.constraint(equalTo: weeklyAnbuLabel.bottomAnchor, constant: 20)
-        ])
+//        NSLayoutConstraint.activate([
+//            momLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
+//            momLabel.topAnchor.constraint(equalTo: weeklyAnbuLabel.bottomAnchor, constant: 20)
+//        ])
+//        NSLayoutConstraint.activate([
+//            momGauge1.leadingAnchor.constraint(equalTo: momLabel.trailingAnchor, constant: 20),
+//            momGauge1.topAnchor.constraint(equalTo: momLabel.topAnchor, constant: -3),
+//            momGauge1.bottomAnchor.constraint(equalTo: momLabel.bottomAnchor, constant: 3),
+//            momGauge1.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -217)
+//        ])
+//        NSLayoutConstraint.activate([
+//            momGauge2.leadingAnchor.constraint(equalTo: momGauge1.trailingAnchor, constant: 5),
+//            momGauge2.topAnchor.constraint(equalTo: momGauge1.topAnchor),
+//            momGauge2.bottomAnchor.constraint(equalTo: momGauge1.bottomAnchor),
+//            momGauge2.trailingAnchor.constraint(equalTo: momGauge2.leadingAnchor, constant: 75)
+//        ])
+//        NSLayoutConstraint.activate([
+//            momGauge3.leadingAnchor.constraint(equalTo: momGauge2.trailingAnchor, constant: 5),
+//            momGauge3.topAnchor.constraint(equalTo: momGauge1.topAnchor),
+//            momGauge3.bottomAnchor.constraint(equalTo: momGauge1.bottomAnchor),
+//            momGauge3.trailingAnchor.constraint(equalTo: momGauge3.leadingAnchor, constant: 75)
+//        ])
         NSLayoutConstraint.activate([
             dadLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
             dadLabel.topAnchor.constraint(equalTo: momLabel.bottomAnchor, constant: 20)
-        ])
-        NSLayoutConstraint.activate([
-            momGauge1.leadingAnchor.constraint(equalTo: momLabel.trailingAnchor, constant: 20),
-            momGauge1.topAnchor.constraint(equalTo: momLabel.topAnchor, constant: -3),
-            momGauge1.bottomAnchor.constraint(equalTo: momLabel.bottomAnchor, constant: 3),
-            momGauge1.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -217)
-        ])
-        NSLayoutConstraint.activate([
-            momGauge2.leadingAnchor.constraint(equalTo: momGauge1.trailingAnchor, constant: 5),
-            momGauge2.topAnchor.constraint(equalTo: momGauge1.topAnchor),
-            momGauge2.bottomAnchor.constraint(equalTo: momGauge1.bottomAnchor),
-            momGauge2.trailingAnchor.constraint(equalTo: momGauge2.leadingAnchor, constant: 75)
-        ])
-        NSLayoutConstraint.activate([
-            momGauge3.leadingAnchor.constraint(equalTo: momGauge2.trailingAnchor, constant: 5),
-            momGauge3.topAnchor.constraint(equalTo: momGauge1.topAnchor),
-            momGauge3.bottomAnchor.constraint(equalTo: momGauge1.bottomAnchor),
-            momGauge3.trailingAnchor.constraint(equalTo: momGauge3.leadingAnchor, constant: 75)
         ])
         NSLayoutConstraint.activate([
             dadGauge1.leadingAnchor.constraint(equalTo: dadLabel.trailingAnchor, constant: 20),
