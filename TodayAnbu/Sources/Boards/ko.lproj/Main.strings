@@ -1,0 +1,108 @@
+
+/* Class = "UIButton"; normalTitle = "이렇게 설정할래요!"; ObjectID = "1Ur-6N-Yl4"; */
+"1Ur-6N-Yl4.normalTitle" = "이렇게 설정할래요!";
+
+/* Class = "UILabel"; text = "혹시 부모님이 갱년기 같으신가요?"; ObjectID = "1eV-IS-3iG"; */
+"1eV-IS-3iG.text" = "혹시 부모님이 갱년기 같으신가요?";
+
+/* Class = "UILabel"; text = "어머니의 연락처를 입력해주세요!"; ObjectID = "1tY-fh-lLc"; */
+"1tY-fh-lLc.text" = "어머니의 연락처를 입력해주세요!";
+
+/* Class = "UILabel"; text = "저희가 연락을 도와드릴게요"; ObjectID = "2F2-DC-QjR"; */
+"2F2-DC-QjR.text" = "저희가 연락을 도와드릴게요";
+
+/* Class = "UILabel"; text = "부모님께 자주 안부 전화하나요?"; ObjectID = "3HO-e8-lu3"; */
+"3HO-e8-lu3.text" = "부모님께 자주 안부 전화하나요?";
+
+/* Class = "UILabel"; text = "함께 갱년기를 이겨나가요 ! \""; ObjectID = "8t4-E2-kdY"; */
+"8t4-E2-kdY.text" = "함께 갱년기를 이겨나가요 ! \"";
+
+/* Class = "UILabel"; text = "“부모님과 가까워지며"; ObjectID = "ADn-HQ-d5a"; */
+"ADn-HQ-d5a.text" = "“부모님과 가까워지며";
+
+/* Class = "UIButton"; normalTitle = "확인"; ObjectID = "GDx-zU-TUQ"; */
+"GDx-zU-TUQ.normalTitle" = "확인";
+
+/* Class = "UIButton"; configuration.title = "Skip"; ObjectID = "IY4-tW-qWX"; */
+"IY4-tW-qWX.configuration.title" = "Skip";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "IY4-tW-qWX"; */
+"IY4-tW-qWX.normalTitle" = "Button";
+
+/* Class = "UIButton"; configuration.title = "Skip"; ObjectID = "L7O-UY-DRG"; */
+"L7O-UY-DRG.configuration.title" = "Skip";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "L7O-UY-DRG"; */
+"L7O-UY-DRG.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "갱년기는 급격한 호르몬 변화를 겪는 시기로"; ObjectID = "MDk-mg-it6"; */
+"MDk-mg-it6.text" = "갱년기는 급격한 호르몬 변화를 겪는 시기로";
+
+/* Class = "UIButton"; configuration.title = "안부 완료"; ObjectID = "Nrb-rx-Yye"; */
+"Nrb-rx-Yye.configuration.title" = "안부 완료";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Nrb-rx-Yye"; */
+"Nrb-rx-Yye.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "아버지의 연락처를 입력해주세요!"; ObjectID = "SZZ-Yb-cNS"; */
+"SZZ-Yb-cNS.text" = "아버지의 연락처를 입력해주세요!";
+
+/* Class = "UILabel"; text = " 대표적인 증상으로 무기력함과 우울감이 있어요!"; ObjectID = "TyM-vL-RDw"; */
+"TyM-vL-RDw.text" = " 대표적인 증상으로 무기력함과 우울감이 있어요!";
+
+/* Class = "UILabel"; text = "안부를 묻는 것만으로 갱년기 우울감 "; ObjectID = "Y5B-ds-Wwi"; */
+"Y5B-ds-Wwi.text" = "안부를 묻는 것만으로 갱년기 우울감 ";
+
+/* Class = "UILabel"; text = "통화는 잘 하셨나요?"; ObjectID = "bSA-kC-lgN"; */
+"bSA-kC-lgN.text" = "통화는 잘 하셨나요?";
+
+/* Class = "UILabel"; text = "통화 후 기록하고 싶으신 내용을 적어주세요"; ObjectID = "cmq-pv-rzu"; */
+"cmq-pv-rzu.text" = "통화 후 기록하고 싶으신 내용을 적어주세요";
+
+/* Class = "UIViewController"; title = "CallCheckViewController"; ObjectID = "cr1-VS-rZN"; */
+"cr1-VS-rZN.title" = "CallCheckViewController";
+
+/* Class = "UIButton"; configuration.title = "아니오. 안 받으셨어요."; ObjectID = "f9F-UN-SBB"; */
+"f9F-UN-SBB.configuration.title" = "아니오. 안 받으셨어요.";
+
+/* Class = "UIButton"; normalTitle = "안부 완료"; ObjectID = "f9F-UN-SBB"; */
+"f9F-UN-SBB.normalTitle" = "안부 완료";
+
+/* Class = "UIButton"; configuration.title = "Next"; ObjectID = "g3a-fE-OqV"; */
+"g3a-fE-OqV.configuration.title" = "Next";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "g3a-fE-OqV"; */
+"g3a-fE-OqV.normalTitle" = "Button";
+
+/* Class = "UIButton"; normalTitle = "이렇게 설정할래요!"; ObjectID = "g7z-be-atv"; */
+"g7z-be-atv.normalTitle" = "이렇게 설정할래요!";
+
+/* Class = "UITextField"; placeholder = "아버지의 전화번호가 무엇인가요?"; ObjectID = "hXo-oS-91s"; */
+"hXo-oS-91s.placeholder" = "아버지의 전화번호가 무엇인가요?";
+
+/* Class = "UIButton"; configuration.title = "어머니와 연락 설정하기"; ObjectID = "iaf-vk-LJJ"; */
+"iaf-vk-LJJ.configuration.title" = "어머니와 연락 설정하기";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "iaf-vk-LJJ"; */
+"iaf-vk-LJJ.normalTitle" = "Button";
+
+/* Class = "UITextField"; placeholder = "어머니의 전화번호가 무엇인가요?"; ObjectID = "kwk-Gg-msr"; */
+"kwk-Gg-msr.placeholder" = "어머니의 전화번호가 무엇인가요?";
+
+/* Class = "UIButton"; configuration.title = "아버지와 연락 설정하기"; ObjectID = "sWU-HB-90u"; */
+"sWU-HB-90u.configuration.title" = "아버지와 연락 설정하기";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "sWU-HB-90u"; */
+"sWU-HB-90u.normalTitle" = "Button";
+
+/* Class = "UIButton"; configuration.title = "Next"; ObjectID = "szI-PR-2gr"; */
+"szI-PR-2gr.configuration.title" = "Next";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "szI-PR-2gr"; */
+"szI-PR-2gr.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "연락이 가능한 시간과 대화하실 분을 선택해주세요!"; ObjectID = "u7F-ax-mVe"; */
+"u7F-ax-mVe.text" = "연락이 가능한 시간과 대화하실 분을 선택해주세요!";
+
+/* Class = "UILabel"; text = "완화에 도움이 된다고 해요!"; ObjectID = "ycP-kV-iHe"; */
+"ycP-kV-iHe.text" = "완화에 도움이 된다고 해요!";
