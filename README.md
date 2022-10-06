@@ -8,7 +8,7 @@ MC3-Team6-HaKenLuRooCo
 
 - 사용자가 설정한 시각에 알림을 줍니다
 - 통화가 끝난 후, 메모를 작성하고 읽을 수 있습니다.
-- 위젯을 통해 부모님과 통화한지 얼마나 지났는지 확인할 수 있습니다.
+- 위젯을 통해 부모님과 통화한지 얼마나 지났는지 확인할 수 있습니다..
 ## :people_hugging: Authors
 
 - [@Hardy (Yeonho Kim)](https://github.com/Kim-Yeon-ho) | [@Ken (Taehwan Kim)](https://github.com/obtusa07) | [@Lumi (YeongJin Jeong)](https://github.com/luminouxx) | [@Rookie (Jisu Jang)](https://github.com/Rookie0031) | [@Cozy (Taekyun Kim)](https://github.com/cozytk)
